@@ -1,204 +1,264 @@
-# レシピジェネレーター - Corazón
+# レシピジェネレーター - Corazón (プライベートShopifyアプリ)
 
-AIを活用したレシピ生成アプリケーションです。Shopify App（Remix）とShopifyテーマを組み合わせたハイブリッド構成で、包括的なレシピ管理体験を提供します。
+プライベートShopifyアプリとして動作するAI搭載レシピジェネレーター。
+Shopify Private App Token認証により、セキュアかつシンプルな構成を実現。
 
-## 🚀 特徴
+## 🌟 特徴
 
-- **AI搭載レシピ生成**: 食材に基づいた創造的なレシピ提案
-- **栄養成分分析**: 各レシピの詳細な栄養情報
-- **Shopify統合**: Shopify App + テーマのシームレスな連携
-- **レスポンシブデザイン**: モバイル・デスクトップ対応
-- **データ管理**: Supabaseを使用した堅牢なデータ保存
+- **🤖 AI搭載レシピ生成**: Azure OpenAI (GPT-4) によるパーソナライズドレシピ提案
+- **🔒 セキュア認証**: Shopify Private App Token による簡単で安全な認証
+- **🎯 Script Tag統合**: テーマに直接統合、管理画面埋め込み不要
+- **📊 栄養分析**: 麹による減塩効果計算・栄養価分析機能
+- **🏪 Shopify連携**: Customer・Order情報とレシピ履歴の統合
+- **📱 レスポンシブ**: モバイルファースト UI/UX
+- **⚡ 高速開発**: OAuth不要、App Store審査不要で迅速な実装
 
-## 🏗️ プロジェクト構造
+## 🏗️ アーキテクチャ
+
+```
+🌍 Shopify Store (プライベートアプリ)
+├── 📜 Script Tag → Vercel API
+├── 🔑 Private App Token認証
+└── 📈 Customer・Orderデータ連携
+
+🌐 Vercel API (セキュアエンドポイント)
+├── /api/recipes/generate (Token認証)
+├── 🤖 Azure OpenAI統合
+└── 🗃️ Supabase データ保存
+```
+
+### 📁 ファイル構造
 
 ```
 corazon-recipe-generator/
-├── api/                    # Shopify App (Remix + Node.js)
-│   ├── app/               # Remixアプリケーション
-│   │   ├── routes/        # APIルート
-│   │   └── components/    # Reactコンポーネント
-│   ├── prisma/            # データベーススキーマ
-│   ├── package.json       # Node.js依存関係
-│   └── shopify.app.toml   # Shopify App設定
-└── theme/                 # Shopifyテーマ
-    ├── templates/         # Liquidテンプレート
-    ├── sections/          # テーマセクション（レシピウィジェットなど）
-    ├── snippets/          # 再利用可能なスニペット
-    └── assets/            # CSS/JavaScript/画像
+├── api/                    # Vercel API (Remix)
+│   ├── app/               # API エンドポイント
+│   │   └── routes/        # レシピ生成 API
+│   ├── prisma/            # Supabase スキーマ
+│   └── vercel.json        # Vercel 設定
+└── theme/                 # Shopify テーマ
+    ├── sections/          # nutrition-widget.liquid
+    └── templates/         # パスタレシピページ等
 ```
 
-## 🛠️ 技術スタック
+## 🔧 技術スタック
 
-### Shopify App (api/)
-- **フレームワーク**: Remix (React-based)
-- **言語**: TypeScript/JavaScript
-- **データベース**: Prisma + Supabase (PostgreSQL)
-- **認証**: Shopify App認証
-- **デプロイ**: Shopify Partners
+### Vercel API
+- **フレームワーク**: Remix (軽量化・App Bridge削除済み)
+- **認証**: Shopify Private App Token (shpat_xxxxx)
+- **データベース**: Supabase (PostgreSQL) + Prisma ORM
+- **AI統合**: Azure OpenAI API (GPT-4)
+- **言語**: TypeScript
+- **デプロイ**: Vercel Serverless Functions
 
-### Shopifyテーマ (theme/)
-- **テンプレート**: Liquid
-- **スタイリング**: CSS + Vanilla JavaScript
-- **レスポンシブ**: モバイルファースト設計
-- **統合**: Shopify Section API
+### Shopify統合
+- **統合方式**: Script Tag + Private App Token
+- **テンプレート**: Liquid (nutrition-widget.liquid)
+- **セキュリティ**: Shop情報自動取得 + Token安全送信
+- **開発**: Shopify CLI
 
-## 🚦 クイックスタート
+### セキュリティ層
+- **CORS**: Shopifyドメイン限定 (*.myshopify.com)
+- **Rate Limiting**: 1分間10リクエスト制限
+- **トークン検証**: Private App Token 有効性確認
 
-### 前提条件
+## 🚀 セットアップ
 
-1. **Node.js** (v18.20+): [公式サイト](https://nodejs.org/)からダウンロード
-2. **Shopify CLI**: `npm install -g @shopify/cli @shopify/theme`
-3. **Shopify Partnerアカウント**: [Shopify Partners](https://partners.shopify.com/)
-4. **Supabaseプロジェクト**: [Supabase](https://supabase.com/)
+### 1. Shopify Private App作成
 
-### セットアップ
+#### Step 1: Shopify Admin でアプリ作成
+1. Shopify Admin → **Settings** → **Apps and sales channels**
+2. **"Develop apps for your store"** → **"Create an app"**
+3. App name: **"Corazón Recipe Generator"**
 
-#### 1. Shopify App (api/)
+#### Step 2: Admin API permissions 設定
+```
+Products: Read access
+Customers: Read access
+Orders: Read access
+```
 
+#### Step 3: Private App Token 取得
+- **Admin API access token** をコピー (shpat_で始まる)
+
+### 2. 環境変数設定
+
+#### `api/.env.local` を作成
+```env
+# Shopify Private App (必須)
+SHOPIFY_PRIVATE_APP_TOKEN=shpat_xxxxxxxxxxxxxxxxxxxxx
+SHOPIFY_SHOP_DOMAIN=your-shop.myshopify.com
+SHOPIFY_SHOP_NAME=your-shop
+
+# APIセキュリティ
+API_SECRET_KEY=your_random_32_char_secret_key_here
+RATE_LIMIT_MAX_REQUESTS=10
+RATE_LIMIT_WINDOW_MINUTES=1
+
+# Azure OpenAI
+AZURE_OPENAI_ENDPOINT=https://your-instance.openai.azure.com/...
+AZURE_OPENAI_API_KEY=your_azure_openai_key
+
+# Supabase
+SUPABASE_URL=your_supabase_project_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+DATABASE_URL=your_database_connection_string
+```
+
+### 3. ローカル開発
+
+#### API サーバー起動
 ```bash
-# ディレクトリに移動
 cd api
-
-# 依存関係をインストール
 npm install
-
-# 環境変数を設定
-cp .env.example .env.local
-# .env.localファイルを編集して必要な値を設定
-
-# データベース移行
-npm run prisma migrate dev
-
-# 開発サーバー起動
 npm run dev
 ```
 
-#### 2. Shopifyテーマ (theme/)
-
+#### テーマ開発
 ```bash
-# ディレクトリに移動
 cd theme
-
-# Shopifyテーマとして開発モードで起動
 shopify theme dev
-
-# または本番環境にプッシュ
-shopify theme push
 ```
 
-### 環境変数設定
+### 4. Vercel デプロイ
 
-`api/.env.local`に以下の変数を設定:
-
-```env
-# Shopify App
-SHOPIFY_API_KEY=your_app_api_key
-SHOPIFY_API_SECRET=your_app_api_secret
-SCOPES=write_products,read_customer_details
-
-# データベース
-DATABASE_URL=your_supabase_database_url
-
-# セッション
-SESSION_SECRET=your_random_session_secret
-
-# AI API（予定）
-OPENAI_API_KEY=your_openai_api_key
-```
-
-## 🧪 開発
-
-### よく使うコマンド
-
+#### Vercel CLI でデプロイ
 ```bash
-# API開発
-cd api
-npm run dev          # 開発サーバー起動
-npm run lint         # ESLint実行
-npm run build        # プロダクションビルド
-npx tsc --noEmit     # 型チェック
+# Vercel アカウント接続
+npx vercel login
 
-# テーマ開発
-cd theme
-shopify theme dev    # プレビュー環境で開発
-shopify theme push   # 本番環境に反映
+# プロジェクトデプロイ
+npx vercel --prod
 ```
 
-### データベース操作
+#### 環境変数を Vercel に設定
+Vercel Dashboard で同じ環境変数を設定
 
-```bash
-cd api
+## 🔒 セキュリティ
 
-# 新しいマイグレーション作成
-npm run prisma migrate dev --name migration_name
+### Private App Token認証
+- Shopify Private App Token (shpat_) で認証
+- リクエスト毎にToken検証
+- 不正アクセス時のエラーレスポンス
 
-# Prisma Studio起動（GUIでデータ確認）
-npm run prisma studio
+### CORS設定
+- `*.myshopify.com` ドメイン限定
+- テーマからの直接アクセスのみ許可
+- プリフライト リクエスト対応
 
-# データベースリセット
-npm run prisma migrate reset
+### Rate Limiting
+- 1分間10リクエスト制限
+- IP・Shopベースでの制限
+- Redis/Upstash使用
+
+### データ保護
+- Supabase Row Level Security
+- Token暗号化保存
+- アクセスログ・エラーログ記録
+
+## 🧪 API エンドポイント
+
+### POST `/api/recipes/generate`
+
+#### リクエストヘッダー
+```
+X-Shopify-Access-Token: shpat_xxxxxxxxxxxxx
+X-Shopify-Shop-Domain: your-shop.myshopify.com
+Content-Type: application/x-www-form-urlencoded
 ```
 
-## 📊 主要機能
-
-### 1. レシピ生成機能
-- 食材入力に基づいたAIレシピ生成
-- カスタマイズ可能な調理時間・人数設定
-- アレルギー対応・食事制限考慮
-
-### 2. 栄養分析ウィジェット
-- カロリー・マクロ栄養素の自動計算
-- 食材別栄養成分の詳細表示
-- 健康的な食事のためのアドバイス
-
-### 3. Shopify統合
-- 商品ページへのレシピ提案
-- 食材の自動リンク・購入導線
-- カートへの一括追加機能
-
-## 🚀 デプロイメント
-
-### Shopify App デプロイ
-
-```bash
-cd api
-
-# アプリをShopify Partnersにデプロイ
-shopify app deploy
+#### リクエストボディ
+```
+condition=疲労回復したい
+needs=低塩分
+kojiType=米麹甘酒
+otherIngredients=鶏肉、野菜
 ```
 
-### テーマ デプロイ
-
-```bash
-cd theme
-
-# 本番環境にプッシュ
-shopify theme push --store your-store-name
+#### レスポンス
+```json
+{
+  "success": true,
+  "recipes": [
+    {
+      "name": "米麹甘酒チキンサラダ",
+      "ingredients": "鶏胸肉 200g、米麹甘酒 100ml...",
+      "steps": "1. 鶏胸肉を米麹甘酒でマリネ...",
+      "benefit": "米麹の酵素が疲労回復を促進..."
+    }
+  ],
+  "timestamp": "2024-09-24T15:30:00Z"
+}
 ```
 
-## 🤝 開発に参加
+## 🔄 開発フロー
+
+### Phase 1: セキュアAPI基盤
+- [x] Private App Token認証実装
+- [x] CORS設定
+- [x] Rate Limiting
+- [x] Azure OpenAI統合
+
+### Phase 2: Script Tag統合
+- [ ] nutrition-widget.liquid 修正
+- [ ] Private App Token使用
+- [ ] Shop情報自動取得
+
+### Phase 3: Admin API連携
+- [ ] Customer情報取得
+- [ ] Order履歴連携
+- [ ] レシピ履歴管理
+
+## 🐛 トラブルシューティング
+
+### よくあるエラー
+
+#### 401 Unauthorized
+```
+原因: Private App Token が無効
+解決: .env.local の SHOPIFY_PRIVATE_APP_TOKEN を確認
+```
+
+#### CORS Error
+```
+原因: 許可されていないドメインからのアクセス
+解決: Shopifyストアのドメインを確認
+```
+
+#### Rate Limit Exceeded
+```
+原因: 1分間に10回以上のリクエスト
+解決: 時間をおいて再試行
+```
+
+## 📈 パフォーマンス
+
+- **API レスポンス時間**: ~2-3秒 (Azure OpenAI 依存)
+- **Rate Limiting**: 10 req/min
+- **Vercel Cold Start**: ~300ms
+- **データベース**: Supabase (高速クエリ)
+
+## 🤝 貢献
 
 1. このリポジトリをフォーク
-2. 機能ブランチを作成: `git checkout -b feature/new-feature`
-3. 変更をコミット: `git commit -m 'Add new feature'`
-4. ブランチをプッシュ: `git push origin feature/new-feature`
-5. プルリクエストを作成
+2. 機能ブランチ作成: `git checkout -b feature/amazing-feature`
+3. 変更をコミット: `git commit -m 'Add amazing feature'`
+4. ブランチプッシュ: `git push origin feature/amazing-feature`
+5. プルリクエスト作成
 
-## 📝 ライセンス
+## 📄 ライセンス
 
-このプロジェクトは[MITライセンス](LICENSE)の下で公開されています。
+MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照
 
 ## 🔗 関連リンク
 
-- [Shopify App開発ドキュメント](https://shopify.dev/docs/apps)
-- [Remix ドキュメント](https://remix.run/docs)
-- [Shopify Liquid ドキュメント](https://shopify.dev/docs/themes/liquid)
+- [Shopify Private Apps ドキュメント](https://shopify.dev/docs/apps/auth/admin-app-access-tokens)
+- [Vercel Deployment ドキュメント](https://vercel.com/docs)
+- [Azure OpenAI Service](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
 - [Supabase ドキュメント](https://supabase.com/docs)
-- [Prisma ドキュメント](https://www.prisma.io/docs/)
 
 ---
 
 **開発者**: ryufukaya
 **プロジェクト**: レシピジェネレーター - Corazón
-**最終更新**: 2024年9月
+**最終更新**: 2024年9月24日
