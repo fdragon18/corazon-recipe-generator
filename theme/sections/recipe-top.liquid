@@ -1,0 +1,164 @@
+{%- paginate blog.articles by 21 -%}
+  
+<div data-section-id="{{ section.id }}" data-section-type="blog">
+  <div class="page-width page-content recipe-top recipe">
+
+    {%- render 'breadcrumbs' -%}
+
+    <header class="section-header{% if section.settings.blog_show_tag_filter and blog.tags.size > 0 %}{% unless settings.type_headers_align_text %} section-header--with-link{% endunless %}{% endif %}">
+
+  <section class="masthead">
+		<video class="masthead-video" playsinline autoplay muted loop poster="//cdn.shopify.com/s/files/1/0262/8252/4717/files/poster-recipe-top.jpg">
+			<source src="//cdn.shopify.com/videos/c/o/v/4384ecbba0bb4d769a1cb1d9bd1072ea.mp4" type="video/mp4">
+		</video>
+		<div class="masthead-overlay"></div>
+      <h1 class="section-header__title">
+        {{ blog.title }}
+
+        {%- if section.settings.blog_show_rss -%}
+          <a href="{{ shop.url }}{{ blog.url }}.atom" class="rss-link">
+            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-rss" viewBox="0 0 20 20"><path fill="#444" d="M5.903 16.586a2.489 2.489 0 1 1-4.977 0 2.489 2.489 0 0 1 4.977 0zM12.956 19.075H9.43c0-4.688-3.817-8.505-8.505-8.505V7.044c6.638 0 12.031 5.393 12.031 12.031z"/><path fill="#444" d="M15.445 19.075c0-8.028-6.493-14.52-14.52-14.52V.925c10.019 0 18.15 8.131 18.15 18.15h-3.63z"/></svg>
+            <span class="icon__fallback-text">RSS</span>
+          </a>
+        {%- endif -%}
+      </h1>
+  </section>
+    </header>
+
+<section class="recipe-top-tag">
+<div class="inn">
+<h3>人気のタグから探す</h3>
+<ul>
+<li><a href="/blogs/recipe/tagged/糀の調味料">糀の調味料</a></li>
+<li><a href="/blogs/recipe/tagged/甘酒アレンジ">甘酒アレンジ</a></li>
+<li><a href="/blogs/recipe/tagged/パン">パン</a></li>
+<li><a href="/blogs/recipe/tagged/スイーツ">スイーツ</a></li>
+<li><a href="/blogs/recipe/tagged/肉料理">肉料理</a></li>
+<li><a href="/blogs/recipe/tagged/丼">丼</a></li>
+</ul>
+</div>
+</section>
+              
+<section class="recipe-top-cate">
+<div class="inn">
+<h3>カテゴリーから探す</h3>
+<ul>
+<li><a href="/blogs/recipe/tagged/ドリンク"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-cate001.jpg"><h4>ドリンク</h4></a></li>
+<li><a href="/blogs/recipe/tagged/スイーツ"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-cate03.jpg"><h4>スイーツ</h4></a></li>
+<li><a href="/blogs/recipe/tagged/ご飯-パン-麺"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-cate004.jpg"><h4>ご飯・パン・麺</h4></a></li>
+<li><a href="/blogs/recipe/tagged/メイン料理"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-cate003.jpg"><h4>メイン料理</h4></a></li>
+<li><a href="/blogs/recipe/tagged/副菜"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-cate08.jpg"><h4>副菜</h4></a></li>
+<li><a href="/blogs/recipe/tagged/汁物"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-cate10.jpg"><h4>汁物</h4></a></li>
+  <li><a href="/blogs/recipe/tagged/その他"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-cate09.jpg"><h4>その他</h4></a></li>
+</ul>
+</div>
+</section>
+<section class="recipe-top-new">
+<div class="inn">           
+  <h3>新着レシピ</h3>
+    <div class="grid grid--uniform">
+      {%- for article in blog.articles -%}
+        {%- render 'recipe-top-grid', article: article, grid_item_width: 'medium-up--one-third', per_row: '3', image_size: section.settings.blog_image_size -%}
+      {%- endfor -%}
+    </div>
+  
+
+  
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+</div>
+</section>
+<section class="recipe-top-foot">
+<div class="inn">          
+<div class="staff-message">
+<figure><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/b-staff.png" alt=""></figure>
+<p>こんにちは。米麹・甘酒専門店のレンMURO神楽坂店スタッフです。 米麹・甘酒は、その栄養素の豊富さから、健康や美容面において様々な効果・効能が期待されています。<br>
+手軽に作れるレシピから、イベントに応じて楽しんでいただけるレシピをアップしてまいりますので、シーンに応じて食卓にご活用ください。</p>
+</div>
+<figure><a href="/blogs/blog"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/muro_bn_blog.jpg"></a></figure>
+</div>
+</section>
+              
+  </div>
+</div>
+
+{%- endpaginate -%}
+
+{{ 'article-recipe.css'| asset_url | stylesheet_tag }}
+{{ 'lity.min.css'| asset_url | stylesheet_tag }}
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ 'covervid.min.js' | asset_url }}"></script>
+<script src="{{ 'lity.min.js' | asset_url }}"></script>
+{% schema %}
+  {
+    "name": "Blog pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "blog_show_tag_filter",
+        "label": "Show tag filter"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_rss",
+        "label": "Show RSS link"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_tags",
+        "label": "Show tags"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_date",
+        "label": "Show date",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_comments",
+        "label": "Show comment count",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_author",
+        "label": "Show author"
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_excerpt",
+        "label": "Show excerpt"
+      },
+      {
+        "type": "select",
+        "id": "blog_image_size",
+        "label": "Image size",
+        "default": "wide",
+        "options": [
+          {
+            "value": "natural",
+            "label": "Natural"
+          },
+          {
+            "value": "square",
+            "label": "Square (1:1)"
+          },
+          {
+            "value": "landscape",
+            "label": "Landscape (4:3)"
+          },
+          {
+            "value": "portrait",
+            "label": "Portrait (2:3)"
+          },
+          {
+            "value": "wide",
+            "label": "Wide (16:9)"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

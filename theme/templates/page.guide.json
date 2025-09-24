@@ -1,0 +1,133 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "rich_text_hy3zr7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fJzWkt": {
+          "type": "heading",
+          "settings": {
+            "title": "ご利用ガイド"
+          }
+        },
+        "text_ynV3Hf": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>MUROオンラインショップへご来店いただき、誠にありがとうございます。お買い物を快適にご利用いただくための情報を下記にてご案内しています。</p>"
+          }
+        },
+        "page_jfUeXC": {
+          "type": "page",
+          "settings": {
+            "page_text": "payment"
+          }
+        },
+        "page_HNcpXX": {
+          "type": "page",
+          "settings": {
+            "page_text": "howtoorder"
+          }
+        },
+        "page_YJRChh": {
+          "type": "page",
+          "settings": {
+            "page_text": "delivery"
+          }
+        },
+        "page_8QQPBG": {
+          "type": "page",
+          "settings": {
+            "page_text": "point_system"
+          }
+        },
+        "page_9WWKfK": {
+          "type": "page",
+          "settings": {
+            "page_text": "coupon-info"
+          }
+        },
+        "page_w3FPt7": {
+          "type": "page",
+          "settings": {
+            "page_text": "coupon-guide"
+          }
+        },
+        "page_C8G4jp": {
+          "type": "page",
+          "settings": {
+            "page_text": "return"
+          }
+        },
+        "page_yJJxTj": {
+          "type": "page",
+          "settings": {
+            "page_text": "sword-wrapping"
+          }
+        },
+        "page_brbm8C": {
+          "type": "page",
+          "settings": {
+            "page_text": "faq"
+          }
+        },
+        "page_rHrmcm": {
+          "type": "page",
+          "settings": {
+            "page_text": "subscription-note"
+          }
+        },
+        "page_rxBz8C": {
+          "type": "page",
+          "settings": {
+            "page_text": "muro-line"
+          }
+        },
+        "page_3ptxar": {
+          "type": "page",
+          "settings": {
+            "page_text": "receipt"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fJzWkt",
+        "text_ynV3Hf",
+        "page_jfUeXC",
+        "page_HNcpXX",
+        "page_YJRChh",
+        "page_8QQPBG",
+        "page_9WWKfK",
+        "page_w3FPt7",
+        "page_C8G4jp",
+        "page_yJJxTj",
+        "page_brbm8C",
+        "page_rHrmcm",
+        "page_rxBz8C",
+        "page_3ptxar"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_hy3zr7"
+  ]
+}

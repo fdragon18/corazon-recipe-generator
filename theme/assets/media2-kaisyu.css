@@ -1,0 +1,165 @@
+/* ================
+// .kaisyu02
+// ===============*/
+ html { scroll-behavior: smooth;}
+.tab-list {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+list-style: none;
+max-width: 480px;
+width: 100%;
+margin: 0 auto;
+  cursor: pointer;
+}
+.secList {
+color: #111111;
+background: #fff;
+border-radius: 30px;
+font-size: 13px;
+padding: 1px 8px;
+border: 1px solid #111111;
+margin: 8px;
+}
+.secList::after {
+  content: none !important;
+}
+.irokae {
+transition-duration: .5s;
+background: #111111;
+color: #fff;
+}
+
+.kaisyu02{
+width: 100%;
+max-width: 750px;
+margin: 0 auto;
+}
+.kaisyu02 p{
+font-size: 14px;
+line-height: 1.6;
+}
+.kai-navi{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+list-style: none;
+max-width: 480px;
+width: 100%;
+margin: 0 auto;
+}
+.kai-navi li a{
+color: #111111;
+background: #fff;
+border-radius: 30px;
+font-size: 13px;
+padding: 1px 8px;
+border: 1px solid #111111;
+margin: 8px;
+}
+.kai-navi li a::after{
+display:none;
+}
+.kai-navi li a:hover{
+transition-duration: .5s;
+background:#111111;
+  color:#fff;
+}
+.kaisyu02 section{
+background: #fff;
+padding: 50px;
+margin-bottom: 50px;
+}
+.kaisyu02 h2{
+background: #111111;
+color: #fff;
+text-align: center;
+border-radius: 20px;
+font-size: 18px;
+padding: 5px 0;
+}
+/* ================
+// .kai01
+// ===============*/
+.kai01 dl{
+display: flex;
+justify-content: space-between;
+border-bottom: 1px solid #ccc;
+}
+.kai01 .waku{
+/**display: flex;**/
+margin-bottom: 5px;
+}
+.kai01 figure{
+/**border: 1px solid #ccc;**/
+}
+.kai01 .date{
+font-size: 11px;
+}
+.kai01 .cate{
+background: #F2F2F2;
+display: inline-block;
+font-size: 11px;
+padding: 0px 8px;
+border-radius: 5px;
+margin-left: 5px;
+}
+.kai01 dt{
+width:150px;
+}
+.kai01 dd{
+width:calc( 100% - 150px );
+padding:0 0 0 20px;
+}
+.kai01 p span{
+font-size: 11px;
+padding-top: 10px;
+display: block;
+}
+.kai01 a{
+text-decoration: underline !important;
+}
+.kai01 a::after{
+display:none;
+}
+.sp580 {
+  display: none;
+}
+@media (max-width: 580px) {
+.kaisyu02 section {
+  padding: 30px;
+  margin-bottom: 30px;
+}
+  .sp580 {
+    display: block;
+  }
+.kai01 dt {
+  width: 80px;
+}
+.kai01 dd {
+ width: calc( 100% - 80px );
+padding: 0 0 0 10px;
+}
+.kaisyu02 p {
+  font-size: 13px;
+}
+}
+.sp480 {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .pc480 {
+    display: none;
+  }
+  .sp480 {
+    display: block;
+  }
+.kaisyu02 h2{
+font-size: 17px;
+letter-spacing: -.05em;
+}
+.kaisyu02 section {
+  padding: 20px;
+}
+}

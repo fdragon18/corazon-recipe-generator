@@ -1,0 +1,13 @@
+<div class="page-width page-width--narrow page-content">
+  {%- render 'breadcrumbs' -%}
+  <header class="section-header">
+    <h1 class="section-header__title">{{ page.title }}</h1>
+  </header>
+
+  <div class="rte rte--nomargin">
+    {{ page.content }}
+  </div>
+</div>
+{{ 'media2-kaisyu.css'| asset_url | stylesheet_tag }}
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ 'media2-kaisyu.js' | asset_url }}"></script>

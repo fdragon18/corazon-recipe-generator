@@ -1,0 +1,218 @@
+<!--コレクションリスト-->
+{%- liquid
+  assign filter_tree_vertical_style = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'filterTreeVerticalStyle":"' | last | split: '","' | first | strip
+  assign enable_filter_sticky_d = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'stickyFilterOnDesktop":' | last | split: ',' | first | strip
+  assign enable_filter_sticky_m = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'stickyFilterOnMobile":' | last | split: ',' | first |  split: '}}' | first | strip
+
+  assign enable_filter_tree_button_desktop_v = false
+  if filter_tree_vertical_style == 'style-off-canvas' or filter_tree_vertical_style == 'style-expand'
+    assign enable_filter_tree_button_desktop_v = true
+  endif
+  
+  assign per_row = 4
+  assign paginate_by = per_row | times: 7
+
+  for block in section.blocks
+    case block.type
+    when 'product_grid'
+      assign per_row = block.settings.per_row
+      assign paginate_by = per_row | times: block.settings.rows_per_page
+    endcase
+  endfor
+
+  assign current_filter_size = 0
+
+  for filter in collection.filters
+    assign current_filter_size = current_filter_size | plus: filter.active_values.size
+  endfor
+-%}
+
+{% paginate collection.products by paginate_by %}
+
+{%- for block in section.blocks -%}
+  <div {{ block.shopify_attributes }}>
+    {%- case block.type -%}
+    {%- when 'collection_description' -%}
+      {%- if collection.description != blank and current_filter_size == 0 -%}
+        <div class="rte collection__description">
+          {{ collection.description }}
+        </div>
+      {%- endif -%}
+    {%- when 'subcollections' -%}
+      {%- if current_filter_size == 0 -%}
+        {%- render 'subcollections', per_row: block.settings.subcollections_per_row -%}
+      {%- endif -%}
+    {%- when 'product_grid' -%}
+    <div class="collection-filter 
+      {% if enable_filter_sticky_d and enable_filter_tree_button_desktop_v %} boost-pfs-filter-tree-desktop-button-sticky-wrapper {% endif %} {% if enable_filter_sticky_m %}boost-pfs-filter-tree-mobile-button-stick-wrapper {% endif %}">
+      <div class="collection-filter__item collection-filter__item--drawer">
+        <div class="button boost-pfs-filter-tree-mobile-button">
+          {% render 'boost-pfs-filter-skeleton', type: 'button' %}
+        </div>
+      </div>
+
+      <div class="collection-filter__item collection-filter__item--count small--hide">
+        {%- if enable_filter_tree_button_desktop_v  -%}
+          <div class="boost-pfs-filter-tree-desktop-button">{%- render 'boost-pfs-filter-skeleton', type: 'button' -%}</div>
+        {%- endif -%}
+        {%- if block.settings.enable_collection_count -%}
+          <div class="boost-pfs-filter-total-product">
+            {{ 'collections.general.items_with_count' | t: count: collection.products_count }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="collection-filter__item collection-filter__item--sort">
+        <div class="collection-filter__sort-container boost-pfs-filter-top-sorting">
+          {% render 'boost-pfs-filter-skeleton', width: 3 %}
+        </div>
+      </div>
+    </div>
+    <div class="boost-pfs-filter-products grid grid--uniform{% if block.settings.mobile_flush_grid %} small--grid--flush{% endif %}" data-boost-sort="{{ collection.default_sort_by }}" data-scroll-to>
+      {%- liquid
+        assign grid_item_width = 'small--one-half medium-up--one-third'
+
+        case per_row
+          when 2
+            assign grid_item_width = 'medium-up--one-half'
+          when 3
+            assign grid_item_width = 'small--one-half medium-up--one-third'
+          when 4
+            assign grid_item_width = 'small--one-half medium-up--one-quarter'
+          when 5
+            assign grid_item_width = 'small--one-half medium-up--one-fifth'
+        endcase
+      -%}
+
+      {% for product in collection.products %}
+        {%- comment %}<locksmith:3048>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:3048>{% endcomment -%}
+        {% render 'product-grid-item', product: product, grid_item_width: grid_item_width, per_row: per_row %}
+      {% endfor %}
+    </div>
+<!--<style>
+.banner_box_small{
+  margin: auto;
+  text-align: center;
+}
+
+.banner_box_small img {
+  width: 440px;
+  margin: auto;
+  border:#e5e4e4 solid 0.2px;
+}
+
+.banner_box_small p {
+  font-size: 13px;
+}
+  
+.banner_box_big{
+  text-align: center;
+  margin:0 auto;
+}
+
+  
+.banner_box_big img {
+  width:48%;
+  padding:20px 10px;
+}
+  
+@media screen and (max-width: 768px) {
+.banner_box_big img {
+  width: 100%;
+    margin: auto;
+}
+    .banner_box_big {
+  margin: 0 auto;
+}
+  .banner_box_big img {
+  width:100%;
+  padding:5px;
+}
+}
+</style>
+-->
+
+{% comment %}特集バナやお知らせバナー{% endcomment %}
+
+<!--<div class="banner_box_big">
+<a href="https://koujiamasake.jp/collections/feature_mothersday2024"><img src="https://cdn.shopify.com/s/files/1/0262/8252/4717/files/mothersday_bnr.jpg?v=1712717683" alt="特集バナー"></a><a href="https://koujiamasake.jp/pages/gw-close"><img src="https://cdn.shopify.com/s/files/1/0262/8252/4717/files/gw_osirase_bnr.jpg?v=1712821456" alt="GWバナー"></a>
+</div>
+
+<br>
+
+
+{% comment %}特集バナやお知らせバナーend{% endcomment %}
+
+    <!--ページネイション-->
+    <div class="boost-pfs-filter-bottom-pagination pagination">
+      {% if paginate.pages > 1 %}
+        {% render 'pagination' %}
+      {% endif %}
+    </div>
+    <div class="boost-pfs-filter-load-more"></div>
+    <div class="boost-pfs-quick-shop-modal-container">
+      {%- if settings.quick_shop_enable -%}
+        {%- for product in collection.products -%}
+          {%- comment %}<locksmith:90d7>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:90d7>{% endcomment -%}
+          {%- if product.available -%}
+            {%- render 'quick-shop-modal' -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    {%- endcase -%}
+  </div>
+{%- endfor -%}
+
+{% endpaginate %}
+
+<!--甘酒マップ
+<div class="custom-content"><div class="custom__item one-whole align--center">
+      <div class="custom__item-inner custom__item-inner--liquid"><div class="rte">
+                <h2 class="txtcenter">甘酒チャート表</h2>
+<h6 class="mb2" style="text-align:center;line-height: 1.5;letter-spacing: normal;">チャート表の甘酒をクリックすると<br class="phone_area">商品ページにアクセスできます。</h6> 
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
+<div class="amasakemap">
+    <img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/amazake_chart_f8543aff-1930-49eb-aa8d-c0fc47b23aba.jpg" usemap="#ImageMap" alt="">
+    <map name="ImageMap">
+      <area shape="rect" coords="388,68,451,193" href="/collections/shioya-amazake" alt="">
+      <area shape="rect" coords="325,189,379,308" href="/collections/iwagami-amasake" alt="">
+      <area shape="rect" coords="505,130,563,226" href="/collections/noren-muro-original" alt="">
+      <area shape="rect" coords="397,230,436,385" href="/collections/imanishi" alt="">
+      <area shape="rect" coords="146,306,191,447" href="/collections/sanenan" alt="">
+      <area shape="rect" coords="79,563,144,670" href="/collections/koji_wadaya" alt="">
+      <area shape="rect" coords="157,489,229,746" href="/collections/noren-muro-original" alt="">
+      <area shape="rect" coords="139,831,193,925" href="/collections/shirakami" alt="">
+      <area shape="rect" coords="299,440,339,593" href="/collections/imayotsukasa-amazake" alt="">
+      <area shape="rect" coords="346,508,390,661" href="/collections/minemura" alt="">
+      <area shape="rect" coords="403,548,442,660" href="/collections/urano_shoyu" alt="">
+      <area shape="rect" coords="527,491,568,652" href="/pages/a-amasake" alt="">
+      <area shape="rect" coords="571,442,612,592" href="/collections/koujiya-toubei-amazake" alt="">
+      <area shape="rect" coords="616,491,655,652" href="/collections/noren-muro-original" alt="">
+      <area shape="rect" coords="674,394,718,535" href="/collections/wakatakeya" alt="">
+      <area shape="rect" coords="836,516,876,660" href="/collections/ayumasamune" alt="">
+      <area shape="rect" coords="890,450,936,590" href="/collections/kitsukura-amazake" alt="">
+      <area shape="rect" coords="587,717,632,866" href="/collections/misakiya-amazake" alt="">
+    </map>
+</div>
+<style>
+.amasakemap{
+max-width:980px;
+width:100%;
+margin: 0 auto;
+}
+.amasakemap a:hover{
+opacity:.7;
+}
+</style>
+  <script>
+        $('img[usemap]').rwdImageMaps();
+    </script>
+              </div></div>
+    </div></div>
+-->

@@ -1,0 +1,231 @@
+{%- paginate customer.addresses by 5 -%}
+
+<div class="page-width page-width--narrow page-content">
+
+  {%- if settings.show_breadcrumbs -%}
+    <nav class="breadcrumb{% if settings.type_headers_align_text %} text-center{% endif %}" role="navigation" aria-label="breadcrumbs">
+      <a href="{{ routes.account_url }}">{{ 'customer.account.title' | t }}</a>
+      <span class="divider" aria-hidden="true">/</span>
+      {{ 'customer.addresses.title' | t }}
+    </nav>
+  {%- endif -%}
+
+  <header class="section-header{% unless settings.type_headers_align_text %} section-header--with-link{% endunless %}">
+    <h1 class="section-header__title">{{ 'customer.addresses.title' | t }}</h1>
+    <button type="button" class="btn btn--secondary btn--small section-header__link address-new-toggle">{{ 'customer.addresses.add_new' | t }}</a>
+  </header>
+ <div id="AddressNewForm" class="form-vertical js-address-form text-left hide">
+    {%- form 'customer_address', customer.new_address -%}
+
+      <h2>{{ 'customer.addresses.add_new' | t }}</h2>
+
+      <div class="grid grid--small">
+        <div class="grid__item one-half small--one-whole">
+          <label for="AddressLastNameNew">{{ 'customer.addresses.last_name' | t }}</label>
+          <input type="text" id="AddressLastNameNew" class="input-full" name="address[last_name]" value="{{form.last_name}}" autocapitalize="words">
+        </div>
+        <div class="grid__item one-half small--one-whole">
+          <label for="AddressFirstNameNew">{{ 'customer.addresses.first_name' | t }}</label>
+          <input type="text" id="AddressFirstNameNew" class="input-full" name="address[first_name]" value="{{form.first_name}}" autocapitalize="words">
+        </div>
+      </div>
+
+<!--新規社名-->
+<!--
+      <label for="AddressCompanyNew">{{ 'customer.addresses.company' | t }}</label>
+      <input type="text" id="AddressCompanyNew" class="input-full" name="address[company]" value="{{form.company}}" autocapitalize="words">
+-->
+      
+
+
+<!--新規建物名-->
+<!--
+      <label for="AddressAddress2New">{{ 'customer.addresses.address2' | t }}</label>
+      <input type="text" id="AddressAddress2New" class="input-full" name="address[address2]" value="{{form.address2}}" autocapitalize="words">
+-->
+      
+      <div class="grid grid--small">
+        <div class="grid__item medium-up--one-half">
+          <label for="AddressZipNew">{{ 'customer.addresses.zip' | t }}</label>
+          <input type="text" id="AddressZipNew" class="input-full" name="address[zip]" value="{{form.zip}}" autocapitalize="characters">
+        </div>
+      </div>
+      
+      <div class="grid grid--small">
+        <div class="grid__item medium-up--one-half" id="AddressProvinceContainerNew" style="display: none;">
+          <label for="AddressProvinceNew">{{ 'customer.addresses.province' | t }}</label>
+          <select id="AddressProvinceNew" class="input-full" name="address[province]" data-default="{{form.province}}"></select>
+        </div>
+
+      
+        <div class="grid__item medium-up--one-half">
+          <label for="AddressCityNew">{{ 'customer.addresses.city' | t }}</label>
+          <input type="text" id="AddressCityNew" class="input-full" name="address[city]" value="{{form.city}}" autocapitalize="words">
+        </div>
+      </div>
+    <div class="grid grid--small">
+      <div class="grid__item medium-up--one-half">
+      <label for="AddressAddress1New">{{ 'customer.addresses.address1' | t }}</label>
+      <input type="text" id="AddressAddress1New" class="input-full" name="address[address1]" value="{{form.address1}}" autocapitalize="words">
+      </div>
+    </div>
+   <div class="grid grid--small">
+        <div
+          class="grid__item medium-up--one-half js-address-country"
+          data-country-id="AddressCountryNew"
+          data-province-container-id="AddressProvinceContainerNew"
+          data-province-id="AddressProvinceNew">
+          <label for="AddressCountryNew">{{ 'customer.addresses.country' | t }}</label>
+          <select id="AddressCountryNew" class="input-full" name="address[country]" data-default="{{form.country}}">{{ country_option_tags   | replace: '[&quot;Aichi&quot;,&quot;愛知県&quot;],[&quot;Akita&quot;,&quot;秋田県&quot;],[&quot;Aomori&quot;,&quot;青森県&quot;],[&quot;Chiba&quot;,&quot;千葉県&quot;],[&quot;Ehime&quot;,&quot;愛媛県&quot;],[&quot;Fukui&quot;,&quot;福井県&quot;],[&quot;Fukuoka&quot;,&quot;福岡県&quot;],[&quot;Fukushima&quot;,&quot;福島県&quot;],[&quot;Gifu&quot;,&quot;岐阜県&quot;],[&quot;Gunma&quot;,&quot;群馬県&quot;],[&quot;Hiroshima&quot;,&quot;広島県&quot;],[&quot;Hokkaidō&quot;,&quot;北海道&quot;],[&quot;Hyōgo&quot;,&quot;兵庫県&quot;],[&quot;Ibaraki&quot;,&quot;茨城県&quot;],[&quot;Ishikawa&quot;,&quot;石川県&quot;],[&quot;Iwate&quot;,&quot;岩手県&quot;],[&quot;Kagawa&quot;,&quot;香川県&quot;],[&quot;Kagoshima&quot;,&quot;鹿児島県&quot;],[&quot;Kanagawa&quot;,&quot;神奈川県&quot;],[&quot;Kumamoto&quot;,&quot;熊本県&quot;],[&quot;Kyōto&quot;,&quot;京都府&quot;],[&quot;Kōchi&quot;,&quot;高知県&quot;],[&quot;Mie&quot;,&quot;三重県&quot;],[&quot;Miyagi&quot;,&quot;宮城県&quot;],[&quot;Miyazaki&quot;,&quot;宮崎県&quot;],[&quot;Nagano&quot;,&quot;長野県&quot;],[&quot;Nagasaki&quot;,&quot;長崎県&quot;],[&quot;Nara&quot;,&quot;奈良県&quot;],[&quot;Niigata&quot;,&quot;新潟県&quot;],[&quot;Okayama&quot;,&quot;岡山県&quot;],[&quot;Okinawa&quot;,&quot;沖縄県&quot;],[&quot;Saga&quot;,&quot;佐賀県&quot;],[&quot;Saitama&quot;,&quot;埼玉県&quot;],[&quot;Shiga&quot;,&quot;滋賀県&quot;],[&quot;Shimane&quot;,&quot;島根県&quot;],[&quot;Shizuoka&quot;,&quot;静岡県&quot;],[&quot;Tochigi&quot;,&quot;栃木県&quot;],[&quot;Tokushima&quot;,&quot;徳島県&quot;],[&quot;Tottori&quot;,&quot;鳥取県&quot;],[&quot;Toyama&quot;,&quot;富山県&quot;],[&quot;Tōkyō&quot;,&quot;東京都&quot;],[&quot;Wakayama&quot;,&quot;和歌山県&quot;],[&quot;Yamagata&quot;,&quot;山形県&quot;],[&quot;Yamaguchi&quot;,&quot;山口県&quot;],[&quot;Yamanashi&quot;,&quot;山梨県&quot;],[&quot;Ōita&quot;,&quot;大分県&quot;],[&quot;Ōsaka&quot;,&quot;大阪府&quot;]', '[&quot;Hokkaidō&quot;,&quot;北海道&quot;],[&quot;Aomori&quot;,&quot;青森県&quot;],[&quot;Iwate&quot;,&quot;岩手県&quot;],[&quot;Miyagi&quot;,&quot;宮城県&quot;],[&quot;Akita&quot;,&quot;秋田県&quot;],[&quot;Yamagata&quot;,&quot;山形県&quot;],[&quot;Fukushima&quot;,&quot;福島県&quot;],[&quot;Ibaraki&quot;,&quot;茨城県&quot;],[&quot;Tochigi&quot;,&quot;栃木県&quot;],[&quot;Gunma&quot;,&quot;群馬県&quot;],[&quot;Saitama&quot;,&quot;埼玉県&quot;],[&quot;Chiba&quot;,&quot;千葉県&quot;],[&quot;Tōkyō&quot;,&quot;東京都&quot;],[&quot;Kanagawa&quot;,&quot;神奈川県&quot;],[&quot;Niigata&quot;,&quot;新潟県&quot;],[&quot;Toyama&quot;,&quot;富山県&quot;],[&quot;Ishikawa&quot;,&quot;石川県&quot;],[&quot;Fukui&quot;,&quot;福井県&quot;],[&quot;Yamanashi&quot;,&quot;山梨県&quot;],[&quot;Nagano&quot;,&quot;長野県&quot;],[&quot;Gifu&quot;,&quot;岐阜県&quot;],[&quot;Shizuoka&quot;,&quot;静岡県&quot;],[&quot;Aichi&quot;,&quot;愛知県&quot;],[&quot;Mie&quot;,&quot;三重県&quot;],[&quot;Shiga&quot;,&quot;滋賀県&quot;],[&quot;Kyōto&quot;,&quot;京都府&quot;],[&quot;Ōsaka&quot;,&quot;大阪府&quot;],[&quot;Hyōgo&quot;,&quot;兵庫県&quot;],[&quot;Nara&quot;,&quot;奈良県&quot;],[&quot;Wakayama&quot;,&quot;和歌山県&quot;],[&quot;Tottori&quot;,&quot;鳥取県&quot;],[&quot;Shimane&quot;,&quot;島根県&quot;],[&quot;Okayama&quot;,&quot;岡山県&quot;],[&quot;Hiroshima&quot;,&quot;広島県&quot;],[&quot;Yamaguchi&quot;,&quot;山口県&quot;],[&quot;Tokushima&quot;,&quot;徳島県&quot;],[&quot;Kagawa&quot;,&quot;香川県&quot;],[&quot;Ehime&quot;,&quot;愛媛県&quot;],[&quot;Kōchi&quot;,&quot;高知県&quot;],[&quot;Fukuoka&quot;,&quot;福岡県&quot;],[&quot;Saga&quot;,&quot;佐賀県&quot;],[&quot;Nagasaki&quot;,&quot;長崎県&quot;],[&quot;Kumamoto&quot;,&quot;熊本県&quot;],[&quot;Ōita&quot;,&quot;大分県&quot;],[&quot;Miyazaki&quot;,&quot;宮崎県&quot;],[&quot;Kagoshima&quot;,&quot;鹿児島県&quot;],[&quot;Okinawa&quot;,&quot;沖縄県&quot;]'}}</select>
+        </div>
+    </div>
+
+
+
+
+   <div class="grid grid--small">
+
+        <div class="grid__item medium-up--one-half">
+          <label for="AddressPhoneNew">{{ 'customer.addresses.phone' | t }}</label>
+          <input type="tel" id="AddressPhoneNew" class="input-full" name="address[phone]" value="{{form.phone}}">
+        </div>
+      </div>
+
+      <p>
+        {{ form.set_as_default_checkbox }}
+        <label for="address_default_address_new" class="inline">{{ 'customer.addresses.set_default' | t }}</label>
+      </p>
+
+      <p>
+        <label for="addresses-add-submit" class="hidden-label">{{ 'customer.addresses.add' | t }}</label>
+        <button type="submit" id="addresses-add-submit" class="btn">
+          {{ 'customer.addresses.add' | t }}
+        </button>
+      </p>
+      <p>
+        <label for="addresses-cancel-submit" class="hidden-label">{{ 'customer.addresses.cancel' | t }}</label>
+        <button type="button" id="addresses-cancel-submit" class="text-link address-new-toggle">{{ 'customer.addresses.cancel' | t }}</button>
+      </p>
+
+    {%- endform -%}
+  </div>
+  
+  {%- for address in customer.addresses -%}
+    {%- if address == customer.default_address -%}
+      <p class="h4">{{ 'customer.addresses.default' | t }}</p>
+    {%- endif -%}
+
+    {{ address | format_address }}
+
+    <p>
+      <button type="button" class="btn btn--small address-edit-toggle" data-form-id="{{ address.id }}">{{ 'customer.addresses.edit' | t }}</button>
+      <button type="button" class="btn btn--secondary btn--small address-delete" data-form-id="{{ address.id }}" data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}">{{ 'customer.addresses.delete' | t }}</button>
+    </p>
+
+    <div id="EditAddress_{{ address.id }}" class="form-vertical js-address-form text-left hide">
+      {%- form 'customer_address', address -%}
+
+        <hr class="hr--large" />
+        <h2>{{ 'customer.addresses.edit_address' | t }}</h2>
+
+        <div class="grid grid--small">
+          <div class="grid__item one-half small--one-whole">
+            <label for="AddressLastName_{{form.id}}">{{ 'customer.addresses.last_name' | t }}</label>
+            <input type="text" id="AddressLastName_{{form.id}}" class="input-full" name="address[last_name]" value="{{form.last_name}}" autocapitalize="words">
+          </div>
+
+        <div class="grid__item one-half small--one-whole">
+            <label for="AddressFirstName_{{form.id}}">{{ 'customer.addresses.first_name' | t }}</label>
+            <input type="text" id="AddressFirstName_{{form.id}}" class="input-full" name="address[first_name]" value="{{form.first_name}}" autocapitalize="words">
+          </div>
+        </div>
+
+
+<!--会社名-->
+<!--
+        <label for="AddressCompany_{{form.id}}">{{ 'customer.addresses.company' | t }}</label>
+        <input type="text" id="AddressCompany_{{form.id}}" class="input-full" name="address[company]" value="{{form.company}}" autocapitalize="words">
+-->
+<!--既存郵便番号-->
+                <div class="grid grid--small">
+          <div class="grid__item one-half small--one-whole">
+            <label for="AddressZip_{{form.id}}">{{ 'customer.addresses.zip' | t }}</label>
+            <input type="text" id="AddressZip_{{form.id}}" class="input-full" name="address[zip]" value="{{form.zip}}" autocapitalize="characters">
+          </div></div>
+
+<!--既存都道府県-->
+          <div class="grid grid--small">
+          <div class="grid__item one-half small--one-whole">
+        <div id="AddressProvinceContainer_{{form.id}}" style="display: none;">
+          <label for="AddressProvince_{{form.id}}">{{ 'customer.addresses.province' | t }}</label>
+          <select id="AddressProvince_{{form.id}}" class="input-full" name="address[province]" data-default="{{form.province}}"></select>
+        </div>
+          </div>
+        <div class="grid__item one-half small--one-whole">
+        <label for="AddressCity_{{form.id}}">{{ 'customer.addresses.city' | t }}</label>
+        <input type="text" id="AddressCity_{{form.id}}" class="input-full" name="address[city]" value="{{form.city}}" autocapitalize="words">
+        </div>
+          </div>
+        <label for="AddressAddress1_{{form.id}}">{{ 'customer.addresses.address1' | t }}</label>
+        <input type="text" id="AddressAddress1_{{form.id}}" class="input-full" name="address[address1]" value="{{form.address1}}" autocapitalize="words">
+
+<!--建物名-->
+<!--        <label for="AddressAddress2_{{form.id}}">{{ 'customer.addresses.address2' | t }}</label>
+        <input type="text" id="AddressAddress2_{{form.id}}" class="input-full" name="address[address2]" value="{{form.address2}}" autocapitalize="words">        
+-->
+
+
+          <div class="grid grid--small">
+          <div class="grid__item one-half small--one-whole">
+        <div
+          class="js-address-country"
+          data-country-id="AddressCountry_{{form.id}}"
+          data-province-container-id="AddressProvinceContainer_{{form.id}}"
+          data-province-id="AddressProvince_{{form.id}}">
+          <label for="AddressCountry_{{form.id}}">{{ 'customer.addresses.country' | t }}</label>
+          <select id="AddressCountry_{{form.id}}" class="input-full" name="address[country]" data-default="{{form.country}}">{{ country_option_tags   | replace: '[&quot;Aichi&quot;,&quot;愛知県&quot;],[&quot;Akita&quot;,&quot;秋田県&quot;],[&quot;Aomori&quot;,&quot;青森県&quot;],[&quot;Chiba&quot;,&quot;千葉県&quot;],[&quot;Ehime&quot;,&quot;愛媛県&quot;],[&quot;Fukui&quot;,&quot;福井県&quot;],[&quot;Fukuoka&quot;,&quot;福岡県&quot;],[&quot;Fukushima&quot;,&quot;福島県&quot;],[&quot;Gifu&quot;,&quot;岐阜県&quot;],[&quot;Gunma&quot;,&quot;群馬県&quot;],[&quot;Hiroshima&quot;,&quot;広島県&quot;],[&quot;Hokkaidō&quot;,&quot;北海道&quot;],[&quot;Hyōgo&quot;,&quot;兵庫県&quot;],[&quot;Ibaraki&quot;,&quot;茨城県&quot;],[&quot;Ishikawa&quot;,&quot;石川県&quot;],[&quot;Iwate&quot;,&quot;岩手県&quot;],[&quot;Kagawa&quot;,&quot;香川県&quot;],[&quot;Kagoshima&quot;,&quot;鹿児島県&quot;],[&quot;Kanagawa&quot;,&quot;神奈川県&quot;],[&quot;Kumamoto&quot;,&quot;熊本県&quot;],[&quot;Kyōto&quot;,&quot;京都府&quot;],[&quot;Kōchi&quot;,&quot;高知県&quot;],[&quot;Mie&quot;,&quot;三重県&quot;],[&quot;Miyagi&quot;,&quot;宮城県&quot;],[&quot;Miyazaki&quot;,&quot;宮崎県&quot;],[&quot;Nagano&quot;,&quot;長野県&quot;],[&quot;Nagasaki&quot;,&quot;長崎県&quot;],[&quot;Nara&quot;,&quot;奈良県&quot;],[&quot;Niigata&quot;,&quot;新潟県&quot;],[&quot;Okayama&quot;,&quot;岡山県&quot;],[&quot;Okinawa&quot;,&quot;沖縄県&quot;],[&quot;Saga&quot;,&quot;佐賀県&quot;],[&quot;Saitama&quot;,&quot;埼玉県&quot;],[&quot;Shiga&quot;,&quot;滋賀県&quot;],[&quot;Shimane&quot;,&quot;島根県&quot;],[&quot;Shizuoka&quot;,&quot;静岡県&quot;],[&quot;Tochigi&quot;,&quot;栃木県&quot;],[&quot;Tokushima&quot;,&quot;徳島県&quot;],[&quot;Tottori&quot;,&quot;鳥取県&quot;],[&quot;Toyama&quot;,&quot;富山県&quot;],[&quot;Tōkyō&quot;,&quot;東京都&quot;],[&quot;Wakayama&quot;,&quot;和歌山県&quot;],[&quot;Yamagata&quot;,&quot;山形県&quot;],[&quot;Yamaguchi&quot;,&quot;山口県&quot;],[&quot;Yamanashi&quot;,&quot;山梨県&quot;],[&quot;Ōita&quot;,&quot;大分県&quot;],[&quot;Ōsaka&quot;,&quot;大阪府&quot;]', '[&quot;Hokkaidō&quot;,&quot;北海道&quot;],[&quot;Aomori&quot;,&quot;青森県&quot;],[&quot;Iwate&quot;,&quot;岩手県&quot;],[&quot;Miyagi&quot;,&quot;宮城県&quot;],[&quot;Akita&quot;,&quot;秋田県&quot;],[&quot;Yamagata&quot;,&quot;山形県&quot;],[&quot;Fukushima&quot;,&quot;福島県&quot;],[&quot;Ibaraki&quot;,&quot;茨城県&quot;],[&quot;Tochigi&quot;,&quot;栃木県&quot;],[&quot;Gunma&quot;,&quot;群馬県&quot;],[&quot;Saitama&quot;,&quot;埼玉県&quot;],[&quot;Chiba&quot;,&quot;千葉県&quot;],[&quot;Tōkyō&quot;,&quot;東京都&quot;],[&quot;Kanagawa&quot;,&quot;神奈川県&quot;],[&quot;Niigata&quot;,&quot;新潟県&quot;],[&quot;Toyama&quot;,&quot;富山県&quot;],[&quot;Ishikawa&quot;,&quot;石川県&quot;],[&quot;Fukui&quot;,&quot;福井県&quot;],[&quot;Yamanashi&quot;,&quot;山梨県&quot;],[&quot;Nagano&quot;,&quot;長野県&quot;],[&quot;Gifu&quot;,&quot;岐阜県&quot;],[&quot;Shizuoka&quot;,&quot;静岡県&quot;],[&quot;Aichi&quot;,&quot;愛知県&quot;],[&quot;Mie&quot;,&quot;三重県&quot;],[&quot;Shiga&quot;,&quot;滋賀県&quot;],[&quot;Kyōto&quot;,&quot;京都府&quot;],[&quot;Ōsaka&quot;,&quot;大阪府&quot;],[&quot;Hyōgo&quot;,&quot;兵庫県&quot;],[&quot;Nara&quot;,&quot;奈良県&quot;],[&quot;Wakayama&quot;,&quot;和歌山県&quot;],[&quot;Tottori&quot;,&quot;鳥取県&quot;],[&quot;Shimane&quot;,&quot;島根県&quot;],[&quot;Okayama&quot;,&quot;岡山県&quot;],[&quot;Hiroshima&quot;,&quot;広島県&quot;],[&quot;Yamaguchi&quot;,&quot;山口県&quot;],[&quot;Tokushima&quot;,&quot;徳島県&quot;],[&quot;Kagawa&quot;,&quot;香川県&quot;],[&quot;Ehime&quot;,&quot;愛媛県&quot;],[&quot;Kōchi&quot;,&quot;高知県&quot;],[&quot;Fukuoka&quot;,&quot;福岡県&quot;],[&quot;Saga&quot;,&quot;佐賀県&quot;],[&quot;Nagasaki&quot;,&quot;長崎県&quot;],[&quot;Kumamoto&quot;,&quot;熊本県&quot;],[&quot;Ōita&quot;,&quot;大分県&quot;],[&quot;Miyazaki&quot;,&quot;宮崎県&quot;],[&quot;Kagoshima&quot;,&quot;鹿児島県&quot;],[&quot;Okinawa&quot;,&quot;沖縄県&quot;]'}}</select>
+        </div>
+        </div>
+        </div>
+
+<!--既存電話番号-->
+          <div class="grid grid--small">
+          <div class="grid__item one-half small--one-whole">
+            <label for="AddressPhone_{{form.id}}">{{ 'customer.addresses.phone' | t }}</label>
+            <input type="tel" id="AddressPhone_{{form.id}}" class="input-full" name="address[phone]" value="{{form.phone}}">
+          </div>
+        </div>
+
+
+
+
+        <p>
+          {{ form.set_as_default_checkbox }}
+          <label for="address_default_address_{{form.id}}" class="inline">{{ 'customer.addresses.set_default' | t }}</label>
+        </p>
+
+        <p>
+          <label for="addresses-update-submit" class="hidden-label">{{ 'customer.addresses.update' | t }}</label>
+          <button type="submit" id="addresses-update-submit" class="btn">
+            {{ 'customer.addresses.update' | t }}
+          </button>
+        </p>
+        <p>
+          <label for="address-edit-toggle" class="hidden-label">{{ 'customer.addresses.cancel' | t }}</label>
+          <button type="button" id="address-edit-toggle" class="text-link address-edit-toggle" data-form-id="{{ form.id }}">{{ 'customer.addresses.cancel' | t }}</button>
+        </p>
+      {%- endform -%}
+    </div>
+
+    <hr class="hr--medium">
+
+  {%- endfor -%}
+
+  {%- if paginate.pages > 1 -%}
+    {%- render 'pagination', paginate: paginate -%}
+  {%- endif -%}
+</div>
+<style>
+input,select{border-color:#b0b0b0;}
+</style>
+{%- endpaginate -%}

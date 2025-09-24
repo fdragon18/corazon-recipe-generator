@@ -1,0 +1,492 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_zA9aRA": {
+      "type": "slideshow",
+      "blocks": {
+        "image_eAzzk9": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "top_subheading": "アイミ",
+            "title": "AIMI",
+            "title_size": 100,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/ath_slide_aimi_pc.jpg",
+            "image_mobile": "shopify://shop_images/ath_slide_aimi_sp.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_U6X4EY": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "top_subheading": "KOZUE ANDO",
+            "title": "安藤 梢",
+            "title_size": 100,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/ath_slide_ando_dammy_pc.jpg",
+            "image_mobile": "shopify://shop_images/ath_slide_ando_dammy_sp.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_NqJVeK": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "top_subheading": "TOMOKI KAMEDA",
+            "title": "亀田 和毅",
+            "title_size": 80,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/ath_slide_kameda_dammy_pc.jpg",
+            "image_mobile": "shopify://shop_images/ath_slide_kameda_dammy_sp.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_Nb3FyT": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "TARO SHIRATO",
+            "title": "白戸 太朗",
+            "title_size": 100,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/ath_slide_shirato_pc.jpg",
+            "image_mobile": "shopify://shop_images/ath_slide_shirato_sp.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_D9436g": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "KEISUKE MINAMI",
+            "title": "南 圭介",
+            "title_size": 100,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/ath_slide_minami_pc.jpg",
+            "image_mobile": "shopify://shop_images/ath_slide_minami_sp.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_eAzzk9",
+        "image_U6X4EY",
+        "image_NqJVeK",
+        "image_Nb3FyT",
+        "image_D9436g"
+      ],
+      "settings": {
+        "section_height": "100vh",
+        "mobile_height": "auto",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 10,
+        "lazyload_images": true,
+        "section_start_time_enable": false,
+        "time_start_year": "",
+        "time_start_month": "",
+        "time_start_day": "",
+        "time_start_hour": "",
+        "time_start_minute": "",
+        "section_end_time_enable": false,
+        "time_end_year": "",
+        "time_end_month": "",
+        "time_end_day": "",
+        "time_end_hour": "",
+        "time_end_minute": ""
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "rich_text_wC7t4W": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_QPMdQx": {
+          "type": "heading",
+          "settings": {
+            "title": "ATHLETE × KOJI DRINK"
+          }
+        },
+        "text_FPxLPU": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>MURO神楽坂は、アスリートを応援しています。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_QPMdQx",
+        "text_FPxLPU"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "text_columns_MiByUz": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_CTwXwi": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ath_pro_shirato.jpg",
+            "image_mask": "none",
+            "image_width": 600,
+            "title": "白戸 太朗",
+            "text": "<p>（株）アスロニア代表、スポーツナビゲーター。ワールドカップやアイアンマン世界選手権を始め、出場レースは500を超える達人トライアスリート。</p>",
+            "button_label": "白戸太朗オフィシャルサイト",
+            "button_link": "https://www.maidotaro.com/"
+          }
+        },
+        "text_block_Brk638": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ath_pro_minami.jpg",
+            "image_mask": "none",
+            "image_width": 600,
+            "title": "南 圭介",
+            "text": "<p>トレイルランナー。国内外のレースに積極的に参加するとともに小笠原諸島を中心とした環境保全活動なども積極的に行う。</p>",
+            "button_label": "MUROブログ",
+            "button_link": "https://kojidrink.jp/blogs/blog/asport_athlete_ultratrail"
+          }
+        },
+        "text_block_ELPEik": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/ath_pro_next.jpg",
+            "image_mask": "none",
+            "image_width": 600,
+            "title": "NEXT ATHLETE",
+            "text": "",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_CTwXwi",
+        "text_block_Brk638",
+        "text_block_ELPEik"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false,
+        "custom_css": "#shopify-section-{{ section.id }} {\n  margin-left: auto;\n  margin-right: auto;\n}"
+      }
+    },
+    "rich_text_hy3zr7": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_fJzWkt": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "ご利用ガイド"
+          }
+        },
+        "text_ynV3Hf": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>MUROオンラインショップへご来店いただき、誠にありがとうございます。お買い物を快適にご利用いただくための情報を下記にてご案内しています。</p>"
+          }
+        },
+        "page_jfUeXC": {
+          "type": "page",
+          "settings": {
+            "page_text": "payment"
+          }
+        }
+      },
+      "block_order": [
+        "heading_fJzWkt",
+        "text_ynV3Hf",
+        "page_jfUeXC"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "featured_collection_qdHcFB": {
+      "type": "featured-collection",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "title": "LINE UP",
+        "home_featured_products": "athcollection",
+        "per_row": 4,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": false,
+        "divider": false
+      }
+    },
+    "rich_text_khp4NT": {
+      "type": "rich-text",
+      "blocks": {
+        "text_rKwxPA": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>※KOJI DRINK（米麹甘酒）を日常的に摂取するアスリート個人の感想で、結果には個人差があります。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_rKwxPA"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "advanced_content_BnWP3U": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_naKHwG": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ath_benatural.jpg",
+            "link": "",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_naKHwG"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "advanced_content_qKYXtk": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_tFR6HE": {
+          "type": "liquid",
+          "settings": {
+            "code": "<center>\nいつ飲むのがおすすめ？\n<h2>KOJI DRINK TIME LINE</h2></center>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        },
+        "image_tNrUEw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ath_timeline.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center"
+          }
+        },
+        "liquid_hCFKQR": {
+          "type": "liquid",
+          "settings": {
+            "code": "<center><p>アスリートの日常に欠かせないデイルーティン。<br>\n朝、試合前、試合中、試合後、夜に飲むなら、それぞれの種類の「飲みわけ」がおすすめです。</p></center>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_tFR6HE",
+        "image_tNrUEw",
+        "liquid_hCFKQR"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "advanced_content_CCjN4N": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_3twmKB": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/ath_voice.png",
+            "link": "",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_3twmKB"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "advanced_content_f8EWrz": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_MeLEnB": {
+          "type": "liquid",
+          "settings": {
+            "code": "<center>\n<h2 class=\"title\">LINE UP</h2>\n<p>自宅で摂取できるお得な容量の720mlや、定量が摂取しやすい飲みきりサイズの100ml、遠征先にも持ち運びができるスパウトパッケージのKOJI DRINK A  SPORTS LEMON 150mlまで揃っています。<br>\nビタミンB1や必須アミノ酸の補給には、有機玄米甘酒Bioene（ビオーネ）がおすすめです。</p>\n\t\n<div class=\"detail_footer\">\n<div class=\"list\">\n<div><a href=\"https://kojidrink.jp/products/bng00100100100\"><img alt=\"KOJI DRINK A 720ml 2,160 円(税込)\" src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bng00100100100_1.jpg?v=1694590528\"></a><span class=\"price_footer\">KOJI DRINK A 720ml<br>2,160 円(税込)</span> <span class=\"buy_footer\"><a href=\"https://koujiamasake.jp/products/bng00100100100\">購入はこちらから ＞</a></span></div>\n\t\n<div><a href=\"https://kojidrink.jp/products/bng00100300100\"><img alt=\"KOJI DRINK A 100ml 500 円(税込)\" src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bng00100300100_1.jpg?v=1694590568\"></a><span class=\"price_footer\">KOJI DRINK A 100ml<br>500 円(税込)</span> <span class=\"buy_footer\"><a href=\"https://koujiamasake.jp/products/bng00100300100\">購入はこちらから ＞</a></span></div>\n\t\n<div><a href=\"https://kojidrink.jp/products/bng00101600100\"><img alt=\"KOJI DRINK A SPORTS LEMON 150ml 496 円(税込)\" src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bng00101600100_h01_n.jpg?v=1702620156\"></a><span class=\"price_footer\">KOJI DRINK A SPORTS LEMON 150ml<br>496 円(税込)</span> <span class=\"buy_footer\"><a href=\"https://koujiamasake.jp/products/bng00100200100\">購入はこちらから ＞</a></span></div>\n\n<div><a href=\"https://kojidrink.jp/products/bng00102400100\"><img alt=\"KOJI DRINK ORGANIC Bioene 720ml<br>2,160円(税込)\" src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bng00102400100_h1.jpg?v=1709548274\"></a><span class=\"price_footer\"> KOJI DRINK \"ORGANIC\" Bioene 720ml<br>2,160円(税込)</span> <span class=\"buy_footer\"><a href=\"https://koujiamasake.jp/products/st-00236800100\">購入はこちらから ＞</a></span></div>\n</div>\n</div>\n</center>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_MeLEnB"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2.title {font-size: 1.8rem; text-align: center; margin: 20px 0; display: block; font-family: YuMincho, \"Yu Mincho\", serif; font-weight: normal; line-height: 1.8; font-weight: bold;}",
+        "span.buy_footer {display: grid;}",
+        "span.buy_footer a:visited {color: #fff;}",
+        "span.buy_footer a {padding: 10px 20px; background-color: #111111; color: #fff; border-radius: 5px; display: block; width: 95%; margin: auto; text-align: center; margin-top: 10px; text-decoration: none; cursor: pointer; font-size: 0.8rem;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "faq2_rQcazE": {
+      "type": "faq2",
+      "blocks": {
+        "custom_r3AkjY": {
+          "type": "custom",
+          "settings": {
+            "code": "<center><p>各分野のプロフェッショナルからご質問いただいた内容を掲載しています。</p></center>"
+          }
+        },
+        "question_ttLCT8": {
+          "type": "question",
+          "settings": {
+            "title": "Q.いつ飲んだら良いですか？",
+            "text": "<p><strong>A.</strong>おすすめは朝です。糖質（ブドウ糖）、ビタミンが多いため、スムーズにエネルギー補給ができます。<br/>消化・吸収が良いので、起きたばかりの胃にも負担がなく優しいでしょう。次いで就寝前がおすすめです。甘酒にはリラックス効果があり、ストレスの改善にも良いとされています。普段体を動かす機会が多い方は、前述のアスリートの声を参考にしていただくのがおすすめです。運動の頻度が少ない方は、<a href=\"https://koujiamasake.jp/pages/column04\">甘酒の飲み方</a>をご参照ください。</p>"
+          }
+        },
+        "question_GHWPLz": {
+          "type": "question",
+          "settings": {
+            "title": "Q.プロテインと混ぜて飲んでも良いですか？",
+            "text": "<p><strong>A.</strong>混ぜてはいけない食材は特にありません。ヨーグルトにかけて楽しんだり、料理で砂糖のかわりに使ったり、積極的に使ってみてください。</p>"
+          }
+        },
+        "question_tWPCXp": {
+          "type": "question",
+          "settings": {
+            "title": "Q.1日の摂取量の目安はありますか？",
+            "text": "<p><strong>A.</strong>目安としては100〜200mlが良いとされています。詳しくは、<a href=\"https://koujiamasake.jp/pages/column04\">甘酒の飲み方</a>をご参照ください。</p>"
+          }
+        },
+        "question_VHETYf": {
+          "type": "question",
+          "settings": {
+            "title": "Q.摂取後に血糖値はあがりますか？",
+            "text": "<p><strong>A.</strong>米麹甘酒は、原料のお米と同等のエネルギー量を摂取した際に、お米と比べてゆるやかに血糖値が上がります。※</p><p>朝に甘酒を飲む場合は、甘酒に含まれるブドウ糖が、脳に栄養分として取り込まれ、脳をしっかり目覚めさせます。朝一番の会議や試験のときなどには、頭がさえて効果的でしょう。代謝も向上するため、ダイエットにも効果的といえます。急激な血糖値の上昇を気にされる方は、少量ずつ回数を分けて飲むのがおすすめです。</p><p>※出典： J. Brew. Soc. Japan, 115, 43-53（2020）</p>"
+          }
+        },
+        "question_BpYx9p": {
+          "type": "question",
+          "settings": {
+            "title": "Q.運動中の飲用は胃の負担になりませんか？",
+            "text": "<p><strong>A.</strong>炭水化物やたんぱく質がブドウ糖やアミノ酸などの消化の良い状態に分解されていますので、胃腸に負担をかけることなく、身体の栄養になってくれます。たくさんのアスリートの方からも胃腸の負担が少ないというお声をいただいております。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "custom_r3AkjY",
+        "question_ttLCT8",
+        "question_GHWPLz",
+        "question_tWPCXp",
+        "question_VHETYf",
+        "question_BpYx9p"
+      ],
+      "custom_css": [],
+      "settings": {
+        "title": "Q & A",
+        "custom_css": "#shopify-section-{{ section.id }} {\n  margin-left: auto;\n  margin-right: auto;\n}"
+      }
+    }
+  },
+  "order": [
+    "slideshow_zA9aRA",
+    "main",
+    "rich_text_wC7t4W",
+    "text_columns_MiByUz",
+    "rich_text_hy3zr7",
+    "featured_collection_qdHcFB",
+    "rich_text_khp4NT",
+    "advanced_content_BnWP3U",
+    "advanced_content_qKYXtk",
+    "advanced_content_CCjN4N",
+    "advanced_content_f8EWrz",
+    "faq2_rQcazE"
+  ]
+}

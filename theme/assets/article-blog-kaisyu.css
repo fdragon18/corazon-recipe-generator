@@ -1,0 +1,544 @@
+/* ================
+// 既存css全体枠調整
+// ===============*/
+html{
+scroll-behavior: smooth;
+ padding-bottom: 0 !important;
+}
+.page-width.page-width--narrow.page-content{
+max-width: 100%;
+padding: 0;
+}
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/blog-header7.jpg) 100% 50% no-repeat;
+background-size: cover;
+position: relative;
+height: 250px;
+color: #fff;
+max-width: 100%;
+margin: 0;
+}
+@media (max-width: 580px) {
+.section-header {
+  background: url(/cdn/shop/files/blog-header7.jpg) 50% 50% no-repeat;
+  background-size: cover;
+}
+}
+  
+h1{
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit- transform: translateY(-50%) translateX(-50%);
+  margin: auto;
+  color: #000;
+max-width: 580px;
+width: 100%;
+}
+@media (max-width: 680px) {
+h1{
+max-width: 300px;
+}
+}
+
+.article__date {
+  max-width: 480px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 50px 0;
+  text-align: left;
+}
+.article__date a{
+border: 1px solid #111111;
+border-radius: 10px;
+padding: 2px 5px;
+color: #111111;
+font-size: 10px;
+background: #fff;
+margin-bottom: 2px;
+display: inline-block;
+}
+time{
+color: #6a5d21;
+display: block;
+font-size: 11px;
+}
+.social-sharing__title {
+  font-size: 10px;
+}
+
+@media (max-width: 480px) {
+.article__date {
+  padding: 20px 0;
+}
+}
+
+/* ================
+// 共通セレクタ
+// ===============*/
+.waai {
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+}
+       
+.waai::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: #000;
+    border-radius: 3px;
+    transform: rotate(-25deg);
+}
+       
+.waai::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #000;
+    border-radius: 3px;
+    transform: rotate(25deg);
+}
+.waai.ow-muryo{
+margin-bottom: 5px;
+font-size: 12px;
+padding: 0 10px;
+}
+.kai-inn p{
+  color: #111111;
+  font-size: 14px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.65;
+text-align: left;
+}
+.kai-inn li {
+  list-style: none;
+}
+
+.mt50{
+  margin-top:50px;
+}
+.mb50{
+  margin-bottom:50px;
+}
+.taL{
+    text-align: left;
+}
+
+.nbnr-link{
+text-align: center;
+}
+.nbnr-link a{
+color: #fff;
+background: #111111;
+border-radius: 5px;
+/*font-size: 1rem;*/
+font-size: 0.85rem;
+padding: 10px 20px;
+margin: 0 auto 50px;
+font-family: "Noto Serif JP","YuMincho","Yu Mincho","游明朝体","ヒラギノ明朝 ProN","Hiragino Mincho ProN",serif;
+transition: 0.5s;
+display: inline-block;
+}
+.nbnr-link a:hover {
+  background: #666;
+  color: #fff;
+transition: 0.5s;
+}
+.nbnr-link a::after {
+display:none;
+}
+.nbnr-link.b-cha a{
+background: #333;
+border-radius: 5px;
+  }
+.nbnr-link.b-cha a:hover{
+opacity:.8;
+transition: 0.5s;
+  }
+.tenten{
+    position: relative;
+    margin-bottom: 50px;
+}
+.tenten::after {
+border-bottom: 3px dotted #c9b06670;
+content: "";
+position: absolute;
+bottom: -25px;
+left: 50%;
+transform: translateX(-50%);
+width: 150px;
+  }
+
+    .sp680 {
+    display: none;
+  }
+.sp580 {
+  display: none;
+}
+.sp480 {
+  display: none;
+}
+@media (max-width: 980px) {
+  .pc980 {
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+      .pc680 {
+    display: none;
+  }
+    .sp680 {
+    display: block;
+  }
+}
+@media (max-width: 580px) {
+    .pc580 {
+    display: none;
+  }
+  .sp580 {
+    display: block;
+  }
+}
+@media (max-width: 480px) {
+  .pc480 {
+    display: none;
+  }
+  .sp480 {
+    display: block;
+  }
+    }
+.iro-ff8000{
+  color: #ff8000 !important;
+}
+.iro-b75b80{
+color: #b75b80 !important;
+}
+.iro-1e8e75{
+color: #1e8e75 !important;
+}
+.iro-2b00ff{
+color: #2b00ff !important;
+}
+/* ================
+// .kai-art-wrap
+// ===============*/
+.kai-art-wrap{
+max-width: 680px;
+margin: 0 auto;
+width: 90%;
+padding: 50px 0;
+}
+
+.kai-art-wrap h2{
+font-size: 18px;
+margin-bottom: 25px;
+position: relative;
+border-bottom: 2px solid #ddd7d0;
+padding: 15px 0;
+border-top: 2px solid #ddd7d0;
+text-align: center;
+}
+.kai-art-wrap h3{
+font-size: 18px;
+padding: 15px 0;
+}
+.kai-art-wrap ul{
+  list-style: none;
+margin: 0;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.kai-art-wrap li{
+  width:50%;
+}
+.kai-art-wrap li img{
+padding-right: 15px;
+}
+
+.kai-art-wrap p{
+font-size: 14px;
+line-height: 1.65;
+color: #111111;
+}
+.kai-art-wrap p.gazo{
+text-align:center;
+}
+.kai-art-wrap p.gazo.flx{
+display: flex;
+justify-content: space-between;
+margin: 0 auto;
+text-align: center;
+width: 100%;
+  flex-wrap: wrap;
+}
+.kai-art-wrap p.gazo.flx a{
+width: 49%;
+}
+.kai-art-wrap p.megane{
+margin: 0;
+font-size: 12px;
+}
+.kai-art-wrap p.megane img{
+width:20px;
+}
+.kai-art-wrap p.betsumado img{
+width: 13px;
+margin-left: 8px;
+}
+.kai-art-wrap p.gazo.sen img{
+border: 1px solid #ccc;
+}
+.kai-art-wrap p.chui{
+background: #fff;
+padding: 14px;
+  }
+@media (max-width: 480px) {
+.kai-art-wrap   li{
+    width:100%;
+  }
+.kai-art-wrap li img{
+padding-right: 0;
+}
+}
+
+/* ================
+// .shohin-shokai
+// ===============*/
+.shohin-shokai{
+margin-top: 80px;
+border-top: 1px dotted #ccc;
+padding-top: 30px;
+}
+.shohin-shokai h2{
+  font-size:18px;
+  font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+  text-align:center;
+  margin-bottom: 35px;
+  line-height: 1.7;
+  position: relative;
+  border: none;
+padding: 0;
+}
+
+.shohin-shokai h2 em{
+  font-style: normal;
+color: #ff9476;
+}
+.shohin-shokai h2 span{
+font-family: '游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+font-size: 12px;
+display: block;
+line-height: 2;
+}
+.shohin-shokai ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+margin: 0 auto;
+max-width: 780px;
+width: 100%;
+  }
+.shohin-shokai li{
+width: 46%;
+background: #fff;
+border-radius: 15px;
+box-shadow: 2px 2px 4px #e3e3e3;
+padding: 20px 20px 30px;
+margin-bottom: 30px;
+display: flex;
+flex-direction: column;
+  }
+.shohin-shokai li h3{
+font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+      font-size:16px;
+  text-align: center;
+  background: none;
+  }
+.shohin-shokai li span{
+    font-size:12px;
+  padding: 5px 0 20px;
+  color: #111111;
+  text-align: left;
+display: block;
+  }
+.shohin-shokai li dl{
+display: flex;
+flex-direction: column;
+  }
+.shohin-shokaili .nbnr-link{
+margin-top: auto;
+  }
+.shohin-shokai li .nbnr-link a{
+margin-bottom: 15px;
+position:relative;
+    }
+/*旧「＞」*/
+/*.shohin-shokai li .nbnr-link a::after{
+content: '';
+ background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/yaji-blog2.png)no-repeat;
+display: inline-block;
+width: 10px;
+height: 28px;
+background-size: contain;
+   }
+*/
+.shohin-shokai li .nbnr-link a::after{
+content: '>';
+/*background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/yaji-blog2.png)no-repeat;*/
+display: inline-block;
+width: 10px;
+height: 28px;
+background-size: contain;
+padding-left:3px;
+position:relative;
+   }
+
+@media (max-width: 580px) {
+.shohin-shokai ul {
+  justify-content: center;
+}
+.shohin-shokai li {
+  width: 70%;
+  }
+  }
+@media (max-width: 480px) {
+.shohin-shokai li {
+  width: 95%;
+}
+  }
+/* ================
+// のレン紹介
+// ===============*/
+.no-shokai {
+max-width: 680px;
+margin: 0 auto;
+width: 90%;
+padding: 50px 0;
+}
+.no-shokai h3{
+  font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+  font-size: 16px;
+  background: none;
+  padding-bottom: 10px;
+}
+
+.no-shokai ul{
+display: flex;
+justify-content: space-between;
+margin: 0 auto;
+flex-wrap: wrap;
+}
+.no-shokai li p{
+font-size:12px;
+}
+.no-shokai li:nth-of-type(1){
+width:35%;
+}
+.no-shokai li:nth-of-type(2){
+width:62%;
+}
+@media (max-width: 580px) {
+.no-shokai li:nth-of-type(1){
+width:100%;
+margin-bottom: 30px;
+}
+.no-shokai li:nth-of-type(2){
+width:100%;
+}
+
+}
+/* ================
+//staff-san
+// ===============*/
+.staff-san{
+display: flex;
+justify-content: space-between;
+background: #e8e8e8;
+border-radius: 100px;
+padding: 40px;
+margin-bottom: 50px !important;
+margin-top: 30px;
+}
+.staff-san figure{
+width: 80px;
+
+}
+.staff-san p{
+width: calc(100% - 80px);
+margin: 0;
+padding-left: 20px;
+}
+@media (max-width: 480px) {
+.staff-san figure {
+  width: 40px;
+}
+.staff-san p {
+  width: calc(100% - 40px);
+}
+.staff-san {
+  border-radius: 50px;
+  padding: 20px;
+}
+}
+/* ================
+//profile
+// ===============*/
+.profile{
+background: #fff;
+border-radius: 20px;
+padding: 10px 15px;
+}
+.profile h3{
+border-bottom: 2px dotted #e8e8e8;
+  }
+/* ================
+//インタビューQA
+// ===============*/
+.m-interview{
+  
+}
+.m-interview dl{
+  font-size: 14px;
+  margin: 50px auto;
+  line-height: 25px;
+}
+.m-interview dt{
+color: #8a9396;
+margin-bottom: 15px;
+position: relative;
+padding: 0 0 0 40px;
+font-weight: lighter;
+}
+.m-interview dt::before {
+content: '──';
+display: inline-block;
+position: absolute;
+left: 0;
+top: 0;
+}
+.m-interview dd span{
+  margin-right: 10px;
+
+/* ================
+//記事内リンク
+// ===============*/
+.blog_article_insidelink:link {
+color:#c99d23 !important;
+}
+
+.blog_article_insidelink:hover {
+color:#fac32c !important;
+}
+
+.blog_article_insidelink:visited {
+color:#6a5d21 !important;
+}

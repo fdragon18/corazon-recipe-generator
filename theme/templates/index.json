@@ -1,0 +1,989 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "163949028947171ef2": {
+      "type": "slideshow",
+      "blocks": {
+        "c46d3944-7662-415d-8bbb-fa76f22900f3": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/products/ygk001053",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/slide_flore_pc.webp",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "eb8ff581-8d31-451c-b191-c31c0a7e3bc7": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://koujiamasake.jp/pages/a-amasake",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/bioene_banner_PC__01.webp",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "de8dad23-604a-4911-9a06-08c81fc84539": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/collections/bioene_collection?page=1",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "c63e442e-0d6d-4896-a901-56bd320b9b1f": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/collections/koji_seasoning?page=1",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "af149ec0-9be3-4678-982a-b04adf1309ec": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/products/bng00101600100",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "c46d3944-7662-415d-8bbb-fa76f22900f3",
+        "eb8ff581-8d31-451c-b191-c31c0a7e3bc7",
+        "de8dad23-604a-4911-9a06-08c81fc84539",
+        "c63e442e-0d6d-4896-a901-56bd320b9b1f",
+        "af149ec0-9be3-4678-982a-b04adf1309ec"
+      ],
+      "settings": {
+        "section_height": "100vh",
+        "mobile_height": "500px",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "lazyload_images": true,
+        "section_start_time_enable": false,
+        "time_start_year": "",
+        "time_start_month": "",
+        "time_start_day": "",
+        "time_start_hour": "",
+        "time_start_minute": "",
+        "section_end_time_enable": false,
+        "time_end_year": "",
+        "time_end_month": "",
+        "time_end_day": "",
+        "time_end_hour": "",
+        "time_end_minute": ""
+      }
+    },
+    "slideshow_LyUHC8": {
+      "type": "slideshow",
+      "blocks": {
+        "image_nezDfD": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/pages/about",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_ThQTnf": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/collections/bioene_collection?page=1",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_YWWqbY": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/pages/a-amasake",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_ncLJwF": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/collections/koji_seasoning?page=1",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_M89fE7": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/products/bng00101600100",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_nezDfD",
+        "image_ThQTnf",
+        "image_YWWqbY",
+        "image_ncLJwF",
+        "image_M89fE7"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_height": "100vh",
+        "mobile_height": "500px",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 6,
+        "lazyload_images": true,
+        "section_start_time_enable": false,
+        "time_start_year": "",
+        "time_start_month": "",
+        "time_start_day": "",
+        "time_start_hour": "",
+        "time_start_minute": "",
+        "section_end_time_enable": false,
+        "time_end_year": "2025",
+        "time_end_month": "01",
+        "time_end_day": "01",
+        "time_end_hour": "00",
+        "time_end_minute": "00"
+      }
+    },
+    "slideshow_keYEbG": {
+      "type": "slideshow",
+      "blocks": {
+        "image_E79Aaa": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "広がる発酵、彩る生活",
+            "title": "KOJI SPECIALITY",
+            "title_size": 90,
+            "subheading": "",
+            "link": "https://kojidrink.jp/pages/about",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_eMWriy": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/collections/bioene_collection?page=1",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_znj9Mz": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "麹専門店と甘酒のプロがつくった究極の米麹甘酒",
+            "title": "KOJI DRINK A",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/pages/a-amasake",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_iadpbf": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "麹調味料",
+            "title": "KOJI SEASONING",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/collections/koji_seasoning?page=1",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        },
+        "image_KDX6kE": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "エネルギー補給、リカバリー、コンディショニングに",
+            "title": "Be Natural & 麹発酵",
+            "title_size": 80,
+            "subheading": "",
+            "link": "https://kojidrink.jp/products/bng00101600100",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_E79Aaa",
+        "image_eMWriy",
+        "image_znj9Mz",
+        "image_iadpbf",
+        "image_KDX6kE"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_height": "100vh",
+        "mobile_height": "500px",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 6,
+        "lazyload_images": true,
+        "section_start_time_enable": false,
+        "time_start_year": "",
+        "time_start_month": "",
+        "time_start_day": "",
+        "time_start_hour": "",
+        "time_start_minute": "",
+        "section_end_time_enable": false,
+        "time_end_year": "2025",
+        "time_end_month": "01",
+        "time_end_day": "01",
+        "time_end_hour": "00",
+        "time_end_minute": "00"
+      }
+    },
+    "0441087e-13b1-4dcf-9e2f-a7f90edac97a": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_diKQnR": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "link": "https://kojidrink.jp/products/ygk001053",
+            "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "image_KPCKWi": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "link": "shopify://pages/summer-delivery",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "image_HBRkpi": {
+          "type": "image",
+          "settings": {
+            "link": "https://kojidrink.jp/collections/gift?page=1",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_diKQnR",
+        "image_KPCKWi",
+        "image_HBRkpi"
+      ],
+      "custom_css": [
+        ".custom-content {justify-content: center;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": false
+      }
+    },
+    "advanced_content_Yaea7q": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_PtrxzW": {
+          "type": "liquid",
+          "settings": {
+            "code": "<style>\nh2{\n            font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;\n    }\n        @media screen and (max-width: 768px) {\n        .newslist {\n            font-size: 0.95em;\n    }\n h3 .txtcenter{\nmargin-top:0;\n    }\nli{\nlist-style:none;\n}\n </style>\n\n<h2 style=\"text-align:center;\">お知らせ</h2>\n    <div class=\"newslist mb5\">\n        <ul>\n<li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.7.31\">2025.07.31</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/blogs/media/2025-7-31_good_morning\">テレビ朝日「グッド！モーニング」で紹介されました\n\n</a>\n                </p>\n            </li>\n<li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.7.23\">2025.07.23</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/pages/summer-delivery\">夏季休業のお知らせ\n\n</a>\n                </p>\n            </li>\n\n<li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.6.6\">2025.06.06</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/blogs/media/20250606_kagurazaka_machizukuri\">第230回 神楽坂まちづくりすまいづくり塾にて講演を行いました\n\n</a>\n                </p>\n            </li>\n<li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.4.24\">2025.04.24</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/products/ygk001053\">FLORE KOJI JAM　販売開始\n</a>\n                </p>\n            </li>\n\n<li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.4.9\">2025.04.09</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/products/ygk00104000100\">大麦麹調味料「玉ねぎ麹」がオンラインで販売開始\n</a>\n                </p>\n            </li>\n<!-- <li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.4.3\">2025.04.03</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://prtimes.jp/main/html/rd/p/000000023.000022992.html\">「FLORE KOJI JAM（フローレ麹ジャム）」がMUROより誕生\n</a>\n                </p>\n            </li>\n<li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.3.13\">2025.03.13</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/pages/notice_of_pricerevision\">価格改定のお知らせ\n</a>\n                </p>\n            </li>\n<li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.2.21\">2025.02.21</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/blogs/media/2025-2-21_hirunandesu\">日本テレビ「ヒルナンデス！」で紹介されました\n</a>\n                </p>\n            </li> -->\n\n<!-- <li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.2.7\">2025.02.07</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/blogs/media/2025-2-7_yomiuri_cyukouseisinbun\">読売中高生新聞に掲載されました\n</a>\n                </p>\n            </li> -->\n<!-- <li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.2.3\">2025.02.03</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/blogs/media/2025-2-3-esse-march\">雑誌「ESSE 3月号」に掲載されました\n</a>\n                </p>\n            </li> -->\n<!-- <li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.1.23\">2025.01.23</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://prtimes.jp/main/html/rd/p/000000022.000022992.html\">陸上長距離走者の腸内細菌叢に関する縦断的観察共同研究を開始\n</a>\n                </p>\n            </li> -->\n\n<!-- <li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2025.1.20\">2025.01.20</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/pages/media/j-wave-tokyo-morning-radio20250120\">「J-WAVE TOKYO MORNING RADIO」で紹介されました\n</a>\n                </p>\n            </li> -->\n<!-- <li>\n                <div class=\"newslist-box\">\n                     <time datetime=\"2024.12.10\">2024.12.10</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/blogs/media/nonstop-20241210\">フジテレビ「ノンストップ！」で紹介されました\n</a>\n                </p>\n            </li> -->\n<!--<li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2024.12.3\">2024.12.03</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/pages/2024winter-delivery\">　 2024年 年末年始の営業と配送について</a>\n                </p>\n            </li>\n             <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2024.11.11\">2024.11.11</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://kojidrink.jp/pages/important_notice_20241111\">　KOJI DRINK Aシリーズの販売再開について</a>\n                </p>\n            </li>\n-->             \n<!-- <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2024.05.15\">2024.05.15</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://koujiamasake.jp/pages/point_system\">【重要】MUROポイントシステムが新しくなりました</a>\n                </p>\n            </li> -->\n<!--            <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2024.04.09\">2024.04.09</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://prtimes.jp/main/html/rd/p/000000020.000022992.html\">大麦麹調味料 MURO神楽坂で販売開始</a>\n                </p>\n            </li>\n -->\n                         <!--<li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2024.03.05\">2024.03.05</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://koujiamasake.jp/collections/bioene_collection\">MUROオリジナル有機玄米甘酒「Bioene」新発売</a>\n                </p>\n            </li>                 <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2024.02.19\">2024.02.19</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://koujiamasake.jp/pages/murokagurazaka_store_renewal\">MURO神楽坂店実店舗リニューアルオープンのお知らせ</a>\n                </p>\n            </li>-->\n\t\t\t  <!-- <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.4.11\">2023.09.29</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"https://koujiamasake.jp/pages/info-mail\">当店からのメールが届かない場合について</a>\n                </p>\n            </li> -->\n<!--            <li>\n    \n                <p class=\"newslist-text\" style=\"margin: auto;\">\n                    <a href=\"https://koujiamasake.jp/pages/2206-price\">価格改定のお知らせ</a>\n                </p>\n            </li>\n\n <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.6.23\">2023.07.20</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"/pages/closed_in_summer\">2023年夏季休業のお知らせ</a>\n                </p>\n            </li>\n\n <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.6.23\">2023.06.16</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"/pages/summergift\">2023年お中元特集ページを公開いたしました。</a>\n                </p>\n            </li>\n <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.5.25\">2023.05.25</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"/collections/murofathersday\">2023年父の日特集ページを公開いたしました。</a>\n                </p>\n            </li>\n\n  <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.4.11\">2023.04.11</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"/blogs/recipe/\">米麹&甘酒で作る簡単レシピを公開いたしました。</a>\n                </p>\n            </li>\n  <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.3.30\">2023.03.30</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"/collections/muromothersday\">2023年母の日特集ページを公開いたしました。</a>\n                </p>\n            </li>\n  <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.3.27\">2023.03.27</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"/blogs/media/20230327\">2023年3月27日 日本テレビ 「ヒルナンデス！」にてご紹介いただきました。</a>\n                </p>\n            </li>\n  <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.3.6\">2023.03.06</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"/blogs/news/news20230306\">MURO神楽坂店より定休日のお知らせ</a>\n                </p>\n            </li>\n  <li>\n                <div class=\"newslist-box\">\n                    <time datetime=\"2023.2.10\">2023.02.10</time>\n                    <p class=\"p-no\"></p>\n                </div>\n                <p class=\"newslist-text\">\n                    <a href=\"/pages/subscribe\">A amasakeの定期便始まりました！</a>\n                </p>\n            </li>\n\n-->\n        </ul>\n    </div>",
+            "width": "100%",
+            "alignment": "top-middle"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_PtrxzW"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "featured_collection_3y7e3T": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "初めての方におすすめの甘酒",
+        "home_featured_products": "first-trial",
+        "per_row": 3,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": true,
+        "divider": false
+      }
+    },
+    "16394863921e91d899": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "麹調味料",
+        "home_featured_products": "koji_seasoning",
+        "per_row": 5,
+        "rows": 2,
+        "mobile_scrollable": true,
+        "view_all": false,
+        "divider": true
+      }
+    },
+    "16394866342b0207e8": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "おすすめギフト",
+        "home_featured_products": "touten_osusumeset",
+        "per_row": 5,
+        "rows": 1,
+        "mobile_scrollable": true,
+        "view_all": false,
+        "divider": true
+      }
+    },
+    "featured_collections_9tfDGX": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_WkNqyF": {
+          "type": "collection",
+          "settings": {
+            "collection": "muro_new",
+            "title": "NEW　PRODUCT",
+            "focal_point": "center center"
+          }
+        },
+        "collection_UJKC9y": {
+          "type": "collection",
+          "settings": {
+            "collection": "gift",
+            "title": "KOJI GIFT",
+            "focal_point": "center center"
+          }
+        },
+        "collection_JmqwN8": {
+          "type": "collection",
+          "settings": {
+            "collection": "muro-original",
+            "title": "MURO LIMITED",
+            "focal_point": "center center"
+          }
+        },
+        "collection_GnMEcA": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "set",
+            "title": "",
+            "focal_point": "center center"
+          }
+        },
+        "collection_XcQVnN": {
+          "type": "collection",
+          "disabled": true,
+          "settings": {
+            "collection": "subscription",
+            "title": "甘酒定期便",
+            "focal_point": "center center"
+          }
+        },
+        "collection_nAeQR6": {
+          "type": "collection",
+          "settings": {
+            "collection": "koji_seasoning",
+            "title": "KOJI SEASONING",
+            "focal_point": "center center"
+          }
+        }
+      },
+      "block_order": [
+        "collection_WkNqyF",
+        "collection_UJKC9y",
+        "collection_JmqwN8",
+        "collection_GnMEcA",
+        "collection_XcQVnN",
+        "collection_nAeQR6"
+      ],
+      "settings": {
+        "title": "カテゴリから探す",
+        "divider": false,
+        "per_row": 4,
+        "enable_gutter": true
+      }
+    },
+    "95b07b89-deb9-42f4-87fa-3028f3ffaa23": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--16442997801198__95b07b89-deb9-42f4-87fa-3028f3ffaa23-16780686146a27abbc-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h2 class=\"txtcenter\">目的から探す</h2>\n<ul class=\"top-mokuteki-sagasu\">\n<li><a href=\"/collections/condition?page=1\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-mokuteki-01_1.png\"><span>お腹の調子を整えたい</span></a></li>\n<li><a href=\"https://koujiamasake.jp/collections/beauty?page=1\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-mokuteki-02_1.png\"><span>お肌の調子を整えたい</span></a></li>\n<li><a href=\"/collections/diet?page=1\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-mokuteki-03_1.png\"><span>ダイエットを始めたい</span></a></li>\n<li><a href=\"/collections/health?page=1\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-mokuteki-04_1.png\"><span>毎日健康に過ごしたい</span></a></li>\n</ul>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        },
+        "template--16442997801198__95b07b89-deb9-42f4-87fa-3028f3ffaa23-16780686146a27abbc-0": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--16442997801198__95b07b89-deb9-42f4-87fa-3028f3ffaa23-16780686146a27abbc-1",
+        "template--16442997801198__95b07b89-deb9-42f4-87fa-3028f3ffaa23-16780686146a27abbc-0"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "text_and_image_8GJMTY": {
+      "type": "text-and-image",
+      "custom_css": [
+        "h2 {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "image_mask": "none",
+        "image2_mask": "square",
+        "subtitle": "",
+        "title": "KOJI DRINK 定期便",
+        "text": "<p>KOJI DRINK（甘酒）をなかなか続けられない…という方のために、お得な定期便をご用意いたしました。今日から日々の生活に甘酒を取り入れてみませんか？</p><p><a href=\"https://koujiamasake.jp/collections/subscription?page=1\" title=\"https://koujiamasake.jp/collections/subscription?page=1\">＞ 詳しくはこちらから</a></p>",
+        "button_label": "",
+        "button_link": "shopify://collections/subscription",
+        "button_style": "secondary",
+        "align_text": "left",
+        "image_width": "50",
+        "layout": "right",
+        "divider": false,
+        "top_padding": false,
+        "bottom_padding": true,
+        "lazyload_images": true
+      }
+    },
+    "text_and_image_bRNwbx": {
+      "type": "text-and-image",
+      "custom_css": [
+        "h2 {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "image_mask": "none",
+        "image2_mask": "square",
+        "subtitle": "",
+        "title": "おまとめ買い",
+        "text": "<p>KOJI DRINK（甘酒）を毎日続けるには、まとめ買いのセットや甘酒定期便もおすすめです。まずは、1日コップ1杯分（150-200ml）を続けてみましょう。自分にあった飲み方で続けることが大切です。</p><p><a href=\"https://koujiamasake.jp/collections/set?page=1\" title=\"https://koujiamasake.jp/collections/set?page=1\">＞ 詳しくはこちらから</a></p>",
+        "button_label": "",
+        "button_link": "https://koujiamasake.jp/collections/set",
+        "button_style": "primary",
+        "align_text": "left",
+        "image_width": "50",
+        "layout": "left",
+        "divider": false,
+        "top_padding": false,
+        "bottom_padding": true,
+        "lazyload_images": true
+      }
+    },
+    "4bb4cfaf-5ea6-4405-84c8-e5c8cb2fcbdf": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--16442997801198__4bb4cfaf-5ea6-4405-84c8-e5c8cb2fcbdf-16780686146a27abbc-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h3 class=\"txtcenter\">カテゴリから探す</h3>\n<ul class=\"top-cate-sagasu\">\n<li><a href=\"/collections/muro_new\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-cate-01.png\"><span>新商品</span></a></li>\n<li><a href=\"https://koujiamasake.jp/collections/gift\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-cate-02.png\"><span>ギフト</span></a></li>\n<li><a href=\"/collections/muro-original\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-cate-03.png\"><span>MURO限定</span></a></li>\n<li><a href=\"/collections/set\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-cate-04.png\"><span>まとめ買い</span></a></li>\n<li><a href=\"/pages/subscribe\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-cate-07.png\"><span>甘酒定期便</span></a></li>\n<li><a href=\"/collections/koji_seasoning\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-cate-05.png\"><span>麹調味料\n</span></a></li>\n<!--<li><a href=\"/collections/sale\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-cate-06.png\"><span>セール商品</span></a></li>-->\n</ul>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--16442997801198__4bb4cfaf-5ea6-4405-84c8-e5c8cb2fcbdf-16780686146a27abbc-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "rich_text_gmyDWT": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_r84AMw": {
+          "type": "heading",
+          "settings": {
+            "title": "米麹甘酒とは？"
+          }
+        },
+        "text_CaYdnc": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>「飲む点滴」とも言われる米麹甘酒は、米・米麹・水を主な原料とした発酵食品です。</p><p>エネルギー源となるブドウ糖、腸内細菌を助けるオリゴ糖、体を元気にサポートするビタミンB群など栄養素が豊富に含まれており、お通じの改善や美容にも効果的です。</p>"
+          }
+        },
+        "button_9rKYFX": {
+          "type": "button",
+          "settings": {
+            "link": "https://koujiamasake.jp/pages/amazake_moreinfo",
+            "link_text": "詳しくはこちらから"
+          }
+        }
+      },
+      "block_order": [
+        "heading_r84AMw",
+        "text_CaYdnc",
+        "button_9rKYFX"
+      ],
+      "custom_css": [
+        "h2 {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": false,
+        "divider": true
+      }
+    },
+    "advanced_content_nCwdUp": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_TwdFbn": {
+          "type": "liquid",
+          "settings": {
+            "code": "<img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/about_muro_topbnr3_new.png\" class=\"pc_area\">\n\t <img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/about_muro_topbnr_sp3_new.png?v=1702528743\" class=\"phone_area\">\n\t\t\n<div class=\"jp_traditional\"><p class=\"megane\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/megane.png\" alt=\"\" />クリックで拡大します。</p>\n<figure class=\"mb50 pc_area\"><a href=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/traditional_sauce_pc_new.jpg?v=1701784897\" data-lity=\"\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/traditional_sauce_pc_new.jpg?v=1701784897\"></a></figure>\n<figure class=\"mb50 phone_area\"><a href=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/traditional_sauce_sp_new.jpg?v=1701784897\" data-lity=\"\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/traditional_sauce_sp_new.jpg?v=1701784897\"></a></figure><span>MUROは、日本の伝統調味料の中心にある<br class=\"pc480\">\n「麹菌」の素晴らしさや可能性に着目し、<br class=\"pc480\">\n米麹を使用した商品（甘酒、調味料等）を販売しております。</span></div>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_TwdFbn"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "1639384950b5d7d715": {
+      "type": "advanced-content",
+      "blocks": {
+        "16393849500c3d2673-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h2 class=\"txtcenter\">KOJI DRINK（甘酒）<br>チャート表</h2>\n<div class=\"amasakemap\">\n\t<img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/amazake_chart_240612.jpg\" usemap=\"#ImageMap\" alt=\"甘酒チャート\" />\n<map name=\"ImageMap\">\n  <area shape=\"rect\" coords=\"587,111,693,297\" href=\"/collections/shioya-amazake\" alt=\"くらしき塩屋あま酒\" />\n  <area shape=\"rect\" coords=\"773,200,861,340\" href=\"/products/cz-00309500400\" alt=\"MURO神楽坂素材の旨みを引き立てる麹調味料甘麹\" />\n  <area shape=\"rect\" coords=\"496,290,579,476\" href=\"/collections/iwagami-amasake\" alt=\"岩上商店白米の甘酒\" />\n  <area shape=\"rect\" coords=\"607,356,670,589\" href=\"/collections/imanishi\" alt=\"今西酒造三輪の甘酒\" />\n  <area shape=\"rect\" coords=\"1365,692,1430,901\" href=\"/collections/kitsukura-amazake\" alt=\"橘倉酒造こうじと井戸水だけの手づくりあま酒\" />\n <area shape=\"rect\" coords=\"1166,685,1238,930\" href=\"collections/bioene_collection\" alt=\"MURO神楽坂KOJI DRINK ORGANIC Bioene\" />\n  <area shape=\"rect\" coords=\"1289,785,1350,1015\" href=\"/collections/ayumasamune\" alt=\"鮎政宗酒造玄米甘さけ元気の舞\" />\n  <area shape=\"rect\" coords=\"1034,604,1098,822\" href=\"/collections/wakatakeya\" alt=\"若竹屋酒造場米麹甘酒\" />\n  <area shape=\"rect\" coords=\"943,753,996,997\" href=\"/products/m1-00100600100\" alt=\"MURO神楽坂神楽坂甘酒プレーン\" />\n  <area shape=\"rect\" coords=\"875,686,935,911\" href=\"/collections/koujiya-toubei-amazake\" alt=\"糀屋藤平の甘酒\" />\n  <area shape=\"rect\" coords=\"808,761,866,999\" href=\"/pages/a-amasake\" alt=\"MURO神楽坂 KOJI DRUNK A\" />\n  <area shape=\"rect\" coords=\"699,789,769,901\" href=\"/products/bng00101600100\" alt=\"MURO神楽坂 KOJI DRINK A SPORTS\" />\n  <area shape=\"rect\" coords=\"617,839,677,1013\" href=\"/collections/urano_shoyu\" alt=\"浦野醤油醸造元にじいろ甘酒 米麹\" />\n  <area shape=\"rect\" coords=\"529,777,593,1015\" href=\"/collections/minemura\" alt=\"峰村醸造あまざけ\" />\n  <area shape=\"rect\" coords=\"457,672,521,908\" href=\"/collections/imayotsukasa-amazake\" alt=\"今代司酒造 麹・乳酸発酵甘酒「もと」大\" />\n  <area shape=\"rect\" coords=\"905,1101,962,1325\" href=\"/collections/misakiya-amazake\" alt=\"三崎屋醸造 ストレート甘酒大 各種\" />\n  <area shape=\"rect\" coords=\"228,473,288,682\" href=\"/collections/sanenan\" alt=\"三燕庵玄米がユメヲミタ\" />\n  <area shape=\"rect\" coords=\"240,751,295,879\" href=\"/products/kwd001001\" alt=\"MURO神楽坂 すっきりあまざけ りんご酢\" />\n  <area shape=\"rect\" coords=\"295,895,351,1019\" href=\"/products/kwd001001\" alt=\"MURO神楽坂 すっきりあまざけ 梅\" />\n  <area shape=\"rect\" coords=\"233,887,286,1014\" href=\"/products/kwd001001\" alt=\"MURO神楽坂 すっきりあまざけ 黒酢\" />\n  <area shape=\"rect\" coords=\"240,1019,292,1144\" href=\"/products/kwd001001\" alt=\"MURO神楽坂 すっきりあまざけ レモン\" />\n  <area shape=\"rect\" coords=\"122,865,227,1028\" href=\"/collections/koji_wadaya\" alt=\"糀和田屋 フルーツ甘酒 プレーン\" />\n  <area shape=\"rect\" coords=\"226,1278,283,1414\" href=\"/collections/shirakami\" alt=\"白神ささらプレーン\" />\n</map>\n</div>\n<p class=\"mb2\" style=\"text-align:center;line-height: 1.5;letter-spacing: normal;\">チャート表の甘酒をクリックすると<br class=\"phone_area\">商品ページにアクセスできます。</p> \n   <script src=\"https://code.jquery.com/jquery-1.12.4.min.js\" integrity=\"sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=\" crossorigin=\"anonymous\"></script>\n    <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js\"></script>\t\t\n<style>\n.amasakemap{\nmax-width:980px;\nwidth:100%;\nmargin: 0 auto;\n}\n.amasakemap a:hover{\nopacity:.7;\n}\n</style>\n  <script>\n        $('img[usemap]').rwdImageMaps();\n    </script>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "16393849500c3d2673-1"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "16393847172e0ad0cc": {
+      "type": "advanced-content",
+      "blocks": {
+        "1639384717edfb6547-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h3 class=\"txtcenter\">ピックアップ</h3>\n<div class=\"container bmb3\">\n  <ul class=\"top-pic\">\n<!--\n\t <li><a href=\"https://koujiamasake.jp/pages/2023keirogift\" class=\"rte__image\">\n  <img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/2308keiro_bnr.jpg?v=1691659189\" width=\"100%\">\n\t\t</a></li>\n-->  \n<li>\n      <a href=\"https://koujiamasake.jp/pages/2week\" class=\"rte__image\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/banner_a_001_c.jpg\" width=\"100%\" alt=\"はじめての方におすすめの甘酒\"></a>\n    </li>\n    <li>\n      <a href=\"https://koujiamasake.jp/collections/gift\" class=\"rte__image\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/banner_a_02_c.jpg?v=1660876869\" width=\"100%\" alt=\"ギフト商品はこちら\"></a>\n    </li>\n    <li>\n      <a href=\"https://koujiamasake.jp/pages/subscribe\" class=\"rte__image\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/banner_a_03_c.jpg?v=1660876869\" width=\"100%\" alt=\"甘酒定期便\"></a>\n    </li>\n    <li>\n      <a href=\"https://koujiamasake.jp/pages/about_komekoujikamazake\" class=\"rte__image\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bnr_blog_komekoji.jpg?v=1695392297\" width=\"100%\" alt=\"米麹甘酒の栄養と効果\"></a>\n    </li>\n</ul>\n</div>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1639384717edfb6547-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "82c7e269-e372-4e53-97a8-6c74c70e8805": {
+      "type": "advanced-content",
+      "blocks": {
+        "template--16442997801198__82c7e269-e372-4e53-97a8-6c74c70e8805-168118669759492dfb-0": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "template--16442997801198__82c7e269-e372-4e53-97a8-6c74c70e8805-168118669759492dfb-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h3 class=\"txtcenter\">甘酒コンテンツ</h3>\n<ul class=\"top-con-bnr\">\n<li><a href=\"/blogs/recipe/\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-bnr-con01.jpg\"><span>米麹&甘酒で作る簡単レシピ集</span></a></li>\n<li><a href=\"#quiz-meHVPG\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-bnr-con002.jpg\"><span>1分でできる♪甘酒診断</span></a></li>\n</ul>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "template--16442997801198__82c7e269-e372-4e53-97a8-6c74c70e8805-168118669759492dfb-0",
+        "template--16442997801198__82c7e269-e372-4e53-97a8-6c74c70e8805-168118669759492dfb-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "text_with_icons_FpthUw": {
+      "type": "text-with-icons",
+      "blocks": {
+        "text_block_cCkQaT": {
+          "type": "text_block",
+          "settings": {
+            "icon": "truck",
+            "title": "5,400円以上のご注文で<br>送料無料",
+            "text": "<p>※沖縄・離島を除く</p><p>＞ <a href=\"https://koujiamasake.jp/pages/delivery\" title=\"送料・お届けについて\">詳しくはこちらから</a></p>"
+          }
+        },
+        "text_block_7RtaLJ": {
+          "type": "text_block",
+          "settings": {
+            "icon": "calendar",
+            "title": "12時までのご注文で<br>当日出荷",
+            "text": "<p>※オンラインストアの営業日に限る</p><p>＞ <a href=\"https://koujiamasake.jp/pages/delivery\" title=\"送料・お届け日について\">詳しくはこちらから</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_cCkQaT",
+        "text_block_7RtaLJ"
+      ],
+      "custom_css": [
+        "h3 {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "desktop_columns_per_row": 3,
+        "icon_color": "#000000",
+        "button_label": "",
+        "button_link": "https://koujiamasake.jp/pages/delivery",
+        "divider": true
+      }
+    },
+    "background_image_text_pYpPnY": {
+      "type": "background-image-text",
+      "disabled": true,
+      "settings": {
+        "subtitle": "",
+        "title": "実店舗のご案内",
+        "text": "<p>MURO神楽坂の実店舗では甘酒の試飲も実施しています。</p><p><a href=\"https://koujiamasake.jp/pages/place\" title=\"https://koujiamasake.jp/pages/place\">&gt; 詳しくはこちらから</a></p>",
+        "button_label": "",
+        "button_link": "",
+        "layout": "left",
+        "height": 450,
+        "framed": false,
+        "parallax": false,
+        "parallax_direction": "left",
+        "lazyload_images": true
+      }
+    },
+    "1639487454542e8763": {
+      "type": "slideshow",
+      "blocks": {
+        "16394874541fc2d235-0": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "実店舗のご案内",
+            "title_size": 40,
+            "subheading": "",
+            "link": "shopify://pages/about",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "#000000",
+            "text_align": "vertical-center horizontal-center",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "16394874541fc2d235-0"
+      ],
+      "settings": {
+        "section_height": "450px",
+        "mobile_height": "250px",
+        "parallax": false,
+        "style": "bars",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "lazyload_images": true,
+        "section_start_time_enable": false,
+        "time_start_year": "",
+        "time_start_month": "",
+        "time_start_day": "",
+        "time_start_hour": "",
+        "time_start_minute": "",
+        "section_end_time_enable": false,
+        "time_end_year": "",
+        "time_end_month": "",
+        "time_end_day": "",
+        "time_end_hour": "",
+        "time_end_minute": ""
+      }
+    },
+    "f859b9c7-4021-449b-be5e-a01fbe30d373": {
+      "type": "blog-posts",
+      "custom_css": [],
+      "settings": {
+        "title": "Blog",
+        "blog": "blog",
+        "post_limit": 3,
+        "blog_show_tags": false,
+        "blog_show_date": true,
+        "blog_show_comments": false,
+        "blog_show_author": false,
+        "view_all": true,
+        "blog_image_size": "square",
+        "divider": true
+      }
+    },
+    "17164295215998d42f": {
+      "type": "apps",
+      "custom_css": [
+        "h3 {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "1643949029551d8a05": {
+      "type": "advanced-content",
+      "blocks": {
+        "1643949029b9450448-1": {
+          "type": "liquid",
+          "settings": {
+            "code": "<div class=\"container mg100\">\n<p class=\"txtcenter color_g\">各種SNS 新商品やイベント情報をお届けしています</p>\n<div class=\"row img50_sns\">\n\t<div class=\"col-sm-6 mb1\">\n\t\t<a href=\"https://koujiamasake.jp/pages/muro-line\">\n\t  <img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bn_line.jpg?v=1643941945\"></a>\n\t</div>\n\t<div class=\"col-sm-6 mb1\">\n\t\t<a href=\"https://www.facebook.com/norenmurokoujiamasake/\">\n\t  <img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bn_facebook.jpg?v=1643942179\"></a>\n\t</div>\n</div>\n<div class=\"row img50_sns\">\n\t<div class=\"col-sm-6 mb1\">\n\t\t<a href=\"https://twitter.com/norenmuro\">\n\t\t\t<img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bn_twitter.jpg?v=1643942179\"></a>\n\t</div>\n\t<div class=\"col-sm-6 mb1\">\n\t\t<a href=\"https://www.instagram.com/noren_muro/\">\n\t\t\t<img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/bn_insta.jpg?v=1643942179\"></a>\n\t</div>\n</div>\n</div>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1643949029b9450448-1"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "promo_grid_khr9Nt": {
+      "type": "promo-grid",
+      "blocks": {
+        "advanced_6Gi9gg": {
+          "type": "advanced",
+          "settings": {
+            "subheading": "豊かな暮らしの道具店",
+            "heading": "のレン神楽坂店",
+            "textarea": "",
+            "cta_text1": "丁寧な暮らしの道具はこちらから",
+            "cta_link1": "https://noren-net.jp/",
+            "cta_text2": "",
+            "cta_link2": "",
+            "video_url": "",
+            "width": "100",
+            "height": 180,
+            "text_size": 80,
+            "text_align": "vertical-center horizontal-center",
+            "color_accent": "#d7cfb9",
+            "boxed": false,
+            "framed": false
+          }
+        }
+      },
+      "block_order": [
+        "advanced_6Gi9gg"
+      ],
+      "custom_css": [
+        "a {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif; font-size: 0.75rem; color: #fff;}",
+        "#text {}"
+      ],
+      "settings": {
+        "full_width": false,
+        "gutter_size": 20,
+        "space_above": true,
+        "space_below": true,
+        "lazyload_images": true
+      }
+    }
+  },
+  "order": [
+    "163949028947171ef2",
+    "slideshow_LyUHC8",
+    "slideshow_keYEbG",
+    "0441087e-13b1-4dcf-9e2f-a7f90edac97a",
+    "advanced_content_Yaea7q",
+    "featured_collection_3y7e3T",
+    "16394863921e91d899",
+    "16394866342b0207e8",
+    "featured_collections_9tfDGX",
+    "95b07b89-deb9-42f4-87fa-3028f3ffaa23",
+    "text_and_image_8GJMTY",
+    "text_and_image_bRNwbx",
+    "4bb4cfaf-5ea6-4405-84c8-e5c8cb2fcbdf",
+    "rich_text_gmyDWT",
+    "advanced_content_nCwdUp",
+    "1639384950b5d7d715",
+    "16393847172e0ad0cc",
+    "82c7e269-e372-4e53-97a8-6c74c70e8805",
+    "text_with_icons_FpthUw",
+    "background_image_text_pYpPnY",
+    "1639487454542e8763",
+    "f859b9c7-4021-449b-be5e-a01fbe30d373",
+    "17164295215998d42f",
+    "1643949029551d8a05",
+    "promo_grid_khr9Nt"
+  ]
+}

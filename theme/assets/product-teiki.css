@@ -1,0 +1,39 @@
+/* ================
+//teiki-waku
+// ===============*/
+.teiki-waku{
+padding: 30px;
+background-color: #eeeeee;
+margin-bottom: 50px !important;
+}
+.teiki-waku h3{
+  text-align:left;
+  margin-bottom: 25px;
+}
+.teiki-waku h3 em{
+  font-style: normal;
+display: block;
+text-align: left;
+background: #fff;
+padding: 10px;
+margin-top: 10px;
+font-size: 14px;
+color: #000;
+line-height: 1.4;
+}
+.teiki-waku ul{
+color: #111111;
+margin: 0;
+text-align: center;
+}
+.teiki-waku li {
+list-style: none;
+position: relative;
+background: #fff;
+padding: 5px;
+margin: 0 auto 5px;
+}
+.teiki-waku li span{
+font-size: 13px;
+color: #17171e;
+}

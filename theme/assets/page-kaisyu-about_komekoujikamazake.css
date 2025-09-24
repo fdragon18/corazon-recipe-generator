@@ -1,0 +1,308 @@
+/* ================
+// fv
+// ===============*/
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/akoujia-001.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 450px !important;
+  }
+h1{
+  border: 1px solid #000;
+  padding: 20px 30px 35px;
+  text-shadow: 0px 0px 10px #fff;
+}
+h1::before{
+  content:'栄養豊富な「飲む点滴」';
+  font-size:14px;
+  display: block;
+  padding:15px;
+}
+@media (max-width: 680px) {
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/akoujia-001-sp.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 250px !important;
+  }
+  h1{
+
+}
+    }
+/* ================
+// 共通
+// ===============*/
+@media (max-width: 1025px) {
+.kai-inn{
+  padding: 0 20px;
+}
+  }
+/* ================
+// .kai-col
+// ===============*/
+.kai-col{
+  padding: 50px 0;
+}
+#to01,#to02,#to03,#to04,#to05,#to06,#to07,#to08{
+display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+/* ================
+// .o-week07
+// ===============*/
+.o-week07 dd span em {
+  background: linear-gradient(transparent 60%, #fff9cc 60%);
+  font-style: normal;
+  font-weight: bold;
+}
+.o-week07 dd h3 {
+  font-size: 16px;
+  margin: 20px auto;
+  font-weight: bold;
+}
+@media (max-width:480px) {
+.o-week07 .kai-inn {
+  padding: 0;
+}
+}
+
+/* ================
+// .kai-akoujia01
+// ===============*/
+.kai-akoujia01{
+  
+}
+.kai-akoujia01 .waku{
+  background: #fff;
+box-shadow: 2px 2px 4px #e3e3e3;
+border-radius: 15px;
+padding: 50px 20px 30px;
+position: relative;
+}
+.kai-akoujia01 .setsumei {
+  font-size: 13px;
+  border-top: 3px dotted #cab26936;
+  padding: 30px 0;
+  color: #5c5950;
+}
+.kai-akoujia01 .setsumei em {
+  font-style: normal;
+  background: #bf2626;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin-right: 5px;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+.kai-akoujia01 ul{
+margin: 30px auto 0;
+}
+.kai-akoujia01 li{
+background: #FEF7ED;
+border-radius: 20px;
+padding: 30px 20px 5px;
+margin-bottom: 30px;
+}
+.kai-akoujia01 li:nth-child(3){
+  background: #FFF3EF;
+  }
+.kai-akoujia01 li:nth-child(2n) dt{
+order:2;
+    }
+.kai-akoujia01 dl{
+display: flex;
+justify-content: space-between;
+width: 100%;
+flex-wrap: wrap;
+}
+.kai-akoujia01 dt{
+  width:30%;
+}
+.kai-akoujia01 dd{
+    width:70%;
+  text-align: left;
+  padding-left:30px;
+}
+.kai-akoujia01 dt img{
+border-radius: 50%;
+  width: 200px;
+}
+.kai-akoujia01 h3{
+font-size: 16px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+.kai-akoujia01 dd span{
+color: #5c5950;
+font-size: 14px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.65;
+text-align: left;
+}
+.kai-akoujia01 dd em {
+  background: linear-gradient(transparent 60%, #fff9cc 60%);
+  font-style: normal;
+  font-weight: bold;
+}
+
+@media (max-width: 680px) {
+.kai-akoujia01 li:nth-child(2n) dt{
+order:unset;
+    }
+.kai-akoujia01 h3 {
+  text-align: center;
+}
+.kai-akoujia01 dt{
+width: 100%;
+}
+  .kai-akoujia01 dt img {
+  width: 300px;
+}
+  .kai-akoujia01 dd{
+width: 100%;
+    padding:0;
+}
+  }
+
+
+/* ================
+// .kai-akoujia02
+// ===============*/
+.kai-akoujia02{
+padding: 50px 0;
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/akoujia-07.jpg) repeat;
+margin: 50px auto;
+}
+.kai-akoujia02 .kai-inn {
+max-width: 100%;
+  padding: 0;
+}
+.kai-akoujia02 ul {
+margin:0px;
+}
+.kai-akoujia02 li {
+display: flex;
+justify-content: space-between;
+width: 100%;
+flex-wrap: wrap;
+  margin: 0;
+}
+.kai-akoujia02 li figure {
+width:50%;
+  margin: 0;
+}
+.kai-akoujia02 li span {
+width:50%;
+  color: #5c5950;
+font-size: 14px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.65;
+text-align: left;
+padding: 50px;
+}
+.kai-akoujia02 li:nth-child(2n)  figure{
+order:2;
+}
+@media (max-width: 680px) {
+.kai-akoujia02 li figure {
+  width: 100%;
+}
+  .kai-akoujia02 li span {
+  width: 100%;
+  }
+.kai-akoujia02 li:nth-child(2n)  figure{
+order:unset;
+}
+  .kai-akoujia02 li span {
+padding: 30px;
+}
+  }
+@media (max-width: 480px) {
+  .kai-akoujia02 li span {
+padding: 20px;
+}
+}
+/* ================
+// .kai-akoujia03
+// ===============*/
+.kai-akoujia03{
+background: #fff;
+padding: 50px 0;
+}
+/* ================
+// .kai-akoujia04
+// ===============*/
+.kai-akoujia04{
+    padding: 50px 0;
+}
+.kai-akoujia04 table{
+padding: 20px 20px 20px 0;
+background: #f0f0f0;
+border-collapse: separate;
+border-spacing: 2px;
+  border-radius: 20px;
+}
+.kai-akoujia04 tr{
+
+}
+.kai-akoujia04 th{
+  font-size: 14px;
+background: #f0f0f0;
+  padding: 20px;
+}
+.kai-akoujia04 th:nth-child(2),.kai-akoujia04 th:nth-child(3){
+  background:#fff;
+}
+.kai-akoujia04 td{
+  font-size: 14px;
+background: #f0f0f0;
+  padding: 20px;
+}
+.kai-akoujia04 td:nth-child(2),.kai-akoujia04 td:nth-child(3){
+  background:#fff;
+}
+.kai-akoujia04 td em{
+color: #FF7767;
+font-weight: bold;
+font-style: normal;
+  }
+.kai-akoujia04 tr td:nth-child(1){
+font-size: 11px;
+padding: 10px;
+font-weight: bold;
+text-align: center;
+ }
+
+.kai-akoujia04 td:nth-child(1){
+width: 14%;
+}
+.kai-akoujia04 td:nth-child(2),.kai-akoujia04 td:nth-child(3){
+width: 43%;
+}
+.kai-akoujia04 tr:nth-child(2) td{
+  padding: 0;
+}
+@media (max-width: 480px) {
+  .kai-akoujia04 table {
+    padding: 20px 10px 20px 0
+  }
+.kai-akoujia04 td:nth-child(1){
+width: 20%;
+}
+.kai-akoujia04 td:nth-child(2),.kai-akoujia04 td:nth-child(3){
+width: 40%;
+padding: 10px;
+font-size: 12px;
+}
+}
+
+.blog_article_insidelink:link {
+color:#c99d23 !important;
+}
+.blog_article_insidelink:hover {
+color:#fac32c !important;
+}
+.blog_article_insidelink:visited {
+color:#6a5d21 !important;
+}

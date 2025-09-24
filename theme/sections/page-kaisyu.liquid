@@ -1,0 +1,75 @@
+<div class="page-width page-width--narrow page-content">
+  {%- render 'breadcrumbs' -%}
+  <header class="section-header">
+    <h1 class="section-header__title">{{ page.title }}</h1>
+  </header>
+
+  <div class="kai-wrap">
+    {{ page.content }}
+  </div>
+
+  
+<!--
+<section class="kai-f-01">
+<p>新規会員登録いただくと、<br /> MUROオンラインストアで利用できる<br /> 割引券500円プレゼント中！</p>
+<a href="/pages/noren_miles">新規会員登録</a></section>
+-->
+<section class="kai-f-02">
+<div class="bnr-blog">
+<figure><a href="/blogs/blog"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/muro_bn_blog.jpg" /></a></figure>
+</div>
+<ul>
+<li>
+<figure><a href="https://twitter.com/norenmuro" target="blank"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/icon-tw.svg" /></a></figure>
+</li>
+<li>
+<figure><a href="https://www.facebook.com/norenmurokoujiamasake" target="blank"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/icon-fb.svg" /></a></figure>
+</li>
+<li>
+<figure><a href="https://www.instagram.com/noren_muro/" target="blank"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/icon-insta.svg" /></a></figure>
+</li>
+<li>
+<figure><a href="/pages/muro-line"><img src="//cdn.shopify.com/s/files/1/0262/8252/4717/files/icon-line.svg" /></a></figure>
+</li>
+</ul>
+</section>
+<section class="kai-f-03">
+<ul>
+<li><a href="/collections/beginners">初めての方におすすめ<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewbox="0 0 28 16" style="transform: rotate(-90deg); width: 10px; height: 10px; margin: -2px 0 0 5px;"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg></a></li>
+<li><a href="/pages/amazake_moreinfo">米麹甘酒について<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewbox="0 0 28 16" style="transform: rotate(-90deg); width: 10px; height: 10px; margin: -2px 0 0 5px;"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg></a></li>
+<li><a href="/pages/faq">よくある質問<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewbox="0 0 28 16" style="transform: rotate(-90deg); width: 10px; height: 10px; margin: -2px 0 0 5px;"><path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd"></path></svg></a></li>
+</ul>
+</section>
+</div>
+{{ 'page-kaisyu.css'| asset_url | stylesheet_tag }}
+{{ 'lity.min.css'| asset_url | stylesheet_tag }}
+{% case page.handle %}
+{% when 'about' %}
+{{ 'page-kaisyu-about.css'| asset_url | stylesheet_tag }}
+{% when 'subscribe' %}
+{{ 'page-kaisyu-subscribe.css'| asset_url | stylesheet_tag }}
+{% when '2week' %}
+{{ 'page-kaisyu-2week.css'| asset_url | stylesheet_tag }}
+{% when 'column01' %}
+{{ 'page-kaisyu-column01.css'| asset_url | stylesheet_tag }}
+{% when 'column02' %}
+{{ 'page-kaisyu-column02.css'| asset_url | stylesheet_tag }}
+{% when 'column03' %}
+{{ 'page-kaisyu-column03.css'| asset_url | stylesheet_tag }}
+{% when 'column04' %}
+{{ 'page-kaisyu-column04.css'| asset_url | stylesheet_tag }}
+{% when 'about_komekoujikamazake' %}
+{{ 'page-kaisyu-about_komekoujikamazake.css'| asset_url | stylesheet_tag }}
+{% when 'resistantprotein' %}
+{{ 'page-kaisyu-resistantprotein.css'| asset_url | stylesheet_tag }}
+{% else %}
+{% endcase %}
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ 'page-kaisyu.js' | asset_url }}"></script>
+<script src="{{ 'lity.min.js' | asset_url }}"></script>
+{% schema %}
+{
+  "name": "Page",
+  "tag": "section"
+}
+{% endschema %}

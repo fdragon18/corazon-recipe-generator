@@ -1,0 +1,354 @@
+/* ================
+// fv
+// ===============*/
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column01-01.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 450px !important;
+  }
+h1{
+  padding: 20px 30px 35px;
+  background: rgba(256,256,256,.6);
+}
+h1::before{
+  content:'<甘酒の基礎知識　その1>';
+  font-size:14px;
+  display: block;
+  padding:15px;
+}
+@media (max-width: 680px) {
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column01-01-sp.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 250px !important;
+  }
+    }
+/* ================
+// 共通
+// ===============*/
+@media (max-width: 1025px) {
+.kai-inn{
+  padding: 0 20px;
+}
+  }
+/* ================
+// .kai-col
+// ===============*/
+.kai-col,.kai-col01,.kai-col01-2,.kai-akoujia04,.kai-col4{
+  padding: 50px 0;
+}
+#to01,#to02,#to03,#to04,#to05,#to06,#to07,#to08{
+display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+/* ================
+// .kai-col01
+// ===============*/
+.kai-col01{
+  
+}
+.kai-col01 ul{
+  position:relative;
+max-width: 680px;
+width: 100%;
+margin: 0 auto;
+}
+.kai-col01 ul::before{
+content: "";
+width: 1px;
+height: 99%;
+position: absolute;
+left: 221px;
+top: 2px;
+background-color: #000;
+  }
+.kai-col01 li{
+  counter-increment: point;
+margin-bottom: 30px;
+position: relative;
+}
+.kai-col01 dl{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.kai-col01 dt{
+  width:45%;
+  display: flex;
+align-items: center;
+}
+.kai-col01 dd{
+    width:55%;
+  color: #5c5950;
+font-size: 14px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.65;
+text-align: left;
+background: #fff;
+padding: 20px;
+border-radius: 20px;
+}
+.kai-col01 dd em{
+font-style: normal;
+background: #c9b066;
+display: block;
+color: #fff;
+text-align: center;
+font-size: 12px;
+}
+.kai-col01 dt h3{
+font-size: 18px;
+font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+text-align: right;
+width: 45%;
+  position:relative;
+padding-right: 20px;
+}
+.kai-col01 dt h3::before{
+color: #c9b06657;
+right: 20px;
+width: 100px;
+font-size: 4rem;
+font-style: italic;
+content: "0" counter(point);
+position: absolute;
+top: -70px;
+}
+.kai-col01 dt figure {
+width: 55%;
+z-index: 1;
+}
+.kai-col01 dt figure img{
+ border-radius: 50%;
+width: 150px; 
+}
+.kai-col01 li:last-child dt {
+justify-content: end;
+width: 160px;
+margin: 0 0 0 auto;
+}
+.kai-col01 li:last-child dt span{
+display: block;
+font-size: 18px;
+font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+text-align: center;
+width: 230px;
+font-weight: lighter;
+border: 1px solid #000;
+background: #fff;
+z-index: 1;
+border-radius: 20px;
+padding: 5px 0;
+}
+.kai-col01 li:last-child dd{
+padding: 0;
+background: none;
+margin: 0;
+  }
+.kai-col01 li:nth-of-type(3) dd,.kai-col01 li:nth-of-type(5) dd{
+background: #f4f0e9;
+position:relative;
+filter: drop-shadow(3px 3px 2px #d9d5ce);
+  }
+.kai-col01 li:nth-of-type(3) dd::before,.kai-col01 li:nth-of-type(5) dd::before{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/b-nutritionist.png)no-repeat;
+content: "";
+width: 60px;
+height: 60px;
+background-size: contain;
+position: absolute;
+top: -60px;
+left: 20px;
+  }
+@media (max-width: 680px) {
+.kai-col01 dt{
+  width:100%;
+}
+.kai-col01 dt {
+  justify-content: center;
+}
+.kai-col01 dt h3 {
+width: 180px;
+}
+.kai-col01 dt figure {
+  justify-content: start;
+  display: flex;
+}
+.kai-col01 dd{
+  width:100%;
+}
+.kai-col01 ul::before {
+left: 50%;
+}
+.kai-col01 li:last-child dt {
+  width: 100%;
+}
+  .kai-col01 li:last-child dt span {
+  width: 100%;
+  }
+}
+@media (max-width: 580px) {
+.kai-col01 ul::before {
+left: 55%;
+}
+}
+@media (max-width: 480px) {
+.kai-col01 ul::before {
+left: 52.5%;
+}
+.kai-col01 dt h3 {
+  width: 25%;
+}
+}
+@media (max-width: 390px) {
+.kai-col01 ul::before {
+left: 58%;
+}
+}
+/* ================
+// .kai-col01-2
+// ===============*/
+.kai-col01-2 .kai-inn{
+background: #fff;
+box-shadow: 2px 2px 4px #e3e3e3;
+padding: 20px 20px 30px;
+}
+.kai-col01-2 .waku{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.kai-col01-2 .waku figure{
+width:50%;
+}
+.kai-col01-2 .waku p{
+width:50%;
+padding: 0 0 0 20px;
+}
+
+.kai-col01-2 .waku p em {
+  background: linear-gradient(transparent 60%,#fff9cc 60%);
+  font-style: normal;
+  font-weight: 700;
+}
+@media (max-width: 680px) {
+.kai-col01-2 .waku figure{
+width:100%;
+}
+.kai-col01-2 .waku p{
+width:100%;
+padding: 0px;
+}
+}
+/* ================
+// .kai-akoujia04
+// ===============*/
+.kai-akoujia04{
+    padding: 50px 0;
+}
+.kai-akoujia04 p span{
+display: block;
+padding: 10px;
+background: #fff;
+}
+.kai-akoujia04 p em{
+color: #ff7767;
+font-weight: 700;
+font-style: normal;
+}
+.kai-akoujia04 table{
+padding: 20px 20px 20px 0;
+background: #f0f0f0;
+border-collapse: separate;
+border-spacing: 2px;
+  border-radius: 20px;
+}
+.kai-akoujia04 tr{
+
+}
+.kai-akoujia04 th{
+  font-size: 14px;
+background: #f0f0f0;
+  padding: 20px;
+}
+.kai-akoujia04 th:nth-child(2),.kai-akoujia04 th:nth-child(3){
+  background:#fff;
+}
+.kai-akoujia04 td{
+  font-size: 14px;
+background: #f0f0f0;
+  padding: 20px;
+}
+.kai-akoujia04 td:nth-child(2),.kai-akoujia04 td:nth-child(3){
+  background:#fff;
+}
+.kai-akoujia04 td em{
+color: #FF7767;
+font-weight: bold;
+font-style: normal;
+  }
+.kai-akoujia04 tr td:nth-child(1){
+font-size: 11px;
+padding: 10px;
+font-weight: bold;
+text-align: center;
+ }
+
+.kai-akoujia04 td:nth-child(1){
+width: 14%;
+}
+.kai-akoujia04 td:nth-child(2),.kai-akoujia04 td:nth-child(3){
+width: 43%;
+}
+.kai-akoujia04 tr:nth-child(2) td{
+  padding: 0;
+}
+@media (max-width: 480px) {
+  .kai-akoujia04 table {
+    padding: 20px 10px 20px 0
+  }
+.kai-akoujia04 td:nth-child(1){
+width: 20%;
+}
+.kai-akoujia04 td:nth-child(2),.kai-akoujia04 td:nth-child(3){
+width: 40%;
+padding: 10px;
+font-size: 12px;
+}
+}
+
+/* ================
+// .コラム回遊
+// ===============*/
+.col-kaiyu ul {
+display: flex;
+justify-content: space-between;
+margin: 50px auto 0;
+border-top: 1px dotted #ccc;
+padding-top: 50px;
+}
+.col-kaiyu li {
+width:45%;
+display: flex;
+flex-direction: column;
+}
+.col-kaiyu span {
+display: block;
+background: #c9b066;
+color: #fff;
+font-size: 14px;
+padding: 10px 0;
+width: 150px;
+margin: 30px auto;
+}
+.col-kaiyu em{
+display: block;
+font-style: normal;
+font-size: 14px;
+}
+@media (max-width: 480px) {
+.col-kaiyu span {
+  width: 100%;
+}
+}

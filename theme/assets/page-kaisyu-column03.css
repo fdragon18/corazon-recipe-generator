@@ -1,0 +1,175 @@
+/* ================
+// fv
+// ===============*/
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column03-01.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 450px !important;
+  }
+h1{
+  padding: 20px 30px 35px;
+  background: rgba(256,256,256,.6);
+}
+h1::before{
+  content:'<甘酒の基礎知識　その3>';
+  font-size:14px;
+  display: block;
+  padding:15px;
+}
+@media (max-width: 680px) {
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column03-01-sp.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 250px !important;
+  }
+    }
+/* ================
+// 共通
+// ===============*/
+@media (max-width: 1025px) {
+.kai-inn{
+  padding: 0 20px;
+}
+  }
+/* ================
+// .kai-col
+// ===============*/
+.kai-col,.kai-col01,.kai-col01-2,.kai-akoujia04,.kai-col4{
+  padding: 50px 0;
+}
+#to01,#to02,#to03,#to04,#to05,#to06,#to07,#to08{
+display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+/* ================
+// .kai-col03
+// ===============*/
+.kai-col03 {
+margin: 50px auto;
+}
+.kai-col03 .kai-inn{
+  position:relative;
+}
+.kai-col03 h2{
+background: #F7F0EA;
+position: absolute;
+text-align: center;
+right: 0;
+width: 50%;
+padding: 8px 0;
+}
+.kai-col03 .waku{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.kai-col03 .waku figure{
+width:50%;
+padding-right: 30px;
+}
+.kai-col03:nth-child(5) .waku figure,.kai-col03:nth-child(9) .waku figure{
+order:2;
+padding: 0 0 0 30px;
+}
+.kai-col03:nth-child(5) h2,.kai-col03:nth-child(9) h2{
+left: 0;
+}
+.kai-col03 .waku figure img{
+object-fit: cover;
+width: 100%;
+height: 450px;
+}
+.kai-col03 .waku2{
+width:50%;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+padding-top: 100px;
+}
+.kai-col03 .waku2 p em{
+background: linear-gradient(transparent 60%,#fff9cc 60%);
+font-style: normal;
+font-weight: 700;
+}
+.kai-col03 .waku2 figure{
+display: flex;
+margin: auto;
+width: 300px !important;
+padding: 0 !important;
+}
+.kai-col03 .waku2 figure img{
+object-fit: unset;
+width: unset;
+height: unset !important;
+}
+@media (max-width: 980px) {
+.kai-col03 h2{
+right: 20px;
+width: calc(50% - 20px);
+}
+  .kai-col03:nth-child(5) h2, .kai-col03:nth-child(9) h2 {
+  left: 20px;
+}
+  }
+@media (max-width: 680px) {
+.kai-col03 h2 {
+  width: 100%;
+  position: unset;
+}
+.kai-col03 .waku figure {
+  width: 100%;
+  padding-right: 0;
+}
+.kai-col03 .waku2 {
+  width: 100%;
+  padding-top: 10px;
+}
+.kai-col03:nth-child(5) .waku figure, .kai-col03:nth-child(9) .waku figure {
+  order: 0;
+  padding: 0;
+}
+  .kai-col03 .waku figure img {
+  height: 350px;
+}
+  }
+@media (max-width: 480px) {
+  .kai-col03 .waku figure img {
+height: 280px;
+}
+  }
+/* ================
+// .コラム回遊
+// ===============*/
+.col-kaiyu ul {
+display: flex;
+justify-content: space-between;
+margin: 50px auto 0;
+border-top: 1px dotted #ccc;
+padding-top: 50px;
+}
+.col-kaiyu li {
+width:45%;
+display: flex;
+flex-direction: column;
+}
+.col-kaiyu span {
+display: block;
+background: #c9b066;
+color: #fff;
+font-size: 14px;
+padding: 10px 0;
+width: 150px;
+margin: 30px auto;
+}
+.col-kaiyu em{
+display: block;
+font-style: normal;
+font-size: 14px;
+}
+@media (max-width: 480px) {
+.col-kaiyu span {
+  width: 100%;
+}
+}

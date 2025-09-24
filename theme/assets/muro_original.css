@@ -1,0 +1,2733 @@
+/****************************
+共通で使うCSS
+****************************/
+a { text-decoration: none!important;}
+a:hover { text-decoration: none!important;}
+p {font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+line-height: 2em;}
+@media screen and (max-width: 768px) {
+  p{font-size:0.9em;}
+}
+.product-title,.short-description,.table-wrapper,.price-box {font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+line-height: 2em;}
+body{background-color: #FAF9F7!important;}
+
+.h1, h1 {
+    font-size: 2rem!important;
+}
+@media screen and (max-width: 768px) {
+  h1 { font-size: 1.5rem!important;}
+}
+
+h1.section-header__title,h2.section-header__title,h2.txtcenter,h2.column_title,h1.h2.product-single__title {
+	font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+h3,h3 strong{
+	font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
+.shopify-policy__title h1{
+  	font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
+.catch_title_sub,.catch_title{
+  	font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+.tategakitxt-wrapper p{
+  	font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+.title_muro_01{
+	font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+}
+
+.bmb1{
+   margin-top: 1em;
+}
+.bmb2{
+   margin-top: 2em;
+}
+.bmb3{
+   margin-top: 3em;
+}
+.bmb4{
+   margin-top: 4em;
+}
+.bmb5{
+   margin-top: 5em;
+}
+
+.bmb8{
+   margin-top: 8em;
+}
+.mb0{
+	margin: 0 auto !important;
+}
+.mb1{
+   margin-bottom: 1em;
+}
+.mb2{
+   margin-bottom: 2em;
+}
+.mb3{
+   margin-bottom: 3em;
+}
+.mb4{
+   margin-bottom: 4em;
+}
+
+
+.bmg60{
+	 margin-top: 60px;
+}
+.bmg70{
+	 margin-top: 70px;
+}
+.bmg80{
+	 margin-top: 80px;
+}
+.bmg90{
+	 margin-top: 90px;
+}
+.bmg100{
+	 margin-top: 100px;
+}
+.bmg110{
+	 margin-top: 110px;
+}
+
+.mg60{
+	 margin-bottom: 60px;
+}
+.mg70{
+	 margin-bottom: 70px;
+}
+.mg80{
+	 margin-bottom: 80px;
+}
+.mg90{
+	 margin-bottom: 90px;
+}
+.mg100{
+	 margin-bottom: 100px;
+}
+.mg110{
+	 margin-bottom: 110px;
+}
+
+ .img50_sns{
+    width:80%;
+    margin: 0 auto;
+}
+
+.imgcenter{
+	margin:0 auto!important;
+  display:block!important;       
+}
+
+.txtcenter{
+text-align: center;       
+}
+
+.contens_txt{
+	max-width:1000px;
+	margin: 0 auto;
+}
+.txt_wt{
+	color: #fff;
+}
+
+.color_g{
+  color:#111 ;
+}
+
+.txtcenter{
+text-align: center;       
+}
+
+.txtleft{
+text-align: left;       
+}
+
+.txtrgt{
+text-align:right;
+}
+.box_sp_pd{
+	padding: 0 1em;
+}
+
+/*--ヘッダー上下のpadding  --*/
+.site-header{padding:0;}
+.site-header--stuck{padding:0;}
+
+
+
+/*--メニュー調整用  --*/
+.menu_textsize{
+	font-size:10px;
+}
+
+/*ハンバーガーメニュー*/
+.mobile-nav__link--top-level{
+   font-size: 0.95em!important;
+}
+
+/*TOPページ店舗紹介箇所テキスト*/
+.hero__text-wrap{
+  font-family:serif;
+}
+
+/*フッター箇所  */
+.footer__title{
+  font-family:serif;
+  font-size: 1.4rem;
+}
+@media screen and (max-width: 768px){
+.footer__title{
+  font-size: 1.2rem;
+}
+}
+
+/*-- PC版表示CSS  --*/
+.pc_area{
+  display:block!important;
+}
+.phone_area{
+  display:none!important;
+}
+
+
+/*-- スマホ版表示CSS  --*/
+@media screen and (max-width: 768px){
+  .pc_area{
+    display:none!important;
+  }
+  .phone_area{
+    display:block!important;
+  }
+}
+
+
+
+/* 送料無料　ラッピング代込み　表示用　 */
+
+.ProductPage-label-red p{
+    background-color: #333;
+    font-size: .7em;
+    display: inline-block;
+    padding: 0 8px;
+    color: #fff;
+    border-radius: 2px;
+    font-weight: bold;
+  margin-top:5px;
+}
+@media screen and (max-width: 1144px){
+  .ProductPage-label-red p.wrap{
+    margin-bottom:0px;
+  }
+}
+@media screen and (max-width: 768px){
+  .ProductPage-label-red p.wrap{
+    margin-bottom:5px;
+  }
+  .ProductPage-label-red p{
+    font-size:0.72em;
+  }
+}
+/*商品一覧  */
+[data-type_product_capitalize=true] .grid-product__title {
+    font-size: calc(var(--typeBaseSize) - 3px);
+}
+.image-wrap .animate-me, .image-wrap img:not([role=presentation]), .image-wrap svg{opacity:1}
+.aos-animate .image-wrap .animate-me, .aos-animate .image-wrap .lazyloaded:not([role=presentation]), .aos-animate .image-wrap svg{
+animation:none;}
+[data-aos=row-of-4].aos-animate:nth-child(4n+2) .image-wrap img{
+  animation-delay:0;
+}
+
+
+
+
+@media all and (min-width: 768px) {
+	
+.img20{
+    width:20%;
+    margin: 0 auto;
+}
+.img30{
+    width:30%;
+    margin: 0 auto;
+}
+.img40{
+    width:40%;
+    margin: 0 auto;
+}
+.img50{
+    width:50%;
+    margin: 0 auto;
+}
+.img60{
+    width:60%;
+    margin: 0 auto;
+}
+.img70{
+    width:70%;
+    margin: 0 auto;
+}
+    
+ .img80{
+    width:80%;
+    margin: 0 auto;
+}
+  
+ .img50_sns{
+    width:60%;
+    margin: 0 auto;
+}
+  
+}
+
+
+/****************************
+商品一覧　サイドバー
+****************************/
+.collection-sidebar__group--3{display:none;}
+.tag-list a, .tag-list label{font-size:0.85em;}
+
+
+/*　　レビュー　*/
+div#stamped-reviews-widget[data-widget-type="checkout-comments"][data-style="bubble"] {
+    border: none !important;
+    padding-bottom: 30px;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 0.7em;
+}
+div#stamped-reviews-widget[data-widget-type="checkout-comments"][data-total-comments] {
+    border: 1px solid #e0e0e0;
+    margin-top: 15px;
+    width: 50%;
+    margin: 0 auto;
+    font-size: 0.8em;
+}
+.stamped-grid {
+    display: flex;
+    margin: 0 auto 6em;
+    width: 80%;
+}
+.stamped-ttl{
+    text-align: center;
+    margin: 3em auto 2em;
+}
+@media screen and (max-width: 768px){
+.stamped-grid {
+    margin: 0 auto 6em;
+    width: 100%;
+    display: block;
+    padding: 0 20px;
+}
+  
+}
+
+/*　マイル　*/
+.rte #loyaltylion a:not(.btn):not(.spr-summary-actions-newreview):after{
+    border: none;
+  }
+
+/* アカウント*/
+
+
+/* 特集 */
+.muro-feature-read{
+	margin: 0 auto;
+	}
+.feature-set-ul {
+	list-style: none;
+    margin: 0 auto 10%;
+}
+.feature-set-li{
+	margin-bottom: 5% !important;		
+}
+.feature-tit{
+	margin: 0 auto;
+	text-align: center;
+    font-size: 1.2em;
+	}
+
+.feature_btn {
+	display: block!important;
+	position: relative!important;
+	width: 80%;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff!important;
+	background: #a4923f;
+	font-size: 1em!important;
+}
+
+.feature_btn:hover {opacity:0.8;}
+
+a.feature-a{display: block;}
+a.feature-a:hover{opacity:0.8;}	
+
+section.feature-item {
+    margin: 10% auto;
+    text-align: center;
+}
+
+.tit-note {
+    font-size: 0.6em;
+    line-height: 2.2;
+}
+
+.tit-2c{
+	letter-spacing: 0;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+
+
+/* GW　配送について */
+.muro-gw-deli {
+	width:80%;
+	margin: 0 auto;
+}
+	
+@media screen and (max-width: 768px){
+.muro-gw-deli {
+	width:100%;
+}
+  
+}
+
+
+/****************************
+商品コマ調整
+****************************/
+.grid-product__title {
+    letter-spacing: .1em !important;
+    text-align: justify;
+    font-feature-settings: 'palt' 1;
+    line-height: 1.5;
+}
+h1.h2.product-single__title {
+    font-size: 1.3rem !important;
+    line-height: 1.6;
+    text-align: justify;
+    font-feature-settings: 'palt' 1;
+}
+.page-content--product {
+    width: 86%;
+    margin: 0 auto;
+}
+@media screen and (max-width: 768px){
+.page-content--product {
+    width: 100%;
+}
+  
+}
+
+/****************************
+店舗情報
+****************************/
+.day-cont{
+	margin: 30px auto 60px;
+	display: block;
+	}
+	
+h3.day-tit1 {
+    margin: 15px auto;
+}
+
+h3.day-tit1:before{
+  content: '';
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-image: url(https://cdn.shopify.com/s/files/1/0262/8252/4717/files/day01.png?v=1651797001);
+  background-size: contain;
+  vertical-align: middle;		
+}
+h3.day-tit2:before{
+  content: '';
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-image: url(https://cdn.shopify.com/s/files/1/0262/8252/4717/files/day02.png?v=1651797001);
+  background-size: contain;
+  vertical-align: middle;		
+}
+h3.day-tit3:before{
+  content: '';
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-image: url(https://cdn.shopify.com/s/files/1/0262/8252/4717/files/day03.png?v=1651797001);
+  background-size: contain;
+  vertical-align: middle;		
+}
+
+.muro_place {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-size: 1.2em;
+}
+.muro_read{
+    width: 91%;
+    margin: 0 auto;
+}
+.muro_read p{
+    text-align: left;
+	font-size: 0.8em;
+}
+.muro_read h3{
+  font-family:serif;
+}
+.muro_place .overview {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    margin-top: 3em;
+}
+.muro_place .overview .row {
+    width: 100%;
+    height: auto;
+    padding: 1.5em 0;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    border-bottom: 1px solid #e3cf9c;
+    margin: 0 auto;
+}
+.muro_place .overview .row p {
+    font-size: 0.9em;
+    line-height: 1.7em;
+}
+.muro_place .overview .row p:first-child {
+    font-weight: bold;
+    width: 20%;
+    margin-bottom: 0;
+}
+.muro_place .overview .row p:last-child {
+    width: 80%;
+}
+.muro_place .overview .row.pc {
+    border-bottom: none;
+}
+.muro_place .overview .row.sp {
+    display: none;
+}
+.pci {
+    display: none;
+}
+.spi {
+    display: inline;
+}
+.muro_place .muro_map{
+	margin: 8% auto 0;
+}
+.muro_notes{
+	font-size: 0.6em;
+    text-align: left;
+	}
+.muro_notes span{
+	color: #9e3d3d;
+	font-weight: bold;
+}
+.muro_place .map_memo {
+    width: 100%;
+    margin: 0 auto 3em;
+    padding: 0.5em 0 0 0;
+}
+.muro_place .map_memo p {
+    width: 72%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: .6em;
+}
+.muro_sns .sns{
+	list-style: none;
+	margin: 2em auto;
+	
+}
+.muro_sns li{
+	display: inline-block;
+    margin: 0 auto;
+    width: 22%;
+}
+.muro_sns li a{
+	display: blick;
+}
+.muro_sns li img{
+	width: 20%;
+	display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -0.1em;
+    margin-right: 1em;
+}
+.btn_1w {
+	display: block!important;
+	position: relative!important;
+	padding: 0.8em 2em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff!important;
+	background: #907322;
+	font-size: 1em!important;
+	width: calc(100% - 50%);
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
+.btn_1w:hover {
+	color: #fff!important;
+	opacity: 0.8;
+}
+.btn_1w_2 {
+	display: block!important;
+	position: relative!important;
+	padding: 0.3em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff!important;
+	background: #804F21;
+	font-size: 1em!important;
+	width: calc(100% - 60%);
+    margin: 0 auto;
+}
+
+.btn_1w_2:hover {
+	color: #fff!important;
+	opacity: 0.8;
+}
+.muro_entry {
+    width: 80%;
+    height: auto;
+    margin: 3em auto;
+    text-align: center;
+    line-height: 1.7em;
+    padding: 3em 0;
+    border: 1px solid #dedede;
+}
+.muro_entry .ebtn {
+    display: block;
+    border: 4px solid #dedede;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    width: 300px;
+    margin: auto;
+    margin-top: 1em;
+}
+.muro_entry .ebtn a {
+    cursor: pointer;
+    display: block;
+    width: auto;
+    height: 100%;
+    padding: 0.5em 0;
+    -webkit-transition: all .6s;
+    -moz-transition: all .6s;
+    -o-transition: all .6s;
+    -ms-transition: all .6s;
+    transition: all .6s;
+}
+.muro_entry .ebtn a p {
+    display: inline;
+    font-size: .9em;
+    line-height: 1em;
+    font-weight: 200;
+}
+
+@media screen and (max-width: 768px){
+.muro_read{
+    width: 100%;
+    margin: 0 auto;
+}
+.muro_place .overview {
+    width: 100%;
+    margin-top: 2em;
+    border-top: 1px solid #e3cf9c;
+}
+.muro_place .overview .row {
+    width: 90%;
+    margin: auto;
+    padding: 1.5em 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.muro_place .overview .row.pc {
+    display: none;
+}
+.muro_place .overview .row.sp {
+    display: block;
+    border-bottom: none;
+}
+.muro_place .overview .row .sp {
+    display: block;
+    padding: 0.5em 0;
+    border-bottom: none;
+}
+.muro_place .overview .row .sp p {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    padding-left: 1.5em;
+    border-bottom: 1px solid #333;
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: 700;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-image: url(https://cdn.shopify.com/s/files/1/0262/8252/4717/files/phone_fill.svg?v=1646124667);
+    background-size: 13% 68%;
+}
+.muro_place .overview .row p {
+    font-size: 0.8em;
+    padding: 0 5%;
+}
+	
+.muro_place .overview .row p:first-child {
+	width: 100%;
+}
+
+.muro_place .overview .row p:last-child {
+    margin-top: 0.8em;
+    width: 100%;
+    line-height: 1.5em;
+}
+.muro_place .map_memo p {
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: .5em;
+}
+.muro_sns li img{
+	width: 50%;
+	display: inline-block;
+    vertical-align: middle;
+    position: relative;
+	top: -0.1em;
+    margin-right: 0;
+}
+.muro_sns li span{
+	display: block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 0.6em;
+}
+.btn_1w {
+	width: calc(100% - 1em);
+    
+}
+.btn_1w_2 {
+	width: calc(100% - 1em);
+    
+}
+.muro_entry {
+    width: 95%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 2em 0 2em;
+    border: 1px solid #dedede;
+}
+.muro_entry p{
+	font-size: 0.7em;
+}
+.muro_entry .ebtn {
+    width: 280px;
+}
+
+
+}
+
+
+/****************************
+甘酒診断
+****************************/
+
+.choose_box {
+  position: relative;
+  height: 50vw;
+  width: 100%;
+}
+ .choose_box p {
+    font-size: 24px;
+    display: block;
+    font-weight: 600;
+    text-align: center;
+
+  }
+
+.choose_box ul {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+   display:flex;
+  flex-wrap: wrap;
+}
+.choose_box ul li {
+  width: calc(100% / 2 - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+  list-style: none;
+}
+
+.choose_box ul li:nth-child(2n) {
+   margin-right: 0;
+}
+.choose_box ul li a {
+  color: #fff!important;
+  display: block;
+  padding: 20px 60px;
+  text-align: center;
+  background-color: #111111;
+  font-weight: 600;
+  font-size: 18px;
+  border: 2px solid #111111;
+  text-decoration: none!important;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+	
+}
+
+.choose_box ul li a:hover {
+   background-color: #fff;
+  color: #111111;
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -o-transition: 0.7s;
+    transition: 0.7s;
+}
+
+.choose_box_answer {
+    width: 50%;
+    clear: both;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+  background-color: #C00003;
+  }
+
+.fit {
+  position: absolute;
+  left: 0px;
+  top: 20px;
+  width: 100%;
+}
+#q_06 span,#q_07 span,#q_08 span,#q_09 span {
+  display: block;
+  width:100%;
+}
+#q_06 a,#q_07 a,#q_08 a,#q_09 a   {
+  display: block;
+  width:100%;
+  text-align: center;
+}
+
+/****************************
+甘酒を探す
+****************************/
+
+.cssgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 0.8em;
+  padding: 0.8em;
+  margin: 0 2em 2em!important;
+}
+
+.cssgrid > div {
+  overflow: auto;
+  min-width: 0;
+  padding: 2em;
+font-size: 1.3em;
+}
+
+.cssgrid > div a {
+text-decoration: none!important;
+	color: #fff!important;
+}
+
+.osusume {
+  background: #D7A83C;
+color: #fff;
+}
+
+.tsukurite {
+  background: #8A510E;
+	color: #fff;
+}
+
+.mokuteki {
+  background: #BA3B09;
+	color: #fff;
+}
+
+.cp_link {
+	padding: 0.1em 0.3em;
+	position: relative;
+	display: inline-block;
+	transition: .3s;
+	color: #fff;
+}
+.cp_link::after {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	content: '';
+	width: 0;
+	height: 1px;
+	background-color: #fff;
+	transition: .3s;
+}
+.cp_link:hover::after {
+	width: 100%;
+}
+
+.cssgrid_mokuteki {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 0.8em;
+  padding: 0.8em;
+  margin: 0 0 2em;
+}
+
+.cssgrid_mokuteki > div {
+  overflow: auto;
+  min-width: 0;
+	padding: 1em 0;
+font-size: 1.3em;
+}
+
+.cssgrid_mokuteki > div a {
+text-decoration: none!important;
+	color: #fff!important;
+}
+
+.mokuteki_detail {
+	background: #BA3B09;
+	text-align: center;
+}
+
+.mokuteki_detail img{
+	margin: 1em auto;
+}
+
+.tsukurite_detail {
+	background: #8A510E;
+	text-align: center;
+}
+
+.osusume_detail {
+	background: #D7A83C;
+	text-align: center;
+}
+
+.osusume_detail img{
+	margin: 1em auto;
+}
+
+/*div要素全体にリンクをつけるために必要な要素*/
+.linkbox {
+    position: relative;
+}
+.linkbox a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+/****************************
+甘酒２週間生活
+****************************/
+
+.full{
+width: 100%;
+}
+
+.color_2w{
+width: 100%;
+background-color: #FCFAF0;
+}
+
+.color_2w_w{
+width: 100%;
+background-color: #fff;
+padding: 1em;
+border: thin solid #7BBCB5; 
+}
+
+.contents_2w{
+  max-width: 1200px;
+  margin: 0px auto;
+}
+
+.bg-video-wrap {
+  background: url('https://cdn.shopify.com/s/files/1/0262/8252/4717/files/2week_top_02.jpg?v=1637567089') center;
+  background-size: cover;
+  width: 100%;
+  padding-top: 50%;
+}
+
+@media screen and (max-width: 768px){
+  .bg-video-wrap {
+   background: url('https://cdn.shopify.com/s/files/1/0262/8252/4717/files/2week_top_02.jpg?v=1637567089') center;
+  background-size: cover;
+  width: 100%;
+  padding-top: 110%;
+}
+}
+
+.title_2w {
+  position: relative;
+  display: inline-block;
+	font-size: 2em;
+	color: #804F21;
+  font-family: serif;
+}
+.title_2w:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  display: inline-block;
+  width: 60px;
+  height: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #804F21;
+  border-radius: 2px;
+}
+
+.p_2w {
+	font-size: 1.5em;
+	color: #804F21;
+}
+
+.p_2w_2 {
+	font-size: 1em;
+	padding: 1.5em;
+	line-height: 1.8em;
+}
+
+.cssgrid2w {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 0.8em;
+  padding: 0.8em;
+  margin: 0 0 2em;
+}
+
+.cssgrid2w > div {
+  overflow: auto;
+  min-width: 0;
+}
+
+.cssgrid2w > div a {
+text-decoration: none!important;
+	color: #000!important;
+}
+
+.card {
+  margin: 0 auto;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #ccc;
+}
+.card-img {
+  border-radius: 5px 5px 0 0;
+  max-width: 100%;
+  height: auto;
+}
+.card-content {
+  padding: 10px;
+}
+.card-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+      font-size: 1.2em!important;
+    font-family: serif;
+}
+.card-text {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cssgrid_2week {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 1fr;
+  grid-gap: 0.8em;
+  padding: 0.8em;
+  margin: 0 0 2em;
+}
+
+.cssgrid_2week > div {
+  overflow: auto;
+  min-width: 0;
+}
+
+.btn_2w {
+	display: block!important;
+	position: relative!important;
+	width: 270px!important;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff!important;
+	background: #804F21;
+	font-size: 1em!important;
+}
+
+.btn_2w:hover {
+	color: #fff!important;
+	font-weight: bold;
+}
+/****************************
+甘酒ムース
+****************************/
+
+.bg-mousse {
+  background: url('https://cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe_mousse_top_656acadb-b267-4aee-a687-a40fe9a9a1e1.jpg?v=1597803043') center;
+  background-size: cover;
+  width: 100%;
+  padding-top: 50%;
+}
+
+@media screen and (max-width: 768px){
+  .bg-mousse {
+   background: url('https://cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe_mousse_top_656acadb-b267-4aee-a687-a40fe9a9a1e1.jpg?v=1597803043') center;
+  background-size: cover;
+  width: 100%;
+  padding-top: 110%;
+}
+}
+
+.color_recipe{
+width: 100%;
+background-color: #F9EAF1;
+padding: 3em 1em;
+}
+
+.recipe_ingredients {
+  box-shadow :0px 0px 3px silver;
+  border: solid 1px whitesmoke;
+  padding: 0.5em 1em 0.5em 2.3em;
+  position: relative;
+  background: #fafafa;
+}
+
+.recipe_ingredients li {
+  line-height: 1.5;
+  padding: 0.5em 0;
+  list-style-type: none!important;
+}
+
+.recipe_ingredients li:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f0da";
+  position: absolute;
+  left : 1em; /*左端からのアイコンまで*/
+  color: gray; /*アイコン色*/
+}
+
+.recipe_htm {
+  counter-reset:number; /*数字をリセット*/
+  list-style-type: none!important; /*数字を一旦消す*/
+  padding: 0.3em 0.8em;
+  border: solid 2px #ffb107;
+}
+.recipe_htm li {
+  border-bottom: dashed 1px orange;
+  position: relative;
+  padding: 0.5em 0.5em 0.5em 30px;
+  line-height: 1.5em;
+}
+.recipe_htm li:before{
+  /* 以下数字をつける */
+  position: absolute;
+  counter-increment: number;
+  content: counter(number);
+  /*数字のデザイン変える*/
+  display:inline-block;
+  background: #ffb107;
+  color: white;
+  font-family: 'Avenir','Arial Black','Arial',sans-serif;
+  font-weight:bold;
+  font-size: 15px;
+  border-radius: 50%;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  /*以下 上下中央寄せのため*/
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.recipe_htm li:last-of-type {
+  border-bottom: none; /*最後のliの線だけ消す*/
+}
+
+.title_recipe {
+  position: relative;
+  display: inline-block;
+	font-size: 2em;
+	color: #804F21;
+}
+
+/****************************
+甘酒シャーベット
+****************************/
+
+.bg-sherbet {
+  background: url('https://cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe_sherbet_top.jpg?v=1599121190') center;
+  background-size: cover;
+  width: 100%;
+  padding-top: 50%;
+}
+
+/****************************
+甘酒レシピ
+****************************/
+
+.bg-recipe {
+  background: url('https://cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe_top.jpg?v=1599207969') center;
+  background-size: cover;
+  width: 100%;
+  padding-top: 50%;
+}
+
+/****************************
+トップページコンテンツ
+****************************/
+.top_aboutdetail {
+    display: grid;
+    grid-template-columns:30% 70%;
+    grid-column-gap: 20px;
+    justify-items: stretch;
+    align-items: stretch;
+	
+	
+ }
+
+.top_aboutdetail > div {
+  overflow: auto;
+  min-width: 0;
+}
+
+.tategakitxt {
+/*     position: relative;
+    width: 100%;
+    height: 10em; */
+    writing-mode: vertical-rl; /* ここで縦書きに */
+	font-size: 2em;
+	color:#6A5D21;
+	text-align: left;
+}
+ 
+.tategakitxt-wrapper { /* 文字を左右中央に寄せる */
+/*     position:absolute;
+    left:50%;
+    transform:translate(-50%); */
+}
+
+.vertical-mid {
+  -webkit-text-combine: horizontal;
+  -ms-text-combine-horizontal: all;
+  text-combine-upright: all;
+}
+
+.top_about_parent{
+	position: relative;
+	 width:100%;
+    height: 100%;
+}
+
+.top_about_children{
+	font-size: 1.2em;
+	line-height: 1.6em;
+	text-align: left;
+	position:absolute;
+  height:16em;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+
+.p_amazake_top {
+	font-size: 1.2em;
+	line-height: 1.6em;
+	padding: 1em .2em;
+}
+
+.p_muro_top {
+	font-size: 1.8em;
+	line-height: 2em;
+}
+
+.p_muro_top2 {
+	font-size: 1.5em;
+}
+
+@media screen and (max-width: 768px){
+.p_muro_top {
+	font-size: 1.6em;
+	line-height: 1.8em;
+}
+}
+
+/****************************
+甘酒について
+****************************/
+
+.p_amazake {
+	font-size: 1em;
+	line-height: 1.8em;
+	color: #111111d;
+}
+
+@media screen and (max-width: 768px){
+.p_amazake {
+	margin: 0 1em;
+}
+}
+
+.p_amazake_2 {
+	font-size: 1em;
+	line-height: 1.8em;
+}
+
+.color_amazake{
+	margin: 5em 0;
+width: 100%;
+background-color: #000;
+padding: .5em;
+}
+
+.amazake_p_w {
+	font-size: 1.2em;
+	color: #fff;
+}
+
+.cp_qa *, .cp_qa *:after, .cp_qa *:before {
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+.cp_qa {
+	overflow-x: hidden;
+	margin: 0 auto;
+	color: #333333;
+    width: 80%;
+}
+.cp_qa .cp_actab {
+	padding: 20px 0;
+	border-bottom: 1px dotted #cccccc;
+}
+.cp_qa label {
+	font-size: 1.2em;
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 1.2em 10px 0 48px;
+	cursor: pointer;
+}
+.cp_qa .cp_actab-content {
+	font-size: 1em;
+	position: relative;
+	overflow: hidden;
+	height: 0;
+	margin: 0 2%;
+	padding: 0 14px;
+	-webkit-transition: 0.4s ease;
+	        transition: 0.4s ease;
+	opacity: 0;
+    line-height: 1.8;
+}
+.cp_qa .cp_actab input[type=checkbox]:checked ~ .cp_actab-content {
+	height: auto;
+	padding: 14px;
+	opacity: 1;
+}
+.cp_qa .cp_plus {
+	font-size: 2.4em;
+	line-height: 100%;
+	position: absolute;
+	z-index: 5;
+	margin: 3px 0 0 10px;
+	-webkit-transition: 0.2s ease;
+	        transition: 0.2s ease;
+}
+.cp_qa .cp_actab input[type=checkbox]:checked ~ .cp_plus {
+	-webkit-transform: rotate(45deg);
+	        transform: rotate(45deg);
+}
+.cp_qa .cp_actab input[type=checkbox] {
+  display: none;
+}
+
+@media screen and (max-width: 768px){
+
+.cp_qa {
+    width: 92%;
+}
+  
+}
+
+
+.amazake_table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.amazake_table th,
+.amazake_table td {
+  padding: 1rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+	font-size: 1.2em;
+}
+.amazake_table th {
+  color: #666;
+  background: #eee;
+  position: sticky;
+  top: 0;
+font-size: 1.2em;
+}
+
+.car-name {
+    background: #eee;
+
+	font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+	  }
+@media(max-width: 500px) {
+  .heading {
+    display: none;
+  }
+  .amazake_table td {
+    display: block;
+  }
+  .car-name {
+    background: #eee;
+  }
+}
+
+.tnjmoji{
+  position: relative;
+}
+
+.tnjmoji img{
+ width: 3em;
+}
+
+
+.tnjmoji p {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+font-family: ryo-display-plusn, serif;
+font-weight: 500;
+font-style: normal;
+font-size:2.1em;
+	color: #54410d;
+  }
+
+@media screen and (max-width: 768px){
+.tnjmoji p {
+font-size:1.8em;
+  }
+}
+
+.tnjmoji_kouka{
+  position: relative;
+}
+
+.tnjmoji_kouka img{
+ width: 6em;
+}
+
+
+.tnjmoji_kouka p {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+font-family: ryo-display-plusn, serif;
+font-weight: 500;
+font-style: normal;
+font-size:2.1em;
+	color: #54410d;
+  }
+
+@media screen and (max-width: 768px){
+.tnjmoji_kouka p {
+font-size:1.8em;
+  }
+}
+
+.marker_pink {
+background: linear-gradient(transparent 60%, #ffe4e1 60%);
+font-weight: bold;
+}
+/****************************
+甘酒ヌーボー
+****************************/
+.nouveau_title{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:1.5em;
+text-align: center;
+}
+
+.nouveau_bg01{
+	background-color: #ffffff;
+background-image: linear-gradient(0deg, #ffffff 0%, #f7f3e5 50%, #f3e1be 100%);
+	padding: 2em 0;
+}
+
+.nouveau_bg02{
+background-color: #ffffff;
+background-image: linear-gradient(0deg, #ffffff 0%, #fffae3 50%, #dcc5a3 100%);
+	padding: 2em 0;
+}
+
+.color_nouveau{
+width: 100%;
+background-color: #54410d;
+padding: 1em;
+}
+
+.nouveau_title_bs{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:2.5em;
+text-align: center;
+color: #fff;
+}
+
+.nouveau_p_w {
+	font-size: 1.3em;
+	padding: 1em;
+	line-height: 1.5em;
+	color: #fff;
+}
+
+.nouveau_pp_w {
+	font-size: 1em;
+	padding: 1em;
+	color: #fff;
+}
+
+
+@media screen and (max-width: 768px){
+.color_nouveau{
+padding: .5em;
+}
+	
+.nouveau_title{
+font-size:2em;
+}
+	
+.nouveau_title_bs{
+font-size:2em;
+}
+}
+
+/****************************
+2020年お歳暮
+****************************/
+
+.color_2020oseibo{
+width: 100%;
+background-color: #800603;
+}
+
+.color_2020oseibo_w{
+width: 100%;
+background-color: #fff;
+padding: 1em;
+}
+
+.bgcolor_2020oseibo{
+width: 100%;
+background-color: #f7f3f0;
+padding: 1em;
+}
+
+.oseibo_title{
+font-weight: 700;
+font-style: normal;
+font-size:1.8em;
+text-align: center;
+line-height: 1.6em;
+}
+
+.p_oseibo {
+	font-size: 1.2em;
+	line-height: 1.8em;
+}
+
+@media screen and (max-width: 768px){
+.oseibo_title{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:1.6em;
+	line-height: 1.5em;
+text-align: center;
+}
+.p_oseibo {
+	font-size: 1em;
+	line-height: 1.8em;
+	padding: 1em;
+}
+}
+
+/****************************
+甘酒コラム
+****************************/
+
+.column_box {
+	max-width: 800px;
+	margin: 0 auto;
+	padding:0 1em;
+}
+
+.colorfilter-base {
+    background-color: #534741; /* カラーフィルタ効果の色を指定 */
+	position: relative;
+}
+
+.colorfilter-image {
+    opacity: 0.6;    /* カラーフィルタ効果の度合いを指定(※) */
+    display: block!important;
+}
+
+.colorfilter-base_inr {
+	 position: absolute;
+	top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+	z-index: 1;
+	max-width: 800px;
+}
+
+.colorfilter-base_inr_about {
+	 position: absolute;
+	position: absolute;
+	top: 20%;
+  left: 20%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+	z-index: 1;
+	max-width: 1000px;
+}
+
+.catch_title_column {
+padding: 2rem 2rem;
+  border-top: 5px solid #fff;
+  border-bottom: 5px solid #fff;
+}
+
+
+.column_title {
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+	line-height: 1.5em;
+	font-weight: bold;
+	margin: 2em 0;
+}
+
+@media screen and (max-width: 768px){
+	.column_title {
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+	font-size: 1.8em;
+	line-height: 1.4em;
+	font-weight: bold;
+}
+}
+
+.column_title_content {
+font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+  padding: 1rem 2rem;
+  border-left: 5px solid #000;
+  background: #f4f4f4;
+}
+
+.column_mokuji_p {
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+	font-size: 1em;
+}
+
+.catch_title {
+color: #fff;
+font-size: 3em;
+}
+
+.catch_title_sub {
+color: #fff;
+font-size: 1.5em;
+margin-bottom: 1em;
+}
+
+@media screen and (max-width: 768px){
+.column_mokuji_p {
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+	font-size: 1.2em;
+}
+	
+.catch_title_column {
+padding: 2rem 2rem;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+.catch_title {
+color: #fff;
+font-size: 1.5em;
+}
+
+.catch_title_sub {
+color: #fff;
+font-size: 1em;
+margin-bottom: .5em;
+}
+}
+
+.bg_wht{
+background-color: #fff;
+margin: 3em 0;
+}
+
+.content_box{
+max-width: 700px;
+padding: 2em;
+}
+
+.column_mokuji{
+	display: flex;
+}
+
+.column_mokuji img{
+	max-width: 2em;
+	height: 2.5em;
+}
+a.anchor {
+    display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+
+.img_wrap{
+  margin: 0 auto;
+  overflow: hidden;
+}
+.img_wrap img{
+  width: 100%;
+  cursor: pointer;
+  transition-duration: 0.3s;
+}
+.img_wrap:hover img{
+  opacity: 0.6;
+  transition-duration: 0.3s;
+}
+
+/****************************
+のレンMUROとは
+****************************/
+
+.title_muro_01 {
+  position: relative;
+  display: inline-block;
+	font-size: 1.5em;
+	color: #804F21;
+}
+
+.bg_wht_ab{
+background-color: #fff;
+margin: 3em 0;
+padding: 6em 0;
+}
+
+.about_hr{
+	 height: 1px;
+  background: #bbb;
+  background-image: -webkit-linear-gradient(left, #eee, #777, #eee);
+  background-image: -moz-linear-gradient(left, #eee, #777, #eee);
+  background-image: -ms-linear-gradient(left, #eee, #777, #eee);
+  background-image: -o-linear-gradient(left, #eee, #777, #eee);
+}
+
+.about_title_muro {
+font-size: 1.5em;
+font-family: serif;
+}
+
+.p_about_c{
+	font-size: 1em;
+	line-height: 2em;
+}
+
+.tategakitxt_muro {
+	font-family: source-han-serif-japanese, serif;
+/*     position: relative;
+    width: 100%;
+    height: 10em; */
+  /*  writing-mode: vertical-rl;  ここで縦書きに */
+	font-size: 2em;
+	color:#fff;
+	text-align: left;
+}
+@media screen and (max-width: 768px){
+	.tategakitxt_muro {
+	font-family: source-han-serif-japanese, serif;
+    position: relative;
+    width: 100%;
+/*     height: 10em; */
+ /*    writing-mode: vertical-rl; ここで縦書きに */
+	font-size: 1.5em;
+	color:#fff;
+	text-align: left;
+}
+
+.about_title_muro {
+font-size: 1.5em;
+	line-height: 2em;
+}
+.title_muro_01 {
+  position: relative;
+  display: inline-block;
+		line-height: 1.8em;
+	font-size: 1.5em;
+	color: #804F21;
+}
+}
+.tategakitxt-wrapper p{
+line-height: 1.4em;
+text-align:center;
+  }
+
+
+@media screen and (min-width: 560px) {
+.sp-br {
+display: none;
+}
+}
+
+
+
+.aboutmuro_bg{
+background-color: #88621d;
+padding: 1em;
+	height: 13em;
+}
+
+.tategakitxt_about {
+    position: relative;
+    width: 100%;
+    height: 25em;
+    writing-mode: vertical-rl; /* ここで縦書きに */
+	font-size: 2em;
+	color:#fff;
+	text-align: left;
+}
+
+.bg_muro_01{
+		background-image: url(https://cdn.shopify.com/s/files/1/0262/8252/4717/files/muro_about_img_01.jpg?v=1610434422);
+	background-repeat:no-repeat; 
+	padding: 5em;
+}
+
+.bg_muro_02{
+		background-image: url(https://cdn.shopify.com/s/files/1/0262/8252/4717/files/muro_about_img_02.jpg?v=1610439285);
+	background-repeat:no-repeat; 
+	padding: 5em;
+}
+
+/****************************
+ワークショップ
+****************************/
+
+/* 全体 */
+.sb-box {
+  position: relative;
+  overflow: hidden;
+}
+/* アイコン画像 */
+.ic-img {
+  position: absolute;
+  overflow: hidden;
+  top: 0; /* 画像の位置を上から0に */
+  width: 80px; /* 画像の幅 */
+  height: 80px; /* 画像の高さ */
+}
+/* アイコン画像（左） */
+.ic-img-left {
+  left: 0; /* 画像の位置を左から0に */
+}
+/* アイコン画像（右） */
+.ic-img-right {
+  right: 0; /* 画像の位置を右から0に */
+}
+/* アイコン画像 */
+.ic-img img {
+  border-radius: 50%; /* 画像を丸く表示する */
+  border: 2px solid #eee; /* 画像の縁取りの太さとカラー */
+}
+/* アイコンネーム */
+.ic-name {
+  position: absolute;
+  width: 80px; /* ネームの最大幅を画像と同じに */
+  text-align: center; /* ネームの位置をセンターに */
+  top: 83px; /* ネームの位置を上から83に */
+  font-size: 16px; /* ネームのフォントサイズ */
+}
+/* アイコンネーム（左） */
+.ic-name-left {
+  left: 0; /* ネームの位置を左から0に */
+}
+/* アイコンネーム（右） */
+.ic-name-right {
+  right: 0; /* ネームの位置を右から0に */
+}
+/* 吹き出し */
+.sb-side {
+  position: relative;
+  float: left;
+  margin: 0 105px 40px 105px; /* 吹き出しの上下左右の余白 */
+}
+.sb-side-right {
+  float: right;
+}
+/* 吹き出し内のテキスト */
+.sb-txt {
+  position: relative;
+  border: 2px solid #eee; /* 吹き出しの縁取りの太さとカラー */
+  border-radius: 6px; /* 吹き出しを角丸に */
+  background: #fff; /* 吹き出しの背景色 */
+  color: #333; /* 吹き出し内のテキストのカラー */
+  font-size: 16px; /* 吹き出し内のフォントサイズ */
+  line-height: 1.7; /* 吹き出し内のテキストが2行以上になった時の行間 */
+  padding: 18px; /* 吹き出し内の上下左右の余白 */
+}
+.sb-txt > p:last-of-type {
+  padding-bottom: 0; /* 吹き出し内のテキストを改行した場合、最後のpタグにpadding-bottomをつけない */
+  margin-bottom: 0; /* 吹き出し内のテキストを改行した場合、最後のpタグにmargin-bottomをつけない */
+}
+/* 吹き出しの三角 */
+.sb-txt:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  top: 16px; /* 吹き出し内の三角の位置 */
+  z-index: 3;
+}
+.sb-txt:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  top: 15px; /* beforeより-1px */
+  z-index: 2; /* beforeより-1 */
+}
+/* 吹き出しの三角（左） */
+.sb-txt-left:before {
+  left: -7px;
+  border-width: 7px 10px 7px 0;
+  border-color: transparent #fff transparent transparent; /* 背景色と同じカラーに */
+}
+.sb-txt-left:after {
+  left: -10px; /* beforeより-3px */
+  border-width: 8px 10px 8px 0; /* beforeより上下+1px */
+  border-color: transparent #eee transparent transparent; /* 縁取りと同じカラーに */
+}
+/* 吹き出しの三角（右） */
+.sb-txt-right:before {
+  right: -7px;
+  border-width: 7px 0 7px 10px;
+  border-color: transparent transparent transparent #fff; /* 背景色と同じカラーに */
+}
+.sb-txt-right:after {
+  right: -10px; /* beforeより-3px */
+  border-width: 8px 0 8px 10px; /* beforeより上下+1px */
+  border-color: transparent transparent transparent #eee; /* 縁取りと同じカラーに */
+}
+
+/* 767px（iPad）以下 */
+
+@media (max-width: 767px) {
+  /* アイコン画像 */
+  .ic-img {
+    width: 60px; /* 画像の幅を-20px */
+    height: 60px; /* 画像の高さを-20px */
+  }
+  /* アイコンネーム */
+  .ic-name {
+    width: 60px; /* 画像の幅に合わせて-20px */
+    top: 62px; /* ネームの位置を上から62に */
+    font-size: 9px; /* ネームのフォントサイズを-1px */
+  }
+  /* 吹き出し（左） */
+  .sb-side-left {
+    margin: 0 0 30px 78px; /* 吹き出し（左）の上下左右の余白を狭く */
+  }
+  /* 吹き出し（右） */
+  .sb-side-right {
+    margin: 0 78px 30px 0; /* 吹き出し（右）の上下左右の余白を狭く */
+  }
+  /* 吹き出し内のテキスト */
+  .sb-txt {
+    padding: 12px; /* 吹き出し内の上下左右の余白を-6px */
+  }
+}
+.qaContainer dt {
+padding: 10px 10px 10px 35px;
+border-radius: 5px;
+background: #cce6ff;
+text-indent: -25px;
+font-size: 16px;
+}
+.qaContainer dt:before {
+content: "Q.";
+font-weight: bold;
+margin-right: 7px;
+}
+.qaContainer dd {
+margin: 20px 10px 40px 35px;
+text-indent: -25px;
+font-size: 16px;
+}
+.qaContainer dd:before {
+content: "A.";
+color: #1771c6;
+font-weight: bold;
+margin-right: 7px;
+}
+
+
+/****************************
+フルーツティー
+****************************/
+.ft_bgimg01{
+position: absolute;
+top:1100px;
+left:400px;
+	max-width: 20em;
+}
+
+.ft_bgimg02{
+position: absolute;
+top:1600px;
+right:350px;
+	max-width: 20em;
+}
+
+.p_ft_tle{
+	font-size:1em;
+	font-weight: bold;
+	line-height: 2em
+}
+.p_ft_ht{
+	font-size:1em;
+	margin-top: 1em;
+}
+
+
+@media (max-width: 767px) {
+.ht_img {
+	text-align: center;
+}
+.ht_img img{
+	width:70%;
+}
+.ft_title{
+font-size:1.8em!important;
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+text-align: center;
+color: #af371b!important;
+}
+.p_ft {
+	font-size: 1em;
+	line-height: 1.5em;
+	color: #54410d;
+	margin: 0 1em;
+}
+.p_ft_tle{
+	font-size:1.2em;
+	font-weight: bold;
+}
+.p_amazake_2 {
+	font-size: 1em;
+	line-height: 1.5em;
+}
+.ft_title_ej{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:1.5em!important;
+text-align: center;
+}
+}
+
+.ft_title_ej{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:2em;
+text-align: center;
+}
+
+.p_ft {
+	font-size: 1.2em;
+	line-height: 1.8em;
+	color: #54410d;
+}
+
+
+.ft_title{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:2.5em;
+text-align: center;
+color: #af371b!important;
+}
+
+/****************************
+甘酒アイス
+****************************/
+.ice_icon{
+	max-width: 1.5em;
+}
+
+.ice_box{
+border-top: solid 1px #999999;
+margin-top: 5em;
+}
+
+.ice_title{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:2.3em;
+text-align: center;
+}
+
+.ice_title_2{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:2.2em;
+color: #c19016;
+margin: 2em 0;
+}
+
+.ice_title_3{
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+font-style: normal;
+font-size:2em;
+font-weight: bold;
+margin: 1em 0 0 0;
+}
+
+.p_ice {
+	font-size: 1.5em;
+	line-height: 1.8em;
+	margin: 1em auto 0;
+}
+
+.p_ice02 {
+	font-size: 1.5em;
+	line-height: 1.8em;
+}
+.p_ice03 {
+	font-size: 1.2em;
+	line-height: 1.6em;
+}
+
+.ice_img{
+	max-width: 7em;
+}
+
+@media (max-width: 767px) {
+.ice_title{
+font-size:1.4em!important;
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+text-align: center;
+}
+.ice_title_2{
+font-size:1.8em!important;
+font-family: ryo-display-plusn, serif;
+font-weight: 700;
+color: #c19016;
+	margin:1em 0;
+}
+.p_ice {
+	font-size: 1.2em;
+	line-height: 1.6em;
+	margin: 1em auto 0;
+}
+.p_ice02 {
+	font-size: 1.2em;
+	line-height: 1.5em;
+}
+.ice_icon{
+	max-width: 1.3em;
+}
+}
+
+.step{
+  list-style-type: none;
+  display:table;
+  width:100%;
+max-width: 1100px;
+  padding:0;
+  margin:2em auto 0;
+  overflow:hidden;
+}
+.step li{
+  display:table-cell;
+  position:relative;
+  background: #f1ede9;
+  padding: 0 0.5em 1em 2em;
+}
+.step li:last-child{
+  padding-right: 1em;
+}
+.step li:last-child:before,
+.step li:last-child:after{
+  display:none;
+}
+.step li:before,
+.step li:after{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: auto;
+}
+
+.step li.is-current{
+  background: #c7b299;
+width: 30em;
+}
+.step li.is-current:after{
+  border-color: transparent transparent transparent #f1ede9;
+}
+
+.ice_rtle_sp {
+  position: relative;
+  padding: 1.5rem　0　0.8rem　0;
+	font-size: 1.3em;
+  text-align: center;
+}
+
+.ice_rtle_sp:before {
+  position: absolute;
+  bottom: -10px;
+  left: calc(50% - 30px);
+  width: 50px;
+  height: 3px;
+  content: '';
+  background: #c7b299;
+}
+.ice_box_sp{
+	background-color: #f1ede9;
+	padding: 1.5em 0;
+}
+
+/****************************
+阪急
+****************************/
+.box_hankyu{
+	border: 1px solid #2B2B2B;
+	padding: 2em;
+	margin-top: 2em;
+}
+/****************************
+注意事項
+****************************/
+
+.boxct {
+    position: relative;
+    margin: 2em 0;
+    padding: 25px 10px 7px;
+    border: solid 2px #e83929;
+}
+.boxct .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -2px;
+    left: -2px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+    background: #e83929;
+    color: #ffffff;
+    font-weight: bold;
+}
+.boxct p {
+    margin: 0; 
+    padding: 0;
+}
+.boxct02 {
+    position: relative;
+    margin: 2em 0;
+    padding: 25px 10px 7px;
+    border: solid 2px #82ae46;
+}
+.boxct02 .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -2px;
+    left: -2px;
+    padding: 0 9px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+    background: #82ae46;
+    color: #ffffff;
+    font-weight: bold;
+}
+.boxct02 p {
+    margin: 0; 
+    padding: 0;
+}
+
+/****************************
+トップページボタン
+****************************/
+
+a.btn_ao_b {
+  display: flex!important;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.3rem 2rem;
+  border: 1px solid #715c1f;
+  text-decoration: none;
+  transition: 0.3s;
+	margin-top: 1em;
+}
+a.btn_ao_b:hover {
+  background-color: #f8f4e6;
+}
+a.btn_ao_b .b__text {
+  display: block;
+  flex-grow: 1;
+  color: #715c1f;
+	font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro", "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "メイリオ", sans-serif;
+	font-weight:600;
+  text-align: center;
+  position: relative;
+  padding-right: 15px;
+  font-size: 16px;
+letter-spacing:3px;
+}
+a.btn_ao_b .b__text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  transform: rotate(45deg);
+  border-top: 3px solid #715c1f;
+  border-right: 3px solid #715c1f;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  transition: 0.3s;
+}
+@media (max-width: 1200px) {
+  a.btn_ao_b .b__text {
+    font-size: 18px;
+    padding-right: 20px;
+  }
+  a.btn_ao_b .b__text::after {
+    width: 12px;
+    height: 12px;
+  }
+}
+@media (max-width: 736px) {
+  a.btn_ao_b .b__text {
+    font-size: 14px;
+    padding-right: 20px;
+  }
+  a.btn_ao_b .b__text::after {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/****************************
+2021お歳暮
+****************************/
+
+
+/* 全体 */
+.sb-box {
+  position: relative;
+  overflow: hidden;
+}
+/* アイコン画像 */
+.ic-img {
+  position: absolute;
+  overflow: hidden;
+  top: 0; /* 画像の位置を上から0に */
+  width: 80px; /* 画像の幅 */
+  height: 80px; /* 画像の高さ */
+}
+/* アイコン画像（左） */
+.ic-img-left {
+  left: 0; /* 画像の位置を左から0に */
+}
+/* アイコン画像（右） */
+.ic-img-right {
+  right: 0; /* 画像の位置を右から0に */
+}
+/* アイコン画像 */
+.ic-img img {
+  border-radius: 50%; /* 画像を丸く表示する */
+  border: 2px solid #eee; /* 画像の縁取りの太さとカラー */
+}
+/* アイコンネーム */
+.ic-name {
+  position: absolute;
+  width: 80px; /* ネームの最大幅を画像と同じに */
+  text-align: center; /* ネームの位置をセンターに */
+  top: 83px; /* ネームの位置を上から83に */
+  font-size: 16px; /* ネームのフォントサイズ */
+}
+/* アイコンネーム（左） */
+.ic-name-left {
+  left: 0; /* ネームの位置を左から0に */
+}
+/* アイコンネーム（右） */
+.ic-name-right {
+  right: 0; /* ネームの位置を右から0に */
+}
+/* 吹き出し */
+.sb-side {
+  position: relative;
+  float: left;
+  margin: 0 105px 40px 105px; /* 吹き出しの上下左右の余白 */
+}
+.sb-side-right {
+  float: right;
+}
+/* 吹き出し内のテキスト */
+.sb-txt {
+  position: relative;
+  border: 2px solid #eee; /* 吹き出しの縁取りの太さとカラー */
+  border-radius: 6px; /* 吹き出しを角丸に */
+  background: #fff; /* 吹き出しの背景色 */
+  color: #333; /* 吹き出し内のテキストのカラー */
+  font-size: 16px; /* 吹き出し内のフォントサイズ */
+  line-height: 1.7; /* 吹き出し内のテキストが2行以上になった時の行間 */
+  padding: 18px; /* 吹き出し内の上下左右の余白 */
+}
+.sb-txt > p:last-of-type {
+  padding-bottom: 0; /* 吹き出し内のテキストを改行した場合、最後のpタグにpadding-bottomをつけない */
+  margin-bottom: 0; /* 吹き出し内のテキストを改行した場合、最後のpタグにmargin-bottomをつけない */
+}
+/* 吹き出しの三角 */
+.sb-txt:before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  top: 16px; /* 吹き出し内の三角の位置 */
+  z-index: 3;
+}
+.sb-txt:after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  top: 15px; /* beforeより-1px */
+  z-index: 2; /* beforeより-1 */
+}
+/* 吹き出しの三角（左） */
+.sb-txt-left:before {
+  left: -7px;
+  border-width: 7px 10px 7px 0;
+  border-color: transparent #fff transparent transparent; /* 背景色と同じカラーに */
+}
+.sb-txt-left:after {
+  left: -10px; /* beforeより-3px */
+  border-width: 8px 10px 8px 0; /* beforeより上下+1px */
+  border-color: transparent #eee transparent transparent; /* 縁取りと同じカラーに */
+}
+/* 吹き出しの三角（右） */
+.sb-txt-right:before {
+  right: -7px;
+  border-width: 7px 0 7px 10px;
+  border-color: transparent transparent transparent #fff; /* 背景色と同じカラーに */
+}
+.sb-txt-right:after {
+  right: -10px; /* beforeより-3px */
+  border-width: 8px 0 8px 10px; /* beforeより上下+1px */
+  border-color: transparent transparent transparent #eee; /* 縁取りと同じカラーに */
+}
+
+/* 767px（iPad）以下 */
+
+@media (max-width: 767px) {
+  /* アイコン画像 */
+  .ic-img {
+    width: 60px; /* 画像の幅を-20px */
+    height: 60px; /* 画像の高さを-20px */
+  }
+  /* アイコンネーム */
+  .ic-name {
+    width: 60px; /* 画像の幅に合わせて-20px */
+    top: 62px; /* ネームの位置を上から62に */
+    font-size: 9px; /* ネームのフォントサイズを-1px */
+  }
+  /* 吹き出し（左） */
+  .sb-side-left {
+    margin: 0 0 30px 78px; /* 吹き出し（左）の上下左右の余白を狭く */
+  }
+  /* 吹き出し（右） */
+  .sb-side-right {
+    margin: 0 78px 30px 0; /* 吹き出し（右）の上下左右の余白を狭く */
+  }
+  /* 吹き出し内のテキスト */
+  .sb-txt {
+    padding: 12px; /* 吹き出し内の上下左右の余白を-6px */
+  }
+}
+
+.star5_rating{
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    white-space: nowrap;
+    color: #CCCCCC; /* グレーカラー 自由に設定化 */
+    /*font-size: 30px; フォントサイズ 自由に設定化 */
+}
+
+.star5_rating:before, .star5_rating:after{
+    content: '★★★★★';
+}
+
+.star5_rating:after{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #ffcf32; /* イエローカラー 自由に設定化 */
+}
+
+.star5_rating[data-rate="5"]:after{ width: 100%; } /* 星5 */
+.star5_rating[data-rate="4.5"]:after{ width: 90%; } /* 星4.5 */
+.star5_rating[data-rate="4"]:after{ width: 80%; } /* 星4 */
+.star5_rating[data-rate="3.5"]:after{ width: 70%; } /* 星3.5 */
+.star5_rating[data-rate="3"]:after{ width: 60%; } /* 星3 */
+.star5_rating[data-rate="2.5"]:after{ width: 50%; } /* 星2.5 */
+.star5_rating[data-rate="2"]:after{ width: 40%; } /* 星2 */
+.star5_rating[data-rate="1.5"]:after{ width: 30%; } /* 星1.5 */
+.star5_rating[data-rate="1"]:after{ width: 20%; } /* 星1 */
+.star5_rating[data-rate="0.5"]:after{ width: 10%; } /* 星0.5 */
+.star5_rating[data-rate="0"]:after{ width: 0%; } /* 星0 */
+
+
+/****************************
+トップページニュース
+****************************/
+.newslist {
+    max-width: 800px;
+    margin: 20px auto;
+	font-size: 1em;
+}
+
+.newslist ul {
+    padding-left: 0;
+    margin: 0 0 0 3px;
+}
+
+.newslist li {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 0;
+    border-top: 1px solid #a9a9a9;
+}
+
+.newslist li:last-child {
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.newslist .newslist-box {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+      color: #333333;
+  padding-right: 30px;
+  line-height:2.3;
+}
+
+.newslist .newslist-box .p-n {
+    padding: 5px 10px;
+    background-color: #c9171e;
+    color: #fff;
+    margin: 0 15px;
+	font-size: 1em!important;
+}
+
+.newslist .newslist-box .p-no {
+    padding: 5px 10px;
+    margin: 0 15px;
+}
+
+.newslist .newslist-text {
+    text-align: left;
+    line-height: 2.3;
+}
+
+.newslist .newslist-text a {
+    text-decoration: none;
+    color: black;
+}
+
+/* レスポンシブ */
+@media (max-width: 600px) {
+    .newslist {
+        padding: 0 10px;
+        background-color: #fff;
+    }
+
+    .newslist li {
+        flex-direction: column;
+    }
+
+    .newslist .newslist-box {
+        padding-left: 0;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 0;
+    }
+}
+
+/* ================
+// .kai-arti6
+// ===============*/
+
+.kai-arti6 {
+padding: 30px 0;
+  text-align: center;
+}
+.kai-arti6 .kai-inn {
+max-width: 680px;
+  width: 100%;
+}
+.kai-arti6 h3{
+white-space: nowrap;
+font-size: 12px;
+}
+.kai-arti6 .ow-shohin{
+background: #c4ac65;
+border-radius: 20px;
+margin-top: 5px;
+color: #fff;
+}
+.kai-arti6 ul{
+display: flex;
+justify-content: space-between;
+margin: 0 auto 40px;
+background: #fff;
+}
+.kai-arti6 li{
+padding: 15px;
+}
+.kai-arti6 li:nth-child(2){
+display: flex;
+align-items: center;
+margin-top: -60px;
+font-size: 30px;
+font-weight: lighter;
+}
+.kai-arti6 li span{
+color: #5c5950;
+font-size: 12px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.3;
+display: block;
+}
+.kai-arti6 .bnr-link a {
+margin-bottom: 15px;
+}
+.kai-arti6 .kakoi{
+background: #F9F0E3;
+padding: 50px;
+border-radius: 20px;
+}
+@media (max-width: 680px) {
+.kai-arti6 {
+  padding: 0;
+}
+.kai-arti6 .kai-inn {
+  padding: 30px 10px;
+  width: 100%;
+  }
+.kai-arti6 .kakoi {
+  padding: 15px;
+    }
+.kai-arti6 li {
+ padding: 10px;
+}
+.kai-arti6 li:nth-child(2) {
+  padding: 0;
+}
+}
+
+@media (max-width: 400px) {
+.kai-arti6 li {
+  padding: 5px;
+}
+}

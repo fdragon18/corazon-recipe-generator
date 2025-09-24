@@ -1,0 +1,367 @@
+/* ================
+// fv
+// ===============*/
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-01.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 450px !important;
+  }
+h1{
+  border: 1px solid #000;
+ padding: 20px 30px 35px;
+}
+h1::before{
+  content:'＜甘酒の基礎知識　その４＞';
+  font-size:14px;
+  display: block;
+  padding:15px;
+}
+@media (max-width: 680px) {
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-01-sp.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 250px !important;
+  }
+  h1{
+  border: none;
+  background:rgba(256,256,256,.6);
+}
+    }
+/* ================
+// 共通
+// ===============*/
+@media (max-width: 1025px) {
+.kai-inn{
+  padding: 0 20px;
+}
+  }
+/* ================
+// .kai-col
+// ===============*/
+.kai-col{
+  padding: 50px 0;
+}
+#to01,#to02,#to03,#to04,#to05,#to06,#to07,#to08{
+display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+/* ================
+// .kai-col2
+// ===============*/
+.kai-col2{
+  padding: 50px 0;
+}
+.kai-col2 .chigau,.kai-col3 .chigau{
+background: #fff;
+box-shadow: 2px 2px 4px #e3e3e3;
+border-radius: 15px;
+padding: 70px 20px 30px;
+position: relative;
+margin-top: 100px;
+}
+.kai-col2 .chigau::before,.kai-col3 .chigau::before{
+  content: "";
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  background-size: contain;
+  vertical-align: middle;
+  z-index: 1;
+  position: absolute;
+top: -80px;
+  border-radius: 50%;
+  padding: 20px;
+  left: 50%;
+  transform: translateY(0%) translateX(-50%);
+  -webkit- transform: translateY(0%) translateX(-50%);
+  margin: auto;
+}
+.kai-col2 .chigau:nth-of-type(1)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-i01.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(2)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-i02.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(3)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-i03.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(4)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-i04.svg)no-repeat;
+}
+.kai-col2 .chigau p em{
+background: linear-gradient(transparent 60%, #fff9cc 60%);
+font-style: normal;
+font-weight: bold;
+}
+.chigau > figure:nth-child(2){
+width: 50%;
+margin: 50px auto;
+}
+.kai-col2 .chigau ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+margin: 0 auto;
+}
+.kai-col2 .chigau li{
+width: 31%;
+background: #FFFBF0;
+border-radius: 15px;
+padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 4px #e3e3e3;
+}
+.kai-col2 .chigau li::before{
+  content: "";
+  display: inline-block;
+width: 60px;
+height: 60px;
+  background-size: contain;
+  vertical-align: middle;
+  z-index: 1;
+  position: absolute;
+top: -30px;
+  border-radius: 50%;
+  padding: 20px;
+  left: 50%;
+  transform: translateY(0%) translateX(-50%);
+  -webkit- transform: translateY(0%) translateX(-50%);
+  margin: auto;
+}
+.kai-col2 .chigau:nth-of-type(1) li:nth-of-type(1)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-1a.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(1) li:nth-of-type(2)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-1b.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(1) li:nth-of-type(3)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-1c.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(2) li:nth-of-type(1)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-2a.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(2) li:nth-of-type(2)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-2b.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(2) li:nth-of-type(3)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-2c.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(3) li:nth-of-type(1)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-3a.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(3) li:nth-of-type(2)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-3b.svg)no-repeat;
+}
+.kai-col2 .chigau:nth-of-type(3) li:nth-of-type(3)::before{
+  background: #fffbf0 url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-3c.svg)no-repeat;
+}
+.kai-col2 .chigau li figure{
+margin:0;
+  }
+.kai-col2 .chigau h3{
+font-size: 13px;
+background: #fff;
+padding: 10px;
+}
+.kai-col2 .chigau h4{
+    font-size:12px;
+  padding: 5px 0 20px;
+  color: #5c5950;
+
+}
+.kai-col2 .kannrie{
+  margin-top:50px;
+border: 1px solid #B5922A;
+padding: 10px;
+  position: relative;
+}
+.kai-col2 .kannrie h3 {
+margin-top: -30px;
+display: block;
+background: none;
+}
+.kai-col2 .kannrie h3 span{
+background: #B5922A;
+color: #fff;
+border-radius: 20px;
+margin-top: -170px;
+display: inline-block;
+padding: 10px 30px;
+}
+.kai-col2 .chigau.nankaika ul,.kai-col3 .chigau.nankaika ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+margin: 0 auto;
+width: 80%;
+}
+.kai-col2 .chigau.nankaika li,.kai-col3 .chigau.nankaika li{
+  width: 31%;
+  padding: 30px;
+  background: none;
+box-shadow: unset;
+}
+.kai-col2 .chigau.nankaika li figure img,.kai-col3 .chigau.nankaika li figure img{
+  border-radius: 50%;
+}
+.kai-col2 .chigau.nankaika li span,.kai-col3 .chigau.nankaika li span {
+  font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+  display: block;
+}
+
+@media (max-width: 860px) {
+.kai-col2 .chigau.nankaika ul, .kai-col3 .chigau.nankaika ul {
+width: 100%;
+}
+.kai-col2 .chigau li {
+  width: 47%;
+  margin-bottom: 50px;
+}
+  .kai-col2 .chigau.nankaika li span,.kai-col3 .chigau.nankaika li span {
+  font-size: 14px;
+line-height: 1.4;
+  }
+  }
+@media (max-width: 767px){
+.kai-col2 .chigau.nankaika li,.kai-col3 .chigau.nankaika li{
+padding: 20px;
+  }
+
+}
+@media (max-width: 680px) {
+.kai-col2 {
+  padding: 30px 0;
+}
+.kai-col2 .chigau.nankaika li,.kai-col3 .chigau.nankaika li{
+width: 45%;
+  }
+.kai-col2 .chigau.nankaika ul, .kai-col3 .chigau.nankaika ul {
+width: 90%;
+}
+.kai-col3 .chigau.nankaika ul {
+margin-top:50px;
+}
+.chigau > figure:nth-child(2) {
+  width: 70%;
+  margin: 50px auto;
+}
+ }
+@media (max-width: 580px) {
+.chigau > figure:nth-child(2) {
+  margin: 40px auto 70px;
+}
+.kai-col2 .chigau.nankaika ul, .kai-col3 .chigau.nankaika ul {
+width: 100%;
+}
+.kai-col2 .chigau ul {
+  justify-content: center;
+   }
+.kai-col2 .chigau li {
+width: 80%;
+margin-bottom: 80px;
+}
+  .kai-col2 .chigau li:last-child {
+  margin-bottom: 30px;
+  }
+  .kai-col2 .chigau li::before {
+  width: 80px;
+  height: 80px;
+    top: -50px;
+    }
+}
+@media (max-width: 480px) {
+.chigau > figure:nth-child(2) {
+  width: 100%;
+ }
+.kai-col2 .chigau li {
+  width: 100%;
+}
+  .kai-col2 .chigau.nankaika li, .kai-col3 .chigau.nankaika li {
+  padding: 0;
+}
+  .kai-col2 .kannrie h3 span {
+  padding: 10px 20px;
+}
+   }
+/* ================
+// .kai-col3
+// ===============*/
+.kai-col3{
+  margin: 50px auto;
+}
+.kai-col3 .chigau:nth-of-type(1)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-i05.svg)no-repeat;
+}
+.kai-col3 .chigau:nth-of-type(2)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/column04-i06.svg)no-repeat;
+}
+.kai-col3 .chigau {
+padding: 50px 20px 30px;
+}
+.kai-col3 h3 {
+  background: #BAB494;
+  color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 5px 0;
+  margin: 0 auto 30px;
+}
+.kai-col3 .setsumei {
+  font-size: 13px;
+  border-top: 3px dotted #cab26936;
+  padding: 30px 0;
+  color: #5c5950;
+}
+.kai-col3 .setsumei em {
+  font-style: normal;
+  background: #bf2626;
+  color: #fff;
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin-right: 5px;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+@media (max-width: 480px) {
+.kai-col3 h3 {
+  font-size: 16px;
+}
+}
+
+
+/* ================
+// .コラム回遊
+// ===============*/
+.col-kaiyu ul {
+display: flex;
+justify-content: space-between;
+margin: 50px auto 0;
+border-top: 1px dotted #ccc;
+padding-top: 50px;
+}
+.col-kaiyu li {
+width:45%;
+display: flex;
+flex-direction: column;
+}
+.col-kaiyu span {
+display: block;
+background: #c9b066;
+color: #fff;
+font-size: 14px;
+padding: 10px 0;
+width: 150px;
+margin: 30px auto;
+}
+.col-kaiyu em{
+display: block;
+font-style: normal;
+font-size: 14px;
+}
+@media (max-width: 480px) {
+.col-kaiyu span {
+  width: 100%;
+}
+}

@@ -1,0 +1,395 @@
+/* ================
+//共通
+// ===============*/
+ html { scroll-behavior: smooth;
+ padding-bottom: 0 !important;
+}
+.w100{
+  width: 100%;
+}
+.mt50 {
+  margin-top: 50px;
+}
+.waai {
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+}
+       
+.waai::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: #000;
+    border-radius: 3px;
+    transform: rotate(-25deg);
+}
+       
+.waai::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #000;
+    border-radius: 3px;
+    transform: rotate(25deg);
+}
+.sp768 {
+  display: none;
+}
+  @media (max-width: 768px){
+.sp768 {
+ display:block;
+}
+.pc768 {
+  display: none;
+}
+       } 
+.sp580 {
+  display: none;
+}
+  @media (max-width: 580px){
+.sp580 {
+ display:block;
+}
+.pc580 {
+  display: none;
+}
+       } 
+.sp480 {
+  display: none;
+}
+  @media (max-width: 480px){
+.sp480 {
+ display:block;
+}
+.pc480 {
+  display: none;
+}
+       } 
+/* ================
+//collections/subscription
+// ===============*/
+.kai-coll p{
+color: #111111;
+font-size: 14px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.65;
+text-align: left;
+}
+.kai-coll a:hover::after{
+  display:none;
+}
+.kai-coll section{
+max-width: 770px;
+width: 100%;
+}
+.kai-coll .teiki-merit .kai-inn {
+background: #fff;
+padding: 30px 20px;
+border-radius: 15px;
+}
+.kai-coll h2 {
+  font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3",
+    "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝","ＭＳ 明朝", serif;
+  color: #111111;
+  text-align: center;
+  font-size: 22px;
+}
+.kai-coll .teiki-merit ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  flex-wrap: wrap;
+  max-width: 680px;
+}
+.kai-coll .teiki-merit li {
+  background: #eeeeee;
+width: 30%;
+padding: 20px;
+margin-bottom: 30px;
+}
+.kai-coll .teiki-merit h3 {
+  font-size: 14px;
+  text-align: left;
+  margin: 20px auto;
+}
+.kai-coll .teiki-merit .teiki-skip-btn {
+color: #fff;
+background: #111111;
+border-radius: 30px;
+font-size: 13px;
+padding: 3px 8px;
+display: block !important;
+margin-top: 10px;
+text-align: center;
+border: 1px solid #cccccc;
+}
+.kai-coll .teiki-merit .teiki-skip-btn:hover {
+color: #cccccc;
+background: #FFF;
+  transition-duration: .5s;
+ } 
+.kai-coll .teiki-merit .teiki-skip-btn::after {
+  display:none;
+}
+
+.kai-coll .teiki-merit .teiki-shosai-btn {
+color: #fff;
+background: #111111;
+border-radius: 30px;
+font-size: 18px;
+padding: 3px 8px;
+display: block !important;
+margin-top: 10px;
+text-align: center;
+border: 1px solid #cccccc;
+}
+.kai-coll .teiki-merit .teiki-shosai-btn:hover {
+color: #cccccc;
+background: #FFF;
+  transition-duration: .5s;
+ } 
+.kai-coll .teiki-merit .teiki-shosai-btn::after {
+  display:none;
+}
+
+
+  @media (max-width: 768px){
+.kai-coll .teiki-merit li {
+  width: 47%;
+  margin-bottom: 20px;
+}
+       } 
+  @media (max-width: 580px){
+.kai-coll h2 {
+  font-size: 18px;
+}
+   } 
+/* ================
+//.mitene-定期便注意事項
+// ===============*/
+.mitene {
+  text-align: center;
+font-size: 16px;
+margin: 40px auto !important;
+  color: #ff9476;
+  border: 2px solid #ff9476;
+  border-radius: 20px;
+  box-shadow: 2px 2px 4px #e3e3e3;
+  background: #f8e3dc;
+width: 300px;
+}
+.mitene h3{
+font-size: 18px;
+margin: 0 auto 10px;
+color: #000;
+text-align: center;
+}
+.mitene a{
+  padding: 30px 10px;
+border-radius: 17px;
+display: block !important;
+ transition : .4s;
+}
+.mitene a:hover{
+background:#ff9476;
+color:#fff;
+  transition : .4s;
+}
+.mitene a:hover h3{
+color:#fff;
+}
+.mitene a::after{
+display:none;
+}
+
+/* ================
+//faq00
+// ===============*/
+.faq00 h3{
+text-align: center;
+font-size: 22px;
+}
+  @media (max-width: 580px){
+.faq00 h3{
+  font-size: 18px;
+}
+   } 
+
+.faq00{
+  background: #fff;
+padding: 30px 10px;
+border-radius: 15px;
+}
+.faq00 > ul {
+    width: 100%;
+		margin: 0 auto;
+  list-style: none;
+  background: #fff;
+	}
+
+.faq00 .accordion_one {
+	max-width: 100%;
+		  margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+		}
+.faq00 li:last-child {
+    border-bottom:none
+		}
+.faq00 .accordion_one .accordion_header {
+background-color: #fff;
+color: #111111;
+font-size: 14px;
+		  padding: 20px 11%;
+		  text-align: left;
+		  position: relative;
+		  z-index: +1;
+		  cursor: pointer;
+		  transition-duration: 0.2s;
+		}
+
+.faq00 .accordion_one .accordion_inner .accordion_one{
+	position:relative;
+	counter-increment: point;
+   width: 80%;
+border: none;
+	}
+.faq00 .accordion_one .accordion_inner .accordion_header {
+padding: 10px 10px 20px 30px;
+font-size: 13px;
+color: #000;
+background: #eeeeee;
+border-radius: 10px;
+margin: 10px;
+text-align: left;
+		}
+
+.faq00 .accordion_one .accordion_header .i_box {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  position: absolute;
+		  top: 50%;
+		  left: 1%;
+		  width: 40px;
+		  height: 40px;
+		  margin-top: -20px;
+		  box-sizing: border-box;
+		  -webkit-transform: rotate(45deg);
+		  transform: rotate(45deg);
+		  transform-origin: center center;
+		  transition-duration: 0.2s;
+		}
+.faq00 .accordion_one .accordion_header .i_box .one_i {
+		  display: block;
+		  width: 18px;
+		  height: 18px;
+		  -webkit-transform: rotate(-135deg);
+		  transform: rotate(-135deg);
+		  transform-origin: center center;
+		  transition-duration: 0.2s;
+		  position: relative;
+		}
+.faq00 .accordion_one .accordion_header.open .i_box {
+		  -webkit-transform: rotate(-360deg);
+		  transform: rotate(-360deg);
+		}
+.faq00 .accordion_one .accordion_header .i_box .one_i:before, .faq00 .accordion_one .accordion_header .i_box .one_i:after {
+display: flex;
+content: '';
+background-color: #6a5d21;
+border-radius: 10px;
+width: 10px;
+height: 1px;
+position: absolute;
+top: 11px;
+left: 1.5px;
+-webkit-transform: rotate(45deg);
+transform: rotate(45deg);
+transform-origin: center center;
+		}
+.faq00 .accordion_one .accordion_header .i_box .one_i:before {
+width: 1px;
+height: 10px;
+top: 0px;
+left: 6px;
+		}
+.faq00 .accordion_one .accordion_header.open .i_box .one_i:before {
+-webkit-transform: rotate(-0deg);
+transform: rotate(-0deg);
+          top: 2px;
+left: 10px;
+		}
+.faq00 .accordion_one .accordion_header.open .i_box .one_i:after {
+-webkit-transform: rotate(-0deg);
+transform: rotate(-0deg);
+		}
+.faq00 .accordion_one .accordion_inner {
+		  display: none;
+		  padding: 0;
+		  box-sizing: border-box;
+		}
+
+.faq00 a{
+  color: #111111;
+  background: #fff;
+  border-radius: 30px;
+  font-size: 13px;
+  padding: 1px 8px;
+  border: 1px solid #111111;
+    border-bottom-color: rgb(186, 180, 148);
+  margin: 8px;
+}
+@media (max-width: 480px) {
+.faq00 .accordion_one .accordion_inner .accordion_one {
+  width: 100%;
+}
+}
+/* ================
+//cv link
+// ===============*/
+.kai-yaji {
+  width: 40px;
+  height: 8px;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: skew(45deg);
+  display: inline-block;
+}
+.bnr-link{
+text-align: center;
+}
+.bnr-link a{
+color: #fff;
+background: #c9b066;
+border-radius: 30px;
+font-size: 1rem;
+padding: 10px 20px;
+margin: 8px;
+font-family: "Noto Serif JP","YuMincho","Yu Mincho","游明朝体","ヒラギノ明朝 ProN","Hiragino Mincho ProN",serif;
+  transition: 0.5s;
+}
+.bnr-link a:hover {
+  background: #967923;
+  color: #fff;
+transition: 0.5s;
+}
+.bnr-link a::after {
+display:none;
+}
+.bnr-link.b-cha a{
+background: #804F21;
+border-radius: 5px;
+display: block !important;
+  }
+.bnr-link.b-cha a:hover{
+opacity:.8;
+transition: 0.5s;
+  }

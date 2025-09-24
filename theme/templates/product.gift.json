@@ -1,0 +1,254 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": false
+          }
+        },
+        "3fb94f7b-982d-4c6e-80b9-723492398f5e": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "6a4f09bb-51d6-4ca1-a754-c3f03f71802f": {
+          "type": "custom",
+          "disabled": true,
+          "settings": {
+            "code": "<div class=\"boxct\">\n    <span class=\"box-title\">Amazon Payに関するご注意</span>\n  <p>ギフトなど、ご注文者様の住所とお届け先住所が異なる場合、Amazon Payはご利用できませんのでご注意ください。</p>\n</div>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "32c38576-1e35-4a19-aaaf-2eb1ce006e87": {
+          "type": "sales_point",
+          "disabled": true,
+          "settings": {
+            "icon": "globe",
+            "text": "Free worldwide shipping"
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "separator",
+        "variant_picker",
+        "3fb94f7b-982d-4c6e-80b9-723492398f5e",
+        "6a4f09bb-51d6-4ca1-a754-c3f03f71802f",
+        "buy_buttons",
+        "32c38576-1e35-4a19-aaaf-2eb1ce006e87"
+      ],
+      "settings": {
+        "sku_enable": false,
+        "image_position": "left",
+        "image_size": "medium",
+        "product_zoom_enable": true,
+        "thumbnail_position": "below",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "blocks": {
+        "custom_dEnUAT": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"giftdayo\">\n<h3>【重要】お届け日をご希望のお客様へ </h3>\n<p>商品のお届け日を指定できます。「カートに追加」押下後、「お届け希望日時」欄にご入力ください。\n<br/>詳細は「送料・お届け日について」>「お届け日の日時指定」よりご確認いただけます。</p>\n<div class=\"a-gift\"><a href=\"https://koujiamasake.jp/pages/delivery#sou05\">送料・お届け日について</a></div>\n</div>"
+          }
+        },
+        "custom_MfRViA": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"giftdayo\">\n<h3>こちらはギフト商品です。</h3>\n<p>こちらのギフトセットはラッピングをした状態でお届けいたします。手提げ袋は別売りですので、ご入用の場合はギフトセットと一緒にカートに入れてご注文ください。</p>\n<ul>\n<li>ギフトラッピングを含んだ商品となります。 </li>\n<!--<li>こちらの商品は、送料無料です。ただし、沖縄、離島へのお届けは通常送料をいただきますのでご了承ください。</li>\n-->\n<li>甘酒ラッピング(通常)をご選択の方は、熨斗をお選びください。</li>\n<!--\n<li>父の日ラッピングをご選択の方は、熨斗のご指定をいただいても承れませんのでご了承ください。</li>-->\n\n</ul>\n<div class=\"a-gift\"><a href=\"#about-gift\">ギフトについて</a></div>\n</div>"
+          }
+        },
+        "custom_cjthYy": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"giftdayo\">\n<h3>ご注文について</h3>\n<p>商品の賞味期限、お支払い方法、MUROポイント、送料などに関する詳細は下記「ご注文について」よりご確認いただけます。</p>\n<div class=\"a-gift\"><a href=\"https://kojidrink.jp/pages/howtoorder\">ご注文について</a></div>\n</div>"
+          }
+        },
+        "description_W4iXHJ": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "tab_RC38nL": {
+          "type": "tab",
+          "settings": {
+            "title": "返品・交換・賞味期限について",
+            "content": "<p><strong>返品・交換について</strong><br/></p><p>食品という商品の性質上、開封済みの商品やお客様都合でのご返品・交換の対応は致しかねますので、予めご了承ください。<br/></p><p><strong>不良品について</strong><br/></p><p>商品の品質については万全を期しておりますが、万一当店に起因する商品の不良や配送時の破損、誤納品などございましたら、商品到着より7日以内にご連絡くださいませ。交換対応させていただきます。<br/>※この場合の送料は当店にて負担させていただきます。</p><p></p><p><strong>賞味期限について<br/></strong></p><p>セール商品等賞味期限が明記されているものを除き、賞味期限がご注文日より2か月以上のものをお届けしております。当店では最低で2か月程の賞味期限でも美味しく安心してお召し上がりいただけると判断している為です。<br/>フードロスをなくす観点からも「賞味期限の長いものを」というご要望はお応えが出来かねます事をご理解くださいませ。<br/>※在庫管理都合上、在庫の賞味期限はいつのものか等具体的な賞味期限のお問合せは対応が出来かねます。ご了承くださいませ。</p>",
+            "page": ""
+          }
+        },
+        "custom_zNmfcG": {
+          "type": "custom",
+          "settings": {
+            "code": "<div id=\"about-gift\"></div>\n<h3 style=\"text-align:center\">「ギフトにおすすめ」MUROの安心サービス</h3>\n<ul class=\"shohin-vari\">\n<li>\n<img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/gift-temp01.jpg\"><h4>熨斗サービス</h4>\n<span>用途に応じた熨斗をご利用いただけます</span>\n</li>\n<li>\n<img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/gift-temp02.jpg\"><h4>お届け日時の指定</h4>\n<span>配達日時の指定が可能です</span>\n</li>\n<li>\n<img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/gift-temp03.jpg\"><h4>明細の同梱なし</h4>\n<span>金額が分かるものは同梱しません</span>\n</li>\n<li>\n<img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/gift-temp04.jpg\"><h4>出荷完了お知らせ</h4>\n<span>出荷完了時にメールでお知らせします</span>\n</li>\n<li>\n<img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/gift-temp04.jpg\"><h4>安心サポート</h4>\n<span>ご不明な点などはオンライン専用お問い合わせセンターにご相談ください</span>\n</li>\n</ul>\n<ul class=\"dai-waku noshi\">\n<li>\n<h3>熨斗サービスについて</h3>\n<p>熨斗紙はご用途により、水引の形が「蝶結び」「結び切り」の2種がございます。<br>\nお贈りになるシーンが「一度きりであるべきこと」\n「何度もあってほしいこと」のどちらかで水引の形をお選びいただけます。<br>\n基本は「外のし」で対応させていただきます。\n「内のし」ご希望の場合は、備考欄に記載をお願い致します。\n<span class=\"h3poi\">〈蝶結び〉</span>\n何度も結び直すことができることから「何度もあってほしいこと」に使います。\n一般的なお祝い事では、蝶結びをお選びください。\n<em>例：出産祝い・内祝い、七五三、入学・卒業、成人といった子どもの成長のお祝い、\n還暦など長寿のお祝い、新築・移転祝い、など。</em>\n<span class=\"h3poi\">〈結び切り〉</span>\n結び切りは強く結ばれ、ほどくことが難しい結び方です。\n人生において「一度きりであるべきこと」や「二度と繰り返すべきではないこと」を表現しているため\n弔辞やお見舞い、婚礼などで使用します。\n何度繰り返して良いお祝い事やお礼に用いる「蝶結び」がふさわしくないお祝い事の際は、\n「結び切り」をお選びください。\n<em>例：結婚祝い、内祝い、お見舞い、快気祝い、弔辞全般、など。</em>\n</p>\n</li>\n<li><img alt=\"\" src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/gift-temp06.jpg\"></li>\n</ul>\n<ul class=\"dai-waku\">\n<li>\n<h3>MURO神楽坂オリジナル紙袋</h3>\n<p>お渡し時にご利用頂ける紙袋をご用意しております。 ご入用の場合は、商品と一緒にお買い物かごにお入れ下さい。\nのレンMUROのロゴが入ったナチュラルな風合いの紙袋は、贈り物や手土産に最適です。 \n<div class=\"bnr-link\"><a href=\"https://kojidrink.jp/pages/sword-wrapping\">紙袋はこちら<svg aria-hidden=\"true\" focusable=\"false\" role=\"presentation\" class=\"icon icon--wide icon-chevron-down\" viewBox=\"0 0 28 16\" style=\"transform: rotate(-90deg); width: 10px; height: 10px; margin: -2px 0 0 5px;\"><path d=\"M1.57 1.59l12.76 12.77L27.1 1.59\" stroke-width=\"2\" stroke=\"#000\" fill=\"none\" fill-rule=\"evenodd\"></path></svg></a></div>\n</p>\n</li>\n<li><img alt=\"\" src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/products/paperbag_1800x1800.jpg?v=1612418688\"></li>\n</ul>\n  </div>"
+          }
+        }
+      },
+      "block_order": [
+        "custom_dEnUAT",
+        "custom_MfRViA",
+        "custom_cjthYy",
+        "description_W4iXHJ",
+        "tab_RC38nL",
+        "custom_zNmfcG"
+      ],
+      "settings": {
+        "max_width": true
+      }
+    },
+    "17190689065975392e": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "b54d0984-9a66-46fc-a542-8bc2d955e71f": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_pGcm7G": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/summer_closed.jpg",
+            "link": "shopify://pages/summer-delivery",
+            "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "image_Apdit7": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/KOJIJAM_banner_s_01-04.jpg",
+            "link": "https://kojidrink.jp/products/ygk001053",
+            "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "image_t4Rapf": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/summer_gift_bnr_2025.jpg",
+            "link": "shopify://collections/gift",
+            "width": "33%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_pGcm7G",
+        "image_Apdit7",
+        "image_t4Rapf"
+      ],
+      "custom_css": [
+        ".custom-content {justify-content: center;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "関連商品",
+        "related_count": 6,
+        "products_per_row": 5
+      }
+    },
+    "163140aa-47b3-4ccd-a572-aab5a5c9f378": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "こちらもおすすめ",
+        "home_featured_products": "touten_osusumeset",
+        "per_row": 5,
+        "rows": 5,
+        "mobile_scrollable": false,
+        "view_all": true,
+        "divider": false
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {}
+    },
+    "advanced_content_tKdXR4": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_MhzpNb": {
+          "type": "liquid",
+          "settings": {
+            "code": "<style>\n#熨斗の名入れ（氏名）-0-1{border:1px solid #000;width:95%;margin-left:8px;}\n</style>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_MhzpNb"
+      ],
+      "name": "t:sections.advanced-content.presets.custom_content.name",
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "17190689065975392e",
+    "b54d0984-9a66-46fc-a542-8bc2d955e71f",
+    "product-recommendations",
+    "163140aa-47b3-4ccd-a572-aab5a5c9f378",
+    "recently-viewed",
+    "collection-return",
+    "advanced_content_tKdXR4"
+  ]
+}

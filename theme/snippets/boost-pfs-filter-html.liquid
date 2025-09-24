@@ -1,0 +1,72 @@
+{%- capture boost_pfs_layout -%}
+{%- case layout -%}
+
+{%- when 'productGridItemHtml' -%}
+{% raw %}
+	<div data-product-handle={{itemHandle}} data-product-id="{{itemId}}" id="{{itemHandle}}" class="grid__item grid-product {{grid_item_width}} {{itemQuickShopClass}}" data-aos="row-of-{{products_per_row}}">
+		<div class="grid-product__content">
+			{{itemLabel}}
+			<a href="{{itemUrl}}" class="grid-product__link {{itemSoldOutClass}}">
+				<div class="grid-product__image-mask">
+					{{itemQuickShopButton}}
+					{{itemImages}}
+					{{itemSwatchHoverImages}}
+				</div>
+				<div class="grid-product__meta">
+					<div class="grid-product__title">{{itemTitle}}</div>
+					{{itemVendor}}
+					<div class="grid-product__price">{{itemPrice}}</div>
+					{{itemReviews}}
+				</div>
+			</a>
+		</div>
+		{{itemSwatch}}
+	</div>
+{% endraw %}
+
+{%- when 'previousActiveHtml' -%}
+<span class="prev">
+	<a href="[[itemUrl]]" title="">
+		<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewBox="0 0 284.49 498.98"><defs><style>.cls-1{fill:#231f20}</style></defs><path class="cls-1" d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z"></path></svg>
+		<span class="icon__fallback-text">Previous</span>
+	</a>
+</span>
+
+{%- when 'previousDisabledHtml' -%}
+
+
+{%- when 'nextActiveHtml' -%}
+<span class="next">
+	<a href="[[itemUrl]]" title="">
+		<svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98"><defs><style>.cls-1{fill:#231f20}</style></defs><path class="cls-1" d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path></svg>
+		<span class="icon__fallback-text">Next</span>
+	</a>
+</span>
+
+
+{%- when 'nextDisabledHtml' -%}
+
+{%- when 'pageItemHtml' -%}
+<span class="page">
+	<a href="[[itemUrl]]" title="">[[itemTitle]]</a>
+</span>
+
+{%- when 'pageItemSelectedHtml' -%}
+<span class="page current">[[itemTitle]]</span>
+
+{%- when 'pageItemRemainHtml' -%}
+<span class="deco">...</span>
+
+{%- when 'paginateHtml' -%}
+[[previous]][[pageItems]][[next]]
+
+
+{%- when 'sortingHtml' -%}
+<label for="boost-pfs-filter-top-sorting-select" class="hidden-label">{{ 'collections.sorting.title' | t }}</label>
+<select class="boost-pfs-filter-top-sorting-select">[[sortingItems]]</select>
+
+{%- endcase -%}
+
+{%-  endcapture -%}
+{%- assign str = '}}' -%}
+{{- boost_pfs_layout | json | replace: '[[', '{{' | replace: ']]', str -}}

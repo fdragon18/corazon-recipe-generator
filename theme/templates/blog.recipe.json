@@ -1,0 +1,86 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1735016995399c15bd": {
+      "type": "apps",
+      "custom_css": [
+        ".blog-filter-app-container {text-align: center;}"
+      ],
+      "settings": {
+        "full_width": true,
+        "space_around": true
+      }
+    },
+    "main": {
+      "type": "blog-template",
+      "settings": {
+        "blog_show_tag_filter": false,
+        "blog_show_rss": false,
+        "blog_show_tags": false,
+        "blog_show_date": true,
+        "blog_show_comments": true,
+        "blog_show_author": false,
+        "blog_show_excerpt": false,
+        "blog_image_size": "wide"
+      }
+    },
+    "16550958902c54d1c6": {
+      "type": "advanced-content",
+      "blocks": {
+        "1655095890f18fa903-1": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "code": "<style>\n    h3 {\n        font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;\n    }\n\n    @media screen and (max-width: 768px) {\n        .newslist {\n            font-size: 0.95em;\n        }\n    }\n</style>\n\n<h3 class=\"txtcenter\">メディア情報</h3>\n<div class=\"newslist mb5\">\n    <ul>\n\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2022.02.17\">2022.02.17</time>\n                <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://koujiamasake.jp/blogs/media/202102-bucket\">日本テレビ 「バゲット」（生中継）</a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2021.08.02\">2021.08.02</time>\n                <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                株式会社地球の歩き方　「地球の歩き方aruco東京」\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2022.03.10\">2021.7.21</time>\n                <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                マガジンハウス　「anan 7/21号　腸活最前線」\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2021.07.12\">2021.07.12</time>\n                <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://koujiamasake.jp/blogs/media/202107-maffgohan\"> 農林水産省　「やっぱりごはんでしょ！」 </a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2021.04.07-13\">2021.04.07-13</time>\n                <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://koujiamasake.jp/blogs/media/202104-hankyuevent\">＜イベント＞　阪急うめだ本店　B1にてイベント開催</a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2021.03\">2021.03/<time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://koujiamasake.jp/blogs/media/202102-dr\">マガジンワールド 「Dr.クロワッサン 発酵特集」</a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2020.12.23\">2020.12.23</time>\n                <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                フジテレビ 「国分太一のおきらくさんぽ  神楽坂編」             </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2020.12.13\">2020.12.13</time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://koujiamasake.jp/pages/ws_01\">＜朝活トークショー＞「甘酒と免疫力アップ」　甘酒探求家　藤井寛氏</a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2020.10.28\">2020.10.28</time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                ワン・パブリシング　「TVLIFE 神尾楓珠の 神尾Who's? (神楽坂編）」\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2020.08\">2020.08</time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                CBCテレビ　「健康カプセル ゲンキの時間」\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2020.07\">2020.07</time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://www.ozmall.co.jp/gourmet/osake/24065/\">スターツ出版株式会社　OZ mall</a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2020.02\">2020.02</time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://koujiamasake.jp/blogs/media/0002\">TOKYO MX「TOKYO MX NEWS」</a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2020.01\">2020.01</time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://koujiamasake.jp/blogs/media/0001\">TBSテレビ 「Nスタ」</a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2017.12\">2017.12</time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://koujiamasake.jp/blogs/media/201712-discoverjapan\">株式会社ディスカバー・ジャパン　Discover Japan 2018年1月号</a>\n            </p>\n        </li>\n        <li>\n            <div class=\"newslist-box\">\n                <time datetime=\"2017.12\">2017.12</time>\n                    <p class=\"p-no\"></p>\n            </div>\n            <p class=\"newslist-text\">\n                <a href=\"https://www.marukome.co.jp/marukome_omiso/hakkoubishoku/20200319/12677/\">マルコメ株式会社　「発酵美食」</a>\n            </p>\n        </li>\n\n\n\n    </ul>\n</div>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "1655095890f18fa903-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "advanced_content_xFyJaX": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_4MUQXY": {
+          "type": "liquid",
+          "settings": {
+            "code": "<style>\n.blog-filter-app{\n  width:10%;\n}\n.blog-filter-reset{background-color:#e0d9c5 !important;\ncolor:#777 !important;\nwidth:10%;\n}\n@media screen and (max-width:768px){\n#blog-filter-focus{\n}\n\n.blog-filter-app{\n  width:80%;\n  margin-left:10.2%;\n}\n\n.blog-filter-reset{\nwidth:80%;\nmargin:left:10%;\n}\n}\n</style>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_4MUQXY"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    }
+  },
+  "order": [
+    "1735016995399c15bd",
+    "main",
+    "16550958902c54d1c6",
+    "advanced_content_xFyJaX"
+  ]
+}

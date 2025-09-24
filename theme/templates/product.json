@@ -1,0 +1,218 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": false
+          }
+        },
+        "3fb94f7b-982d-4c6e-80b9-723492398f5e": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "6a4f09bb-51d6-4ca1-a754-c3f03f71802f": {
+          "type": "custom",
+          "disabled": true,
+          "settings": {
+            "code": "<div class=\"boxct\">\n    <span class=\"box-title\">Amazon Payに関するご注意</span>\n  <p>ギフトなど、ご注文者様の住所とお届け先住所が異なる場合、Amazon Payはご利用できませんのでご注意ください。</p>\n</div>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "32c38576-1e35-4a19-aaaf-2eb1ce006e87": {
+          "type": "sales_point",
+          "disabled": true,
+          "settings": {
+            "icon": "globe",
+            "text": "Free worldwide shipping"
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "separator",
+        "variant_picker",
+        "3fb94f7b-982d-4c6e-80b9-723492398f5e",
+        "6a4f09bb-51d6-4ca1-a754-c3f03f71802f",
+        "buy_buttons",
+        "32c38576-1e35-4a19-aaaf-2eb1ce006e87"
+      ],
+      "settings": {
+        "sku_enable": false,
+        "image_position": "left",
+        "image_size": "medium",
+        "product_zoom_enable": true,
+        "thumbnail_position": "below",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "blocks": {
+        "custom_wY4rzP": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"giftdayo\">\n<h3>ご注文について</h3>\n<p>商品の賞味期限、お支払い方法、MUROポイント、送料などに関する詳細は下記「ご注文について」よりご確認いただけます。</p>\n<div class=\"a-gift\"><a href=\"https://kojidrink.jp/pages/howtoorder\">ご注文について</a></div>\n</div>"
+          }
+        },
+        "8ce96d86-789d-4360-b0de-0a17d4444f68": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "76c4024e-d68f-4855-9019-d546a79f8fe0": {
+          "type": "tab",
+          "settings": {
+            "title": "返品・交換・賞味期限について",
+            "content": "<p><strong>返品・交換について</strong><br/></p><p>食品という商品の性質上、開封済みの商品やお客様都合でのご返品・交換の対応は致しかねますので、予めご了承ください。<br/></p><p><strong>不良品について</strong><br/></p><p>商品の品質については万全を期しておりますが、万一当店に起因する商品の不良や配送時の破損、誤納品などございましたら、商品到着より7日以内にご連絡くださいませ。交換対応させていただきます。<br/>※この場合の送料は当店にて負担させていただきます。</p><p></p><p><strong>賞味期限について<br/></strong></p><p>セール商品等賞味期限が明記されているものを除き、賞味期限がご注文日より2か月以上のものをお届けしております。当店では最低で2か月程の賞味期限でも美味しく安心してお召し上がりいただけると判断している為です。<br/>フードロスをなくす観点からも「賞味期限の長いものを」というご要望はお応えが出来かねます事をご理解くださいませ。<br/>※在庫管理都合上、在庫の賞味期限はいつのものか等具体的な賞味期限のお問合せは対応が出来かねます。ご了承くださいませ。</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_wY4rzP",
+        "8ce96d86-789d-4360-b0de-0a17d4444f68",
+        "76c4024e-d68f-4855-9019-d546a79f8fe0"
+      ],
+      "settings": {
+        "max_width": true
+      }
+    },
+    "171627628901a90d27": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "241bec12-994e-4f59-bd10-47e9e0a17540": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_kfCmfw": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/summer_closed.jpg",
+            "link": "shopify://pages/summer-delivery",
+            "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "image_ziwpUJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/KOJIJAM_banner_s_01-04.jpg",
+            "link": "https://kojidrink.jp/products/ygk001053",
+            "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "image_wFhPEE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/summer_gift_bnr_2025.jpg",
+            "link": "shopify://collections/gift",
+            "width": "33%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_kfCmfw",
+        "image_ziwpUJ",
+        "image_wFhPEE"
+      ],
+      "custom_css": [
+        ".custom-content {justify-content: center;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "1701311415af9c8e19": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "関連商品",
+        "related_count": 5,
+        "products_per_row": 5
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "210ab444-1fe9-441d-8d2e-fbb772d657f3": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "こちらもおすすめ",
+        "home_featured_products": "all",
+        "per_row": 5,
+        "rows": 1,
+        "mobile_scrollable": false,
+        "view_all": true,
+        "divider": false
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "171627628901a90d27",
+    "241bec12-994e-4f59-bd10-47e9e0a17540",
+    "1701311415af9c8e19",
+    "product-recommendations",
+    "recently-viewed",
+    "210ab444-1fe9-441d-8d2e-fbb772d657f3",
+    "collection-return"
+  ]
+}

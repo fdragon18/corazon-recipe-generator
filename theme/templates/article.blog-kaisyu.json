@@ -1,0 +1,149 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "article-blog-kaisyu",
+      "settings": {
+        "image_hero": false,
+        "blog_show_tags": true,
+        "blog_show_date": true,
+        "blog_show_comments": true,
+        "blog_show_author": false,
+        "social_sharing_blog": true
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "disabled": true,
+      "settings": {
+        "title": "You may also like",
+        "blog": "",
+        "post_limit": 3,
+        "blog_show_tags": false,
+        "blog_show_date": true,
+        "blog_show_comments": false,
+        "blog_show_author": false,
+        "view_all": true,
+        "blog_image_size": "wide",
+        "divider": false
+      }
+    },
+    "f582c5da-ffd2-4a43-903f-70148bc7ff1b": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16802465087726__f582c5da-ffd2-4a43-903f-70148bc7ff1b-heading-1": {
+          "type": "heading",
+          "settings": {
+            "title": "Rich text"
+          }
+        },
+        "template--16802465087726__f582c5da-ffd2-4a43-903f-70148bc7ff1b-text-1": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16802465087726__f582c5da-ffd2-4a43-903f-70148bc7ff1b-heading-1",
+        "template--16802465087726__f582c5da-ffd2-4a43-903f-70148bc7ff1b-text-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "9ca7c2d9-d123-4b40-979d-cce81f24b303": {
+      "type": "text-columns",
+      "blocks": {
+        "template--16802465087726__9ca7c2d9-d123-4b40-979d-cce81f24b303-text_block-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image_width": 320,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
+            "button_label": "商品ページを見る >",
+            "button_link": ""
+          }
+        },
+        "template--16802465087726__9ca7c2d9-d123-4b40-979d-cce81f24b303-text_block-2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image_width": 320,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
+            "button_label": "商品ページを見る >",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16802465087726__9ca7c2d9-d123-4b40-979d-cce81f24b303-text_block-1",
+        "template--16802465087726__9ca7c2d9-d123-4b40-979d-cce81f24b303-text_block-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "e74ff483-9221-4948-8666-587d6a853800": {
+      "type": "text-columns",
+      "blocks": {
+        "template--16802465087726__e74ff483-9221-4948-8666-587d6a853800-text_block-1": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image_width": 320,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
+            "button_label": "商品ページを見る >",
+            "button_link": ""
+          }
+        },
+        "template--16802465087726__e74ff483-9221-4948-8666-587d6a853800-text_block-2": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image_width": 320,
+            "title": "Example title",
+            "text": "<p>Use this section to explain a set of product features, to link to a series of pages, or to answer common questions about your products. Add images for emphasis.</p>",
+            "button_label": "商品ページを見る >",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16802465087726__e74ff483-9221-4948-8666-587d6a853800-text_block-1",
+        "template--16802465087726__e74ff483-9221-4948-8666-587d6a853800-text_block-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "align_text": "center",
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "blog-posts",
+    "f582c5da-ffd2-4a43-903f-70148bc7ff1b",
+    "9ca7c2d9-d123-4b40-979d-cce81f24b303",
+    "e74ff483-9221-4948-8666-587d6a853800"
+  ]
+}

@@ -1,0 +1,309 @@
+/* ================
+//共通
+// ===============*/
+.page-content--top{
+max-width: 100%;
+padding: 0;
+}
+.section-header{
+  height: 450px;
+  position: relative;
+  }
+h1{
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit- transform: translateY(-50%) translateX(-50%);
+  margin: auto;
+  color: #fff;
+  text-shadow: 1px 1px 5px #666666;
+}
+h1::before{
+  content:'＜広がる発酵、彩る生活＞';
+  font-size:18px;
+  display: block;
+  padding:15px;
+}
+@media (max-width: 680px) {
+.section-header{
+  height: 250px;
+  }
+h1{
+  width: 300px;
+  }
+    }
+/* ================
+//morning-amazake
+// ===============*/
+#morning-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a01n.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+
+@media (max-width: 680px) {
+#morning-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a01-spn.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+    }
+/* ================
+//sweets-amazake
+// ===============*/
+#sweets-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a02-01.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+
+@media (max-width: 680px) {
+#sweets-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a02-01-sp.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+    }
+/* ================
+//evening-amazake
+// ===============*/
+#evening-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a03-01.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+
+@media (max-width: 680px) {
+#evening-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a03-01-sp.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+    }
+/* ================
+//sports-amazake
+// ===============*/
+#sports-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a04-01.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+
+@media (max-width: 680px) {
+#sports-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a04-01-sp.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+    }
+/* ================
+//study-work-amazake
+// ===============*/
+#study-work-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a05-01.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+
+@media (max-width: 680px) {
+#study-work-amazake .section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-mng-a05-01-sp.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  }
+    }
+/* ================
+//by-scene
+// ===============*/
+.by-scene{
+    padding: 50px 0;
+}
+.by-scene p {
+  color: #111111;
+  font-size: 14px;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  line-height: 1.65;
+  text-align: left;
+}
+.by-scene h2{
+  font-size:18px;
+  font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+  text-align:center;
+  margin-bottom: 35px;
+}
+.by-scene h3{
+color: #000000;
+font-size: 18px;
+text-align: center;
+position: relative;
+margin-bottom: 50px;
+}
+.by-scene h3::after {
+  border-bottom: 1px solid #cccccc;
+  content: "";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+}
+.by-scene .chigau{
+background: #fff;
+box-shadow: 0px 0px 7px #e3e3e3;
+border-radius: 15px;
+padding: 70px 50px 30px;
+position: relative;
+margin-top: 100px;
+}
+.by-scene .chigau::before{
+  content: "";
+  display: inline-block;
+  width: 130px;
+  height: 130px;
+  background-size: contain;
+  vertical-align: middle;
+  z-index: 1;
+  position: absolute;
+top: -80px;
+  border-radius: 50%;
+  padding: 20px;
+  left: 50%;
+  transform: translateY(0%) translateX(-50%);
+  -webkit- transform: translateY(0%) translateX(-50%);
+  margin: auto;
+}
+.by-scene.coll-mng-a01 .chigau:nth-of-type(1)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-by-scenei01.svg)no-repeat;
+}
+.by-scene.coll-mng-a02 .chigau:nth-of-type(1)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-by-scenei02.svg)no-repeat;
+}
+.by-scene.coll-mng-a03 .chigau:nth-of-type(1)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-by-scenei03.svg)no-repeat;
+}
+.by-scene.coll-mng-a04 .chigau:nth-of-type(1)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-by-scenei04.svg)no-repeat;
+}
+.by-scene.coll-mng-a05 .chigau:nth-of-type(1)::before{
+  background:url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/coll-by-scenei05.svg)no-repeat;
+}
+.by-scene .chigau p em{
+background: linear-gradient(transparent 60%, #fff9cc 60%);
+font-style: normal;
+font-weight: bold;
+}
+.by-scene .chigau > figure:nth-child(3){
+width: 50%;
+margin: 50px auto 80px;
+}
+.by-scene .kannrie{
+  margin-top:50px;
+border: 1px solid #111111;
+padding: 10px 10px 20px;
+  position: relative;
+}
+.by-scene .kannrie h3 {
+margin: -30px auto 30px;
+display: block;
+}
+.by-scene .kannrie h3::after {
+display: none;
+}
+.by-scene .kannrie h3 span{
+background: #111111;
+color: #fff;
+border-radius: 20px;
+margin-top: -170px;
+display: inline-block;
+padding: 10px 30px;
+}
+.by-scene .chigau ul{
+display: flex;
+justify-content: space-between;
+list-style: none;
+margin: 50px auto;
+text-align: center;
+}
+.by-scene .chigau li{
+width: 47%;
+}
+.by-scene .chigau li figure img{
+border-radius: 20px;
+border: 1px solid #ccc;
+}
+.by-scene .chigau li span{
+  color: #5c5950;
+  font-size: 14px;
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+  line-height: 1.65;
+}
+
+.by-scene .osusume-scene{
+background: #eeeeee;
+border-radius: 20px;
+padding: 20px;
+margin-bottom: 30px;
+box-shadow: 2px 2px 4px #e3e3e3;
+}
+.by-scene .osusume-scene ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+list-style: none;
+margin: 0;
+}
+.by-scene .osusume-scene li{
+width: 18%;
+}
+.by-scene .osusume-scene li figure{
+filter: drop-shadow(1px 3px 5px rgb(215, 210, 205));
+}
+.by-scene .osusume-scene li a{
+display: block !important;
+}
+.by-scene .osusume-scene li a::after{
+  display: none;
+}
+.by-scene .osusume-scene li a img{
+border-radius: unset;
+border: none;
+}
+@media (max-width: 680px) {
+.by-scene {
+  padding: 30px 0;
+}
+  .by-scene .chigau {
+  padding: 70px 20px 30px;
+  }
+.by-scene .chigau > figure:nth-child(3) {
+  width: 70%;
+  margin: 50px auto;
+}
+  .by-scene .chigau ul {
+  justify-content: center;
+  flex-wrap: wrap;
+    margin: 50px auto 0;
+}
+  .by-scene .chigau li {
+  width: 70%;
+  margin-bottom: 50px;
+}
+  .by-scene .osusume-scene {
+  padding: 20px 0;
+  }
+.by-scene .osusume-scene li{
+width: 28% !important;
+margin: 5px;
+   }
+ }
+@media (max-width: 580px) {
+.by-scene .chigau > figure:nth-child(2) {
+  margin: 40px auto 70px;
+}
+}
+@media (max-width: 480px) {
+.by-scene .chigau > figure:nth-child(3) {
+  width: 100%;
+ }
+.by-scene .kannrie h3 {
+  margin: -30px auto 15px;
+}
+.by-scene .kannrie h3 span {
+padding: 10px;
+font-size: 16px;
+}
+  .by-scene .chigau li {
+  width: 100%;
+}
+   }

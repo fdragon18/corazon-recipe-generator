@@ -1,0 +1,19 @@
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/main-2week004.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  height: 450px;
+  }
+@media (max-width: 680px) {
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/main-2week005.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  height: 250px;
+  }
+    }
+
+@media (max-width: 860px) {
+.o-week03 .yoko-sc > span:nth-child(2) {
+  top: unset;
+  bottom: 0px;
+}
+      }

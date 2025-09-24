@@ -1,0 +1,85 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "settings": {
+        "enable": true,
+        "collection_image_enable": true,
+        "parallax": false,
+        "parallax_direction": "top"
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "c5e3df67-4917-4118-8778-d622c9d0b8ef": {
+          "type": "collection_description",
+          "settings": {}
+        },
+        "subcollections": {
+          "type": "subcollections",
+          "settings": {
+            "subcollections_per_row": 5
+          }
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "enable_collection_count": true,
+            "per_row": 4,
+            "rows_per_page": 20,
+            "mobile_flush_grid": true
+          }
+        }
+      },
+      "block_order": [
+        "c5e3df67-4917-4118-8778-d622c9d0b8ef",
+        "subcollections",
+        "product_grid"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapsed": true,
+        "filter_style": "sidebar",
+        "enable_color_swatches": false,
+        "enable_swatch_labels": true,
+        "enable_sort": true
+      }
+    },
+    "advanced_content_fAb4zr": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_jyyiaN": {
+          "type": "liquid",
+          "settings": {
+            "code": "<style>\n.banner_box_small{\n  margin: auto;\n  text-align: center;\n}\n\n.banner_box_small img {\n  width: 440px;\n  margin: auto;\n  border:#e5e4e4 solid 0.2px;\n}\n\n.banner_box_small p {\n  font-size: 13px;\n}\n\n.banner_box_big{\n  margin: auto;\n  text-align: center;\n}\n\n.banner_box_big img {\n  width:60%;\n  margin: auto;\n}\n@media screen and (max-width: 768px) {\n.banner_box_big img {\n  width: 100%;\n}\n}\n</style>\n<div class=\"banner_box_small\">\n<a href=\"#quiz-meHVPG\" class=\"rte__image\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/top-bnr-con002.jpg\"><p>＼お気に入りがみつかるかも／<br>1分でできる♪甘酒診断</p></a>\n</div>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_jyyiaN"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "main-collection",
+    "advanced_content_fAb4zr"
+  ]
+}

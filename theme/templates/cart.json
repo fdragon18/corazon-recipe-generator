@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1643009920b3385337": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "main": {
+      "type": "main-cart",
+      "settings": {}
+    },
+    "advanced_content_hdNr4N": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_YcxhLT": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "code": "<hr><a href=\"https://kojidrink.jp/pages/store_attn_2406\" target=\"_new\">倉庫移転に伴うシステムメンテナンスのお知らせ ＞＞＞</a>\n<hr>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_YcxhLT"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "hr {display: none;}",
+        "@media (max-width: 768px) {a {font-size: 0.8rem; margin-top: -200px; } hr {display: block; }}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "disabled": true,
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "17108160370dc97887": {
+      "type": "apps",
+      "settings": {
+        "full_width": false,
+        "space_around": true
+      }
+    },
+    "rich_text_hn8CyG": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Y9GcQh": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "enlarge_text": false,
+            "text": "<p>※商品代金以上のポイント数をご入力された場合、割引は商品代金分のみとなり超過したポイントも消費されますのでご注意ください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_Y9GcQh"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    }
+  },
+  "order": [
+    "1643009920b3385337",
+    "main",
+    "advanced_content_hdNr4N",
+    "recently-viewed",
+    "17108160370dc97887",
+    "rich_text_hn8CyG"
+  ]
+}

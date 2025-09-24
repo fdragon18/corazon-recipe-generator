@@ -1,0 +1,117 @@
+{%- liquid
+  assign filter_tree_vertical_style = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'filterTreeVerticalStyle":"' | last | split: '","' | first | strip
+  assign enable_filter_sticky_d = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'stickyFilterOnDesktop":' | last | split: ',' | first | strip
+  assign enable_filter_sticky_m = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'stickyFilterOnMobile":' | last | split: ',' | first |  split: '}}' | first | strip
+
+  assign enable_filter_tree_button_desktop_v = false
+  if filter_tree_vertical_style == 'style-off-canvas' or filter_tree_vertical_style == 'style-expand'
+    assign enable_filter_tree_button_desktop_v = true
+  endif
+  
+  assign per_row = 4
+  assign paginate_by = per_row | times: 7
+
+  for block in section.blocks
+    case block.type
+    when 'product_grid'
+      assign per_row = block.settings.per_row
+      assign paginate_by = per_row | times: block.settings.rows_per_page
+    endcase
+  endfor
+
+  assign current_filter_size = 0
+
+  for filter in collection.filters
+    assign current_filter_size = current_filter_size | plus: filter.active_values.size
+  endfor
+-%}
+
+{% paginate collection.products by paginate_by %}
+
+{%- for block in section.blocks -%}
+  <div {{ block.shopify_attributes }}>
+    {%- case block.type -%}
+    {%- when 'collection_description' -%}
+      {%- if collection.description != blank and current_filter_size == 0 -%}
+        <div class="rte collection__description">
+          {{ collection.description }}
+        </div>
+      {%- endif -%}
+    {%- when 'subcollections' -%}
+      {%- if current_filter_size == 0 -%}
+        {%- render 'subcollections', per_row: block.settings.subcollections_per_row -%}
+      {%- endif -%}
+    {%- when 'product_grid' -%}
+    <div class="collection-filter 
+      {% if enable_filter_sticky_d and enable_filter_tree_button_desktop_v %} boost-pfs-filter-tree-desktop-button-sticky-wrapper {% endif %} {% if enable_filter_sticky_m %}boost-pfs-filter-tree-mobile-button-stick-wrapper {% endif %}">
+      <div class="collection-filter__item collection-filter__item--drawer">
+        <div class="button boost-pfs-filter-tree-mobile-button">
+          {% render 'boost-pfs-filter-skeleton', type: 'button' %}
+        </div>
+      </div>
+
+      <div class="collection-filter__item collection-filter__item--count small--hide">
+        {%- if enable_filter_tree_button_desktop_v  -%}
+          <div class="boost-pfs-filter-tree-desktop-button">{%- render 'boost-pfs-filter-skeleton', type: 'button' -%}</div>
+        {%- endif -%}
+        {%- if block.settings.enable_collection_count -%}
+          <div class="boost-pfs-filter-total-product">
+            {{ 'collections.general.items_with_count' | t: count: collection.products_count }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="collection-filter__item collection-filter__item--sort">
+        <div class="collection-filter__sort-container boost-pfs-filter-top-sorting">
+          {% render 'boost-pfs-filter-skeleton', width: 3 %}
+        </div>
+      </div>
+    </div>
+    <div class="boost-pfs-filter-products grid grid--uniform{% if block.settings.mobile_flush_grid %} small--grid--flush{% endif %}" data-boost-sort="{{ collection.default_sort_by }}" data-scroll-to>
+      {%- liquid
+        assign grid_item_width = 'small--one-half medium-up--one-third'
+
+        case per_row
+          when 2
+            assign grid_item_width = 'medium-up--one-half'
+          when 3
+            assign grid_item_width = 'small--one-half medium-up--one-third'
+          when 4
+            assign grid_item_width = 'small--one-half medium-up--one-quarter'
+          when 5
+            assign grid_item_width = 'small--one-half medium-up--one-fifth'
+        endcase
+      -%}
+
+      {% for product in collection.products %}
+        {%- comment %}<locksmith:495e>{% endcomment -%}
+          {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+        {%- comment %}</locksmith:495e>{% endcomment -%}
+        {% render 'product-grid-item', product: product, grid_item_width: grid_item_width, per_row: per_row %}
+      {% endfor %}
+
+    </div>
+
+    <div class="boost-pfs-filter-bottom-pagination pagination">
+      {% if paginate.pages > 1 %}
+        {% render 'pagination' %}
+      {% endif %}
+    </div>
+    <div class="boost-pfs-filter-load-more"></div>
+    <div class="boost-pfs-quick-shop-modal-container">
+      {%- if settings.quick_shop_enable -%}
+        {%- for product in collection.products -%}
+          {%- comment %}<locksmith:912f>{% endcomment -%}
+            {%- capture var %}{% render 'locksmith-variables', scope: 'subject', subject: product, subject_parent: collection, variable: 'transparent' %}{% endcapture %}{% if var == "true" %}{% else %}{% continue %}{% endif -%}
+          {%- comment %}</locksmith:912f>{% endcomment -%}
+          {%- if product.available -%}
+            {%- render 'quick-shop-modal' -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+    {%- endcase -%}
+  </div>
+{%- endfor -%}
+
+{% endpaginate %}

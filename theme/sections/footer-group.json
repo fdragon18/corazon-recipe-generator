@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer-group.name",
+  "sections": {
+    "nutrition_widget_FzTXzM": {
+      "type": "nutrition-widget",
+      "name": "栄養相談フォーム",
+      "settings": {}
+    },
+    "footer-promotions": {
+      "type": "footer-promotions",
+      "settings": {
+        "hide_homepage": true
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "1494301487049": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": true,
+            "menu": "footer",
+            "container_width": 20
+          }
+        },
+        "57c1c9d3-2971-4d1f-9fd8-09f3f0dd4464": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": true,
+            "menu": "",
+            "container_width": 20
+          }
+        },
+        "ce8d4f95-edfa-42df-b903-5ead715950c0": {
+          "type": "menu",
+          "settings": {
+            "show_footer_title": true,
+            "menu": "",
+            "container_width": 20
+          }
+        },
+        "1494292487693": {
+          "type": "newsletter",
+          "settings": {
+            "show_footer_title": false,
+            "title": "メルマガを購読する",
+            "text": "<p>メルマガの購読は下記からご登録をお願いいたします。</p>",
+            "container_width": 40
+          }
+        }
+      },
+      "block_order": [
+        "1494301487049",
+        "57c1c9d3-2971-4d1f-9fd8-09f3f0dd4464",
+        "ce8d4f95-edfa-42df-b903-5ead715950c0",
+        "1494292487693"
+      ],
+      "settings": {
+        "show_locale_selector": false,
+        "show_currency_selector": false,
+        "show_currency_flags": false,
+        "show_payment_icons": false,
+        "show_copyright": true,
+        "copyright_text": ""
+      }
+    }
+  },
+  "order": [
+    "nutrition_widget_FzTXzM",
+    "footer-promotions",
+    "footer"
+  ]
+}

@@ -1,0 +1,440 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    },
+    "slideshow_aQ4mmb": {
+      "type": "slideshow",
+      "blocks": {
+        "image_jtFwak": {
+          "type": "image",
+          "settings": {
+            "top_subheading": "",
+            "title": "KOJI DRINK（甘酒）定期便",
+            "title_size": 100,
+            "subheading": "",
+            "link": "",
+            "link_text": "",
+            "link_2": "",
+            "link_text_2": "",
+            "color_accent": "rgba(0,0,0,0)",
+            "text_align": "vertical-center horizontal-center",
+            "image": "shopify://shop_images/teikibin.jpg",
+            "parallax_direction": "top",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_jtFwak"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_height": "450px",
+        "mobile_height": "250px",
+        "parallax": true,
+        "style": "bars",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "lazyload_images": true
+      }
+    },
+    "rich_text_J8E6eR": {
+      "type": "rich-text",
+      "blocks": {
+        "text_Jwnkq9": {
+          "type": "text",
+          "settings": {
+            "enlarge_text": true,
+            "text": "<p>甘酒をなかなか続けられない…という方のために、お得な金額でご購入いただける定期便をご用意いたしました。</p><p>今日から日々の生活に甘酒を取り入れてみませんか？</p>"
+          }
+        },
+        "button_n7rtjx": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "link": "https://koujiamasake.jp/collections/subscription",
+            "link_text": "定期便の商品一覧はこちらから"
+          }
+        }
+      },
+      "block_order": [
+        "text_Jwnkq9",
+        "button_n7rtjx"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}",
+        "p {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "align_text": "center",
+        "narrow_column": true,
+        "divider": false
+      }
+    },
+    "text_columns_wxHTiX": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_XzYNX6": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/tokuten1.png",
+            "image_mask": "none",
+            "image_width": 200,
+            "title": "",
+            "text": "<p>定期便は全て送料無料</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_P3BE99": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/tokuten2.png",
+            "image_mask": "none",
+            "image_width": 200,
+            "title": "",
+            "text": "<p>定期便は全て通常価格よりおトク</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_bwpAE9": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/tokuten3.png",
+            "image_mask": "none",
+            "image_width": 200,
+            "title": "",
+            "text": "<p>新規登録の場合、500ポイントプレゼント</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_VngYAy": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/tokuten4.png",
+            "image_mask": "none",
+            "image_width": 200,
+            "title": "",
+            "text": "<p>1度の登録で楽々注文</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_tQ8BAY": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/tokuten5.png",
+            "image_mask": "none",
+            "image_width": 200,
+            "title": "",
+            "text": "<p>メルマガ登録でお得な情報をお届け</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_XzYNX6",
+        "text_block_P3BE99",
+        "text_block_bwpAE9",
+        "text_block_VngYAy",
+        "text_block_tQ8BAY"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "h2 {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "title": "定期販売のお得な5つの特典",
+        "align_text": "center",
+        "divider": false
+      }
+    },
+    "advanced_content_7PCPHW": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_Nf8Pem": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kojidrink_healthy.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "liquid_XpA8fN": {
+          "type": "liquid",
+          "settings": {
+            "code": "<p>健康的な体作りを支える米麹甘酒はこんな方にもおすすめです。</p>\n<ul>\n<li>生活習慣が乱れている</li>\n<li>甘いものが好き</li>\n<li>朝からスッキリしたい</li>\n<li>健やかに過ごしたい</li>\n<li>トレーニングのお供に</li>\n<li>毎日の健康と美容を大切にしたい</li>\n</ul><br>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_Nf8Pem",
+        "liquid_XpA8fN"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "li {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "advanced_content_xNAhYf": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_jTPRmM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/kojidrink_morning.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "liquid_DC7UAE": {
+          "type": "liquid",
+          "settings": {
+            "code": "<p>飲む時間帯を変えると、楽しみながら継続しやすいです。</p>\n<ul>\n<li>朝に飲む：朝一番の会議や試験のときに<br>\n<p>ブドウ糖が、脳に栄養分として取り込まれ、脳をしっかり目覚めさせる効果が。</p></li>\n\n<li>昼に飲む：おやつ代わりやエネルギッシュに頑張りたい時）<br>\n<p>エネルギーを補給するためやおやつ代わりに、中間食として飲んでも良いでしょう。</p></li>\n\n<li>夜に飲む（優しい甘さと麹の香りでリフレッシュ）<br>\n<p>\n米麹甘酒はカフェインを含まないのでおやすみ前や、デザート代わりに温めて飲むのもおすすめです。</p></li>\n</ul>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_jTPRmM",
+        "liquid_DC7UAE"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "li {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "advanced_content_RnfM8d": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_YAtdNp": {
+          "type": "liquid",
+          "settings": {
+            "code": "<h2>定期便一覧</h2>\n<div class=\"jp_traditional\"><p class=\"megane\"><img src=\"//cdn.shopify.com/s/files/1/0262/8252/4717/files/megane.png\" alt=\"\" />クリックで拡大します。</p>\n<figure class=\"mb50 pc_area\"><a href=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/teiki_pricelist_pc.jpg?v=1716785922\" data-lity=\"\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/teiki_pricelist_pc.jpg?v=1716785922\"></a></figure>\n<figure class=\"mb50 phone_area\"><a href=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/teiki_pricelist_sp.jpg?v=1716785922\" data-lity=\"\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/teiki_pricelist_sp.jpg?v=1716785922\"></a></figure>\n\n<h2>定期便消費目安について</h2>\n<figure class=\"mb50 pc_area\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/teiki_meyasu_pc.jpg?v=1716795349\"></figure>\n<figure class=\"mb50 phone_area\"><img src=\"https://cdn.shopify.com/s/files/1/0262/8252/4717/files/teiki_meyasu_sp.jpg?v=1716795349\"></figure>",
+            "width": "100%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_YAtdNp"
+      ],
+      "custom_css": [
+        "h2 {text-align: center; font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "text_columns_tWPBBf": {
+      "type": "text-columns",
+      "blocks": {
+        "text_block_mipbKP": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/teiki_check1.png",
+            "image_mask": "none",
+            "image_width": 220,
+            "title": "STEP.1",
+            "text": "<p>お申し込みになりたいコースの定期便のボタンにチェックをいれてください。</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_kwkhgw": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/teiki_check2.png",
+            "image_mask": "none",
+            "image_width": 220,
+            "title": "STEP.2",
+            "text": "<p>「確認必須項目」を全て「了承済」にした状態で「カートに追加」のボタンを押してください。</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "text_block_ej6FdF": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/teiki_check3.png",
+            "image_mask": "none",
+            "image_width": 220,
+            "title": "STEP.3",
+            "text": "<p>カートに追加した定期便のプランに間違いがないかを確認して、「決済に進む」のボタンを押してください。</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "text_block_mipbKP",
+        "text_block_kwkhgw",
+        "text_block_ej6FdF"
+      ],
+      "custom_css": [
+        "h2 {font-family: \"游明朝\", YuMincho, \"Hiragino Mincho ProN W3\", \"ヒラギノ明朝 ProN W3\", \"Hiragino Mincho ProN\", \"HG明朝E\", \"ＭＳ Ｐ明朝\", \"ＭＳ 明朝\", serif; text-align: center;}"
+      ],
+      "settings": {
+        "title": "お申し込み方法",
+        "align_text": "center",
+        "divider": true
+      }
+    },
+    "faq2_rzaRE6": {
+      "type": "faq2",
+      "blocks": {
+        "question_NCDb87": {
+          "type": "question",
+          "settings": {
+            "title": "１日にどのくらい飲むといいですか？",
+            "text": "<p>目安としては100〜200mlが良いとされています。詳しくは、<a href=\"https://koujiamasake.jp/pages/column04\">甘酒の飲み方</a>をご参照ください。</p>"
+          }
+        },
+        "question_GXyJcb": {
+          "type": "question",
+          "settings": {
+            "title": "毎日摂取する場合、いつが良いですか？",
+            "text": "<p>おすすめは朝です。糖質（ブドウ糖）、ビタミンが多いため、スムーズにエネルギー補給ができます。<br/>消化・吸収が良いので、起きたばかりの胃にも負担がなく優しいでしょう。次いで就寝前がおすすめです。甘酒にはリラックス効果があり、ストレスの改善にも良いとされています。詳しくは、<a href=\"https://koujiamasake.jp/pages/column04\">甘酒の飲み方</a>をご参照ください。</p>"
+          }
+        },
+        "question_6CMLqN": {
+          "type": "question",
+          "settings": {
+            "title": "会員登録をしなくても申し込めますか？",
+            "text": "<p>定期購入の際には、会員登録をお願いしております。ご自身のマイページから申し込みコースや、次回の発送日が参照いただけます。</p>"
+          }
+        },
+        "question_NpNVWW": {
+          "type": "question",
+          "settings": {
+            "title": "注文してからどれくらいで届きますか？",
+            "text": "<p>商品の在庫がある場合、営業日3−5日以内に出荷させていただきます。</p>"
+          }
+        },
+        "question_X7prNQ": {
+          "type": "question",
+          "settings": {
+            "title": "次回の配送をお休みすることは出来ますか？",
+            "text": "<p>「スキップ」機能をご利用いただくと、次回の配送を次々回の日まで先延ばしすることが出来ます。<br/> ※スキップは「先延ばし」となり、合計お届け回数の変更はありません。</p>"
+          }
+        },
+        "question_CqVBmB": {
+          "type": "question",
+          "settings": {
+            "title": "次回の発送予定を確認することができますか？",
+            "text": "<p>マイページの一番下「定期購入一覧＞次回支払い予定日」からご確認いただけます。<br/> 支払い予定日の当日～3営業日以内の発送が目安となります。<br/> ※在庫状況、決済タイミングにより多少前後する場合がございます。</p>"
+          }
+        },
+        "question_fWBgMH": {
+          "type": "question",
+          "settings": {
+            "title": "定期便と一緒に他の商品を一緒に送ることはできますか？",
+            "text": "<p>定期便お申込時に一緒にご注文いただいた商品は定期便初回のお届けに同梱いたしますが、定期便2回目以降は自動出荷となりますため、他商品との同梱はできません。</p>"
+          }
+        },
+        "question_GecmcB": {
+          "type": "question",
+          "settings": {
+            "title": "支払い方法は何が選べますか？",
+            "text": "<p>定期便はクレジットカード、デビットカードのみに対応しております。</p>"
+          }
+        },
+        "question_AUnqfe": {
+          "type": "question",
+          "settings": {
+            "title": "定期便の支払いに使っているクレジットカードの有効期限が切れますが、自動更新されますか？",
+            "text": "<p>自動更新されません。大変お手数ですが、次回お届け予定日の次回発送日の７営業日前までに、マイページから変更をお願いします。</p>"
+          }
+        },
+        "question_dDztFX": {
+          "type": "question",
+          "settings": {
+            "title": "途中解約、商品変更、期間コース変更は出来ますか？",
+            "text": "<p>定期便お申し込み後の途中解約、商品や期間コースの変更は不可とさせていただいております。3ヶ月、6ヶ月、12ヶ月のプランをご用意させていただいておりますので、お客様に一番合ったプランをお選びいただければと思います。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_NCDb87",
+        "question_GXyJcb",
+        "question_6CMLqN",
+        "question_NpNVWW",
+        "question_X7prNQ",
+        "question_CqVBmB",
+        "question_fWBgMH",
+        "question_GecmcB",
+        "question_AUnqfe",
+        "question_dDztFX"
+      ],
+      "settings": {
+        "title": "よくある質問"
+      }
+    },
+    "featured_collection_GbMUFq": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "定期便商品",
+        "home_featured_products": "subscription",
+        "per_row": 4,
+        "rows": 2,
+        "mobile_scrollable": true,
+        "view_all": false,
+        "divider": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_aQ4mmb",
+    "rich_text_J8E6eR",
+    "text_columns_wxHTiX",
+    "advanced_content_7PCPHW",
+    "advanced_content_xNAhYf",
+    "advanced_content_RnfM8d",
+    "text_columns_tWPBBf",
+    "faq2_rzaRE6",
+    "featured_collection_GbMUFq"
+  ]
+}

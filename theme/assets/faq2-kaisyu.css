@@ -1,0 +1,111 @@
+ html { scroll-behavior: smooth;}
+.placeholder-noblocks{
+  display: none;
+}
+.index-section--faq {
+margin: 40px 0 37.5px;
+}
+.page-width--narrow {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto 50px;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 0 40px;
+}
+.index-section--faq h3{
+color: #fff;
+text-align: center;
+border-radius: 22px;
+font-size: 20px;
+  background: #111111;
+margin: 8px;
+line-height: 1.6;
+}
+.index-section--faq .rte{
+color: #fff;
+text-align: center;
+border-radius: 20px;
+font-size: 18px;
+  background: #111111;
+}
+.index-section--faq{
+margin: 20px auto;
+}
+
+#MainContent div:nth-child(3) .rte{
+  background: unset;
+  display: flex;
+flex-wrap: wrap;
+justify-content: center;
+list-style: none;
+max-width: 480px;
+width: 100%;
+margin: 0 auto;
+}
+.index-section--faq .rte a{
+color: #111111;
+background: #fff;
+border-radius: 30px;
+font-size: 13px;
+padding: 1px 8px;
+border: 1px solid #111111;
+margin: 8px;
+  line-height: 1.6;
+}
+.index-section--faq .rte a:hover {
+  transition-duration: .5s;
+  background: #111111;
+  color: #fff;
+}
+.index-section--faq .rte a::after {
+display:none;
+}
+.collapsible-trigger__icon--circle {
+width: 20px;
+height: 20px;
+}
+.faq-sen{
+border-bottom: 1px solid #ccc;
+border-image: linear-gradient(to right,#faf9f7 0%,#faf9f7 7.99%,#ccc 8%,#ccc 98.99%,#faf9f7 99%,#faf9f7 100%);
+border-image-slice: 1;
+padding: 8px;
+color: #111111;
+}
+.index-section div:last-child .faq-sen{
+border:none;
+}
+.faq-sen .collapsible-content.is-open {
+padding: 10px 10px 0 30px;
+font-size: 13px;
+color: #000;
+background: #eeeeee;
+border-radius: 10px;
+}
+.faq-sen .collapsible-content__inner p a {
+  color: #111111;
+  background: #fff;
+  border-radius: 30px;
+  font-size: 13px;
+  padding: 1px 8px;
+  border: 1px solid #111111;
+  margin: 8px;
+}
+.faq-sen .collapsible-content__inner p a:hover {
+  transition-duration: .5s;
+  background: #111111;
+  color: #fff;
+}
+.faq-sen .collapsible-content__inner p a::after {
+display:none;
+}
+@media (max-width: 580px) {
+#MainContent .index-section:nth-child(3),#MainContent .index-section:nth-child(4),#MainContent .index-section:nth-child(5),#MainContent .index-section:nth-child(6){
+width: 90%;
+}
+.faq-sen .collapsible-content__inner p a {
+  font-size: 12px;
+  padding: 0 8px;
+  margin: 5px;
+}
+}

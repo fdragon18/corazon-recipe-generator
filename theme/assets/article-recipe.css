@@ -1,0 +1,794 @@
+/* ================
+// 既存css全体枠調整
+// ===============*/
+html{
+scroll-behavior: smooth;
+ padding-bottom: 0 !important;
+}
+.page-content{
+  padding: 0;
+}
+.page-width.page-width--narrow.page-content{
+max-width: 100%;
+padding: 0;
+}
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-hback.jpg) repeat;
+background-size: auto;
+position: relative;
+height: 250px;
+color: #fff;
+max-width: 100%;
+margin: 0;
+}
+h1{
+position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit- transform: translateY(-50%) translateX(-50%);
+  margin: auto;
+  color: #000;
+max-width: 580px;
+width: 100%;
+}
+a::after{
+  display:none;
+}
+@media (max-width: 680px) {
+h1{
+max-width: 300px;
+}
+}
+.article__date {
+  max-width: 480px;
+  margin: 0 auto;
+  width: 90%;
+  padding: 50px 0;
+  text-align: left;
+  color: #111111;
+}
+.article__date a{
+border: 1px solid #111111;
+border-radius: 10px;
+padding: 2px 7px;
+color: #111111;
+font-size: 10px;
+margin-bottom: 5px;
+}
+.social-sharing__title {
+  font-size: 10px;
+}
+@media (max-width: 480px) {
+.article__date {
+  padding: 20px 0;
+}
+}
+/* ================
+// 共通セレクタ
+// ===============*/
+h2{
+  font-size:18px;
+  font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+  text-align:center;
+  margin-bottom: 35px;
+  line-height: 1.7;
+  position: relative;
+}
+
+h2 em{
+  font-style: normal;
+color: #111111;
+}
+h2 span{
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+font-size: 12px;
+display: block;
+line-height: 2;
+}
+.waai {
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+}
+       
+.waai::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: #000;
+    border-radius: 3px;
+    transform: rotate(-25deg);
+}
+       
+.waai::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #000;
+    border-radius: 3px;
+    transform: rotate(25deg);
+}
+.waai.ow-muryo{
+margin-bottom: 5px;
+font-size: 12px;
+padding: 0 10px;
+}
+.recipe section{
+padding: 50px 0 0;
+}
+.recipe .inn{
+max-width: 980px;
+margin: 0 auto;
+width: 100%;
+}
+.recipe p{
+  color: #111111;
+  font-size: 14px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.65;
+text-align: left;
+}
+.recipe ul {
+ margin:0;
+}
+.recipe li {
+  list-style: none;
+}
+
+.mt50{
+  margin-top:50px;
+}
+.mb50{
+  margin-bottom:50px;
+}
+.taL{
+    text-align: left;
+}
+
+.bnr-link{
+text-align: center;
+}
+.bnr-link a{
+color: #fff;
+background: #111111;
+border-radius: 30px;
+font-size: 1rem;
+padding: 10px 20px;
+margin: 0 auto 50px;
+font-family: "Noto Serif JP","YuMincho","Yu Mincho","游明朝体","ヒラギノ明朝 ProN","Hiragino Mincho ProN",serif;
+transition: 0.5s;
+display: inline-block;
+}
+.bnr-link a:hover {
+  background: #666666;
+  color: #fff;
+transition: 0.5s;
+}
+.bnr-link a::after {
+display:none;
+}
+.bnr-link.b-cha a{
+background: #804F21;
+border-radius: 5px;
+  }
+.bnr-link.b-cha a:hover{
+opacity:.8;
+transition: 0.5s;
+  }
+.tenten{
+    position: relative;
+    margin-bottom: 50px;
+}
+.tenten::after {
+border-bottom: 3px dotted #c9b06670;
+content: "";
+position: absolute;
+bottom: -25px;
+left: 50%;
+transform: translateX(-50%);
+width: 150px;
+  }
+
+    .sp680 {
+    display: none;
+  }
+.sp580 {
+  display: none;
+}
+.sp480 {
+  display: none;
+}
+@media (max-width: 980px) {
+  .pc980 {
+    display: none;
+  }
+}
+@media (max-width: 680px) {
+      .pc680 {
+    display: none;
+  }
+    .sp680 {
+    display: block;
+  }
+}
+@media (max-width: 580px) {
+    .pc580 {
+    display: none;
+  }
+  .sp580 {
+    display: block;
+  }
+}
+@media (max-width: 480px) {
+  .pc480 {
+    display: none;
+  }
+  .sp480 {
+    display: block;
+  }
+    }
+
+/* ================
+// .recipe-top
+// ===============*/
+.recipe-top{
+  
+}
+
+.recipe-top .section-header{
+background:none;
+height: auto;
+}
+/* ======.masthead=====*/
+.masthead {
+  position: relative;
+  overflow: hidden;
+  height: 49vw;
+  padding: 0 !important;
+}
+
+.masthead h1 {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translateY(-50%) translateX(-50%);
+-webkit- transform: translateY(-50%) translateX(-50%);
+margin: auto;
+color: #000;
+max-width: 380px;
+width: 100%;
+padding: 20px 30px 35px;
+background: rgba(256,256,256,.6);
+}
+.masthead h1::before {
+    content: "米麹調味料や甘酒でいろいろアレンジ♪";
+    font-size: 14px;
+    display: block;
+    padding: 15px;
+}
+.masthead-overlay {
+  background-color: #000;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+.masthead-video {
+  z-index: 0;
+  width: 100%;
+}
+
+@media (max-width: 860px) {
+.masthead {
+  height: 60vw;
+}
+}
+@media (max-width: 480px) {
+.masthead {
+height: auto;
+}
+.masthead h1 {
+max-width: 240px;
+padding: 13px 30px;
+  }
+  .masthead h1::before {
+content: "米麹調味料や甘酒で\Aいろいろアレンジ♪";
+font-size: 12px;
+padding: 5px 0;
+white-space: pre;
+}
+}
+/* ======.recipe-top-tag=====*/
+.recipe-top-tag{
+  
+}
+.recipe-top-tag h3{
+font-size: 18px;
+}
+.recipe-top-tag .inn{
+  background: #fff;
+padding: 50px;
+margin: 0 auto;
+width: 95%;
+max-width: 680px;
+text-align: center;
+}
+.recipe-top-tag ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+margin: 20px auto 0;
+}
+.recipe-top-tag li{
+  margin-bottom: 30px;
+}
+.recipe-top-tag li a{
+border: 1px solid #cccccc;
+border-radius: 10px;
+padding: 2px 8px;
+color: #111111;
+font-size: 11px;
+}
+.recipe-top-tag li a:hover{
+transition-duration: .5s;
+background:#111111;
+  color:#fff;
+}
+@media (max-width: 480px) {
+.recipe-top-tag li {
+  margin: 10px;
+}
+}
+/* ======.recipe-top-cate=====*/
+.recipe-top-cate {
+}
+.recipe-top-cate h3{
+font-size: 18px;
+}
+.recipe-top-cate .inn{
+  background: #fff;
+padding: 50px;
+margin: 0 auto;
+width: 95%;
+max-width: 680px;
+text-align: center;
+}
+.recipe-top-cate ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+margin: 20px auto 0;
+}
+.recipe-top-cate li{
+width: 25%;
+  margin-bottom: 30px;
+}
+.recipe-top-cate li img{
+width: 100px;
+}
+.recipe-top-cate li h4{
+font-size: 14px;
+letter-spacing: 0;
+margin-top: 10px;
+}
+.recipe-top-cate li a{
+display: block;
+width: 100%;
+}
+.recipe-top-cate li a:hover{
+opacity:.7;
+}
+@media (max-width: 480px) {
+.recipe-top-cate li {
+  width: 50%;
+  }
+}
+/* ======.grid=====*/
+.recipe-top-new h3{
+font-size: 18px;
+text-align: center;
+border-bottom: 1px solid #ccc;
+max-width: 680px;
+margin: 0 auto;
+width: 95%;
+padding-bottom: 10px;
+}
+.recipe-top .article__date{
+display: none;
+}
+.recipe-top .grid.grid--uniform{
+margin: 30px auto;
+max-width: 680px;
+width: 95%;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+.recipe-top .medium-up--one-third {
+width: 30% !important;
+ } 
+.recipe-top .article__grid-image {
+  margin-bottom: 10px;
+}
+.recipe-top .article__title {
+  font-size: 14px;
+}
+.recipe-top .grid__item {
+  float: unset;
+  padding-left: 0;
+  width: 100%;
+  }
+.recipe-top .article__grid-meta {
+  text-align: left;
+  line-height: 1.3;
+}
+.recipe-top .grid {
+  margin: 0;
+}
+
+.recipe-top .image-wrap img {
+  border-radius: 10px;
+}
+.recipe-top .image-wrap {
+  position: relative;
+}
+.recipe-top .recipe-amazake{
+position: absolute;
+z-index: 1;
+left: 7px;
+background: #F3E9CD;
+font-size: 11px;
+padding: 1px 5px;
+top: 7px;
+}
+.recipe-top .recipe-chomiryo{
+position: absolute;
+z-index: 1;
+left: 7px;
+background: #EAEAEA;
+font-size: 11px;
+padding: 1px 5px;
+top: 7px;
+}
+@media (max-width: 480px) {
+.recipe-top .medium-up--one-third {
+  width: 45% !important;
+}
+}
+/* ======.staff-message=====*/
+.recipe-top-foot .inn{
+  max-width: 800px;
+  margin: 0 auto 80px;
+width: 95%;
+}
+.staff-message {
+  display: flex;
+  justify-content: space-between;
+  background: #e8e8e8;
+  border-radius: 100px;
+  padding: 40px;
+  margin-bottom: 50px;
+}
+.staff-message figure {
+  width: 80px;
+}
+.staff-message p {
+  width: calc(100% - 80px);
+  margin: 0;
+  padding-left: 20px;
+}
+.staff-message p span{
+display: block;
+}
+@media (max-width: 480px) {
+.staff-message figure {
+  width: 40px;
+}
+.staff-message p {
+  width: calc(100% - 40px);
+}
+.staff-message {
+  border-radius: 50px;
+  padding: 20px;
+}
+}
+/* ================
+// .recipe-kaso
+// ===============*/
+.recipe-kaso-wrap{
+  max-width: 680px;
+margin: 0 auto;
+width: 90%;
+}
+.recipe-kaso {
+padding-bottom: 70px !important;
+background: #fff;
+}
+.recipe-kaso p{
+  color: #111111;
+font-size: 14px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.65;
+text-align: left;
+}
+.recipe-kaso h1{
+  font-family: Noto Sans Jp,sans-serif;
+}
+.recipe-kaso h1::before {
+content: "米麹&甘酒で作る簡単レシピ";
+font-size: 14px;
+padding: 15px;
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-h1b.png) 50% 0 no-repeat;
+background-size: 25px;
+display: block;
+padding-top: 30px;
+}
+.return-link {
+font-weight: lighter !important;
+font-size: 16px !important;
+}
+@media (max-width: 768px) {
+.return-link {
+  width: auto;
+}
+}
+@media (max-width: 480px) {
+.btn.return-link{
+letter-spacing: 0;
+padding: 5px 10px;
+  }
+  }
+.chorijikan{
+  list-style:none;
+  margin: 0;
+  color: #888;
+padding: 5px 15px;
+border-radius: 10px;
+max-width: 300px;
+width: 100%;
+border: 1px solid #ccc;
+}
+.chorijikan li{
+position: relative;
+border-bottom: 2px dotted #ccc;
+padding:10px 0;
+}
+.chorijikan li:last-of-type{
+border-bottom:none;
+}
+.chorijikan li::before{
+font-size: 13px;
+display: inline-block;
+}
+.chorijikan li:nth-of-type(1)::before{
+content: "　　調理時間：";
+white-space: pre-wrap;
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-01.png) 0 0 no-repeat;
+background-size: 20px;
+}
+ .chorijikan li:nth-of-type(2)::before{
+content: "　　カロリー：";
+white-space: pre-wrap;
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-02.png) 0 0 no-repeat;
+background-size: 20px;
+} 
+.zairyo{
+background: #FBFAF6;
+padding: 15px 30px 5px;
+border-radius: 10px;
+font-size: 14px;
+}
+.zairyo h3{
+font-size: 16px;
+position: relative;
+color: #111111;
+}
+.zairyo h3::before{
+content: "";
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-03.png) 0 0 no-repeat;
+background-size: 30px;
+display: inline-block;
+width: 40px;
+height: 30px;
+vertical-align: middle;
+}
+.zairyo dl{
+display: flex;
+justify-content: space-between;
+border-bottom: 1px solid #ccc;
+padding-bottom: 5px;
+}
+.zairyo dl:last-of-type{
+border-bottom:none;
+}
+.zairyo dt{
+font-weight: normal;
+}
+@media (max-width: 680px) {
+.zairyo dl {
+  flex-wrap: wrap;
+}
+.zairyo dt {
+  width: 100%;
+}
+.zairyo dd{
+display: flex;
+justify-content: end;
+width: 100%;
+ } 
+}
+.choripoint{
+  border: 1px solid #cccccc;
+padding: 15px;
+margin: 50px auto;
+}
+.choripoint h3{
+font-size: 16px;
+position: relative;
+color: #111111;
+}
+.choripoint h3::before{
+content: "";
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-05.png) 0 0 no-repeat;
+background-size: 30px;
+display: inline-block;
+width: 40px;
+height: 30px;
+vertical-align: middle;
+}
+.tsukurikata{
+  margin: 30px 0;
+}
+.tsukurikata h3{
+font-size: 16px;
+position: relative;
+color: #111111;
+padding-bottom: 10px;
+border-bottom: 2px dotted #ccc;
+}
+.tsukurikata h3::before{
+content: "";
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-04.png) 0 0 no-repeat;
+background-size: 30px;
+display: inline-block;
+width: 40px;
+height: 30px;
+vertical-align: middle;
+}
+.tsukurikata ul{
+margin: 0;
+list-style: none;
+}
+.tsukurikata li{
+position: relative;
+counter-increment: point;
+margin-bottom: 30px;
+}
+.tsukurikata li::before{
+content: counter(point);
+position: absolute;
+background: #111111;
+color: #fff;
+width: 35px;
+height: 35px;
+text-align: center;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+font-size: 20px;
+}
+.tsukurikata li p{
+padding: 5px 0 0 50px;
+}
+
+.choriqa{
+margin: 50px auto;
+padding: 15px;
+border-radius: 10px;
+width: 100%;
+border: 1px solid #ccc;
+}
+.choriqa h3{
+font-size: 16px;
+position: relative;
+color: #111111;
+}
+.choriqa h3::before{
+content: "";
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-07.png) 0 0 no-repeat;
+background-size: 30px;
+display: inline-block;
+width: 40px;
+height: 30px;
+vertical-align: middle;
+}
+.choriqa dl{
+position: relative;
+border-bottom: 2px dotted #ccc;
+padding:10px 0;
+}
+.choriqa dl:last-of-type{
+border-bottom:none;
+} 
+.choriqa dt {
+  position: relative;
+  padding-left: 40px;
+  color: #111111;
+font-weight: normal;
+  } 
+.choriqa dt::before {
+content: 'Q';
+width: 30px;
+height: 30px;
+text-align: center;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+font-size: 20px;
+margin-left: -35px;
+border: 1px solid #a3aaaa;
+border-radius: 50%;
+margin-right: 5px;
+}
+.choriqa dd {
+  position: relative;
+  padding-left: 40px;
+  } 
+.choriqa dd::before {
+content: 'A';
+width: 35px;
+height: 35px;
+text-align: center;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+font-size: 20px;
+margin-left: -35px;
+}
+.recipe-shohin{
+background: #FBFAF6;
+padding: 15px 30px 20px;
+border-radius: 10px;
+font-size: 14px;
+margin-bottom: 50px;
+}
+.recipe-shohin h3{
+font-size: 16px;
+position: relative;
+color: #111111;
+}
+.recipe-shohin h3::before{
+content: "";
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/recipe-kaso-06.png) 0 0 no-repeat;
+background-size: 30px;
+display: inline-block;
+width: 40px;
+height: 30px;
+vertical-align: middle;
+}
+.recipe-shohin ul{
+  margin: 0 0 0 15px;
+  list-style: none;
+}
+.recipe-shohin li{
+margin-bottom: 7px;
+position: relative;
+}
+.recipe-shohin li::before{
+position: absolute;
+transform: translateX(-125%);
+content: "・";
+font-weight: bold;
+}

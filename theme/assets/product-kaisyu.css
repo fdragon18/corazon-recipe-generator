@@ -1,0 +1,449 @@
+/* ================
+//共通
+// ===============*/
+.spb-select{
+  text-align:center;
+}
+.page-content--product {
+  width: 100%;
+  max-width: 980px;
+}
+  @media (max-width: 768px){
+.flickity-page-dots {
+  width: 90%;
+  left: 20px;
+}
+  }
+
+p{
+color: #17171e;
+font-size: 14px;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+line-height: 1.65;
+text-align: left;
+letter-spacing: .05em;
+}
+h3 {
+  font-size: 20px;
+color: #00000;
+font-weight: 600;
+text-align: left;
+}
+h3 span{
+font-size: 11px;
+margin-top: 3px;
+display: block;
+}
+ul{
+  list-style:none;
+  margin:0;
+}
+.w100{
+  width:100% !important;
+}
+.w0{
+  width: 0!important;
+}
+.chuui{
+text-align: left !important;
+margin: 0 !important;
+}
+/* ================
+//商品タイトル　キャッチ
+// ===============*/
+.bnr-recipe{
+max-width: 480px;
+margin: 0 auto 50px !important;
+width: 100%;
+}
+
+/* ================
+//商品タイトル　キャッチ
+// ===============*/
+.productcatch{
+  font-size: 14px;
+display: block;
+  color: #000000;
+}
+/* ================
+//カート付近
+// ===============*/
+.shopify-payment-button__more-options{
+  position: relative;
+background: #111111;
+padding: 10px 0;
+color: #fff;
+}
+.shopify-payment-button__more-options:hover:not([disabled]) {
+  text-decoration: none;
+}
+label:not(.variant__button-label):not(.text-label):not(.chakra-radio) {
+  letter-spacing: 0.1em;
+}
+select.spb-productdescfont{
+border: 2px solid #111111;
+}
+
+#infiniteoptions-container div{
+background: #f0f0f0;
+padding: 10px;
+margin-bottom: 10px;
+}
+.spb-label-tooltip{
+  padding: 0 !important;
+}
+#infiniteoptions-container div:last-of-type{
+  margin-bottom: 0 !important;
+}
+.boxct {
+  margin: 0 0 2em;
+}
+  @media (max-width: 580px){
+.product-single__meta {
+  text-align: left;
+}
+}
+.boxct .box-title {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  background: #111111;
+  font-size: 14px;
+  left: 0;
+}
+.boxct {
+  padding: 28px 10px 7px;
+  border: solid 2px #111111;
+}
+
+/* ================
+//おすすめポイント
+// ===============*/
+.staff-san{
+display: flex;
+justify-content: space-between;
+background: #eeeeee;
+border-radius: 50px;
+padding: 40px;
+margin-bottom: 50px !important;
+}
+.staff-san figure{
+width: 60px;
+
+}
+.staff-san p{
+width: calc(100% - 60px);
+margin: 0;
+padding-left: 20px;
+}
+@media (max-width: 480px) {
+.staff-san figure {
+  width: 40px;
+}
+.staff-san p {
+  width: calc(100% - 40px);
+}
+.staff-san {
+  border-radius: 50px;
+  padding: 20px;
+}
+}
+
+/* ================
+//product-block--tab
+// ===============*/
+.product-block--tab strong{
+padding: 15px 0 10px;
+border-bottom: 1px solid #e8e8e1;
+display: inline-block;
+width: 100%;
+font-size: 14px;
+}
+.collapsibles-wrapper--border-bottom {
+  background: #fff;
+}
+[data-center-text="true"] .collapsible-trigger-btn {
+background: #f0f0f0;
+  height: 55px;
+}
+.h4.footer__title.collapsible-trigger-btn{
+  background:unset;
+  height:unset;
+}
+
+.shomikigen{
+color: #fff;
+background: #111111;
+padding: 8px;
+display: block;
+text-align: center;
+outline: 1px solid rgb(255, 255, 255);
+outline-offset: -3px;
+}
+@media (max-width: 580px) {
+.shomikigen{
+text-align: left;
+   } 
+ } 
+/* ================
+//dai-waku
+// ===============*/
+.dai-waku{
+  display: flex;
+justify-content: space-between;
+  flex-wrap:wrap;
+}
+.dai-waku li{
+  width:48%;
+  margin-bottom:30px;
+}
+.dai-waku li span{
+display: block;
+  font-size: 11px;
+  margin: 5px auto;
+  text-align: center;
+}
+
+.dai-waku li em{
+color: #111111;
+font-style:normal;
+  font-weight:bold;
+}
+
+.dai-waku:nth-of-type(2n) li:first-child{
+  order:2;
+}
+.dai-waku h3{
+font-size: 20px;
+color: #000000;
+  text-align:left;
+}
+.dai-waku .h3poi{
+ font-size: 15px;
+font-weight: bold;
+text-align: left;
+color: #000000;
+}
+  @media (max-width: 768px){
+.dai-waku li{
+  width:100%;
+  text-align: center;
+}
+.dai-waku:nth-of-type(2n) li:first-child{
+order: unset;
+}
+}
+
+/* ================
+//shohin-vari
+// ===============*/
+.shohin-vari{
+  display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+margin-bottom: 50px !important;
+}
+.shohin-vari li{
+width: 49%;
+margin-bottom: 30px;
+}
+.shohin-vari li h4{
+margin: 10px auto;
+font-size: 15px;
+font-weight: 700;
+text-align: center;
+}
+.shohin-vari li span{
+font-size: 14px;
+line-height: 1.4;
+text-align: center;
+display: block;
+}
+.shohin-vari li img{
+border-radius: 20px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+  @media (max-width: 580px){
+.shohin-vari li{
+width: 47%;
+}
+}
+    
+/* ================
+//about-shohin
+// ===============*/
+.about-shohin{
+margin: 0 0 30px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.about-shohin li{
+  background: #fff;
+box-shadow: 0px 0px 7px #e3e3e3;
+border-radius: 15px;
+padding: 20px;
+width: 48%;
+  }
+.about-shohin h3,.seizomoto h3{
+  color: #000000;
+text-align: center;
+}
+.about-shohin dl{
+  display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 14px;
+padding: 6px 10px;
+margin: 0 auto 5px;
+}
+.about-shohin dt{
+width: 40%;
+font-size: 12px;
+font-weight: bolder;
+}
+.about-shohin dd{
+  width: 60%;
+  margin: 0;
+}
+.about-shohin dd em{
+color: #111111;
+font-weight: bold;
+font-style: normal;
+}
+
+.about-shohin dl:nth-child(2n){
+  background: #eeeeee;
+  }
+  @media (max-width: 768px){
+.about-shohin li{
+  width:100%;
+  margin-bottom: 30px;
+  }
+}
+/* ================
+//味わいチャート
+// ===============*/
+.amami dt{
+  position:relative;
+}
+.amami dt::after{
+  content:'控えめ→とても甘い';
+display: block;
+font-size: 10px;
+font-weight: lighter;
+}
+.amami dd,.sanmi dd,.tsubu dd{
+font-size: 10px;
+}
+.amami dd span,.sanmi dd span,.tsubu dd span{
+  color: #000000;
+font-weight: lighter;
+font-size: 14px;
+}
+
+.tsubu dt{
+    position:relative;
+}
+.tsubu dt::after{
+  content:'さらさら→つぶつぶ';
+display: block;
+font-size: 10px;
+font-weight: lighter;
+}
+
+/* ================
+//seizomoto
+// ===============*/
+.seizomoto{
+margin: 0 0 30px;
+background: #fff;
+box-shadow: 0px 0px 7px #e3e3e3;
+border-radius: 15px;
+padding: 20px;
+}
+.seizomoto ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.seizomoto li{
+width: 48%;
+  }
+.seizomoto dl{
+  display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 14px;
+padding: 6px 10px;
+margin: 0 auto 5px;
+  position: relative;
+  border-bottom: 2px dotted #d9d9d9;
+}
+.seizomoto dt{
+width: 30%;
+font-size: 12px;
+font-weight: bolder;
+}
+.seizomoto dd{
+  width: 70%;
+  margin: 0;
+}
+
+  @media (max-width: 768px){
+.seizomoto li{
+  width:100%;
+  }
+}
+.seizomoto .kura{
+    content: "";
+  display: inline-block;
+width: 35px;
+height: 35px;
+vertical-align: middle;
+}
+.seizomoto .sake{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/sake.png)no-repeat;
+  background-size: contain;
+}
+.seizomoto .ama{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/ama.png)no-repeat;
+  background-size: contain;
+}
+.seizomoto .farm{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/farm.png)no-repeat;
+  background-size: contain;
+}
+.seizomoto .shoyu{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/shoyu.png)no-repeat;
+  background-size: contain;
+}
+.seizomoto .miso{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/miso.png)no-repeat;
+  background-size: contain;
+}
+.seizomoto .su{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/su.png)no-repeat;
+  background-size: contain;
+}
+.seizomoto .ac{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/ac.png)no-repeat;
+  background-size: contain;
+}
+.seizomoto .tane{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/tane.png)no-repeat;
+  background-size: contain;
+}
+.aamasake-h4{
+background: #e2e2e2;
+text-align: left !important;
+padding: 10px;
+font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+font-weight: 500;
+}
+
+.inyou{font-size: 11px !important;}

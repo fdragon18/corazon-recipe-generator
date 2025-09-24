@@ -1,0 +1,66 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "article-recipe-kaso",
+      "settings": {
+        "image_hero": false,
+        "blog_show_tags": true,
+        "blog_show_date": false,
+        "blog_show_comments": false,
+        "blog_show_author": false,
+        "social_sharing_blog": true
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "disabled": true,
+      "settings": {
+        "title": "You may also like",
+        "blog": "",
+        "post_limit": 3,
+        "blog_show_tags": false,
+        "blog_show_date": false,
+        "blog_show_comments": false,
+        "blog_show_author": false,
+        "view_all": true,
+        "blog_image_size": "wide",
+        "divider": false
+      }
+    },
+    "advanced_content_TdmQH7": {
+      "type": "advanced-content",
+      "blocks": {
+        "liquid_gfKVYT": {
+          "type": "liquid",
+          "settings": {
+            "code": "<style>\n.article__body ul li{list-style-type:none;}\n.nbnr-link a{\n\n\n}\n\n.shohin-shokai li .nbnr-link a{\ntransition:none !important;\nborder:none !important;\ncontent:none;\npadding:12px 20px 14px 20px;}\n\n.shohin-shokai li .nbnr-link a::after{\ntransiton:none;\nborder:none;\ncontent:none;}\n\n\n</style>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "liquid_gfKVYT"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "blog-posts",
+    "advanced_content_TdmQH7"
+  ]
+}

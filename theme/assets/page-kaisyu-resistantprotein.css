@@ -1,0 +1,341 @@
+/* ================
+// fv
+// ===============*/
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/rp01-001.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 450px !important;
+  }
+h1{
+background:rgba(256,256,256,.6);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translateY(-50%) translateX(-50%);
+-webkit- transform: translateY(-50%) translateX(-50%);
+margin: auto;
+padding:30px;
+}
+@media (max-width: 680px) {
+.section-header{
+background: url(//cdn.shopify.com/s/files/1/0262/8252/4717/files/rp01-01-sp.jpg) 50% 50% no-repeat !important;
+  background-size: cover !important;
+  height: 250px !important;
+  }
+    }
+
+/* ================
+// 共通
+// ===============*/
+  @media (max-width: 1025px){
+.kai-inn {
+  width: 90%;
+}
+}
+/* ================
+// resistantprotein
+// ===============*/
+/* ===.kyojyu===*/
+.kyojyu{
+display: flex;
+justify-content: space-between;
+margin: 0;
+  margin-bottom: 0px;
+flex-wrap: wrap;
+background: #fff;
+box-shadow: 2px 2px 4px #e3e3e3;
+border-radius: 15px;
+padding: 20px;
+margin: 30px auto;
+}
+.kyojyu figure{
+  width:50%;
+}
+.kyojyu .waku{
+    width:50%;
+  padding-left:20px;
+}
+.kyojyu h3{
+color: #C49514;
+width: 100%;
+text-align: right;
+position: relative;
+font-size: 16px;
+margin-bottom: 30px;
+border-bottom: 1px solid #C49514;
+padding-bottom: 8px;
+}
+.kyojyu h3 a{
+  color: #C49514;
+}
+@media (max-width: 680px) {
+.kyojyu figure {
+  width: 100%;
+}
+  .kyojyu .waku {
+  width: 100%;
+  padding-left: 0;
+}
+}
+/* ===.rp01-01===*/
+.rp01-01 .kai-inn{
+background: #fff;
+box-shadow: 2px 2px 4px #e3e3e3;
+border-radius: 15px;
+padding: 40px 20px;
+}
+.rp01-01 ul{
+margin: 0;
+}
+.rp01-01 li{
+display: flex;
+justify-content: space-between;
+margin: 0;
+flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.rp01-01 li figure{
+width: 550px;
+margin: 0 auto;
+}
+.rp01-01 li p{
+width:100%;
+}
+.rp01-01 li h3{
+color: #C49514;
+width: 100%;
+text-align: center;
+  position:relative;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.rp01-01 li h3::after{
+border-bottom: 1px solid #c9b06670;
+content: "";
+position: absolute;
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+width: 100px;
+}
+.rp01-01.gazo-50 li figure{
+width: 50%;
+}
+.rp01-01.gazo-50 li p{
+width: 50%;
+padding-left: 20px;
+}
+.rp01-01:nth-of-type(4) li figure,.rp01-01:nth-of-type(6) li figure{
+  order:2;
+}
+.rp01-01:nth-of-type(4) li p,.rp01-01:nth-of-type(6) li p{
+  padding:0 20px 0 0;
+}
+section.rp01-01:nth-child(7) > div:nth-child(1) > figure:nth-child(2){
+width: 550px;
+margin: 30px auto;
+}
+@media (max-width: 680px) {
+.rp01-01 .kai-inn {
+padding: 40px 20px 15px;
+}
+  .rp01-01:nth-of-type(4) li figure,.rp01-01:nth-of-type(6) li figure{
+  order:unset;
+}
+.rp01-01 li figure,.rp01-01.gazo-50 li figure{ 
+  width: 100%;
+  margin-bottom: 20px;
+}
+section.rp01-01:nth-child(7) > div:nth-child(1) > figure:nth-child(2){
+  width: 100%;
+}
+.rp01-01 li p,.rp01-01.gazo-50 li p ,.rp01-01:nth-of-type(4) li p,.rp01-01:nth-of-type(6) li p{
+  width: 100%;
+    padding: 0;
+    margin: 0 auto 20px;
+     } 
+  }
+/* ===.rp01-02===*/
+.rp01-02 p{
+  text-align: center;
+}
+.rp01-02 ul{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+max-width: 680px;
+margin: 0 auto;
+}
+.rp01-02 li {
+  width: 31%;
+  padding: 30px;
+  background: none;
+  box-shadow: unset;
+}
+.rp01-02 li figure img{
+  border-radius: 50%;
+}
+.rp01-02 li span {
+  font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+  display: block;
+}
+@media (max-width: 480px) {
+.rp01-02 li {
+  width: 45%;
+padding: 15px;
+}
+.rp01-02 p {
+  text-align: left;
+}
+}
+
+/* ===.rp01-03 ===*/
+.rp01-03 .kakoi{
+background: #F9F0E3;
+padding: 50px;
+border-radius: 20px;
+max-width: 480px;
+margin: 50px auto;
+}
+.rp01-03 .kakoi h3{
+font-size: 16px;
+}
+.rp01-03 .kakoi ul{
+margin: 15px 0;
+}
+.rp01-03 p{
+text-align:center;
+}
+.tenten.uedesu{
+margin: 70px auto 20px;
+}
+.tenten.uedesu::after {
+    bottom: 70px;
+}
+@media (max-width: 480px) {
+.rp01-03 p {
+  text-align: left;
+}
+}
+/* ===栄養士さんポイント===*/
+.eiyoushi-hitokoto{
+background: #FCF4E9;
+border-radius: 20px;
+padding: 40px 40px 10px;
+margin-bottom: 10px;
+
+}
+.eiyoushi-hitokoto h3{
+font-size: 14px;
+  margin-bottom: 10px;
+  width: 100%;
+max-width: 230px;
+  padding: 0 10px;
+}
+}
+.eiyoushi-hitokoto .waku{
+width: calc(100% - 80px);
+}
+.eiyoushi-hitokoto figure{
+width: 80px;
+}
+.eiyoushi-hitokoto .waku {
+max-width: 680px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+  flex-wrap: wrap;
+}
+.eiyoushi-hitokoto .waku p {
+  width: calc(100% - 80px);
+  padding-left:20px;
+}
+.eiyoushi-hitokoto .waku p em{
+font-style: normal;
+color: #E6637D;
+font-weight: bold;
+}
+@media (max-width: 680px) {
+.eiyoushi-hitokoto {
+  padding: 20px 20px 10px;
+}
+.eiyoushi-hitokoto figure{
+width: 40px;
+}
+  .eiyoushi-hitokoto .waku p {
+  width: calc(100% - 40px);
+}
+}
+@media (max-width: 480px) {
+.eiyoushi-hitokoto h3 {
+  font-size: 12px;
+  font-weight: bold;
+  max-width: 210px;
+}
+  }
+
+/*カード設定*/
+.waai {
+    position: relative;
+    display: inline-block;
+    padding: 0 30px;
+}
+       
+.waai::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: #000;
+    border-radius: 3px;
+    transform: rotate(-25deg);
+}
+       
+.waai::after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #000;
+    border-radius: 3px;
+    transform: rotate(25deg);
+}
+.waai.ow-muryo{
+margin-bottom: 5px;
+font-size: 12px;
+padding: 0 10px;
+}
+
+.kakoi{
+  background: #F9F0E3;
+  padding: 50px;
+  border-radius: 20px;
+  width:35%;
+  margin: 0 auto 50px auto;
+  text-align:center;
+}
+
+.kakoi:nth-child(2){
+  margin: 0 auto;
+}
+
+.kakoi h3{
+  font-size:16px;
+  margin:10px;
+}
+
+.kakoi ul{
+  list-style: none;
+  margin: 8px auto;
+}
+
+
+@media (max-width: 680px) {
+.kakoi {
+  padding: 15px;
+    }
+}

@@ -1,0 +1,134 @@
+{%- assign disable_sticky_header = false -%}
+
+{%- if section.settings.enable -%}
+  {%- if section.settings.collection_image_enable and collection.image -%}
+    <div
+      id="CollectionHeaderSection"
+      data-section-id="{{ section.id }}"
+      data-section-type="collection-header"
+      {% if section.settings.parallax %}data-parallax="true"{% endif %}>
+
+      {%- assign img_url = collection.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+      <div class="collection-hero">
+
+        {%- if section.settings.parallax -%}
+          <div class="parallax-container">
+            <div class="parallax-image">
+        {%- endif -%}
+
+          <img class="collection-hero__image image-fit lazyload"
+            src=""
+            data-src="{{ img_url }}"
+            data-aspectratio="{{ collection.image.aspect_ratio }}"
+            data-widths="[720, 900, 1080, 1800, 2400]"
+            data-sizes="auto"
+            alt="{{ collection.image.alt | escape }}">
+
+          <noscript>
+            <img class="collection-hero__image image-fit"
+              src="{{ collection.image | img_url: '1400x' }}"
+              alt="{{ collection.image.alt | escape }}">
+          </noscript>
+
+        {%- if section.settings.parallax -%}
+            </div>
+          </div>
+        {%- endif -%}
+
+        <div class="collection-hero__content">
+          <div class="page-width">
+            <header class="section-header section-header--hero">
+              <div class="section-header__shadow">
+                {%- render 'breadcrumbs' -%}
+                <h1 class="section-header__title">
+                  {{ collection.title }}
+                </h1>
+              </div>
+            </header>
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- else -%}
+    {%- assign disable_sticky_header = true -%}
+{% if handle %}
+  {% assign div_id = handle %}
+{% else %}
+  {% assign div_id = 'other' %}
+{% endif %}
+  <div id="{{ div_id | escape }}" class="page-width page-content page-content--top">
+      <header class="section-header section-header--flush">
+        {%- render 'breadcrumbs' -%}
+        <h1 class="section-header__title">
+          {{ collection.title }}
+        </h1>
+      </header>
+    </div>
+  {%- endif -%}
+{% else %}
+  {%- assign disable_sticky_header = true -%}
+{%- endif -%}
+
+{%- if disable_sticky_header -%}
+  {% comment %}
+    Div to trigger theme.CollectionHeader JS
+  {% endcomment %}
+  <div
+    id="CollectionHeaderSection"
+    data-section-id="{{ section.id }}"
+    data-section-type="collection-header">
+  </div>
+{%- endif -%}
+{{ 'collection-kaisyu.css'| asset_url | stylesheet_tag }}
+{% if collection.handle == "morning-amazake"or"snack-amazake"or"evening-amazake"or"sports-amazake"or"study-work-amazake" %}
+{{ 'collection-by-scene.css'| asset_url | stylesheet_tag }}
+{% else %}
+{% endif %}
+
+{% case collection.handle %}
+{% when 'muromothersday' %}
+{{ 'collection-muromothersday.css'| asset_url | stylesheet_tag }}
+{% else %}
+{% endcase %}
+
+{% case collection.handle %}
+{% when 'murofathersday' %}
+{{ 'collection-murofathersday.css'| asset_url | stylesheet_tag }}
+{% else %}
+{% endcase %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="{{ 'page-kaisyu.js' | asset_url }}"></script>
+<script src="https://benlyexpress.com/global-sell-assets/js/jquery.js"></script>
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.1/assets/owl.carousel.min.css" rel="stylesheet" type="text/css">
+<link href="http://themes.audemedia.com/html/goodgrowth/css/owl.theme.default.min.css" rel="stylesheet" type="text/css">
+
+{% schema %}
+  {
+    "name": "Collection header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable",
+        "label": "Enable header",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_image_enable",
+        "label": "Show collection image",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "parallax",
+        "label": "Parallax image",
+        "default": true
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,134 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header-kaisyu": {
+      "type": "collection-header-kaisyu",
+      "settings": {
+        "enable": true,
+        "collection_image_enable": true,
+        "parallax": true
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "c5e3df67-4917-4118-8778-d622c9d0b8ef": {
+          "type": "collection_description",
+          "settings": {}
+        },
+        "subcollections": {
+          "type": "subcollections",
+          "settings": {
+            "subcollections_per_row": 5
+          }
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {
+            "enable_collection_count": true,
+            "per_row": 4,
+            "rows_per_page": 20,
+            "mobile_flush_grid": true
+          }
+        }
+      },
+      "block_order": [
+        "c5e3df67-4917-4118-8778-d622c9d0b8ef",
+        "subcollections",
+        "product_grid"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "collapsed": true,
+        "filter_style": "sidebar",
+        "enable_color_swatches": false,
+        "enable_swatch_labels": true,
+        "enable_sort": true
+      }
+    },
+    "advanced_content_3wddrW": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_3ajUrk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/bnr_muro_pt_notice.jpg",
+            "link": "",
+            "width": "50%",
+            "alignment": "center"
+          }
+        },
+        "liquid_7AwCjy": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "code": "<h2>Custom content</h2><p>Use this advanced section to build your own layouts or to add custom HTML, Liquid, or scripts.</p>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_3ajUrk",
+        "liquid_7AwCjy"
+      ],
+      "custom_css": [
+        ".custom-content {justify-content: center;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    },
+    "advanced_content_f3aybc": {
+      "type": "advanced-content",
+      "blocks": {
+        "image_bWEqAC": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/top-bnr-con002.jpg",
+            "link": "#quiz-meHVPG",
+            "width": "33%",
+            "alignment": "center"
+          }
+        },
+        "liquid_MMipzc": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "code": "<h2>Custom content</h2><p>Use this advanced section to build your own layouts or to add custom HTML, Liquid, or scripts.</p>",
+            "width": "50%",
+            "alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "image_bWEqAC",
+        "liquid_MMipzc"
+      ],
+      "custom_css": [
+        ".custom-content {justify-content: center;}"
+      ],
+      "settings": {
+        "full_width": false,
+        "space_around": true,
+        "lazyload_images": true
+      }
+    }
+  },
+  "order": [
+    "collection-header-kaisyu",
+    "main-collection",
+    "advanced_content_3wddrW",
+    "advanced_content_f3aybc"
+  ]
+}

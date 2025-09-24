@@ -1,0 +1,204 @@
+/* ================
+// .lion-loyalty mae
+// ===============*/
+ .lion-loyalty-splash__powered-by{
+display: none;
+}
+#loyaltylion {
+max-width: 580px;
+width: 100%;
+margin: 0 auto;
+border: 1px solid #dfdfdf;
+box-shadow: 2px 2px 4px #d2d2d2;
+}
+#loyaltylion .lion-loyalty-splash__get-started-text {
+  font-size: 1rem;
+}
+#loyaltylion .lion-loyalty-splash-item__title {
+  font-size: 15px;
+}
+#loyaltylion .lion-loyalty-splash__heading {
+background: #7d5f00;
+border: none;
+}
+#loyaltylion .lion-loyalty-splash__title {
+  font-size: 18px;
+  line-height: 1.8;
+}
+.lion-action-button, #loyaltylion .lion-action-button {
+letter-spacing: .3em;
+font-size: 1rem;
+background: #804f21;
+transition-delay: .25s;
+}
+.lion-action-button:hover, #loyaltylion .lion-action-button:hover {
+background: #a9682b;
+transition-delay: .25s;
+}
+.lion-icon__rule--purchase, .lion-icon__rule--product-purchase, .lion-icon__rule--collection-purchase, #loyaltylion .lion-icon__rule--purchase, #loyaltylion .lion-icon__rule--product-purchase, #loyaltylion .lion-icon__rule--collection-purchase {
+  background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/point.png") center/contain no-repeat;
+width: 35px;
+height: 35px;
+box-shadow: none;
+}
+.lion-icon__rule--signup, #loyaltylion .lion-icon__rule--signup {
+  background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/touroku00.jpg") center/contain no-repeat;
+width: 35px;
+height: 35px;
+box-shadow: none;
+}
+.lion-icon__reward--cart-discount-voucher, .lion-icon__reward--collection-discount-voucher, .lion-icon__reward--checkout-redemption, #loyaltylion .lion-icon__reward--cart-discount-voucher, #loyaltylion .lion-icon__reward--collection-discount-voucher, #loyaltylion .lion-icon__reward--checkout-redemption {
+  background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/p-500.jpg") center/contain no-repeat;
+width: 35px;
+height: 35px;
+box-shadow: none;
+}
+#loyaltylion .lion-loyalty-splash-column__intro-text {
+  color: #7d6302;
+position: relative;
+font-size: 17px;
+}
+#loyaltylion .lion-loyalty-splash-column__intro-text::before {
+content:'';
+  width:24px;
+  height:25px;
+  display:inline-block;
+  
+}
+#loyaltylion .lion-loyalty-splash-column:nth-child(1) .lion-loyalty-splash-column__intro-text::before {
+  background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/tsukau2.png") center/contain no-repeat;
+}
+#loyaltylion .lion-loyalty-splash-column:nth-child(2) .lion-loyalty-splash-column__intro-text::before {
+  background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/tameru.png") center/contain no-repeat;
+}
+
+/* ================
+// .lion-loyalty ato
+// ===============*/
+#loyaltylion .lion-loyalty-panel-sidebar__title {
+  background: #7d5f00;
+  border: none;
+  font-size: 16px;
+}
+#loyaltylion .lion-loyalty-panel-sidebar {
+  background: #fff;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__menu-item {
+  color: #7d6302;
+background: #fff;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__points {
+  color: #7d5f00;
+background: #fff;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__menu-item:hover {
+  background: unset;
+  color: #7d5f00;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__menu-item.lion-active {
+color: #7d5f00;
+background: #f7f7f7;
+}
+#loyaltylion .lion-loyalty-panel-content__overflow-container {
+    background: #f7f7f7;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__header {
+  border-bottom: none;
+}
+#loyaltylion .lion-loyalty-panel-content__header {
+  font-size: 16px;
+}
+#loyaltylion .lion-loyalty-panel-rule-item--actionable:hover .lion-loyalty-panel-rule-item__content {
+  border: 1px solid #ccc;
+}
+#loyaltylion .lion-loyalty-panel-page-rewards__points-explain-box-redeemable {
+  font-size: 15px;
+  padding: 10px;
+}
+#loyaltylion .lion-loyalty-panel-page-rewards__points-explain-box-pending {
+  font-size: 15px;
+  padding: 10px;
+  display: none;
+}
+#loyaltylion .lion-loyalty-panel-reward-item__title {
+  font-size: 18px;
+}
+#loyaltylion .lion-loyalty-panel-page-rewards__claimed-rewards-header {
+  font-size: 16px;
+}
+#loyaltylion .lion-loyalty-panel-page-rewards__claimed-rewards-list--no-items {
+  font-size: 15px;
+}
+#loyaltylion .lion-customer-history-table__header-cell {
+  font-size: 14px;
+}
+#loyaltylion .lion-customer-history-table__row-cell {
+  font-size: 12px;
+}
+#loyaltylion .lion-loyalty-panel-page-rewards__points-explain-box {
+  background: #f7f7f7;
+}
+#loyaltylion .lion-loyalty-panel-page-history {
+  background: #f7f7f7;
+}
+#loyaltylion .lion-customer-history-table {
+  background: #f0f0f0;
+border: 1px solid #dfdfdf;
+box-shadow: 2px 2px 4px #dfdfdf;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__menu-item--earn::before {
+  content: '';
+  background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/tameru.png") center/contain no-repeat;
+width: 18px;
+height: 18px;
+  display: inline-block;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__menu-item--rewards::before {
+  content: "\e609";
+  content: '';
+  background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/tsukau2.png") center/contain no-repeat;
+width: 18px;
+height: 18px;
+  display: inline-block;
+}
+#loyaltylion .lion-loyalty-panel-claimed-reward-item__title {
+  font-size: 16px;
+}
+#loyaltylion .lion-loyalty-panel-claimed-reward-item__date {
+  font-size: 11px;
+}
+
+  @media (max-width: 600px){
+#loyaltylion .lion-loyalty-splash__title {
+  display: block;
+  color: #fff;
+}
+#loyaltylion .lion-loyalty-splash__title--welcome {
+  display: none;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__header {
+  background: #7d5f00;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__mobile-menu-toggle-button--active {
+  background-color: #7d5f00;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__points-value {
+font-size: 18px;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__menu-item:hover {
+  background: #dfdace;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__mobile-menu-toggle-button {
+  border-left: none;
+  margin-left: 0;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__points {
+  border-bottom: 1px solid #d2d2d2;
+}
+#loyaltylion .lion-loyalty-panel-sidebar__menu--open {
+  box-shadow: 2px 2px 4px #d7d7d7;
+}
+#loyaltylion .lion-loyalty-splash__title {
+  font-size: 16px;
+}
+}

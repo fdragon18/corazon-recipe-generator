@@ -1,0 +1,371 @@
+/* ================
+// fv
+// ===============*/
+.section-header{
+background: none !important;
+height: 200px !important;
+}
+
+@media (max-width: 767px) {
+.section-header{
+height: 150px !important;
+}
+}
+
+/* ================
+// .subscribe
+// ===============*/
+.subscribe-w{
+  max-width:980px;
+  width:90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.subscribe-w-faq{
+    width:100%;
+  max-width: 850px;
+  margin: 0 auto 50px;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 0;
+  }
+
+/* ===subsc00===*/
+.subsc00{
+margin: 60px auto;
+}
+.subsc00 h2{
+padding: 80px 0 20px;
+  color:#7e6001;
+  position: relative;
+}
+.subsc00 h2::after {
+  border-bottom: 1px solid #7e6001;
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+}
+.subsc00 .kai-inn {
+background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/subsc002.png")no-repeat scroll 50% 0;
+background-size: contain;
+height: 500px;
+max-width: 680px;
+}
+.subsc00 p {
+line-height: 2.3;
+text-align: center;
+font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+}
+@media (max-width: 680px) {
+.subsc00 {
+  margin: 40px auto 20px;
+}
+.subsc00 .kai-inn {
+width: 100%;
+background-size: contain;
+height: 55vh;
+  }
+.subsc00 p {
+    text-align: left;
+  padding: 0 50px;
+  line-height: 2;
+}
+}
+@media (max-width: 580px) {
+.subsc00 .kai-inn {
+  width: 100%;
+  height: 70vh;
+  background: url("//cdn.shopify.com/s/files/1/0262/8252/4717/files/subsc00-sp.png")no-repeat scroll 50% 0;
+  background-size: contain;
+}
+  .subsc00 p {
+  padding: 0 100px;
+  line-height: 2.5;
+  }
+}
+@media (max-width: 480px) {
+.subsc00 h2 {
+  padding: 60px 0 20px;
+  line-height:1.6;
+}
+
+.subsc00 p {
+  line-height: 2;
+  padding: 0 80px;
+}
+}
+@media (max-width: 430px) {
+.subsc00 .kai-inn {
+  height: 75vh;
+}
+  .subsc00 p {
+  line-height: 1.7;
+  padding: 0 50px;
+}
+}
+/* ===subsc01===*/
+.subsc01 .kai-inn {
+  position: relative;
+  padding-top: 80px;
+}
+.subsc01 ul{
+margin: 0 auto;
+border: 1px solid #7c5f00;
+padding: 20px;
+max-width: 680px;
+width: 95%;
+}
+.subsc01 h2{
+font-size: 20px;
+color: #7c5f00;
+font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+font-weight: bold;
+letter-spacing: .2em;
+position: absolute;
+top: 65px;
+left: 18%;
+background: #faf9f7;
+padding: 0 20px;
+}
+.subsc01 h3{
+text-align: left;
+color: #836104;
+font-size: 18px;
+margin: 0 auto 20px ;
+font-family: 游明朝,YuMincho,Hiragino Mincho ProN W3,ヒラギノ明朝 ProN W3,Hiragino Mincho ProN,HG明朝E,ＭＳ Ｐ明朝,ＭＳ 明朝,serif;
+}
+.subsc01 li{
+  padding: 10px;
+margin: 30px auto;
+}
+.subsc01 li a{
+  display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+align-items: flex-start;
+}
+.subsc01 li img{
+  width:30%;
+}
+.subsc01 li img + div{
+  width:70%;
+  padding-left: 20px;
+}
+@media (max-width: 680px) {
+.subsc01 ul {
+  padding: 10px;
+  width: 100%;
+}
+.subsc01 li img{
+  width:100%;
+}
+.subsc01 li img + div{
+  width:100%;
+  padding-left: 0px;
+}
+.subsc01 h2{
+  left: 50%;
+transform: translateY(0%) translateX(-50%);
+-webkit- transform: translateY(-50%) translateX(0%);
+margin: auto;
+    }
+  .subsc01 h3 {
+  text-align: center;
+  margin: 20px auto;
+  }
+  .subsc01 li:last-child {
+  margin: 30px auto 0;
+}
+  }
+/* ===subsc02===*/
+.subsc02,.subsc03 {
+margin: 80px auto 10px;
+}
+.subsc02 h2,.subsc03 h2 ,.teiki-meyasu h2{
+  position: relative;
+  display: inline-block;
+  padding: 0 65px;
+  text-align: center;
+  color: #7c5f00;
+  font-size: 22px;
+  margin-bottom: 0;
+}
+.subsc02 h2:before,.subsc02 h2:after,.subsc03 h2:before,.subsc03 h2:after,.teiki-meyasu h2:before,.teiki-meyasu h2:after  {
+  position: absolute;
+  top: calc(50% - 3px);
+  width: 50px;
+  height: 6px;
+  content: '';
+  border-top: solid 2px #7c5f00;
+  border-bottom: solid 1px #7c5f00;
+}
+.subsc02 h2:before,.subsc03 h2:before,.teiki-meyasu h2:before {
+  left: 0;
+}
+.subsc02 h2:after,.subsc03 h2:after,.teiki-meyasu h2:after {
+  right: 0;
+}
+/* ===subsc03===*/
+.subsc03 .yoko-sc{
+padding: 20px 0;
+position: relative;
+}
+.subsc03 .yoko-sc::-webkit-scrollbar { 
+  height: 10px; 
+} 
+.subsc03 table {
+width: 100%;
+padding: 30px;
+  margin: 0;
+border: 1px solid #fff;
+}
+.subsc03 table em{
+font-style:normal;
+  }
+.subsc03 th,.subsc03 td:first-child {
+background: #e5e1d7;
+  text-align:center;
+  line-height: 1.4;
+  border: 1px solid #fff;
+}
+.subsc03 th em{
+  font-size:12px;
+}
+.subsc03 td:first-child span{
+color: #ff9476;
+font-size: 12px;
+}
+.subsc03 td:first-child h3{
+font-size: 16px;
+color: #344033;
+  margin: 10px auto;
+}
+.subsc03 td:first-child img{
+width: 120px;
+}
+.subsc03 td {
+background: #efefef;
+  padding: 15px;
+border: 1px solid #fff;
+}
+.subsc03 td span{
+display:block;
+}
+.subsc03 td span:nth-of-type(1){
+margin-bottom: 5px;
+font-size: 13px;
+  font-weight: bold;
+}
+.subsc03 td span:nth-of-type(2){
+background: #ff9476;
+color: #fff;
+text-align: center;
+font-size: 13px;
+padding: 2px 0;
+}
+.subsc03 td span:nth-of-type(3){
+color: #ff9476;
+background: #fff;
+font-size: 20px;
+text-align: center;
+padding: 2px;
+font-weight: bold;
+}
+.subsc03 td span:nth-of-type(4){
+font-size: 13px;
+margin-top: 5px;
+  position: relative;
+}
+.subsc03 td span:nth-of-type(4)::before{
+position: absolute;
+content: "";
+display: block;
+transform: rotate(-10deg);
+background-color: rgba(0, 0, 0, 0.3);
+width: 50px;
+height: 3px;
+top: 50%;
+left: 50px;
+}
+.subsc03 td em{
+  font-size:10px;
+}
+.subsc03 td.gattai{
+text-align: left;
+background: #efefef;
+}
+.subsc03 td.gattai span:nth-child(1),.subsc03 td.gattai span:nth-child(4){
+  color:#000;
+}
+@media (max-width: 860px) {
+.subsc02, .subsc03 {
+  margin: 80px auto 50px;
+}
+.subsc03 .yoko-sc {
+  overflow-x: scroll;
+  margin-top: 20px;
+}
+.subsc03 table {
+  width: 130%;
+  margin-top: 30px;
+ }
+.yoko-sc > span:nth-child(2){
+top: 0;
+  position: absolute;
+display: block;
+right: 0px;
+font-size: 12px;
+margin: 10px;
+}
+}
+@media (max-width: 680px) {
+.subsc03 table {
+  width: 150%;
+}
+}
+@media (max-width: 580px) {
+.subsc03 table {
+  width: 180%;
+}
+.subsc03 td span:nth-of-type(4)::before {
+left: 11vw;
+}
+}
+@media (max-width: 430px) {
+.subsc03 table {
+  width: 210%;
+}
+.subsc03 td span:nth-of-type(4)::before {
+  left: 12vw;
+}
+}
+
+/* ================
+// teiki-meyasu
+// ===============*/
+.teiki-meyasu{
+  margin: 50px auto;
+}
+
+
+.teiki-meyasu h2 span{
+
+}
+.teiki-meyasu figure{
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+margin-top: 30px;
+}
+.teiki-meyasu figure img{
+width:48%;
+}
+@media (max-width: 680px) {
+.teiki-meyasu figure img{
+width:100%;
+margin-bottom: 30px;
+}
+}

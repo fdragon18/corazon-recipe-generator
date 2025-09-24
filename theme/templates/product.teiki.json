@@ -1,0 +1,184 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variant_labels": true,
+            "picker_type": "button",
+            "product_dynamic_variants_enable": true,
+            "color_swatches": false
+          }
+        },
+        "3fb94f7b-982d-4c6e-80b9-723492398f5e": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "6a4f09bb-51d6-4ca1-a754-c3f03f71802f": {
+          "type": "custom",
+          "disabled": true,
+          "settings": {
+            "code": "<div class=\"boxct\">\n    <span class=\"box-title\">Amazon Payに関するご注意</span>\n  <p>ギフトなど、ご注文者様の住所とお届け先住所が異なる場合、Amazon Payはご利用できませんのでご注意ください。</p>\n</div>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "surface_pickup_enable": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "32c38576-1e35-4a19-aaaf-2eb1ce006e87": {
+          "type": "sales_point",
+          "disabled": true,
+          "settings": {
+            "icon": "globe",
+            "text": "Free worldwide shipping"
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "separator",
+        "variant_picker",
+        "3fb94f7b-982d-4c6e-80b9-723492398f5e",
+        "6a4f09bb-51d6-4ca1-a754-c3f03f71802f",
+        "buy_buttons",
+        "32c38576-1e35-4a19-aaaf-2eb1ce006e87"
+      ],
+      "settings": {
+        "sku_enable": false,
+        "image_position": "left",
+        "image_size": "medium",
+        "product_zoom_enable": true,
+        "thumbnail_position": "below",
+        "thumbnail_height": "flexible",
+        "thumbnail_arrows": true,
+        "mobile_layout": "full",
+        "enable_video_looping": true,
+        "product_video_style": "muted"
+      }
+    },
+    "sub": {
+      "type": "product-full-width",
+      "blocks": {
+        "description_qdPDVc": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "tab_BrjTn3": {
+          "type": "tab",
+          "settings": {
+            "title": "返品・交換・賞味期限について",
+            "content": "<p><strong>返品・交換について</strong><br/></p><p>食品という商品の性質上、開封済みの商品やお客様都合でのご返品・交換の対応は致しかねますので、予めご了承ください。<br/></p><p><strong>不良品について</strong><br/></p><p>商品の品質については万全を期しておりますが、万一当店に起因する商品の不良や配送時の破損、誤納品などございましたら、商品到着より7日以内にご連絡くださいませ。交換対応させていただきます。<br/>※この場合の送料は当店にて負担させていただきます。</p><p></p><p><strong>賞味期限について<br/></strong></p><p>セール商品等賞味期限が明記されているものを除き、賞味期限がご注文日より2か月以上のものをお届けしております。当店では最低で2か月程の賞味期限でも美味しく安心してお召し上がりいただけると判断している為です。<br/>フードロスをなくす観点からも「賞味期限の長いものを」というご要望はお応えが出来かねます事をご理解くださいませ。<br/>※在庫管理都合上、在庫の賞味期限はいつのものか等具体的な賞味期限のお問合せは対応が出来かねます。ご了承くださいませ。</p>",
+            "page": ""
+          }
+        },
+        "custom_QjbJCx": {
+          "type": "custom",
+          "settings": {
+            "code": "<section class=\"mt50\">\n<div class=\"faq00\">\n<h3>よくあるご質問</h3>\n<ul>\n<li class=\"accordion_one\">\n<div class=\"accordion_header ko open\">１日にどのくらい飲むといいですか？\n<div class=\"i_box\">\n<i class=\"one_i\"></i><br>\n</div>\n</div>\n<div style=\"display: block;\" class=\"accordion_inner\">\n<div class=\"accordion_one\">\n<div class=\"accordion_header\">目安としては100〜200mlが良いとされています。詳しくは、<a href=\"https://koujiamasake.jp/pages/column04\">甘酒の飲み方</a>をご参照ください。</div>\n</div>\n</div>\n</li>\n<li class=\"accordion_one\">\n<div class=\"accordion_header ko open\">毎日摂取する場合、いつが良いですか？\n<div class=\"i_box\">\n<i class=\"one_i\"></i><br>\n</div>\n</div>\n<div style=\"display: block;\" class=\"accordion_inner\">\n<div class=\"accordion_one\">\n<div class=\"accordion_header\">おすすめは朝です。糖質（ブドウ糖）、ビタミンが多いため、スムーズにエネルギー補給ができます。<br>消化・吸収が良いので、起きたばかりの胃にも負担がなく優しいでしょう。次いで就寝前がおすすめです。甘酒にはリラックス効果があり、ストレスの改善にも良いとされています。詳しくは、<a href=\"https://koujiamasake.jp/pages/column04\">甘酒の飲み方</a>をご参照ください。</div>\n</div>\n</div>\n</li>\n</ul>\n</div>\n</section>"
+          }
+        }
+      },
+      "block_order": [
+        "description_qdPDVc",
+        "tab_BrjTn3",
+        "custom_QjbJCx"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": true
+      }
+    },
+    "sub2": {
+      "type": "product-full-width-teiki",
+      "blocks": {
+        "custom_Tb4FYw": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"giftdayo\">\n<h3>ご注文について</h3>\n<p>商品の賞味期限、お支払い方法、MUROポイント、送料などに関する詳細は下記「ご注文について」よりご確認いただけます。</p>\n<div class=\"a-gift\"><a href=\"https://kojidrink.jp/pages/howtoorder\">ご注文について</a></div>\n</div>"
+          }
+        },
+        "custom_BBdehE": {
+          "type": "custom",
+          "settings": {
+            "code": "<div class=\"giftdayo\">\n<h3>定期便をご注文のお客様へ</h3>\n<p>お申し込み内容などの詳細につきましては、下記「定期便をご注文のお客様へ」をご確認ください。</p>\n<div class=\"a-gift\"><a href=\"https://kojidrink.jp/pages/subscription-note\">定期便をご注文のお客様へ</a></div>\n</div>"
+          }
+        },
+        "8ce96d86-789d-4360-b0de-0a17d4444f68": {
+          "type": "description",
+          "settings": {
+            "is_tab": false
+          }
+        },
+        "76c4024e-d68f-4855-9019-d546a79f8fe0": {
+          "type": "tab",
+          "settings": {
+            "title": "返品・交換・賞味期限について",
+            "content": "<p><strong>返品・交換について</strong><br/></p><p>食品という商品の性質上、開封済みの商品やお客様都合でのご返品・交換の対応は致しかねますので、予めご了承ください。<br/></p><p><strong>不良品について</strong><br/></p><p>商品の品質については万全を期しておりますが、万一当店に起因する商品の不良や配送時の破損、誤納品などございましたら、商品到着より7日以内にご連絡くださいませ。交換対応させていただきます。<br/>※この場合の送料は当店にて負担させていただきます。</p><p></p><p><strong>賞味期限について<br/></strong></p><p>セール商品等賞味期限が明記されているものを除き、賞味期限がご注文日より2か月以上のものをお届けしております。当店では最低で2か月程の賞味期限でも美味しく安心してお召し上がりいただけると判断している為です。<br/>フードロスをなくす観点からも「賞味期限の長いものを」というご要望はお応えが出来かねます事をご理解くださいませ。<br/>※在庫管理都合上、在庫の賞味期限はいつのものか等具体的な賞味期限のお問合せは対応が出来かねます。ご了承くださいませ。</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "custom_Tb4FYw",
+        "custom_BBdehE",
+        "8ce96d86-789d-4360-b0de-0a17d4444f68",
+        "76c4024e-d68f-4855-9019-d546a79f8fe0"
+      ],
+      "settings": {
+        "max_width": true
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "product_recommendations_heading": "関連商品",
+        "related_count": 6,
+        "products_per_row": 5
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "recent_count": 5
+      }
+    },
+    "collection-return": {
+      "type": "collection-return",
+      "disabled": true,
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "sub",
+    "sub2",
+    "product-recommendations",
+    "recently-viewed",
+    "collection-return"
+  ]
+}

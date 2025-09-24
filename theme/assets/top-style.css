@@ -1,0 +1,225 @@
+/* ================
+// TOP
+// ===============*/
+/* ====a::after=====*/
+.template-index .rte a:not(.btn):not(.spr-summary-actions-newreview)::after {
+  display: none;
+}
+/* ====お知らせ　一番上=====*/
+#shopify-section-template--16442997801198__1639384622376a4831{
+  display: none;
+}
+.bnr-top-iroiro{
+text-align: center;
+margin: 0 auto;
+max-width: 480px;
+width: 100%;
+}
+/* ====カテゴリから探す=====*/
+.top-cate-sagasu{
+margin: 40px auto;
+display: flex;
+justify-content: space-between;
+list-style: none;
+flex-wrap: wrap;
+max-width: 680px;
+  width:80%;
+}
+.top-cate-sagasu li{
+width: 30%;
+display: flex;
+flex-direction: column;
+align-items: center;
+background: #fff;
+margin-bottom: 30px;
+}
+.top-cate-sagasu li a{
+width: 100%;
+}
+.top-cate-sagasu li a:hover{
+background: #e8e3d5;
+transition-duration: .5s;
+}
+.top-cate-sagasu li img {
+  margin: 0 auto;
+  width: 70px;
+}
+.top-cate-sagasu li span{
+text-align: center;
+display: block;
+font-size: 14px;
+margin-bottom: 10px;
+  }
+
+@media (max-width: 480px) {
+.top-cate-sagasu li img {
+  margin: 0 auto;
+  width: 60px;
+  margin: 20px auto;
+}
+.top-cate-sagasu li {
+  width: 45%;
+}
+  }
+/* ====目的から探す=====*/
+.top-mokuteki-sagasu{
+  margin: 40px auto;
+display: flex;
+justify-content: space-between;
+list-style: none;
+flex-wrap: wrap;
+max-width: 680px;
+  width:80%;
+}
+.top-mokuteki-sagasu li{
+width: 24%;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 30px;
+}
+.top-mokuteki-sagasu li a{
+width: 100%;
+}
+.top-mokuteki-sagasu li img:hover{
+background: #fff;
+transition-duration: .3s;
+border: 3px solid #b5922a6b;
+}
+.top-mokuteki-sagasu li img {
+margin: 0 auto;
+width: 100px;
+background: #fff;
+border-radius: 50%;
+padding: 20px;
+}
+.top-mokuteki-sagasu li span{
+text-align: center;
+display: block;
+font-size: 12px;
+margin: 10px auto;
+  }
+
+@media (max-width: 860px) {
+.top-mokuteki-sagasu li img {
+  margin: 20px auto;
+}
+  }
+@media (max-width: 680px) {
+.top-mokuteki-sagasu li {
+  width: 45%;
+}
+  }
+@media (max-width: 480px) {
+.top-mokuteki-sagasu{
+width: 100%;
+  }
+}
+
+/* ====甘酒コンテンツ=====*/
+.top-con-bnr{
+  margin: 40px auto;
+display: flex;
+justify-content: space-between;
+list-style: none;
+flex-wrap: wrap;
+max-width: 980px;
+  width:80%;
+}
+.top-con-bnr li{
+width: 45%;
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-bottom: 30px;
+}
+.top-con-bnr li:nth-child(2) img{
+border: 1px solid #ddd;
+}
+.top-con-bnr li span{
+text-align: center;
+display: block;
+font-size: 12px;
+margin: 10px auto;
+  }
+.top-con-bnr li a:hover{
+opacity:.7;
+}
+@media (max-width: 580px) {
+.top-con-bnr{
+  width:90%;
+}
+.top-con-bnr li{
+width: 100%;
+  }
+}
+
+/* ====実店舗のご案内=====*/
+@media (max-width: 480px) {
+.hero__subtitle {
+  font-size: 16px;
+    }
+}
+.jp_traditional{
+max-width: 980px;
+margin: 0 auto;
+}
+.jp_traditional span{
+text-align: center;
+display: block;
+font-size: 14px;
+}
+@media (max-width: 480px) {
+.jp_traditional span{
+text-align: left;
+  }
+.pc480{
+  display:none;
+}
+}
+p.megane {
+  margin: 0;
+  font-size: 12px;
+}
+ p.megane img {
+  width: 20px;
+   display: inline-block;
+}
+/* ====top-pic=====*/
+.top-pic{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  margin:0 auto;
+  list-style:none;
+}
+.top-pic li{
+  width:45%;
+  margin-bottom: 30px;
+}
+@media (max-width: 680px) {
+.top-pic li{
+  width:100%;
+}
+}
+
+/* ヘッダー */
+@media only screen and (min-width: 769px) {
+  .header-layout .site-nav__icons .swym-header-launcher {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+/*
+@media only screen and (max-width: 768px) {
+  .header-layout .site-nav__icons .swym-header-launcher {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+  }
+}
+*/
+
+.stamped-proxy-thankyou .fa.fa-heart {
+  display: none;
+}
