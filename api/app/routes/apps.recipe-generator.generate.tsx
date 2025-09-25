@@ -1,4 +1,5 @@
 import { type ActionFunctionArgs, json } from "@remix-run/node";
+import { authenticate } from "~/shopify.server";
 
 // Azure OpenAI API設定（環境変数から取得）
 const AZURE_CONFIG = {
@@ -6,65 +7,7 @@ const AZURE_CONFIG = {
   apiKey: process.env.AZURE_OPENAI_API_KEY || ""
 };
 
-// Private App Token認証関数
-function verifyPrivateAppToken(token: string | null, shopDomain: string | null): boolean {
-  // 環境変数から設定値取得
-  const expectedToken = process.env.SHOPIFY_PRIVATE_APP_TOKEN;
-  const expectedShop = process.env.SHOPIFY_SHOP_DOMAIN;
-
-  if (!expectedToken || !expectedShop) {
-    console.error("Shopify認証設定が不完全です");
-    return false;
-  }
-
-  if (!token || !shopDomain) {
-    console.error("認証ヘッダーが不足しています");
-    return false;
-  }
-
-  // Token・Shop情報の検証
-  const tokenValid = token.startsWith('shpat_') && token === expectedToken;
-  const shopValid = shopDomain === expectedShop;
-
-  if (!tokenValid) {
-    console.error("無効なPrivate App Token:", token.substring(0, 10) + "...");
-    return false;
-  }
-
-  if (!shopValid) {
-    console.error("無効なShopドメイン:", shopDomain);
-    return false;
-  }
-
-  return true;
-}
-
-// Rate Limiting（簡易版）
-const requestCounts = new Map<string, { count: number; resetTime: number }>();
-
-function checkRateLimit(identifier: string): boolean {
-  const now = Date.now();
-  const maxRequests = parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "10");
-  const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MINUTES || "1") * 60 * 1000;
-
-  const current = requestCounts.get(identifier);
-
-  if (!current || now > current.resetTime) {
-    // 新しいウィンドウまたは期限切れ
-    requestCounts.set(identifier, { count: 1, resetTime: now + windowMs });
-    return true;
-  }
-
-  if (current.count >= maxRequests) {
-    console.log(`Rate limit exceeded for ${identifier}: ${current.count}/${maxRequests}`);
-    return false;
-  }
-
-  current.count++;
-  return true;
-}
-
-// レシピ生成APIのアクション（POST専用）
+// App Proxy用レシピ生成API（App Proxy形式）
 export async function action({ request }: ActionFunctionArgs) {
   // POSTリクエストのみ許可
   if (request.method !== "POST") {
@@ -72,33 +15,27 @@ export async function action({ request }: ActionFunctionArgs) {
   }
 
   try {
-    // 🔒 Phase 1: Private App Token認証
-    const shopifyToken = request.headers.get("X-Shopify-Access-Token");
-    const shopDomain = request.headers.get("X-Shopify-Shop-Domain");
+    // 🔒 App Proxy認証（HMAC検証）
+    // App Proxyの場合、ShopifyからのリクエストはHMAC署名で検証される
+    // shopify.server.tsのauthenticateミドルウェアが自動的に検証
+    const { shop, session } = await authenticate.public.appProxy(request);
 
-    if (!verifyPrivateAppToken(shopifyToken, shopDomain)) {
-      return json({
-        error: "認証エラー",
-        message: "無効な認証情報です。Private App Tokenを確認してください。"
-      }, { status: 401 });
-    }
+    console.log(`✅ App Proxy認証成功: Shop=${shop}`);
 
-    // Rate Limiting チェック
-    const rateLimitId = `${shopDomain}_${request.headers.get("x-forwarded-for") || "unknown"}`;
-    if (!checkRateLimit(rateLimitId)) {
-      return json({
-        error: "Rate Limit Exceeded",
-        message: "リクエスト制限に達しました。しばらく時間をおいて再試行してください。"
-      }, { status: 429 });
-    }
-
-    console.log(`✅ 認証成功: Shop=${shopDomain}, Token=${shopifyToken?.substring(0, 10)}...`);
     // フォームデータを取得
     const formData = await request.formData();
     const condition = formData.get("condition")?.toString().trim() || "";
     const needs = formData.get("needs")?.toString().trim() || "";
     const kojiType = formData.get("kojiType")?.toString() || "";
     const otherIngredients = formData.get("otherIngredients")?.toString().trim() || "";
+
+    // バリデーション
+    if (!condition) {
+      return json({
+        error: "入力エラー",
+        message: "現在の体調やお悩みを入力してください。"
+      }, { status: 400 });
+    }
 
     // Azure OpenAI APIキーの確認
     if (!AZURE_CONFIG.apiKey || AZURE_CONFIG.apiKey === "") {
@@ -109,7 +46,7 @@ export async function action({ request }: ActionFunctionArgs) {
       }, { status: 500 });
     }
 
-    // プロンプト構築（nutrition-widget.liquidから移植）
+    // プロンプト構築
     const systemPrompt = `あなたは精密栄養学の知識を持つ料理専門家です。ユーザーの健康状態や希望に基づいて、MUROの麹製品を使った健康的で美味しいレシピを提案します。
 
 以下の形式で必ず3つのレシピをJSON形式で返してください：
@@ -206,7 +143,8 @@ export async function action({ request }: ActionFunctionArgs) {
       return json({
         success: true,
         recipes: recipes,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        shop: shop
       });
 
     } catch (parseError) {

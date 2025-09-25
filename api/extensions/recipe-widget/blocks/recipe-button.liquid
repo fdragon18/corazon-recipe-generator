@@ -1,0 +1,178 @@
+{% comment %}
+  Theme App Extension: Recipe Generator Button
+  右下フローティングボタンでレシピ生成機能を提供
+{% endcomment %}
+
+{{ 'recipe-modal.css' | asset_url | stylesheet_tag }}
+
+<!-- フローティングボタン -->
+<div class="floating-button-container">
+  <button class="floating-toggle-btn" onclick="toggleFormWindow()">
+    <span class="notification-dot"></span>
+    <span style="font-size: 13px; font-weight: bold; line-height: 1.2;">MURO<br>レシピAI</span>
+  </button>
+</div>
+
+<!-- ポップアップフォームウィンドウ -->
+<div class="form-popup-window" id="formPopupWindow">
+  <div class="form-popup-content">
+    <div class="form-popup-header">
+      <h3>パーソナルKOJIレシピ提案</h3>
+      <button class="form-close-btn" onclick="toggleFormWindow()">×</button>
+    </div>
+
+    <div class="form-popup-body">
+      <p class="form-subtitle">
+        あなたの今の体調や食事の希望に合わせて<br>
+        MUROの麹製品を使った特別なレシピをご提案します
+      </p>
+
+      <form id="kojiRecipeForm">
+        <div class="form-group">
+          <label for="userConditionInput">現在の体調やお悩み(必須)</label>
+          <label for="userConditionInput">[例: 疲れやすい, 胃腸が弱り気味]</label>
+          <textarea id="userConditionInput" placeholder="例：最近、夏バテ気味で食欲がない" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="dietaryNeedsInput">食事で気をつけたいこと（任意）</label>
+          <label for="dietaryNeedsInput">[例: 低カロリー, 消化の良いもの]</label>
+          <input type="text" id="dietaryNeedsInput" placeholder="例：ビタミンB群を多く摂りたい">
+        </div>
+
+        <div class="form-group">
+          <label for="kojiTypeSelect">使用したいMUROの麹製品（任意）</label>
+          <select id="kojiTypeSelect">
+            <option value="">AIにおまかせ</option>
+            <option value="麹パウダー">麹パウダー</option>
+            <option value="塩麹">塩麹</option>
+            <option value="醤油麹">醤油麹</option>
+            <option value="甘麹">甘麹</option>
+            <option value="トマト麹">トマト麹</option>
+            <option value="ハーブ麹">ハーブ麹</option>
+            <option value="にんにく麹">にんにく麹</option>
+            <option value="玉ねぎ麹">玉ねぎ麹</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="otherIngredientsInput">使いたい食材（任意）</label>
+          <input type="text" id="otherIngredientsInput" placeholder="例：鶏むね肉、豆腐">
+        </div>
+
+        <button type="submit" id="generateRecipeBtn" class="submit-button">
+          麹レシピ生成
+        </button>
+      </form>
+
+      <div id="loadingIndicator" class="loading-container hidden">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">レシピを作成しています...</p>
+      </div>
+
+      <div id="errorMessage" class="error-container hidden">
+        <p class="error-text"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- レシピ表示モーダル -->
+<div id="recipeModal" class="recipe-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 class="modal-title">あなたのためのレシピ</h2>
+      <button class="modal-close" onclick="closeRecipeModal()">×</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- レシピ1 -->
+      <div id="recipePage1" class="recipe-page active">
+        <h3 class="recipe-name" id="recipe1Name"></h3>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">材料</h4>
+          <div class="recipe-ingredients recipe-content" id="recipe1Ingredients"></div>
+        </div>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">作り方</h4>
+          <div class="recipe-steps recipe-content" id="recipe1Steps"></div>
+        </div>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">このレシピの特徴</h4>
+          <div class="recipe-benefit recipe-content" id="recipe1Benefit"></div>
+        </div>
+      </div>
+
+      <!-- レシピ2 -->
+      <div id="recipePage2" class="recipe-page">
+        <h3 class="recipe-name" id="recipe2Name"></h3>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">材料</h4>
+          <div class="recipe-ingredients recipe-content" id="recipe2Ingredients"></div>
+        </div>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">作り方</h4>
+          <div class="recipe-steps recipe-content" id="recipe2Steps"></div>
+        </div>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">このレシピの特徴</h4>
+          <div class="recipe-benefit recipe-content" id="recipe2Benefit"></div>
+        </div>
+      </div>
+
+      <!-- レシピ3 -->
+      <div id="recipePage3" class="recipe-page">
+        <h3 class="recipe-name" id="recipe3Name"></h3>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">材料</h4>
+          <div class="recipe-ingredients recipe-content" id="recipe3Ingredients"></div>
+        </div>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">作り方</h4>
+          <div class="recipe-steps recipe-content" id="recipe3Steps"></div>
+        </div>
+        <div class="recipe-section">
+          <h4 class="recipe-section-title">このレシピの特徴</h4>
+          <div class="recipe-benefit recipe-content" id="recipe3Benefit"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-pagination">
+      <button class="pagination-btn prev" onclick="changeRecipePage(-1)" id="prevBtn">
+        前のレシピ
+      </button>
+      <span class="page-indicator" id="pageIndicator">1 / 3</span>
+      <button class="pagination-btn next" onclick="changeRecipePage(1)" id="nextBtn">
+        次のレシピ
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'recipe-modal.js' | asset_url }}"></script>
+
+{% schema %}
+{
+  "name": "KOJIレシピ生成",
+  "target": "section_group.footer",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_floating_button",
+      "label": "フローティングボタンを表示",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "ボタン設定"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "生成ボタンテキスト",
+      "default": "麹レシピ生成"
+    }
+  ]
+}
+{% endschema %}

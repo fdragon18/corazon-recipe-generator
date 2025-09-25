@@ -1,182 +1,255 @@
-# レシピジェネレーター - Corazón (プライベートShopifyアプリ)
+# Corazón Recipe Generator - Shopify Custom App
 
-プライベートShopifyアプリとして動作するAI搭載レシピジェネレーター。
-Shopify Private App Token認証により、セキュアかつシンプルな構成を実現。
+メキシコ食材専門店「corazon-muro」専用のAI搭載レシピジェネレーター。
+Theme App Extensions + App Proxyによるモダンで安全な構成を実現。
 
 ## 🌟 特徴
 
 - **🤖 AI搭載レシピ生成**: Azure OpenAI (GPT-4) によるパーソナライズドレシピ提案
-- **🔒 セキュア認証**: Shopify Private App Token による簡単で安全な認証
-- **🎯 Script Tag統合**: テーマに直接統合、管理画面埋め込み不要
-- **📊 栄養分析**: 麹による減塩効果計算・栄養価分析機能
-- **🏪 Shopify連携**: Customer・Order情報とレシピ履歴の統合
-- **📱 レスポンシブ**: モバイルファースト UI/UX
-- **⚡ 高速開発**: OAuth不要、App Store審査不要で迅速な実装
+- **🎯 Theme App Extensions**: モダンなShopifyアプリ拡張による安全な統合
+- **🔒 App Proxy認証**: HMAC署名による堅牢なセキュリティ
+- **📊 栄養分析**: 麹による減塩効果計算・栄養価分析機能（将来実装）
+- **🏪 Shopify連携**: Customer・Product情報との連携
+- **📱 レスポンシブ**: モバイルファーストUI/UX
+- **⚡ カスタムアプリ**: 1店舗専用、App Store審査不要
 
 ## 🏗️ アーキテクチャ
 
 ```
-🌍 Shopify Store (プライベートアプリ)
-├── 📜 Script Tag → Vercel API
-├── 🔑 Private App Token認証
-└── 📈 Customer・Orderデータ連携
+🌍 Shopify Store (Custom App)
+├── 🧩 Theme App Extension → App Proxy → Vercel API
+├── 🔐 Token Exchange認証
+└── 📈 Product・Customer データ連携
 
-🌐 Vercel API (セキュアエンドポイント)
-├── /api/recipes/generate (Token認証)
+🌐 Vercel API (Serverless Functions)
+├── /apps/recipe-generator/generate (HMAC認証)
 ├── 🤖 Azure OpenAI統合
-└── 🗃️ Supabase データ保存
+└── 🗃️ 将来: データベース統合
 ```
 
-### 📁 ファイル構造
+### 📁 プロジェクト構造
 
 ```
 corazon-recipe-generator/
-├── api/                    # Vercel API (Remix)
-│   ├── app/               # API エンドポイント
-│   │   └── routes/        # レシピ生成 API
-│   ├── prisma/            # Supabase スキーマ
-│   └── vercel.json        # Vercel 設定
-└── theme/                 # Shopify テーマ
-    ├── sections/          # nutrition-widget.liquid
-    └── templates/         # パスタレシピページ等
+├── app/                                    # Remixアプリケーション
+│   ├── routes/
+│   │   └── apps.recipe-generator.generate.tsx  # App Proxy用レシピ生成API
+│   └── shopify.server.ts                   # Shopify認証設定
+├── extensions/
+│   └── recipe-widget/                      # Theme App Extension
+│       ├── blocks/
+│       │   └── recipe-button.liquid       # 右下フローティングボタン
+│       ├── assets/
+│       │   ├── recipe-modal.js            # レシピ表示モーダル
+│       │   └── recipe-modal.css           # スタイリング
+│       └── shopify.extension.toml          # Extension設定
+├── shopify.app.toml                        # アプリ設定
+└── vercel.json                            # Vercel設定
 ```
 
 ## 🔧 技術スタック
 
-### Vercel API
-- **フレームワーク**: Remix (軽量化・App Bridge削除済み)
-- **認証**: Shopify Private App Token (shpat_xxxxx)
-- **データベース**: Supabase (PostgreSQL) + Prisma ORM
+### Remix + Vercel
+- **フレームワーク**: Remix (Shopify公式推奨)
+- **認証**: Token Exchange (unstable_newEmbeddedAuthStrategy)
 - **AI統合**: Azure OpenAI API (GPT-4)
 - **言語**: TypeScript
 - **デプロイ**: Vercel Serverless Functions
 
 ### Shopify統合
-- **統合方式**: Script Tag + Private App Token
-- **テンプレート**: Liquid (nutrition-widget.liquid)
-- **セキュリティ**: Shop情報自動取得 + Token安全送信
+- **統合方式**: Theme App Extensions + App Proxy
+- **スコープ**: `read_products`, `write_metafields`, `read_themes`
+- **セキュリティ**: HMAC署名検証
 - **開発**: Shopify CLI
 
-### セキュリティ層
-- **CORS**: Shopifyドメイン限定 (*.myshopify.com)
-- **Rate Limiting**: 1分間10リクエスト制限
-- **トークン検証**: Private App Token 有効性確認
+## 🚨 重要：開発環境と本番環境
+
+### **絶対に開発ストアで進めてください！**
+本番環境での直接開発は超危険です。
+
+#### ❌ 本番環境で直接開発（絶対NG）
+- 顧客に未完成機能が見える
+- バグで売上に影響
+- ロールバック困難
+- テストデータで本番が汚染
+
+#### ✅ 開発ストアで開発（正解）
+- 安全にテスト可能
+- 失敗してもOK
+- テストデータ使い放題
+- 本番への影響ゼロ
+
+### 環境管理
+
+#### 開発環境
+- **ストア**: `corazon-muro-dev.myshopify.com`
+- **用途**: 開発・テスト専用
+- **データ**: テストデータ使用可
+- **URL**: https://corazon-recipe-dev.vercel.app
+
+#### 本番環境
+- **ストア**: `corazon-muro.myshopify.com`
+- **用途**: 実際の顧客向け
+- **データ**: 実データ（取り扱い注意）
+- **URL**: https://corazon-recipe.vercel.app
 
 ## 🚀 セットアップ
 
-### 1. Shopify Private App作成
+### 1. 開発環境準備
 
-#### Step 1: Shopify Admin でアプリ作成
-1. Shopify Admin → **Settings** → **Apps and sales channels**
-2. **"Develop apps for your store"** → **"Create an app"**
-3. App name: **"Corazón Recipe Generator"**
-
-#### Step 2: Admin API permissions 設定
-```
-Products: Read access
-Customers: Read access
-Orders: Read access
+#### Step 1: リポジトリクローン
+```bash
+git clone https://github.com/your-username/corazon-recipe-generator.git
+cd corazon-recipe-generator
 ```
 
-#### Step 3: Private App Token 取得
-- **Admin API access token** をコピー (shpat_で始まる)
+#### Step 2: 依存関係インストール
+```bash
+npm install
+```
+
+#### Step 3: 開発ストアでのCustom App作成
+1. **corazon-muro-dev.myshopify.com/admin** にログイン
+2. **Settings** → **Apps and sales channels**
+3. **"Develop apps for your store"** → **"Create an app"**
+4. App name: **"Corazón Recipe Generator Dev"**
+5. **必要なスコープを設定**:
+   ```
+   read_products
+   write_metafields
+   read_themes
+   ```
+6. **Admin API access token** をコピー
 
 ### 2. 環境変数設定
 
-#### `api/.env.local` を作成
+#### `.env.local` を作成
 ```env
-# Shopify Private App (必須)
-SHOPIFY_PRIVATE_APP_TOKEN=shpat_xxxxxxxxxxxxxxxxxxxxx
-SHOPIFY_SHOP_DOMAIN=your-shop.myshopify.com
-SHOPIFY_SHOP_NAME=your-shop
+SHOPIFY_API_KEY=your_app_api_key
+SHOPIFY_API_SECRET=your_app_api_secret
+SHOPIFY_APP_URL=https://your-app-dev.vercel.app
+SCOPES=read_products,write_metafields,read_themes
 
-# APIセキュリティ
-API_SECRET_KEY=your_random_32_char_secret_key_here
-RATE_LIMIT_MAX_REQUESTS=10
-RATE_LIMIT_WINDOW_MINUTES=1
+# OpenAI
+OPENAI_API_KEY=sk-xxxxx
 
-# Azure OpenAI
-AZURE_OPENAI_ENDPOINT=https://your-instance.openai.azure.com/...
-AZURE_OPENAI_API_KEY=your_azure_openai_key
-
-# Supabase
-SUPABASE_URL=your_supabase_project_url
-SUPABASE_ANON_KEY=your_supabase_anon_key
-DATABASE_URL=your_database_connection_string
+# 開発環境設定
+NODE_ENV=development
+SHOPIFY_SHOP_DOMAIN=corazon-muro-dev.myshopify.com
 ```
 
 ### 3. ローカル開発
 
-#### API サーバー起動
+#### 開発サーバー起動
 ```bash
-cd api
-npm install
-npm run dev
+shopify app dev
 ```
 
-#### テーマ開発
+このコマンドで以下が自動的に実行されます：
+- Remix開発サーバー起動
+- Theme App Extension配信
+- Ngrokトンネル作成
+- 開発ストアでアプリ有効化
+
+### 4. Theme App Extension作成
+
+#### Extension生成
 ```bash
-cd theme
-shopify theme dev
+shopify app generate extension
 ```
 
-### 4. Vercel デプロイ
+選択項目：
+- Extension type: **Theme app extension**
+- Name: **recipe-widget**
 
-#### Vercel CLI でデプロイ
+## 🔄 開発→本番移行フロー
+
+### Phase 1: 開発ストアで完成まで開発
+
 ```bash
-# Vercel アカウント接続
-npx vercel login
+# 開発ストア（安全）
+corazon-muro-dev.myshopify.com  # ここで開発
 
-# プロジェクトデプロイ
-npx vercel --prod
+# 本番ストア（完成後のみ）
+corazon-muro.myshopify.com      # 完成後にデプロイ
 ```
 
-#### 環境変数を Vercel に設定
-Vercel Dashboard で同じ環境変数を設定
+### Phase 2: 本番移行手順
 
-## 🔒 セキュリティ
+#### Step 1: 本番ストアでCustom App作成
+1. **corazon-muro.myshopify.com/admin** にログイン
+2. **Settings** → **Apps and sales channels** → **Develop apps**
+3. **"Create an app"** クリック
+4. App name: **"Corazón Recipe Generator"**
+5. **必要なスコープを設定**（開発と同じもの）
+6. **Admin API access token** を生成
 
-### Private App Token認証
-- Shopify Private App Token (shpat_) で認証
-- リクエスト毎にToken検証
-- 不正アクセス時のエラーレスポンス
+#### Step 2: 環境変数の切り替え
+```bash
+# .env.development（開発用）
+SHOPIFY_SHOP_DOMAIN=corazon-muro-dev.myshopify.com
+SHOPIFY_ACCESS_TOKEN=shpat_dev_xxxxx
+NODE_ENV=development
 
-### CORS設定
-- `*.myshopify.com` ドメイン限定
-- テーマからの直接アクセスのみ許可
-- プリフライト リクエスト対応
-
-### Rate Limiting
-- 1分間10リクエスト制限
-- IP・Shopベースでの制限
-- Redis/Upstash使用
-
-### データ保護
-- Supabase Row Level Security
-- Token暗号化保存
-- アクセスログ・エラーログ記録
-
-## 🧪 API エンドポイント
-
-### POST `/api/recipes/generate`
-
-#### リクエストヘッダー
-```
-X-Shopify-Access-Token: shpat_xxxxxxxxxxxxx
-X-Shopify-Shop-Domain: your-shop.myshopify.com
-Content-Type: application/x-www-form-urlencoded
+# .env.production（本番用）
+SHOPIFY_SHOP_DOMAIN=corazon-muro.myshopify.com
+SHOPIFY_ACCESS_TOKEN=shpat_prod_xxxxx
+NODE_ENV=production
 ```
 
-#### リクエストボディ
-```
-condition=疲労回復したい
-needs=低塩分
-kojiType=米麹甘酒
-otherIngredients=鶏肉、野菜
+#### Step 3: Vercelで環境変数設定
+Vercelダッシュボードで：
+- **Production環境**: 本番のトークン設定
+- **Preview環境**: 開発のトークン設定
+
+#### Step 4: 本番デプロイ
+```bash
+# 最終テスト
+npm run build
+
+# 本番デプロイ
+vercel --prod
 ```
 
-#### レスポンス
-```json
+#### Step 5: 本番ストアでアプリインストール
+1. 本番ストアの管理画面でアプリをインストール
+2. Theme EditorでExtensionを有効化
+3. 動作確認
+
+## ⚠️ 重要：Custom Appの移行注意点
+
+開発と本番で**別々のCustom App**が必要：
+- **開発**: corazon-muro-dev → Custom App A
+- **本番**: corazon-muro → Custom App B
+
+これらは完全に独立しているため：
+- Access Tokenが異なる
+- App IDが異なる
+- 設定は手動で同期が必要
+
+## 🛠️ API設計
+
+### App Proxy経由のエンドポイント
+
+- `POST /apps/recipe-generator/generate` - レシピ生成
+- `GET /apps/recipe-generator/nutrition` - 栄養分析（将来実装）
+
+### リクエスト/レスポンス例
+
+#### レシピ生成API
+```typescript
+// リクエスト
+POST /apps/recipe-generator/generate
+Content-Type: application/json
+
+{
+  "condition": "疲労回復したい",
+  "needs": "低塩分",
+  "kojiType": "米麹甘酒",
+  "otherIngredients": "鶏肉、野菜"
+}
+
+// レスポンス
 {
   "success": true,
   "recipes": [
@@ -187,78 +260,137 @@ otherIngredients=鶏肉、野菜
       "benefit": "米麹の酵素が疲労回復を促進..."
     }
   ],
-  "timestamp": "2024-09-24T15:30:00Z"
+  "timestamp": "2024-09-25T12:00:00Z"
 }
 ```
 
-## 🔄 開発フロー
+## 🔒 セキュリティ
 
-### Phase 1: セキュアAPI基盤
-- [x] Private App Token認証実装
-- [x] CORS設定
-- [x] Rate Limiting
-- [x] Azure OpenAI統合
+### HMAC署名検証
+- App Proxy経由のすべてのリクエストでHMAC検証
+- 署名が無効なリクエストは拒否
+- Shopify公式の検証ライブラリ使用
 
-### Phase 2: Script Tag統合
-- [ ] nutrition-widget.liquid 修正
-- [ ] Private App Token使用
-- [ ] Shop情報自動取得
+### CORS設定
+- Shopifyドメインからのアクセスのみ許可
+- プリフライトリクエスト対応
 
-### Phase 3: Admin API連携
-- [ ] Customer情報取得
-- [ ] Order履歴連携
-- [ ] レシピ履歴管理
+### レート制限
+- IP・ショップ単位でのRate Limiting実装
+- 異常なアクセスパターンの検出・ブロック
+
+## 💻 開発コマンド
+
+```bash
+# 開発サーバー起動
+shopify app dev
+
+# Extension生成
+shopify app generate extension
+
+# ビルド
+npm run build
+
+# 型チェック
+npm run typecheck
+
+# Lint
+npm run lint
+
+# Vercelデプロイ
+vercel --prod
+
+# アプリ情報確認
+shopify app info
+```
+
+## 💡 便利なTips
+
+### ローカル開発時の環境切り替え
+```bash
+# 開発ストアに接続（推奨）
+npm run dev
+
+# 本番ストアをテスト（危険なので基本使わない）
+NODE_ENV=production npm run dev
+```
+
+### Gitブランチ戦略
+- **main** → 本番環境に自動デプロイ
+- **staging** → Preview環境でテスト
+- **feature/*** → 機能開発
+
+### デプロイフロー
+1. 開発ストアで機能開発・テスト
+2. `staging`ブランチでVercel Preview環境にデプロイ
+3. 動作確認後、`main`ブランチにマージ
+4. 自動的に本番環境にデプロイ
 
 ## 🐛 トラブルシューティング
 
 ### よくあるエラー
 
-#### 401 Unauthorized
+#### HMAC検証エラー
 ```
-原因: Private App Token が無効
-解決: .env.local の SHOPIFY_PRIVATE_APP_TOKEN を確認
-```
-
-#### CORS Error
-```
-原因: 許可されていないドメインからのアクセス
-解決: Shopifyストアのドメインを確認
+原因: App Proxyの署名検証に失敗
+解決: shopify.server.tsのHMAC検証ロジックを確認
 ```
 
-#### Rate Limit Exceeded
+#### Extension が表示されない
 ```
-原因: 1分間に10回以上のリクエスト
-解決: 時間をおいて再試行
+原因: Theme App Extensionのtarget設定が不正
+解決: shopify.extension.tomlの設定を確認
+```
+
+#### CORS エラー
+```
+原因: App Proxy経由でアクセスしていない
+解決: フロントエンドのAPI呼び出しURLを確認
+```
+
+#### 認証エラー
+```
+原因: Token Exchangeの設定が不正
+解決: shopify.server.tsの認証設定を確認
 ```
 
 ## 📈 パフォーマンス
 
-- **API レスポンス時間**: ~2-3秒 (Azure OpenAI 依存)
-- **Rate Limiting**: 10 req/min
+- **API レスポンス時間**: ~2-3秒 (OpenAI API依存)
 - **Vercel Cold Start**: ~300ms
-- **データベース**: Supabase (高速クエリ)
+- **Theme App Extension読み込み**: ~100ms
+- **モバイル対応**: Progressive Web App対応
 
-## 🤝 貢献
+## 🚀 今後の拡張予定
 
-1. このリポジトリをフォーク
-2. 機能ブランチ作成: `git checkout -b feature/amazing-feature`
-3. 変更をコミット: `git commit -m 'Add amazing feature'`
-4. ブランチプッシュ: `git push origin feature/amazing-feature`
-5. プルリクエスト作成
+### Phase 2: 栄養分析機能
+- 麹による減塩効果計算
+- 栄養価グラフ表示
+- カロリー計算
+
+### Phase 3: データ統合
+- 購入履歴との連携
+- パーソナライズ強化
+- レシピ履歴管理
+
+### Phase 4: 管理機能
+- レシピ管理画面
+- 分析ダッシュボード
+- 顧客インサイト
+
+## 🔗 参考リンク
+
+- [Shopify Remix App Documentation](https://shopify.dev/docs/apps/tools/cli/remix)
+- [Theme App Extensions Guide](https://shopify.dev/docs/apps/app-extensions/web-ui-extensions/theme-extensions)
+- [App Proxy Documentation](https://shopify.dev/docs/apps/app-extensions/web-ui-extensions/app-proxy)
+- [Vercel Remix Deployment](https://vercel.com/guides/deploying-remix-with-vercel)
 
 ## 📄 ライセンス
 
-MIT License - 詳細は [LICENSE](LICENSE) ファイルを参照
-
-## 🔗 関連リンク
-
-- [Shopify Private Apps ドキュメント](https://shopify.dev/docs/apps/auth/admin-app-access-tokens)
-- [Vercel Deployment ドキュメント](https://vercel.com/docs)
-- [Azure OpenAI Service](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
-- [Supabase ドキュメント](https://supabase.com/docs)
+MIT License
 
 ---
 
 **開発者**: ryufukaya
-**プロジェクト**: レシピジェネレーター - Corazón
-**最終更新**: 2024年9月24日
+**プロジェクト**: Corazón Recipe Generator
+**最終更新**: 2024年9月25日

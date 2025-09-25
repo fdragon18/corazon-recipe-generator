@@ -1,0 +1,15 @@
+name = "recipe-widget"
+type = "theme"
+
+[[extensions]]
+name = "recipe-widget"
+handle = "recipe-widget"
+
+[[extensions.targeting]]
+target = "section_group.footer"
+
+[[extensions.targeting]]
+target = "section_group.header"
+
+[extensions.settings]
+category = "カスタム機能"
