@@ -1,0 +1,11 @@
+api_version = "2024-07"
+
+[[extensions]]
+uid = "e40486c2-9c2b-c824-4822-6c2964ee608b18a4319a"
+type = "theme"
+name = "Recipe Widget"
+handle = "recipe-widget"
+
+[extensions.development]
+build_command = ""
+root_dir = "/"

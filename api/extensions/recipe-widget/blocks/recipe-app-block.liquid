@@ -1,0 +1,241 @@
+{% comment %}
+  App Block: KOJIレシピ生成ウィジェット
+  テーマの任意の場所に配置可能なブロック
+{% endcomment %}
+
+<!-- App Blockコンテナ -->
+<div class="recipe-app-block">
+  {% if block.settings.display_mode == 'button' %}
+    <!-- ボタンモード -->
+    <button
+      class="recipe-trigger-button"
+      onclick="openRecipeGenerator()"
+      style="background-color: {{ block.settings.button_color }}; color: {{ block.settings.text_color }};">
+      {{ block.settings.button_text }}
+    </button>
+  {% elsif block.settings.display_mode == 'card' %}
+    <!-- カードモード -->
+    <div class="recipe-card">
+      <div class="recipe-card-header">
+        <h3>{{ block.settings.card_title }}</h3>
+      </div>
+      <div class="recipe-card-body">
+        <p>{{ block.settings.card_description }}</p>
+        <button
+          class="recipe-card-button"
+          onclick="openRecipeGenerator()"
+          style="background-color: {{ block.settings.button_color }};">
+          {{ block.settings.button_text }}
+        </button>
+      </div>
+    </div>
+  {% elsif block.settings.display_mode == 'banner' %}
+    <!-- バナーモード -->
+    <div class="recipe-banner" style="background-color: {{ block.settings.banner_bg_color }};">
+      <div class="recipe-banner-content">
+        <span class="recipe-banner-text">{{ block.settings.banner_text }}</span>
+        <button
+          class="recipe-banner-button"
+          onclick="openRecipeGenerator()">
+          {{ block.settings.button_text }}
+        </button>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+  /* ボタンモード */
+  .recipe-trigger-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  .recipe-trigger-button:hover {
+    opacity: 0.8;
+  }
+
+  /* カードモード */
+  .recipe-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .recipe-card-header h3 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+  }
+
+  .recipe-card-body p {
+    margin: 0 0 16px 0;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  .recipe-card-button {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  /* バナーモード */
+  .recipe-banner {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+
+  .recipe-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .recipe-banner-text {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .recipe-banner-button {
+    background: white;
+    color: #000;
+    border: 2px solid #000;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .recipe-banner-button:hover {
+    background: #000;
+    color: white;
+  }
+
+  /* レスポンシブ対応 */
+  @media (max-width: 768px) {
+    .recipe-banner-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .recipe-banner-button {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+</style>
+
+<script>
+  // レシピジェネレーターを開く
+  function openRecipeGenerator() {
+    // フローティングボタンのフォームを開く
+    const formWindow = document.getElementById('formPopupWindow');
+    if (formWindow) {
+      formWindow.classList.add('active');
+    } else {
+      // フォームが見つからない場合は、フローティングボタンをクリック
+      const floatingBtn = document.querySelector('.floating-toggle-btn');
+      if (floatingBtn) {
+        floatingBtn.click();
+      }
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "レシピ生成ボタン",
+  "target": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "display_mode",
+      "label": "表示モード",
+      "options": [
+        {
+          "value": "button",
+          "label": "シンプルボタン"
+        },
+        {
+          "value": "card",
+          "label": "カード形式"
+        },
+        {
+          "value": "banner",
+          "label": "バナー形式"
+        }
+      ],
+      "default": "button"
+    },
+    {
+      "type": "header",
+      "content": "ボタン設定"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "ボタンテキスト",
+      "default": "レシピを提案してもらう"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "ボタンの背景色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "ボタンのテキスト色",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "カード設定（カードモード時）"
+    },
+    {
+      "type": "text",
+      "id": "card_title",
+      "label": "カードタイトル",
+      "default": "パーソナル麹レシピ"
+    },
+    {
+      "type": "textarea",
+      "id": "card_description",
+      "label": "カード説明文",
+      "default": "あなたの体調や希望に合わせた麹レシピをAIが提案します"
+    },
+    {
+      "type": "header",
+      "content": "バナー設定（バナーモード時）"
+    },
+    {
+      "type": "text",
+      "id": "banner_text",
+      "label": "バナーテキスト",
+      "default": "🍴 今の体調に合わせた麹レシピをAIが提案"
+    },
+    {
+      "type": "color",
+      "id": "banner_bg_color",
+      "label": "バナー背景色",
+      "default": "#FFF3E0"
+    }
+  ]
+}
+{% endschema %}
