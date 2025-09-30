@@ -1,19 +1,14 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/package.json",
-      "use": "@vercel/remix",
-      "config": {
-        "buildCommand": "cd api && npm run build",
-        "outputDirectory": "api/build/client"
-      }
-    }
-  ],
+  "buildCommand": "cd api && npm run build",
+  "outputDirectory": "api/build/client",
+  "installCommand": "cd api && npm install",
+  "framework": "remix",
+  "rootDirectory": "api",
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1",
+      "dest": "/$1",
       "headers": {
         "Access-Control-Allow-Origin": "https://*.myshopify.com",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -25,7 +20,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/api/$1"
+      "dest": "/$1"
     }
   ],
   "env": {
