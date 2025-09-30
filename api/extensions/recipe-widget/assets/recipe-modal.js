@@ -5,6 +5,53 @@ let currentPage = 1;
 const totalPages = 3;
 let generatedRecipes = [];
 
+// ボタンテキストのレスポンシブサイズ調整
+function adjustButtonTextSize() {
+  const buttonText = document.querySelector('.button-text');
+  if (buttonText) {
+    const text = buttonText.textContent.trim();
+    const length = text.length;
+
+    // 既存のdata-length属性を削除
+    buttonText.removeAttribute('data-length');
+
+    // 文字数に応じてdata-length属性を設定
+    if (length === 1) {
+      buttonText.setAttribute('data-length', '1');
+    } else if (length === 2) {
+      buttonText.setAttribute('data-length', '2');
+    } else if (length === 3) {
+      buttonText.setAttribute('data-length', '3');
+    } else {
+      buttonText.setAttribute('data-length', '4+');
+    }
+  }
+}
+
+// ページ読み込み時にボタンサイズを調整
+document.addEventListener('DOMContentLoaded', adjustButtonTextSize);
+
+// テキスト変更を監視（Theme Editorでの変更に対応）
+if (window.MutationObserver) {
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'childList' || mutation.type === 'characterData') {
+        adjustButtonTextSize();
+      }
+    });
+  });
+
+  // ボタンテキストの変更を監視
+  const buttonText = document.querySelector('.button-text');
+  if (buttonText) {
+    observer.observe(buttonText, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  }
+}
+
 // フローティングボタンのトグル
 function toggleFormWindow() {
   const formWindow = document.getElementById('formPopupWindow');
@@ -14,9 +61,6 @@ function toggleFormWindow() {
     formWindow.classList.remove('active');
   } else {
     formWindow.classList.add('active');
-    // 通知ドットを非表示
-    const dot = document.querySelector('.notification-dot');
-    if (dot) dot.style.display = 'none';
   }
 }
 
@@ -30,70 +74,125 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// フォーム送信処理（App Proxy経由）
-document.getElementById('kojiRecipeForm').addEventListener('submit', async function(e) {
+// フォーム送信処理
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('kojiRecipeForm');
+  if (form) {
+    form.addEventListener('submit', handleFormSubmit);
+  }
+});
+
+async function handleFormSubmit(e) {
   e.preventDefault();
 
-  const submitBtn = document.getElementById('generateRecipeBtn');
-  const loadingIndicator = document.getElementById('loadingIndicator');
-  const errorMessage = document.getElementById('errorMessage');
-
-  // UI制御
-  submitBtn.disabled = true;
-  loadingIndicator.classList.remove('hidden');
-  errorMessage.classList.add('hidden');
-
-  // フォームデータ取得
+  // フォームデータを取得
   const condition = document.getElementById('userConditionInput').value.trim();
   const needs = document.getElementById('dietaryNeedsInput').value.trim();
   const kojiType = document.getElementById('kojiTypeSelect').value;
   const otherIngredients = document.getElementById('otherIngredientsInput').value.trim();
 
-  try {
-    // App Proxy経由でAPIを呼び出し
-    // Shopifyが自動的にHMAC署名を付与
-    const response = await fetch('/apps/recipe-generator/generate', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({
-        condition: condition,
-        needs: needs,
-        kojiType: kojiType,
-        otherIngredients: otherIngredients
-      })
-    });
+  // バリデーション
+  if (!condition) {
+    showError('現在の体調やお悩みを入力してください。');
+    return;
+  }
 
-    if (!response.ok) {
-      throw new Error(`APIエラー: ${response.status}`);
-    }
+  // ローディング表示
+  showLoading();
+  hideError();
+
+  try {
+    // FormDataを作成
+    const formData = new FormData();
+    formData.append('condition', condition);
+    formData.append('needs', needs);
+    formData.append('kojiType', kojiType);
+    formData.append('otherIngredients', otherIngredients);
+
+    // APIエンドポイントを構築
+    const apiUrl = `/apps/recipegen/generate`;
+
+    console.log('APIリクエスト送信:', { condition, needs, kojiType, otherIngredients });
+
+    // API呼び出し
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    });
 
     const data = await response.json();
 
-    if (data.success && data.recipes) {
-      generatedRecipes = data.recipes;
+    if (!response.ok) {
+      throw new Error(data.message || `HTTP ${response.status}: ${response.statusText}`);
+    }
 
-      if (generatedRecipes.length === 3) {
-        displayRecipes();
-        openRecipeModal();
-        toggleFormWindow(); // フォームを閉じる
-      } else {
-        throw new Error('レシピの生成に失敗しました');
-      }
+    if (data.success && data.recipes && data.recipes.length === 3) {
+      // レシピ生成成功
+      generatedRecipes = data.recipes;
+      displayRecipes(data.recipes);
+      hideLoading();
+      toggleFormWindow(); // フォームを閉じる
+      openRecipeModal(); // レシピモーダルを表示
     } else {
       throw new Error(data.message || 'レシピの生成に失敗しました');
     }
 
   } catch (error) {
-    console.error('エラー:', error);
-    errorMessage.querySelector('p').textContent = error.message || 'レシピの生成に失敗しました。もう一度お試しください。';
-    errorMessage.classList.remove('hidden');
-  } finally {
-    submitBtn.disabled = false;
-    loadingIndicator.classList.add('hidden');
+    console.error('レシピ生成エラー:', error);
+    hideLoading();
+    showError(error.message || 'レシピ生成中にエラーが発生しました。しばらく時間をおいて再試行してください。');
   }
-});
+}
+
+// ローディング表示/非表示
+function showLoading() {
+  const loadingContainer = document.getElementById('loadingIndicator');
+  const submitButton = document.getElementById('generateRecipeBtn');
+
+  if (loadingContainer) {
+    loadingContainer.classList.remove('hidden');
+  }
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'レシピ作成中...';
+  }
+}
+
+function hideLoading() {
+  const loadingContainer = document.getElementById('loadingIndicator');
+  const submitButton = document.getElementById('generateRecipeBtn');
+
+  if (loadingContainer) {
+    loadingContainer.classList.add('hidden');
+  }
+
+  if (submitButton) {
+    submitButton.disabled = false;
+    submitButton.textContent = '麹レシピ生成';
+  }
+}
+
+// エラー表示/非表示
+function showError(message) {
+  const errorContainer = document.getElementById('errorMessage');
+  const errorText = errorContainer?.querySelector('.error-text');
+
+  if (errorContainer && errorText) {
+    errorText.textContent = message;
+    errorContainer.classList.remove('hidden');
+  }
+}
+
+function hideError() {
+  const errorContainer = document.getElementById('errorMessage');
+  if (errorContainer) {
+    errorContainer.classList.add('hidden');
+  }
+}
 
 // レシピをモーダルに表示
 function displayRecipes() {
@@ -108,7 +207,7 @@ function displayRecipes() {
     const stepsContainer = document.getElementById(`recipe${pageNum}Steps`);
     stepsContainer.innerHTML = '';
     const steps = recipe.steps ? recipe.steps.split('\n').filter(s => s.trim()) : [];
-    steps.forEach((step, index) => {
+    steps.forEach((step) => {
       const stepDiv = document.createElement('div');
       stepDiv.className = 'recipe-step';
       stepDiv.textContent = step.trim();

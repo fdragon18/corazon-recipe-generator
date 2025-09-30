@@ -1,15 +1,11 @@
-name = "recipe-widget"
-type = "theme"
+api_version = "2024-07"
 
 [[extensions]]
-name = "recipe-widget"
+uid = "e40486c2-9c2b-c824-4822-6c2964ee608b18a4319a"
+type = "theme"
+name = "Recipe Widget"
 handle = "recipe-widget"
 
-[[extensions.targeting]]
-target = "section_group.footer"
-
-[[extensions.targeting]]
-target = "section_group.header"
-
-[extensions.settings]
-category = "カスタム機能"
+[extensions.development]
+build_command = ""
+root_dir = "/"

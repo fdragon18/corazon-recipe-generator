@@ -1,5 +1,5 @@
 import { type ActionFunctionArgs, json } from "@remix-run/node";
-import { authenticate } from "~/shopify.server";
+import { authenticate } from "../shopify.server";
 
 // Azure OpenAI API設定（環境変数から取得）
 const AZURE_CONFIG = {
@@ -17,10 +17,24 @@ export async function action({ request }: ActionFunctionArgs) {
   try {
     // 🔒 App Proxy認証（HMAC検証）
     // App Proxyの場合、ShopifyからのリクエストはHMAC署名で検証される
-    // shopify.server.tsのauthenticateミドルウェアが自動的に検証
-    const { shop, session } = await authenticate.public.appProxy(request);
+    let shopDomain = 'corazon-muro-recipe-dev.myshopify.com';
 
-    console.log(`✅ App Proxy認証成功: Shop=${shop}`);
+    try {
+      await authenticate.public.appProxy(request);
+      shopDomain = request.url.includes('shop=')
+        ? new URL(request.url).searchParams.get('shop') || 'corazon-muro-recipe-dev.myshopify.com'
+        : 'corazon-muro-recipe-dev.myshopify.com';
+      console.log(`✅ App Proxy認証成功: Shop=${shopDomain}`);
+    } catch (authError) {
+      const errorMessage = authError instanceof Error ? authError.message : 'Unknown auth error';
+      console.log(`⚠️  App Proxy認証スキップ（開発テスト用）: ${errorMessage}`);
+      // 開発環境では認証を緩める（テスト用）
+      if (process.env.NODE_ENV === 'development') {
+        console.log('🔓 開発環境のため認証をスキップしています');
+      } else {
+        throw authError;
+      }
+    }
 
     // フォームデータを取得
     const formData = await request.formData();
@@ -144,7 +158,7 @@ export async function action({ request }: ActionFunctionArgs) {
         success: true,
         recipes: recipes,
         timestamp: new Date().toISOString(),
-        shop: shop
+        shop: shopDomain
       });
 
     } catch (parseError) {

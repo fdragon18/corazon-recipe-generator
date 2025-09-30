@@ -242,7 +242,7 @@ NODE_ENV=production npm run dev
 ## 🐛 デバッグ用URL
 - **開発環境**: https://localhost:3000
 - **App Proxy**: https://corazon-muro.myshopify.com/apps/recipe-generator/*
-- **Theme Editor**: https://corazon-muro.myshopify.com/admin/themes/current/editor
+- **Theme Editor**: https://admin.shopify.com/store/corazon-muro-recipe-dev/themes/133962661982/editor
 
 ## 💥 よくあるエラーと対処法
 - **HMAC検証エラー**: App Proxyの署名検証を確認

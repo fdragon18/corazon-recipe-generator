@@ -2,12 +2,13 @@
 
 client_id = "732d8fe4f68417f6f8d59f61568ac6ec"
 name = "recipe-generator-app"
-application_url = "https://example.com/"
+application_url = "https://recipe-generator-app-lac.vercel.app/"
 embedded = true
 handle = "recipe-generator-app-1"
 
 [build]
 include_config_on_deploy = true
+automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2025-07"
@@ -25,7 +26,12 @@ api_version = "2025-07"
 scopes = "write_products"
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [ "https://recipe-generator-app-lac.vercel.app/api/auth" ]
 
 [pos]
 embedded = false
+
+[app_proxy]
+url = "https://recipe-generator-app-lac.vercel.app"
+subpath = "recipegen"
+prefix = "apps"

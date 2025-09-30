@@ -3,13 +3,10 @@
   右下フローティングボタンでレシピ生成機能を提供
 {% endcomment %}
 
-{{ 'recipe-modal.css' | asset_url | stylesheet_tag }}
-
 <!-- フローティングボタン -->
 <div class="floating-button-container">
   <button class="floating-toggle-btn" onclick="toggleFormWindow()">
-    <span class="notification-dot"></span>
-    <span style="font-size: 13px; font-weight: bold; line-height: 1.2;">MURO<br>レシピAI</span>
+    <span class="button-text">{{ section.settings.button_text | default: '？' }}</span>
   </button>
 </div>
 
@@ -17,31 +14,31 @@
 <div class="form-popup-window" id="formPopupWindow">
   <div class="form-popup-content">
     <div class="form-popup-header">
-      <h3>パーソナルKOJIレシピ提案</h3>
+      <h3>{{ section.settings.popup_title | default: 'パーソナルKOJIレシピ提案' }}</h3>
       <button class="form-close-btn" onclick="toggleFormWindow()">×</button>
     </div>
 
     <div class="form-popup-body">
       <p class="form-subtitle">
-        あなたの今の体調や食事の希望に合わせて<br>
-        MUROの麹製品を使った特別なレシピをご提案します
+        {{ section.settings.subtitle | default: 'あなたの今の体調や食事の希望に合わせて<br>MUROの麹製品を使った特別なレシピをご提案します' }}
       </p>
 
       <form id="kojiRecipeForm">
         <div class="form-group">
-          <label for="userConditionInput">現在の体調やお悩み(必須)</label>
+          <label for="userConditionInput">{{ section.settings.condition_label | default: '現在の体調やお悩み(必須)' }}</label>
           <label for="userConditionInput">[例: 疲れやすい, 胃腸が弱り気味]</label>
-          <textarea id="userConditionInput" placeholder="例：最近、夏バテ気味で食欲がない" required></textarea>
+          <textarea id="userConditionInput" placeholder="{{ section.settings.condition_placeholder | default: '例：最近、夏バテ気味で食欲がない' }}" required></textarea>
+          <!-- Debug: {{ section.settings.condition_placeholder }} -->
         </div>
 
         <div class="form-group">
-          <label for="dietaryNeedsInput">食事で気をつけたいこと（任意）</label>
+          <label for="dietaryNeedsInput">{{ section.settings.dietary_label | default: '食事で気をつけたいこと（任意）' }}</label>
           <label for="dietaryNeedsInput">[例: 低カロリー, 消化の良いもの]</label>
-          <input type="text" id="dietaryNeedsInput" placeholder="例：ビタミンB群を多く摂りたい">
+          <input type="text" id="dietaryNeedsInput" placeholder="{{ section.settings.dietary_placeholder | default: '例：ビタミンB群を多く摂りたい' }}">
         </div>
 
         <div class="form-group">
-          <label for="kojiTypeSelect">使用したいMUROの麹製品（任意）</label>
+          <label for="kojiTypeSelect">{{ section.settings.koji_label | default: '使用したいMUROの麹製品（任意）' }}</label>
           <select id="kojiTypeSelect">
             <option value="">AIにおまかせ</option>
             <option value="麹パウダー">麹パウダー</option>
@@ -56,8 +53,8 @@
         </div>
 
         <div class="form-group">
-          <label for="otherIngredientsInput">使いたい食材（任意）</label>
-          <input type="text" id="otherIngredientsInput" placeholder="例：鶏むね肉、豆腐">
+          <label for="otherIngredientsInput">{{ section.settings.ingredients_label | default: '使いたい食材（任意）' }}</label>
+          <input type="text" id="otherIngredientsInput" placeholder="{{ section.settings.ingredients_placeholder | default: '例：鶏むね肉、豆腐' }}">
         </div>
 
         <button type="submit" id="generateRecipeBtn" class="submit-button">
@@ -67,7 +64,7 @@
 
       <div id="loadingIndicator" class="loading-container hidden">
         <div class="loading-spinner"></div>
-        <p class="loading-text">レシピを作成しています...</p>
+        <p class="loading-text">{{ section.settings.loading_text | default: 'レシピを作成しています...' }}</p>
       </div>
 
       <div id="errorMessage" class="error-container hidden">
@@ -81,7 +78,7 @@
 <div id="recipeModal" class="recipe-modal">
   <div class="modal-content">
     <div class="modal-header">
-      <h2 class="modal-title">あなたのためのレシピ</h2>
+      <h2 class="modal-title">{{ section.settings.modal_title | default: 'あなたのためのレシピ' }}</h2>
       <button class="modal-close" onclick="closeRecipeModal()">×</button>
     </div>
 
@@ -150,13 +147,20 @@
   </div>
 </div>
 
-<script src="{{ 'recipe-modal.js' | asset_url }}"></script>
+{{ 'recipe-modal.css' | asset_url | stylesheet_tag }}
 
 {% schema %}
 {
   "name": "KOJIレシピ生成",
-  "target": "section_group.footer",
+  "target": "section",
+  "enabled_on": {
+    "templates": ["*"]
+  },
   "settings": [
+    {
+      "type": "header",
+      "content": "レシピ生成設定"
+    },
     {
       "type": "checkbox",
       "id": "show_floating_button",
@@ -164,15 +168,92 @@
       "default": true
     },
     {
+      "type": "text",
+      "id": "button_text",
+      "label": "フローティングボタンテキスト",
+      "default": "？",
+      "info": "ボタンに表示するテキスト（絵文字や短いテキスト推奨）"
+    },
+    {
       "type": "header",
-      "content": "ボタン設定"
+      "content": "表示テキスト設定"
     },
     {
       "type": "text",
-      "id": "button_text",
-      "label": "生成ボタンテキスト",
-      "default": "麹レシピ生成"
+      "id": "popup_title",
+      "label": "ポップアップタイトル",
+      "default": "パーソナルKOJIレシピ提案"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "サブタイトル（説明文）",
+      "default": "あなたの今の体調や食事の希望に合わせて<br>MUROの麹製品を使った特別なレシピをご提案します"
+    },
+    {
+      "type": "text",
+      "id": "modal_title",
+      "label": "モーダルタイトル",
+      "default": "あなたのためのレシピ"
+    },
+    {
+      "type": "text",
+      "id": "loading_text",
+      "label": "ローディングメッセージ",
+      "default": "レシピを作成しています..."
+    },
+    {
+      "type": "header",
+      "content": "フォーム項目ラベル設定"
+    },
+    {
+      "type": "text",
+      "id": "condition_label",
+      "label": "体調・お悩みラベル",
+      "default": "現在の体調やお悩み(必須)"
+    },
+    {
+      "type": "text",
+      "id": "dietary_label",
+      "label": "食事注意事項ラベル",
+      "default": "食事で気をつけたいこと（任意）"
+    },
+    {
+      "type": "text",
+      "id": "koji_label",
+      "label": "麹製品ラベル",
+      "default": "使用したいMUROの麹製品（任意）"
+    },
+    {
+      "type": "text",
+      "id": "ingredients_label",
+      "label": "食材ラベル",
+      "default": "使いたい食材（任意）"
+    },
+    {
+      "type": "header",
+      "content": "プレースホルダー設定"
+    },
+    {
+      "type": "text",
+      "id": "condition_placeholder",
+      "label": "体調・お悩みのプレースホルダー",
+      "default": "例：最近、夏バテ気味で食欲がない"
+    },
+    {
+      "type": "text",
+      "id": "dietary_placeholder",
+      "label": "食事で気をつけたいことのプレースホルダー",
+      "default": "例：ビタミンB群を多く摂りたい"
+    },
+    {
+      "type": "text",
+      "id": "ingredients_placeholder",
+      "label": "使いたい食材のプレースホルダー",
+      "default": "例：鶏むね肉、豆腐"
     }
   ]
 }
 {% endschema %}
+
+<script src="{{ 'recipe-modal.js' | asset_url }}"></script>
