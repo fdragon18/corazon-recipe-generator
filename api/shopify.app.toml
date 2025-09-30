@@ -2,7 +2,7 @@
 
 client_id = "732d8fe4f68417f6f8d59f61568ac6ec"
 name = "recipe-generator-app"
-application_url = "https://recipe-generator-app-lac.vercel.app/"
+application_url = "https://corazon-recipe-generator-v5.vercel.app/"
 embedded = true
 handle = "recipe-generator-app-1"
 
@@ -26,12 +26,12 @@ api_version = "2025-07"
 scopes = "write_products"
 
 [auth]
-redirect_urls = [ "https://recipe-generator-app-lac.vercel.app/api/auth" ]
+redirect_urls = [ "https://corazon-recipe-generator-v5.vercel.app/api/auth" ]
 
 [pos]
 embedded = false
 
 [app_proxy]
-url = "https://recipe-generator-app-lac.vercel.app"
+url = "https://corazon-recipe-generator-v5.vercel.app"
 subpath = "recipegen"
 prefix = "apps"
