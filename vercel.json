@@ -4,7 +4,6 @@
   "outputDirectory": "api/build/client",
   "installCommand": "cd api && npm install",
   "framework": "remix",
-  "rootDirectory": "api",
   "routes": [
     {
       "src": "/api/(.*)",
