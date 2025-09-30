@@ -281,8 +281,112 @@ NODE_ENV=production npm run dev
 - [ ] Theme Editorでの表示確認
 - [ ] アンインストール時のクリーンアップ
 
-### 🚨 絶対に守るべき開発原則
+#### 🚨 絶対に守るべき開発原則
 1. **本番環境での直接開発は絶対禁止**
 2. **必ず開発ストア（corazon-muro-dev.myshopify.com）で開発**
 3. **完成してから本番環境にデプロイ**
 4. **環境変数の管理を徹底**
+
+## 🔄 デプロイとアップデート手順（重要）
+
+### 📝 いつpushが必要か？
+
+**🚨 重要：変更をpushしないと本番に反映されません**
+
+#### ✅ Git Push が必要なケース
+- **コード変更**（JS、CSS、Liquid、TypeScript など）
+- **設定ファイル変更**（shopify.app.toml、vercel.json など）
+- **環境変数の更新**（.env ファイル変更）
+- **API エンドポイントの修正**
+
+#### ✅ Shopify Extension Deploy が必要なケース
+- **Theme App Extension の変更**（blocks、assets、locales）
+- **Extension 設定の更新**（shopify.extension.toml）
+- **新しい Extension 機能の追加**
+
+### 🚀 正しいデプロイ手順
+
+#### 1. コード変更時
+```bash
+# 変更をステージング
+git add .
+
+# コミット作成
+git commit -m "変更内容の説明"
+
+# リモートにプッシュ（Vercelに自動デプロイ）
+git push origin main
+```
+
+#### 2. Extension変更時
+```bash
+# Shopifyに拡張機能をデプロイ
+shopify app deploy --force
+
+# 必要に応じてコードもプッシュ
+git push origin main
+```
+
+#### 3. 両方変更した場合
+```bash
+# 1. まずコードをプッシュ
+git add .
+git commit -m "変更内容"
+git push origin main
+
+# 2. 次にExtensionをデプロイ
+shopify app deploy --force
+```
+
+### ⚠️ よくある間違い
+
+#### ❌ 間違い：「pushしなくても変わらない」
+- **Vercel**：Git連携のため、pushしないと更新されない
+- **Shopify Extensions**：`shopify app deploy`しないとストアに反映されない
+
+#### ✅ 正解：「必ず両方実行」
+- **コード変更** → `git push`でVercelに自動デプロイ
+- **Extension変更** → `shopify app deploy`でShopifyストアに反映
+
+### 🔍 デプロイ確認方法
+
+#### Vercel デプロイ確認
+```bash
+# デプロイ状況確認
+vercel ls
+
+# 最新デプロイの詳細
+vercel inspect
+```
+
+#### Shopify Extension 確認
+```bash
+# アプリ情報確認
+shopify app info
+
+# 最新バージョン確認
+shopify app versions list
+```
+
+### 📋 デプロイチェックリスト
+
+- [ ] コード変更があるか？ → `git push`
+- [ ] Extension変更があるか？ → `shopify app deploy`
+- [ ] 環境変数追加したか？ → Vercelダッシュボードで設定
+- [ ] APIテストしたか？ → `curl`でエンドポイント確認
+- [ ] Extension表示確認したか？ → テーマエディターで確認
+
+### 🎯 現在のプロジェクト状態（2024-09-30更新）
+
+#### ✅ 最新デプロイ済み
+- **Vercel URL**: https://corazon-recipe-generator-v5.vercel.app
+- **Shopify App**: recipe-generator-app-5
+- **Extension UID**: e40486c2-9c2b-c824-4822-6c2964ee608b18a4319a
+- **API Endpoint**: `/apps/recipegen/generate`
+- **Azure OpenAI**: 正常動作確認済み
+
+#### 🔧 設定済み項目
+- App Proxy設定修正完了（/appsパス削除）
+- 多言語対応（日本語・英語）
+- レシピ生成API動作確認済み
+- Theme App Extension デプロイ完了

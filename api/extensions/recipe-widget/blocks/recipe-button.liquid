@@ -4,10 +4,10 @@
 {% endcomment %}
 
 <!-- フローティングボタン -->
-{% if section.settings.show_floating_button %}
+{% if app.settings.show_floating_button %}
 <div class="floating-button-container">
   <button class="floating-toggle-btn" onclick="toggleFormWindow()">
-    <span class="button-text">{{ section.settings.button_text | default: '？' }}</span>
+    <span class="button-text">{{ app.settings.button_text | default: '？' }}</span>
   </button>
 </div>
 {% endif %}
@@ -16,31 +16,30 @@
 <div class="form-popup-window" id="formPopupWindow">
   <div class="form-popup-content">
     <div class="form-popup-header">
-      <h3>{{ section.settings.popup_title | default: 'パーソナルKOJIレシピ提案' }}</h3>
+      <h3>{{ app.settings.popup_title | default: 'パーソナルKOJIレシピ提案' }}</h3>
       <button class="form-close-btn" onclick="toggleFormWindow()">×</button>
     </div>
 
     <div class="form-popup-body">
       <p class="form-subtitle">
-        {{ section.settings.subtitle | default: 'あなたの今の体調や食事の希望に合わせて<br>MUROの麹製品を使った特別なレシピをご提案します' }}
+        {{ app.settings.subtitle | default: 'あなたの今の体調や食事の希望に合わせて<br>MUROの麹製品を使った特別なレシピをご提案します' }}
       </p>
 
       <form id="kojiRecipeForm">
         <div class="form-group">
-          <label for="userConditionInput">{{ section.settings.condition_label | default: '現在の体調やお悩み(必須)' }}</label>
+          <label for="userConditionInput">{{ app.settings.condition_label | default: '現在の体調やお悩み(必須)' }}</label>
           <label for="userConditionInput">[例: 疲れやすい, 胃腸が弱り気味]</label>
-          <textarea id="userConditionInput" placeholder="{{ section.settings.condition_placeholder | default: '例：最近、夏バテ気味で食欲がない' }}" required></textarea>
-          <!-- Debug: {{ section.settings.condition_placeholder }} -->
+          <textarea id="userConditionInput" placeholder="{{ app.settings.condition_placeholder | default: '例：最近、夏バテ気味で食欲がない' }}" required></textarea>
         </div>
 
         <div class="form-group">
-          <label for="dietaryNeedsInput">{{ section.settings.dietary_label | default: '食事で気をつけたいこと（任意）' }}</label>
+          <label for="dietaryNeedsInput">{{ app.settings.dietary_label | default: '食事で気をつけたいこと（任意）' }}</label>
           <label for="dietaryNeedsInput">[例: 低カロリー, 消化の良いもの]</label>
-          <input type="text" id="dietaryNeedsInput" placeholder="{{ section.settings.dietary_placeholder | default: '例：ビタミンB群を多く摂りたい' }}">
+          <input type="text" id="dietaryNeedsInput" placeholder="{{ app.settings.dietary_placeholder | default: '例：ビタミンB群を多く摂りたい' }}">
         </div>
 
         <div class="form-group">
-          <label for="kojiTypeSelect">{{ section.settings.koji_label | default: '使用したいMUROの麹製品（任意）' }}</label>
+          <label for="kojiTypeSelect">{{ app.settings.koji_label | default: '使用したいMUROの麹製品（任意）' }}</label>
           <select id="kojiTypeSelect">
             <option value="">AIにおまかせ</option>
             <option value="麹パウダー">麹パウダー</option>
@@ -55,8 +54,8 @@
         </div>
 
         <div class="form-group">
-          <label for="otherIngredientsInput">{{ section.settings.ingredients_label | default: '使いたい食材（任意）' }}</label>
-          <input type="text" id="otherIngredientsInput" placeholder="{{ section.settings.ingredients_placeholder | default: '例：鶏むね肉、豆腐' }}">
+          <label for="otherIngredientsInput">{{ app.settings.ingredients_label | default: '使いたい食材（任意）' }}</label>
+          <input type="text" id="otherIngredientsInput" placeholder="{{ app.settings.ingredients_placeholder | default: '例：鶏むね肉、豆腐' }}">
         </div>
 
         <button type="submit" id="generateRecipeBtn" class="submit-button">
@@ -66,7 +65,7 @@
 
       <div id="loadingIndicator" class="loading-container hidden">
         <div class="loading-spinner"></div>
-        <p class="loading-text">{{ section.settings.loading_text | default: 'レシピを作成しています...' }}</p>
+        <p class="loading-text">{{ app.settings.loading_text | default: 'レシピを作成しています...' }}</p>
       </div>
 
       <div id="errorMessage" class="error-container hidden">
@@ -80,7 +79,7 @@
 <div id="recipeModal" class="recipe-modal">
   <div class="modal-content">
     <div class="modal-header">
-      <h2 class="modal-title">{{ section.settings.modal_title | default: 'あなたのためのレシピ' }}</h2>
+      <h2 class="modal-title">{{ app.settings.modal_title | default: 'あなたのためのレシピ' }}</h2>
       <button class="modal-close" onclick="closeRecipeModal()">×</button>
     </div>
 
@@ -155,9 +154,6 @@
 {
   "name": "KOJIレシピ生成",
   "target": "body",
-  "enabled_on": {
-    "templates": ["*"]
-  },
   "settings": [
     {
       "type": "header",
