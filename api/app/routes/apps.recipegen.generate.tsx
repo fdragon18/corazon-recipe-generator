@@ -181,6 +181,16 @@ export async function action({ request }: ActionFunctionArgs) {
     // 全般的なエラーハンドリング
     console.error('レシピ生成API全般エラー:', error);
 
+    // エラーの詳細を取得
+    let errorDetail = 'Unknown error';
+    if (error instanceof Error) {
+      errorDetail = error.message;
+    } else if (typeof error === 'string') {
+      errorDetail = error;
+    } else {
+      errorDetail = JSON.stringify(error);
+    }
+
     // ネットワークエラーかAPIエラーかを判別
     const isNetworkError = error instanceof TypeError && error.message.includes('fetch');
     const errorMessage = isNetworkError
@@ -190,7 +200,8 @@ export async function action({ request }: ActionFunctionArgs) {
     return json({
       error: "システムエラー",
       message: errorMessage,
-      isNetworkError
+      isNetworkError,
+      debug: errorDetail // 一時的にデバッグ情報を常に表示
     }, { status: 500 });
   }
 }
