@@ -4,11 +4,13 @@
 {% endcomment %}
 
 <!-- フローティングボタン -->
+{% if section.settings.show_floating_button %}
 <div class="floating-button-container">
   <button class="floating-toggle-btn" onclick="toggleFormWindow()">
     <span class="button-text">{{ section.settings.button_text | default: '？' }}</span>
   </button>
 </div>
+{% endif %}
 
 <!-- ポップアップフォームウィンドウ -->
 <div class="form-popup-window" id="formPopupWindow">
@@ -152,7 +154,7 @@
 {% schema %}
 {
   "name": "KOJIレシピ生成",
-  "target": "section",
+  "target": "body",
   "enabled_on": {
     "templates": ["*"]
   },
