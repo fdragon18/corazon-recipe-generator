@@ -6,6 +6,8 @@ type = "theme"
 name = "Recipe Widget"
 handle = "recipe-widget"
 
-[extensions.development]
-build_command = ""
-root_dir = "/"
+[[extensions.blocks]]
+type = "recipe-button"
+name = "KOJIレシピ生成"
+target = "body"
+file = "blocks/recipe-button.liquid"
