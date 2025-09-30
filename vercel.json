@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "cd api && npm run build",
-  "outputDirectory": "api/build/client",
-  "installCommand": "cd api && npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build/client",
+  "installCommand": "npm install",
   "framework": "remix",
   "routes": [
     {
