@@ -32,5 +32,5 @@ embedded = false
 
 [app_proxy]
 url = "https://corazon-recipe-generator-v5.vercel.app"
-subpath = "recipegen"
+subpath = "recipe_gen"
 prefix = "apps"

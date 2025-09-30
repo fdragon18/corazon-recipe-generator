@@ -110,7 +110,7 @@ async function handleFormSubmit(e) {
     formData.append('otherIngredients', otherIngredients);
 
     // APIエンドポイントを構築
-    const apiUrl = `/apps/recipegen/generate`;
+    const apiUrl = `/apps/recipe_gen/generate`;
 
     console.log('APIリクエスト送信:', { condition, needs, kojiType, otherIngredients });
 
