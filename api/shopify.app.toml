@@ -31,6 +31,6 @@ redirect_urls = [ "https://corazon-recipe-generator-v5.vercel.app/api/auth" ]
 embedded = false
 
 [app_proxy]
-url = "https://corazon-recipe-generator-v5.vercel.app/apps"
+url = "https://corazon-recipe-generator-v5.vercel.app"
 subpath = "recipegen"
 prefix = "apps"

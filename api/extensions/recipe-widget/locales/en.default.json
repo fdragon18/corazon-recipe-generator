@@ -1,0 +1,7 @@
+{
+  "recipe_generator": {
+    "button_text": "Recipe Generator",
+    "popup_title": "Personal KOJI Recipe Suggestions",
+    "loading_text": "Creating recipe..."
+  }
+}
