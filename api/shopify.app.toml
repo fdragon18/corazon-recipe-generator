@@ -7,7 +7,6 @@ embedded = true
 handle = "recipe-generator-app-1"
 
 [build]
-include_config_on_deploy = true
 automatically_update_urls_on_dev = true
 
 [webhooks]
@@ -32,6 +31,6 @@ redirect_urls = [ "https://corazon-recipe-generator-v5.vercel.app/api/auth" ]
 embedded = false
 
 [app_proxy]
-url = "https://corazon-recipe-generator-v5.vercel.app"
+url = "https://corazon-recipe-generator-v5.vercel.app/apps"
 subpath = "recipegen"
 prefix = "apps"

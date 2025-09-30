@@ -90,6 +90,9 @@ export async function action({ request }: ActionFunctionArgs) {
 
     // Azure OpenAI APIに送信
     console.log("Azure OpenAI API呼び出し開始");
+    console.log("Endpoint:", AZURE_CONFIG.fullEndpoint);
+    console.log("API Key exists:", !!AZURE_CONFIG.apiKey);
+
     const response = await fetch(AZURE_CONFIG.fullEndpoint, {
       method: 'POST',
       headers: {
