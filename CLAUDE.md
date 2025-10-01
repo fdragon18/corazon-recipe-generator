@@ -250,9 +250,23 @@ NODE_ENV=production npm run dev
 - **Extension not showing**: Theme App Extensionのtarget設定を確認
 
 ## 📚 参考リンク
+
+### 公式ドキュメント
 - [Shopify Remix App Documentation](https://shopify.dev/docs/apps/tools/cli/remix)
 - [Theme App Extensions Guide](https://shopify.dev/docs/apps/app-extensions/web-ui-extensions/theme-extensions)
 - [Vercel Remix Deployment](https://vercel.com/guides/deploying-remix-with-vercel)
+
+### App Proxy関連（重要）
+- [App Proxy Documentation](https://shopify.dev/docs/apps/build/online-store/display-dynamic-data)
+- [App Proxy API Reference](https://shopify.dev/docs/api/shopify-app-remix/v2/authenticate/public/app-proxy)
+- **[App Proxy - Logged in Customer ID Parameter](https://shopify.dev/changelog/app-proxy-requests-include-new-parameter-for-the-logged-in-customer-id)** ⭐ 2022年7月追加
+  - App Proxyリクエストに`logged_in_customer_id`パラメータが自動追加される
+  - ログイン中の顧客IDを取得可能
+  - 使用例: `const customerId = new URL(request.url).searchParams.get("logged_in_customer_id")`
+
+### 重要な仕様変更・アップデート
+- **2022年7月**: App Proxyで顧客ID取得が可能に（セキュリティ向上）
+- **2024年**: Customer Account UI Extensions導入（より高度な顧客データアクセス）
 
 ## ✅ TODO
 - [ ] Remix アプリの初期設定
