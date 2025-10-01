@@ -264,6 +264,24 @@ NODE_ENV=production npm run dev
 
 ## 🤖 Claude Codeへの特別な指示
 
+### セッション開始時のチェック
+**毎回セッション開始時に以下を確認すること**:
+
+```bash
+# GitHub Issueの確認
+gh issue list --state open
+
+# 優先度の高いIssueから作業を開始
+# 必要に応じてIssue詳細を確認
+gh issue view <issue_number>
+```
+
+**プロアクティブな作業管理**:
+1. セッション開始時にOpenなIssueを自動確認
+2. ユーザーに現在のタスク状況を報告
+3. 次に取り組むべきIssueを提案
+4. 作業完了時はIssueをクローズ
+
 ### コード生成時の注意
 1. **localStorage/sessionStorageは使用禁止**（Shopifyで動作しない）
 2. **App Proxy経由のAPI通信を徹底**
