@@ -1,5 +1,6 @@
 import { type ActionFunctionArgs, json } from "@remix-run/node";
 import { authenticate } from "../shopify.server";
+import prisma from "../db.server";
 
 // Azure OpenAI API設定（環境変数から取得）
 const AZURE_CONFIG = {
@@ -149,6 +150,35 @@ export async function action({ request }: ActionFunctionArgs) {
           error: "レシピ生成エラー",
           message: "期待される形式のレシピが生成されませんでした"
         }, { status: 500 });
+      }
+
+      // 💾 Supabaseにレシピ保存
+      try {
+        const recipeRequest = await prisma.recipeRequest.create({
+          data: {
+            shop: shopDomain,
+            condition: condition,
+            needs: needs || null,
+            kojiType: kojiType || null,
+            otherIngredients: otherIngredients || null,
+            recipes: {
+              create: recipes.map((recipe: any) => ({
+                name: recipe.name,
+                ingredients: recipe.ingredients,
+                steps: recipe.steps,
+                benefit: recipe.benefit
+              }))
+            }
+          },
+          include: {
+            recipes: true
+          }
+        });
+
+        console.log(`✅ Supabaseに保存成功: RequestID=${recipeRequest.id}`);
+      } catch (dbError) {
+        console.error('❌ Supabase保存エラー:', dbError);
+        // DB保存失敗してもレシピは返す（ユーザー体験優先）
       }
 
       // 成功レスポンス

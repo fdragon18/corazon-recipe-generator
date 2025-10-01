@@ -31,3 +31,33 @@ model Session {
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
 }
+
+// レシピ生成リクエスト履歴
+model RecipeRequest {
+  id                String            @id @default(cuid())
+  shop              String            // Shopifyストアドメイン
+  condition         String            @db.Text // 体調・お悩み
+  needs             String?           @db.Text // 食事注意事項
+  kojiType          String?           // 麹製品種類
+  otherIngredients  String?           @db.Text // その他食材
+  createdAt         DateTime          @default(now())
+  recipes           GeneratedRecipe[]
+
+  @@index([shop])
+  @@index([createdAt])
+}
+
+// 生成されたレシピ
+model GeneratedRecipe {
+  id          String        @id @default(cuid())
+  requestId   String        // RecipeRequestとの関連
+  name        String        // レシピ名
+  ingredients String        @db.Text // 材料（テキスト形式）
+  steps       String        @db.Text // 手順（テキスト形式）
+  benefit     String        @db.Text // 効果
+  createdAt   DateTime      @default(now())
+  request     RecipeRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
+
+  @@index([requestId])
+  @@index([createdAt])
+}
