@@ -3,6 +3,40 @@
   右下フローティングボタンでレシピ生成機能を提供
 {% endcomment %}
 
+<!-- 動的スタイル：Editor設定を反映 -->
+<style>
+  .floating-button-container {
+    {{ block.settings.button_position_vertical }}: {{ block.settings.button_offset_vertical }}px;
+    {{ block.settings.button_position_horizontal }}: {{ block.settings.button_offset_horizontal }}px;
+  }
+
+  .floating-toggle-btn {
+    width: {{ block.settings.button_size }}px;
+    height: {{ block.settings.button_size }}px;
+    background: {{ block.settings.button_bg_color }};
+  }
+
+  .floating-toggle-btn:hover {
+    background: {{ block.settings.button_hover_color }};
+  }
+
+  .button-text {
+    color: {{ block.settings.button_text_color }};
+  }
+
+  {% if block.settings.button_image != blank %}
+  .floating-toggle-btn .button-text {
+    display: none;
+  }
+
+  .floating-toggle-btn {
+    background-image: url('{{ block.settings.button_image | img_url: 'medium' }}');
+    background-size: cover;
+    background-position: center;
+  }
+  {% endif %}
+</style>
+
 <!-- フローティングボタン -->
 <!-- デバッグ用：条件分岐を一時的にコメントアウト -->
 <!-- {% if block.settings.show_floating_button %} -->
@@ -167,11 +201,105 @@
       "default": true
     },
     {
+      "type": "header",
+      "content": "ボタン外観設定"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "ボタンサイズ",
+      "min": 48,
+      "max": 120,
+      "step": 4,
+      "default": 72,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "ボタン背景色",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "ボタンホバー色",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "テキスト色",
+      "default": "#FFFFFF"
+    },
+    {
       "type": "text",
       "id": "button_text",
       "label": "フローティングボタンテキスト",
       "default": "？",
-      "info": "ボタンに表示するテキスト（絵文字や短いテキスト推奨）"
+      "info": "ボタンに表示するテキスト（絵文字や短いテキスト推奨）。画像を設定した場合は非表示になります。"
+    },
+    {
+      "type": "image_picker",
+      "id": "button_image",
+      "label": "ボタン画像",
+      "info": "画像を設定するとテキストの代わりに画像が表示されます"
+    },
+    {
+      "type": "header",
+      "content": "ボタン位置設定"
+    },
+    {
+      "type": "select",
+      "id": "button_position_vertical",
+      "label": "縦位置",
+      "options": [
+        {
+          "value": "bottom",
+          "label": "下"
+        },
+        {
+          "value": "top",
+          "label": "上"
+        }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "range",
+      "id": "button_offset_vertical",
+      "label": "縦方向の余白",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "button_position_horizontal",
+      "label": "横位置",
+      "options": [
+        {
+          "value": "right",
+          "label": "右"
+        },
+        {
+          "value": "left",
+          "label": "左"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "range",
+      "id": "button_offset_horizontal",
+      "label": "横方向の余白",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px"
     },
     {
       "type": "header",

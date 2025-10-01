@@ -31,19 +31,22 @@
 .button-text {
   color: white;
   font-weight: bold;
-  line-height: 1;
+  line-height: 1.2;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
   /* レスポンシブフォントサイズ - ボタンサイズに応じて調整 */
   font-size: clamp(14px, 4vw, 28px);
-  /* 長いテキストの場合は縮小 */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /* 長いテキストは改行対応 */
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 /* 文字数に応じてフォントサイズを調整 */
