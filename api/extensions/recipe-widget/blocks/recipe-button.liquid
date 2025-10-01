@@ -61,6 +61,9 @@
       </p>
 
       <form id="kojiRecipeForm">
+        <!-- 顧客IDを隠しフィールドに保存（Liquid変数から取得） -->
+        <input type="hidden" id="customerIdField" value="{{ customer.id }}">
+
         <div class="form-group">
           <label for="userConditionInput">{{ block.settings.condition_label | default: '現在の体調やお悩み(必須)' }}</label>
           <label for="userConditionInput">[例: 疲れやすい, 胃腸が弱り気味]</label>

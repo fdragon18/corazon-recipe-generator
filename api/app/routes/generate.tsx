@@ -33,17 +33,25 @@ export async function action({ request }: ActionFunctionArgs) {
       console.log('🔓 認証をスキップして続行します');
     }
 
-    // 👤 ログイン中の顧客IDを取得（App Proxyが自動的に送信）
-    const url = new URL(request.url);
-    const customerId = url.searchParams.get("logged_in_customer_id");
-    console.log(`👤 Customer ID: ${customerId || 'ゲストユーザー'}`);
-
     // フォームデータを取得
     const formData = await request.formData();
     const condition = formData.get("condition")?.toString().trim() || "";
     const needs = formData.get("needs")?.toString().trim() || "";
     const kojiType = formData.get("kojiType")?.toString() || "";
     const otherIngredients = formData.get("otherIngredients")?.toString().trim() || "";
+
+    // 👤 ログイン中の顧客IDを取得
+    // 方法1: FormDataから取得（Liquid変数経由 - 推奨、New Customer Accounts対応）
+    // 方法2: App ProxyのQuery Parameter（フォールバック）
+    let customerId = formData.get("customerId")?.toString() || null;
+
+    // FormDataになければQuery Parameterから取得を試みる
+    if (!customerId) {
+      const url = new URL(request.url);
+      customerId = url.searchParams.get("logged_in_customer_id");
+    }
+
+    console.log(`👤 Customer ID: ${customerId || 'ゲストユーザー'}`);
 
     // バリデーション
     if (!condition) {

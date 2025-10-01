@@ -109,10 +109,19 @@ async function handleFormSubmit(e) {
     formData.append('kojiType', kojiType);
     formData.append('otherIngredients', otherIngredients);
 
+    // 顧客IDを追加（Liquidから取得した値）
+    const customerId = document.getElementById('customerIdField')?.value || '';
+    if (customerId) {
+      formData.append('customerId', customerId);
+      console.log('顧客ID:', customerId);
+    } else {
+      console.log('ゲストユーザー（顧客IDなし）');
+    }
+
     // APIエンドポイントを構築
     const apiUrl = `/apps/recipe_gen/generate`;
 
-    console.log('APIリクエスト送信:', { condition, needs, kojiType, otherIngredients });
+    console.log('APIリクエスト送信:', { condition, needs, kojiType, otherIngredients, customerId: customerId || 'guest' });
 
     // API呼び出し
     const response = await fetch(apiUrl, {
