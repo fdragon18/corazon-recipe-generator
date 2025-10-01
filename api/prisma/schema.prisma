@@ -36,6 +36,7 @@ model Session {
 model RecipeRequest {
   id                String            @id @default(cuid())
   shop              String            // Shopifyストアドメイン
+  customerId        String?           // ログイン中の顧客ID（未ログインの場合はnull）
   condition         String            @db.Text // 体調・お悩み
   needs             String?           @db.Text // 食事注意事項
   kojiType          String?           // 麹製品種類
@@ -44,6 +45,7 @@ model RecipeRequest {
   recipes           GeneratedRecipe[]
 
   @@index([shop])
+  @@index([customerId])
   @@index([createdAt])
 }
 

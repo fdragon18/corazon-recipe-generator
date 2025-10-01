@@ -33,6 +33,11 @@ export async function action({ request }: ActionFunctionArgs) {
       console.log('🔓 認証をスキップして続行します');
     }
 
+    // 👤 ログイン中の顧客IDを取得（App Proxyが自動的に送信）
+    const url = new URL(request.url);
+    const customerId = url.searchParams.get("logged_in_customer_id");
+    console.log(`👤 Customer ID: ${customerId || 'ゲストユーザー'}`);
+
     // フォームデータを取得
     const formData = await request.formData();
     const condition = formData.get("condition")?.toString().trim() || "";
@@ -157,6 +162,7 @@ export async function action({ request }: ActionFunctionArgs) {
         const recipeRequest = await prisma.recipeRequest.create({
           data: {
             shop: shopDomain,
+            customerId: customerId || null,
             condition: condition,
             needs: needs || null,
             kojiType: kojiType || null,
@@ -175,7 +181,7 @@ export async function action({ request }: ActionFunctionArgs) {
           }
         });
 
-        console.log(`✅ Supabaseに保存成功: RequestID=${recipeRequest.id}`);
+        console.log(`✅ Supabaseに保存成功: RequestID=${recipeRequest.id}, CustomerID=${customerId || 'ゲスト'}`);
       } catch (dbError) {
         console.error('❌ Supabase保存エラー:', dbError);
         // DB保存失敗してもレシピは返す（ユーザー体験優先）
