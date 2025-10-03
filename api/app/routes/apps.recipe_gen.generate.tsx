@@ -148,59 +148,44 @@ export async function action({ request }: ActionFunctionArgs) {
       }, { status: 500 });
     }
 
+    // 💾 Supabaseにレシピ保存
     try {
-
-      // 💾 Supabaseにレシピ保存
-      try {
-        const recipeRequest = await prisma.recipeRequest.create({
-          data: {
-            shop: shopDomain,
-            customerId: customerId || null,
-            condition: condition,
-            needs: needs || null,
-            kojiType: kojiType || null,
-            otherIngredients: otherIngredients || null,
-            recipes: {
-              create: recipes.map((recipe: any) => ({
-                name: recipe.name,
-                ingredients: recipe.ingredients,
-                steps: recipe.steps,
-                benefit: recipe.benefit
-              }))
-            }
-          },
-          include: {
-            recipes: true
+      const recipeRequest = await prisma.recipeRequest.create({
+        data: {
+          shop: shopDomain,
+          customerId: customerId || null,
+          condition: condition,
+          needs: needs || null,
+          kojiType: kojiType || null,
+          otherIngredients: otherIngredients || null,
+          recipes: {
+            create: recipes.map((recipe: any) => ({
+              name: recipe.name,
+              ingredients: recipe.ingredients,
+              steps: recipe.steps,
+              benefit: recipe.benefit
+            }))
           }
-        });
-
-        console.log(`✅ Supabaseに保存成功: RequestID=${recipeRequest.id}, CustomerID=${customerId || 'ゲスト'}`);
-      } catch (dbError) {
-        console.error('❌ Supabase保存エラー:', dbError);
-        // DB保存失敗してもレシピは返す（ユーザー体験優先）
-      }
-
-      // 成功レスポンス
-      console.log(`レシピ生成成功: ${recipes.length}件のレシピを取得`);
-      return json({
-        success: true,
-        recipes: recipes,
-        timestamp: new Date().toISOString(),
-        shop: shopDomain
+        },
+        include: {
+          recipes: true
+        }
       });
 
-    } catch (parseError) {
-      // JSON解析失敗時の処理
-      console.error('JSON解析エラー:', parseError);
-      console.error('生のコンテンツ:', content);
-
-      // プレーンテキスト形式での返却も試みる
-      return json({
-        error: "JSON解析エラー",
-        message: "AIからのレスポンスの解析に失敗しました",
-        rawContent: content
-      }, { status: 500 });
+      console.log(`✅ Supabaseに保存成功: RequestID=${recipeRequest.id}, CustomerID=${customerId || 'ゲスト'}`);
+    } catch (dbError) {
+      console.error('❌ Supabase保存エラー:', dbError);
+      // DB保存失敗してもレシピは返す（ユーザー体験優先）
     }
+
+    // 成功レスポンス
+    console.log(`レシピ生成成功: ${recipes.length}件のレシピを取得`);
+    return json({
+      success: true,
+      recipes: recipes,
+      timestamp: new Date().toISOString(),
+      shop: shopDomain
+    });
 
   } catch (error) {
     // 全般的なエラーハンドリング
