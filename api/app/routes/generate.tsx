@@ -2,10 +2,10 @@ import { type ActionFunctionArgs, json } from "@remix-run/node";
 import { authenticate } from "../shopify.server";
 import prisma from "../db.server";
 
-// Azure OpenAI API設定（環境変数から取得）
-const AZURE_CONFIG = {
-  fullEndpoint: process.env.AZURE_OPENAI_ENDPOINT || "https://your-azure-openai-endpoint.com/openai/deployments/gpt-4/chat/completions?api-version=2024-10-21",
-  apiKey: process.env.AZURE_OPENAI_API_KEY || ""
+// DIFY API設定（環境変数から取得）
+const DIFY_CONFIG = {
+  endpoint: process.env.DIFY_ENDPOINT || "https://api.dify.ai/v1",
+  apiKey: process.env.DIFY_API_KEY || ""
 };
 
 // App Proxy用レシピ生成API（App Proxy形式）
@@ -61,74 +61,51 @@ export async function action({ request }: ActionFunctionArgs) {
       }, { status: 400 });
     }
 
-    // Azure OpenAI APIキーの確認
-    if (!AZURE_CONFIG.apiKey || AZURE_CONFIG.apiKey === "") {
-      console.error("Azure OpenAI APIキーが設定されていません");
+    // DIFY APIキーの確認
+    if (!DIFY_CONFIG.apiKey || DIFY_CONFIG.apiKey === "") {
+      console.error("DIFY APIキーが設定されていません");
       return json({
         error: "API設定エラー",
         message: "サーバー設定に問題があります。管理者にお問い合わせください。"
       }, { status: 500 });
     }
 
-    // プロンプト構築
-    const systemPrompt = `あなたは精密栄養学の知識を持つ料理専門家です。ユーザーの健康状態や希望に基づいて、MUROの麹製品を使った健康的で美味しいレシピを提案します。
-
-以下の形式で必ず3つのレシピをJSON形式で返してください：
-{
-  "recipes": [
-    {
-      "name": "レシピ名",
-      "ingredients": "材料リスト（分量も含む）",
-      "steps": "作り方（ステップごとに改行）",
-      "benefit": "このレシピがユーザーの状況にどう適しているかの説明"
-    }
-  ]
-}
-
-各レシピは異なるアプローチで、ユーザーの状況に対応してください：
-1つ目：即効性のある軽めのレシピ
-2つ目：栄養バランスを重視した主菜レシピ
-3つ目：作り置きできる常備菜レシピ`;
-
-    const userMessage = `ユーザー情報：
+    // DIFY API用のクエリ構築
+    const query = `ユーザー情報：
 - 現在の体調やお悩み：${condition || "特になし"}
 - 食事で気をつけたいこと：${needs || "特になし"}
 - 使いたいMUROの麹製品：${kojiType || "AIにおまかせ"}
 - その他使いたい食材：${otherIngredients || "特になし"}
 
-この情報を基に、3つの異なるパーソナルKOJIレシピを提案してください。`;
+この情報を基に、パーソナルKOJIレシピを提案してください。`;
 
-    // Azure OpenAI APIに送信
-    console.log("Azure OpenAI API呼び出し開始");
-    console.log("Endpoint:", AZURE_CONFIG.fullEndpoint);
-    console.log("API Key exists:", !!AZURE_CONFIG.apiKey);
+    // DIFY APIに送信
+    console.log("DIFY API呼び出し開始");
+    console.log("Endpoint:", `${DIFY_CONFIG.endpoint}/chat-messages`);
+    console.log("API Key exists:", !!DIFY_CONFIG.apiKey);
 
-    const response = await fetch(AZURE_CONFIG.fullEndpoint, {
+    const response = await fetch(`${DIFY_CONFIG.endpoint}/chat-messages`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'api-key': AZURE_CONFIG.apiKey
+        'Authorization': `Bearer ${DIFY_CONFIG.apiKey}`
       },
       body: JSON.stringify({
-        messages: [
-          {
-            role: "system",
-            content: systemPrompt
-          },
-          {
-            role: "user",
-            content: userMessage
-          }
-        ],
-        temperature: 0.7,
-        max_tokens: 2000,
-        response_format: { type: "json_object" }
+        inputs: {
+          condition: condition,
+          needs: needs || "",
+          kojiType: kojiType || "",
+          otherIngredients: otherIngredients || ""
+        },
+        query: query,
+        response_mode: "blocking",
+        user: customerId || "guest"
       })
     });
 
     // APIレスポンスのチェック
     if (!response.ok) {
-      console.error(`Azure OpenAI APIエラー: ${response.status} - ${response.statusText}`);
+      console.error(`DIFY APIエラー: ${response.status} - ${response.statusText}`);
       const errorText = await response.text();
       console.error("エラー詳細:", errorText);
 
@@ -140,9 +117,11 @@ export async function action({ request }: ActionFunctionArgs) {
 
     // レスポンスの解析
     const data = await response.json();
-    console.log("Azure OpenAI APIレスポンス受信完了");
+    console.log("DIFY APIレスポンス受信完了");
+    console.log("レスポンスデータ:", JSON.stringify(data, null, 2));
 
-    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
+    // DIFYレスポンス形式: { answer: "...", ... }
+    if (!data.answer) {
       console.error("無効なAPIレスポンス形式:", data);
       return json({
         error: "APIレスポンスエラー",
@@ -150,18 +129,36 @@ export async function action({ request }: ActionFunctionArgs) {
       }, { status: 500 });
     }
 
-    const content = data.choices[0].message.content;
+    const content = data.answer;
 
     try {
       // JSON解析してレシピデータを取得
       const parsedContent = JSON.parse(content);
-      const recipes = parsedContent.recipes || [];
 
-      if (!Array.isArray(recipes) || recipes.length !== 3) {
+      // DIFY APIのレスポンス形式: { recipe: {...} }
+      // フロントエンド互換性のため、配列形式に変換
+      let recipes = [];
+
+      if (parsedContent.recipe) {
+        // 単一レシピオブジェクトの場合、配列に変換
+        recipes = [parsedContent.recipe];
+        console.log("単一レシピオブジェクトを配列に変換しました");
+      } else if (parsedContent.recipes && Array.isArray(parsedContent.recipes)) {
+        // 既に配列形式の場合（後方互換性）
+        recipes = parsedContent.recipes;
+      } else {
         console.error("レシピ形式エラー:", parsedContent);
         return json({
           error: "レシピ生成エラー",
           message: "期待される形式のレシピが生成されませんでした"
+        }, { status: 500 });
+      }
+
+      if (!Array.isArray(recipes) || recipes.length === 0) {
+        console.error("レシピ配列エラー:", parsedContent);
+        return json({
+          error: "レシピ生成エラー",
+          message: "有効なレシピが生成されませんでした"
         }, { status: 500 });
       }
 
