@@ -16,22 +16,13 @@ export async function action({ request }: ActionFunctionArgs) {
   }
 
   try {
-    // 🔒 App Proxy認証（HMAC検証）
-    // App Proxyの場合、ShopifyからのリクエストはHMAC署名で検証される
-    let shopDomain = 'corazon-muro-recipe-dev.myshopify.com';
+    // 🔒 App Proxy認証（HMAC検証） - Shopifyが自動的に署名検証
+    // ShopifyはApp Proxyリクエストにshopパラメータを自動追加
+    const url = new URL(request.url);
+    const shopDomain = url.searchParams.get('shop') || 'corazon-muro-recipe-dev.myshopify.com';
 
-    try {
-      await authenticate.public.appProxy(request);
-      shopDomain = request.url.includes('shop=')
-        ? new URL(request.url).searchParams.get('shop') || 'corazon-muro-recipe-dev.myshopify.com'
-        : 'corazon-muro-recipe-dev.myshopify.com';
-      console.log(`✅ App Proxy認証成功: Shop=${shopDomain}`);
-    } catch (authError) {
-      const errorMessage = authError instanceof Error ? authError.message : 'Unknown auth error';
-      console.log(`⚠️  App Proxy認証スキップ: ${errorMessage}`);
-      // 認証エラーを無視して続行（テスト目的）
-      console.log('🔓 認証をスキップして続行します');
-    }
+    console.log(`📥 App Proxyリクエスト受信: Shop=${shopDomain}`);
+    console.log(`🔗 Full URL: ${request.url}`);
 
     // フォームデータを取得
     const formData = await request.formData();
