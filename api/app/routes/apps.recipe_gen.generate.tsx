@@ -27,16 +27,22 @@ export async function action({ request }: ActionFunctionArgs) {
   }
 
   try {
-    // 🔒 App Proxy認証（HMAC検証） - Shopifyが自動的に署名検証
-    // ShopifyはApp Proxyリクエストにshopパラメータを自動追加
+    // 🔒 リクエスト情報取得
+    // App Proxy経由: ShopifyがHMAC検証済み + shopパラメータ自動追加
+    // 直接アクセス: FormDataからshop情報を取得
     const url = new URL(request.url);
-    const shopDomain = url.searchParams.get('shop') || 'corazon-muro-recipe-dev.myshopify.com';
+    const shopFromQuery = url.searchParams.get('shop');
 
-    console.log(`📥 App Proxyリクエスト受信: Shop=${shopDomain}`);
+    console.log(`📥 レシピ生成リクエスト受信`);
     console.log(`🔗 Full URL: ${request.url}`);
+    console.log(`🏪 Shop (query): ${shopFromQuery || 'なし'}`);
 
     // フォームデータを取得
     const formData = await request.formData();
+    const shopFromForm = formData.get("shop")?.toString();
+
+    const shopDomain = shopFromQuery || shopFromForm || 'corazon-muro-recipe-dev.myshopify.com';
+    console.log(`✅ 使用するShop: ${shopDomain}`);
     const condition = formData.get("condition")?.toString().trim() || "";
     const needs = formData.get("needs")?.toString().trim() || "";
     const kojiType = formData.get("kojiType")?.toString() || "";
