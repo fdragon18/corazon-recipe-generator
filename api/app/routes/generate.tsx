@@ -70,15 +70,6 @@ export async function action({ request }: ActionFunctionArgs) {
       }, { status: 500 });
     }
 
-    // DIFY API用のクエリ構築
-    const query = `ユーザー情報：
-- 現在の体調やお悩み：${condition || "特になし"}
-- 食事で気をつけたいこと：${needs || "特になし"}
-- 使いたいMUROの麹製品：${kojiType || "AIにおまかせ"}
-- その他使いたい食材：${otherIngredients || "特になし"}
-
-この情報を基に、パーソナルKOJIレシピを提案してください。`;
-
     // DIFY APIに送信
     console.log("DIFY API呼び出し開始");
     console.log("Endpoint:", `${DIFY_CONFIG.endpoint}/workflows/run`);
@@ -97,7 +88,6 @@ export async function action({ request }: ActionFunctionArgs) {
           kojiType: kojiType || "",
           otherIngredients: otherIngredients || ""
         },
-        query: query,
         response_mode: "blocking",
         user: customerId || "guest"
       })
