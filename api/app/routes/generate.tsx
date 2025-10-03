@@ -81,10 +81,10 @@ export async function action({ request }: ActionFunctionArgs) {
 
     // DIFY APIに送信
     console.log("DIFY API呼び出し開始");
-    console.log("Endpoint:", `${DIFY_CONFIG.endpoint}/chat-messages`);
+    console.log("Endpoint:", `${DIFY_CONFIG.endpoint}/workflows/run`);
     console.log("API Key exists:", !!DIFY_CONFIG.apiKey);
 
-    const response = await fetch(`${DIFY_CONFIG.endpoint}/chat-messages`, {
+    const response = await fetch(`${DIFY_CONFIG.endpoint}/workflows/run`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
