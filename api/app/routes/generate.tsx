@@ -110,8 +110,8 @@ export async function action({ request }: ActionFunctionArgs) {
     console.log("DIFY APIレスポンス受信完了");
     console.log("レスポンスデータ:", JSON.stringify(data, null, 2));
 
-    // DIFYレスポンス形式: { answer: "...", ... }
-    if (!data.answer) {
+    // DIFY Workflow レスポンス形式: { data: { outputs: { recipes: [...] } } }
+    if (!data.data || !data.data.outputs) {
       console.error("無効なAPIレスポンス形式:", data);
       return json({
         error: "APIレスポンスエラー",
@@ -119,38 +119,36 @@ export async function action({ request }: ActionFunctionArgs) {
       }, { status: 500 });
     }
 
-    const content = data.answer;
+    const outputs = data.data.outputs;
+
+    // DIFY Workflowのレスポンスから直接recipesを取得
+    let recipes = [];
+
+    if (outputs.recipes && Array.isArray(outputs.recipes)) {
+      // recipesが配列形式の場合
+      recipes = outputs.recipes;
+      console.log(`${recipes.length}件のレシピを取得しました`);
+    } else if (outputs.recipe) {
+      // 単一レシピオブジェクトの場合、配列に変換
+      recipes = [outputs.recipe];
+      console.log("単一レシピオブジェクトを配列に変換しました");
+    } else {
+      console.error("レシピ形式エラー:", outputs);
+      return json({
+        error: "レシピ生成エラー",
+        message: "期待される形式のレシピが生成されませんでした"
+      }, { status: 500 });
+    }
+
+    if (recipes.length === 0) {
+      console.error("レシピ配列が空です:", outputs);
+      return json({
+        error: "レシピ生成エラー",
+        message: "有効なレシピが生成されませんでした"
+      }, { status: 500 });
+    }
 
     try {
-      // JSON解析してレシピデータを取得
-      const parsedContent = JSON.parse(content);
-
-      // DIFY APIのレスポンス形式: { recipe: {...} }
-      // フロントエンド互換性のため、配列形式に変換
-      let recipes = [];
-
-      if (parsedContent.recipe) {
-        // 単一レシピオブジェクトの場合、配列に変換
-        recipes = [parsedContent.recipe];
-        console.log("単一レシピオブジェクトを配列に変換しました");
-      } else if (parsedContent.recipes && Array.isArray(parsedContent.recipes)) {
-        // 既に配列形式の場合（後方互換性）
-        recipes = parsedContent.recipes;
-      } else {
-        console.error("レシピ形式エラー:", parsedContent);
-        return json({
-          error: "レシピ生成エラー",
-          message: "期待される形式のレシピが生成されませんでした"
-        }, { status: 500 });
-      }
-
-      if (!Array.isArray(recipes) || recipes.length === 0) {
-        console.error("レシピ配列エラー:", parsedContent);
-        return json({
-          error: "レシピ生成エラー",
-          message: "有効なレシピが生成されませんでした"
-        }, { status: 500 });
-      }
 
       // 💾 Supabaseにレシピ保存
       try {
