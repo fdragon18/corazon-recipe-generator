@@ -142,19 +142,34 @@ export async function action({ request }: ActionFunctionArgs) {
       }, { status: 500 });
     }
 
-    const recipesText = data.data.outputs.recipes;
-    console.log("📝 DIFY Recipes Output (raw):", recipesText);
+    const recipesData = data.data.outputs.recipes;
+    console.log("📝 DIFY Recipes Output (raw):", recipesData);
+    console.log("📝 Type:", typeof recipesData, "| isArray:", Array.isArray(recipesData));
 
-    // レシピJSONをパース
+    // recipesDataが既に配列の場合はそのまま使用、文字列の場合はパース
     let recipes;
-    try {
-      const recipesData = JSON.parse(recipesText);
-      recipes = recipesData.recipes || [];
-    } catch (parseError) {
-      console.error("❌ レシピJSON parseエラー:", parseError);
+    if (Array.isArray(recipesData)) {
+      // 既に配列形式
+      recipes = recipesData;
+      console.log("✅ レシピは配列形式で受信");
+    } else if (typeof recipesData === 'string') {
+      // JSON文字列の場合はパース
+      try {
+        const parsed = JSON.parse(recipesData);
+        recipes = parsed.recipes || parsed;
+        console.log("✅ レシピJSON文字列をパース");
+      } catch (parseError) {
+        console.error("❌ レシピJSON parseエラー:", parseError);
+        return json({
+          error: "レスポンス解析エラー",
+          message: "予期せぬエラーが発生しました。ヘルプデスクにお問い合わせください。（エラーコード: RECIPE_PARSE_ERROR）"
+        }, { status: 500 });
+      }
+    } else {
+      console.error("❌ 予期しないレシピデータ形式:", typeof recipesData);
       return json({
-        error: "レスポンス解析エラー",
-        message: "予期せぬエラーが発生しました。ヘルプデスクにお問い合わせください。（エラーコード: RECIPE_PARSE_ERROR）"
+        error: "レスポンス形式エラー",
+        message: "予期せぬエラーが発生しました。ヘルプデスクにお問い合わせください。（エラーコード: UNEXPECTED_FORMAT）"
       }, { status: 500 });
     }
 
