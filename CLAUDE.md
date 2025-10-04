@@ -137,6 +137,18 @@ const shopDomain = isDevelopment
 - ✅ **Supabaseは参照のみ** - `customerId`（Shopify Customer ID）のみ保存
 - ❌ **重複保存しない** - 顧客名・メールなどはSupabaseに保存しない
 
+### 顧客Metafield設定
+
+**パーソナライズ用の顧客属性：**
+- 📝 **性別（Sex）**: `custom.sex` - Single line text
+- 📝 **年齢（Age）**: `custom.age` - Integer
+
+**設定方法：**
+1. Shopify管理画面 → Settings → Custom data → Customers
+2. または GraphQL APIで一括作成（[setup-customer-metafields.graphql](scripts/setup-customer-metafields.graphql)）
+
+詳細: [Shopify顧客Metafield設定手順](docs/shopify-customer-metafields-setup.md)
+
 ### Prismaスキーマ
 
 ```prisma
@@ -293,9 +305,8 @@ git push origin main
 - **本番ストア**: corazon-muro.myshopify.com
 - **テーマ**: Online Store 2.0対応テーマ
 - **必要なスコープ**:
-  - `read_products`
-  - `write_metafields`
-  - `read_themes`
+  - `write_products`
+  - `read_customers` （顧客情報とMetafield取得用）
 
 ## ⚠️ 重要：Custom Appの移行注意点
 開発と本番で別々のCustom Appが必要

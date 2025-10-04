@@ -1,6 +1,7 @@
 import { type ActionFunctionArgs, json } from "@remix-run/node";
 import { authenticate } from "../shopify.server";
 import prisma from "../db.server";
+import { getCustomerInfo } from "../utils/shopify-customer.server";
 
 // DIFY API設定（環境変数から取得）
 const DIFY_CONFIG = {
@@ -50,6 +51,31 @@ export async function action({ request }: ActionFunctionArgs) {
 
     console.log(`👤 Customer ID: ${customerId || 'ゲストユーザー'}`);
 
+    // 👤 顧客情報取得（Metafield含む）
+    let customerSex = "";
+    let customerAge = "";
+
+    if (customerId) {
+      try {
+        const { admin } = await authenticate.public.appProxy(request);
+        const customerData = await getCustomerInfo(admin, customerId);
+
+        if (customerData) {
+          customerSex = customerData.sex || "";
+          customerAge = customerData.age ? String(customerData.age) : "";
+
+          console.log(`👤 顧客情報取得成功:`, {
+            name: `${customerData.firstName || ''} ${customerData.lastName || ''}`.trim(),
+            sex: customerSex || '未設定',
+            age: customerAge || '未設定'
+          });
+        }
+      } catch (authError) {
+        console.warn('⚠️ 顧客情報取得をスキップ（認証エラー）:', authError);
+        // 認証エラーでもレシピ生成は続行
+      }
+    }
+
     // バリデーション
     if (!condition) {
       return json({
@@ -73,7 +99,9 @@ export async function action({ request }: ActionFunctionArgs) {
         condition: condition,
         needs: needs || "",
         kojiType: kojiType || "",
-        otherIngredients: otherIngredients || ""
+        otherIngredients: otherIngredients || "",
+        customerSex: customerSex,  // 性別
+        customerAge: customerAge    // 年齢
       },
       response_mode: "blocking",
       user: customerId || `guest_${Date.now()}`

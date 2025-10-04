@@ -117,12 +117,33 @@ model GeneratedRecipe {
 
 **設計原則：**
 - ✅ **Single Source of Truth** - 顧客情報はShopifyで管理
+- ✅ **Metafieldでパーソナライズ** - 性別・年齢は `custom.sex` / `custom.age` で管理
 - ✅ **Json型** - 将来の拡張性（分量、カテゴリ、画像など）に対応
 - ✅ **リレーション** - 1対多でリクエストとレシピを紐付け
 
 ---
 
 ## 🚀 セットアップ
+
+### 0. Shopify顧客Metafield設定（初回のみ）
+
+レシピをパーソナライズするため、性別と年齢のMetafieldを設定します。
+
+#### 方法1: Shopify管理画面（推奨）
+1. Shopify管理画面 → **Settings** → **Custom data** → **Customers**
+2. **Add definition** をクリックして以下を設定：
+   - **Sex**: `custom.sex` (Single line text)
+   - **Age**: `custom.age` (Integer)
+
+#### 方法2: GraphQL API（一括作成）
+1. **Apps** → **Develop apps** → アプリを選択 → **API credentials**
+2. **Admin API access token** をコピー
+3. [Shopify GraphiQL App](https://shopify-graphiql-app.shopifycloud.com/login) にアクセス
+4. [setup-customer-metafields.graphql](scripts/setup-customer-metafields.graphql) の内容をコピペして実行
+
+詳細: [Shopify顧客Metafield設定手順](docs/shopify-customer-metafields-setup.md)
+
+---
 
 ### 1. リポジトリクローン
 
@@ -262,18 +283,24 @@ curl -X POST https://your-app.vercel.app/generate \
 
 ## 📈 今後の拡張案
 
-### Phase 3: UX最適化
-- [ ] Theme App Extensionへの移行
+### Phase 3: 顧客パーソナライズ ✅ **完了**
+- [x] Shopify顧客情報取得（性別・年齢Metafield）
+- [x] DIFYへの顧客属性連携
+- [x] Metafield設定ドキュメント作成
+- [ ] DIFY Workflowでのパーソナライズ強化
+
+### Phase 4: 栄養分析と減塩効果可視化
+- [ ] 栄養価計算（PFC + ナトリウム）
+- [ ] 従来レシピとの減塩比較
+- [ ] 視覚的な比較バー実装
+- [ ] 麹の効果説明テキスト生成
+
+### Phase 5: UX最適化
 - [ ] モーダルUIの改善
 - [ ] モバイルレスポンシブ強化
-
-### Phase 4: 機能拡張
-- [ ] 栄養分析機能
 - [ ] レシピお気に入り機能
-- [ ] レシピ評価・レビュー
-- [ ] レシピ検索・フィルタリング
 
-### Phase 5: 本番デプロイ
+### Phase 6: 本番デプロイ
 - [ ] 本番ストア（corazon-muro.myshopify.com）への展開
 - [ ] 本番環境用Custom App作成
 - [ ] パフォーマンス監視
