@@ -128,6 +128,88 @@ const shopDomain = isDevelopment
   : 'corazon-muro.myshopify.com';
 ```
 
+## 🗄️ データベース設計
+
+### Single Source of Truth (SSOT) 原則
+
+**顧客情報の管理方針：**
+- ✅ **Shopifyが真実の源** - 顧客情報はShopifyで管理
+- ✅ **Supabaseは参照のみ** - `customerId`（Shopify Customer ID）のみ保存
+- ❌ **重複保存しない** - 顧客名・メールなどはSupabaseに保存しない
+
+### Prismaスキーマ
+
+```prisma
+// レシピ生成リクエスト履歴
+model RecipeRequest {
+  id                String            @id @default(cuid())
+  shop              String            // Shopifyストアドメイン
+  customerId        String?           // Shopify Customer ID（参照のみ）
+  condition         String            @db.Text
+  needs             String?           @db.Text
+  kojiType          String?
+  otherIngredients  String?           @db.Text
+  createdAt         DateTime          @default(now())
+  recipes           GeneratedRecipe[]
+}
+
+// 生成されたレシピ
+model GeneratedRecipe {
+  id          String        @id @default(cuid())
+  requestId   String
+  name        String
+  ingredients Json          // オブジェクト配列: [{ item: "材料名" }]
+  steps       Json          // オブジェクト配列: [{ step_number: 1, description: "手順" }]
+  benefit     String        @db.Text
+  createdAt   DateTime      @default(now())
+  request     RecipeRequest @relation(...)
+}
+```
+
+### JSON型の構造
+
+**将来の拡張性を考慮したオブジェクト配列形式：**
+
+```typescript
+// ingredients の型
+type Ingredient = {
+  item: string;              // 現在使用
+  // 将来追加可能：
+  // amount?: string;
+  // unit?: string;
+  // category?: string;
+  // allergens?: string[];
+};
+
+// steps の型
+type Step = {
+  step_number: number;       // 手順番号
+  description: string;       // 手順の説明
+  // 将来追加可能：
+  // image?: string;
+  // duration?: number;
+  // tips?: string;
+};
+```
+
+### データ取得パターン
+
+```typescript
+// レシピリクエスト取得
+const request = await prisma.recipeRequest.findUnique({
+  where: { id: requestId },
+  include: { recipes: true }
+});
+
+// 顧客情報が必要な場合はShopify APIで取得
+if (request.customerId) {
+  const customer = await shopifyAdmin.rest.Customer.find({
+    id: request.customerId
+  });
+  console.log(customer.email); // 常に最新の情報
+}
+```
+
 ## 🔑 環境変数
 
 ### 現在使用中の環境変数（2024-10-04更新）
