@@ -210,16 +210,25 @@ function displayRecipes() {
     const pageNum = i + 1;
 
     document.getElementById(`recipe${pageNum}Name`).textContent = recipe.name || `レシピ${pageNum}`;
-    document.getElementById(`recipe${pageNum}Ingredients`).textContent = recipe.ingredients || '';
 
-    // 作り方をステップごとに表示
+    // 材料を配列から文字列に変換
+    const ingredientsText = Array.isArray(recipe.ingredients)
+      ? recipe.ingredients.map(ing => ing.item || ing).join('\n')
+      : recipe.ingredients || '';
+    document.getElementById(`recipe${pageNum}Ingredients`).textContent = ingredientsText;
+
+    // 作り方をステップごとに表示（配列形式に対応）
     const stepsContainer = document.getElementById(`recipe${pageNum}Steps`);
     stepsContainer.innerHTML = '';
-    const steps = recipe.steps ? recipe.steps.split('\n').filter(s => s.trim()) : [];
+    const steps = Array.isArray(recipe.steps)
+      ? recipe.steps
+      : (recipe.steps ? recipe.steps.split('\n').filter(s => s.trim()) : []);
+
     steps.forEach((step) => {
       const stepDiv = document.createElement('div');
       stepDiv.className = 'recipe-step';
-      stepDiv.textContent = step.trim();
+      // stepがオブジェクトの場合はdescriptionを取得、文字列ならそのまま使用
+      stepDiv.textContent = typeof step === 'object' ? step.description : step.trim();
       stepsContainer.appendChild(stepDiv);
     });
 

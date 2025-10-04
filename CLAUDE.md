@@ -1,13 +1,13 @@
 # Corazón Recipe Generator - Claude Code開発管理システム
 
-## 🎯 現在のステータス（2024-09-25）
-- **アクティブフェーズ**: アーキテクチャ全面再設計完了
-- **現在のブランチ**: feature/theme-app-extensions-migration
+## 🎯 現在のステータス（2025-10-04更新）
+- **アクティブフェーズ**: データベース設計完了、DIFY統合完了
+- **現在のブランチ**: main
 - **アーキテクチャ**: Shopify Custom App + Theme App Extensions
-- **認証方式**: Token Exchange (unstable_newEmbeddedAuthStrategy)
-- **デプロイ先**: Vercel
-- **開発環境**: corazon-muro-dev.myshopify.com（必須）
-- **本番環境**: corazon-muro.myshopify.com（完成後のみ）
+- **認証方式**: App Proxy（HMAC検証済み）
+- **デプロイ先**: Vercel (https://corazon-recipe-generator-v5.vercel.app)
+- **開発環境**: corazon-muro-dev.myshopify.com
+- **本番環境**: corazon-muro.myshopify.com（準備中）
 
 ## 🏗️ プロジェクト概要
 メキシコ食材専門店「corazon-muro」の商品ページに、AIレシピ生成機能を追加するShopifyアプリ。
@@ -17,8 +17,10 @@
 - **フレームワーク**: Remix (Shopify公式推奨)
 - **拡張機能**: Theme App Extensions
 - **デプロイ先**: Vercel
-- **認証方式**: Token Exchange (unstable_newEmbeddedAuthStrategy)
-- **API連携**: OpenAI GPT-4
+- **認証方式**: App Proxy（Shopify HMAC検証）
+- **AI連携**: DIFY Workflow API
+- **データベース**: Supabase (PostgreSQL)
+- **ORM**: Prisma
 
 ## 🎨 UI仕様
 1. 右下固定の「MURO生成AI」アイコン
