@@ -228,7 +228,7 @@ export async function action({ request }: ActionFunctionArgs) {
     return json({
       success: true,
       recipes: recipes,
-      timestamp: new Date().toISOString(),
+      timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }),
       shop: shopDomain
     });
 
@@ -261,13 +261,13 @@ export async function action({ request }: ActionFunctionArgs) {
     console.error('📋 エラー詳細:', {
       code: errorCode,
       detail: errorDetail,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
     });
 
     return json({
       error: "システムエラー",
       message: `予期せぬエラーが発生しました。ヘルプデスクにお問い合わせください。（エラーコード: ${errorCode}）`,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })
     }, { status: 500 });
   }
 }
