@@ -420,13 +420,43 @@ NODE_ENV=production npm run dev
 - **2022年7月**: App Proxyで顧客ID取得が可能に（セキュリティ向上）
 - **2024年**: Customer Account UI Extensions導入（より高度な顧客データアクセス）
 
-## ✅ TODO
-- [ ] Remix アプリの初期設定
-- [ ] Theme App Extension作成
-- [ ] OpenAI API統合
-- [ ] App Proxy設定
-- [ ] Vercelデプロイ設定
-- [ ] 栄養分析機能の追加（Phase 2）
+## ✅ 完了した機能（Phase 1-2）
+
+### Phase 1: 基盤構築 ✅
+- [x] Remix アプリの初期設定
+- [x] App Proxy設定
+- [x] Vercelデプロイ設定
+- [x] Prisma + Supabase統合
+
+### Phase 2: 機能実装 ✅
+- [x] DIFY Workflow API統合
+- [x] レシピ生成機能
+- [x] Supabaseへのレシピ保存
+- [x] 顧客ID紐付け
+- [x] エラーハンドリング強化
+
+### Phase 3: データベース設計 ✅
+- [x] Single Source of Truth (SSoT) 原則の確立
+- [x] Json型でingredients/stepsを拡張可能な設計に変更
+- [x] RecipeRequest ⇔ GeneratedRecipe リレーション構築
+
+## 📋 今後の拡張案（Phase 3以降）
+
+### UX最適化
+- [ ] Theme App Extension作成（現在はScript Tag）
+- [ ] モーダルUIの改善
+- [ ] モバイルレスポンシブ対応の強化
+
+### 機能拡張
+- [ ] 栄養分析機能の追加
+- [ ] レシピお気に入り機能
+- [ ] レシピ評価・レビュー機能
+- [ ] レシピ検索・フィルタリング
+
+### 本番デプロイ
+- [ ] 本番ストア（corazon-muro.myshopify.com）へのデプロイ
+- [ ] 本番環境用Custom App作成
+- [ ] 環境変数の本番設定
 
 ## 🤖 Claude Codeへの特別な指示
 
