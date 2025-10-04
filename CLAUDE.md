@@ -127,13 +127,81 @@ const shopDomain = isDevelopment
 ```
 
 ## 🔑 環境変数
+
+### 現在使用中の環境変数（2024-10-04更新）
 ```env
-SHOPIFY_API_KEY=
-SHOPIFY_API_SECRET=
-SHOPIFY_APP_URL=https://your-app.vercel.app
-OPENAI_API_KEY=sk-xxxxx
-NODE_ENV=production
+# DIFY API（レシピ生成）
+DIFY_ENDPOINT=https://api.dify.ai/v1
+DIFY_API_KEY=app-YYu070jPeEfbGrWKoPaPoyv5
+
+# Supabase Database（レシピ保存）
+DATABASE_URL=postgresql://postgres.agedxtuujcoybeffsjjn:F@r1gh0912corazon@aws-1-ap-northeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true
+
+# Shopify App
+SHOPIFY_APP_URL=https://corazon-recipe-generator-v5.vercel.app
 ```
+
+### 🔧 環境変数の管理方法
+
+**重要：環境変数はGitには含まれません**
+
+#### 方法1: Vercel CLI（推奨）
+```bash
+# Vercelにログイン
+vercel login
+
+# プロジェクトをリンク
+vercel link --yes
+
+# 環境変数を追加（Production）
+vercel env add VARIABLE_NAME production
+# 値を入力 → Enter
+
+# 環境変数を追加（Preview & Development）
+vercel env add VARIABLE_NAME preview
+vercel env add VARIABLE_NAME development
+
+# 環境変数一覧を確認
+vercel env ls
+```
+
+#### 方法2: Vercelダッシュボード
+1. https://vercel.com/dashboard にアクセス
+2. プロジェクトを選択
+3. Settings → Environment Variables
+4. 環境変数を追加/編集
+5. Environments（Production/Preview/Development）を選択
+6. Save
+
+#### ⚠️ 環境変数変更後の再デプロイ
+
+**環境変数の追加/変更だけでは自動再デプロイされません**
+
+再デプロイ方法：
+
+**A. Vercelダッシュボードで手動再デプロイ（推奨）**
+1. https://vercel.com/dashboard → プロジェクト選択
+2. Deployments → 最新デプロイの「...」→ Redeploy
+3. "Redeploy with existing Build Cache" を選択
+
+**B. ダミーコミットでトリガー**
+```bash
+git commit --allow-empty -m "chore: trigger redeploy with new env vars"
+git push origin main
+```
+
+### 📋 デプロイの役割分担
+
+| 方法 | 用途 | タイミング |
+|------|------|-----------|
+| **Git Push** | コード変更のデプロイ | `git push origin main`時に自動 |
+| **Vercel CLI** | 環境変数の管理 | 手動（`vercel env add`） |
+| **Vercelダッシュボード** | 環境変数管理 & 手動再デプロイ | 必要に応じて |
+
+**ベストプラクティス：**
+- コード変更 → Git Push（自動デプロイ）
+- 環境変数変更 → Vercel CLI or ダッシュボード → 手動再デプロイ
+- 緊急時の再デプロイ → ダッシュボードからRedeploy
 
 ## ⚙️ Shopify設定
 
