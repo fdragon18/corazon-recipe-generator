@@ -57,3 +57,4 @@ Thumbs.db
 # Shopify theme specific
 theme/.shopifyignore
 theme/config/settings_data.json
+.vercel

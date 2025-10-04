@@ -194,12 +194,21 @@ export async function action({ request }: ActionFunctionArgs) {
           kojiType: kojiType || null,
           otherIngredients: otherIngredients || null,
           recipes: {
-            create: recipes.map((recipe: any) => ({
-              name: recipe.name,
-              ingredients: recipe.ingredients,
-              steps: recipe.steps,
-              benefit: recipe.benefit
-            }))
+            create: recipes.map((recipe: any) => {
+              console.log(`📊 レシピ「${recipe.name}」のデータ型:`, {
+                ingredients: typeof recipe.ingredients,
+                steps: typeof recipe.steps,
+                ingredientsIsArray: Array.isArray(recipe.ingredients),
+                stepsIsArray: Array.isArray(recipe.steps)
+              });
+
+              return {
+                name: recipe.name,
+                ingredients: recipe.ingredients, // Json型（そのまま保存）
+                steps: recipe.steps,             // Json型（そのまま保存）
+                benefit: recipe.benefit
+              };
+            })
           }
         },
         include: {
@@ -210,6 +219,7 @@ export async function action({ request }: ActionFunctionArgs) {
       console.log(`✅ Supabaseに保存成功: RequestID=${recipeRequest.id}, CustomerID=${customerId || 'ゲスト'}`);
     } catch (dbError) {
       console.error('❌ Supabase保存エラー:', dbError);
+      console.error('❌ エラー詳細:', JSON.stringify(dbError, null, 2));
       // DB保存失敗してもレシピは返す（ユーザー体験優先）
     }
 

@@ -36,7 +36,7 @@ model Session {
 model RecipeRequest {
   id                String            @id @default(cuid())
   shop              String            // Shopifyストアドメイン
-  customerId        String?           // ログイン中の顧客ID（未ログインの場合はnull）
+  customerId        String?           // Shopify Customer ID（参照のみ）
   condition         String            @db.Text // 体調・お悩み
   needs             String?           @db.Text // 食事注意事項
   kojiType          String?           // 麹製品種類
@@ -54,8 +54,8 @@ model GeneratedRecipe {
   id          String        @id @default(cuid())
   requestId   String        // RecipeRequestとの関連
   name        String        // レシピ名
-  ingredients String        @db.Text // 材料（テキスト形式）
-  steps       String        @db.Text // 手順（テキスト形式）
+  ingredients Json          // 材料（オブジェクト配列形式: [{ item: "..." }]）
+  steps       Json          // 手順（オブジェクト配列形式: [{ step_number: 1, description: "..." }]）
   benefit     String        @db.Text // 効果
   createdAt   DateTime      @default(now())
   request     RecipeRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
