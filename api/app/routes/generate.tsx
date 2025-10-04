@@ -121,22 +121,46 @@ ${otherIngredients ? `- その他の材料: ${otherIngredients}` : ""}
       })
     });
 
+    // レスポンスのテキストを先に取得（JSONパースエラー回避）
+    const responseText = await response.text();
+    console.log("Azure OpenAI APIレスポンス（Raw）:", responseText.substring(0, 500));
+
     // APIレスポンスのチェック
     if (!response.ok) {
       console.error(`Azure OpenAI APIエラー: ${response.status} - ${response.statusText}`);
-      const errorText = await response.text();
-      console.error("エラー詳細:", errorText);
+      console.error("エラー詳細:", responseText);
 
       return json({
         error: "API呼び出しエラー",
-        message: `APIサーバーでエラーが発生しました（Status: ${response.status}）`
+        message: `APIサーバーでエラーが発生しました（Status: ${response.status}）`,
+        debug: responseText.substring(0, 500)
+      }, { status: 500 });
+    }
+
+    // レスポンスが空でないか確認
+    if (!responseText || responseText.trim() === '') {
+      console.error("空のレスポンスを受信");
+      return json({
+        error: "APIレスポンスエラー",
+        message: "APIから空のレスポンスが返されました"
       }, { status: 500 });
     }
 
     // レスポンスの解析
-    const data = await response.json();
-    console.log("Azure OpenAI APIレスポンス受信完了");
-    console.log("レスポンスデータ:", JSON.stringify(data, null, 2));
+    let data;
+    try {
+      data = JSON.parse(responseText);
+      console.log("Azure OpenAI APIレスポンス受信完了");
+      console.log("レスポンスデータ:", JSON.stringify(data, null, 2));
+    } catch (parseError) {
+      console.error("JSON parseエラー:", parseError);
+      console.error("パース失敗したレスポンス:", responseText.substring(0, 500));
+      return json({
+        error: "レスポンス解析エラー",
+        message: "APIレスポンスの解析に失敗しました",
+        debug: responseText.substring(0, 500)
+      }, { status: 500 });
+    }
 
     // Azure OpenAI レスポンス形式: { choices: [{ message: { content: "..." } }] }
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
