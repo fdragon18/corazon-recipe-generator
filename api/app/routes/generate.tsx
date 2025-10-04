@@ -10,13 +10,9 @@ import prisma from "../db.server";
 
 // Azure OpenAI API設定（環境変数から取得）
 const AZURE_CONFIG = {
+  // .envのENDPOINTはフルパス（デプロイ名とAPI versionを含む）
   endpoint: process.env.AZURE_OPENAI_ENDPOINT || "",
-  apiKey: process.env.AZURE_OPENAI_API_KEY || "",
-  deploymentName: process.env.AZURE_OPENAI_DEPLOYMENT_NAME || "gpt-4o",
-  apiVersion: "2024-08-01-preview",
-  get fullEndpoint() {
-    return `${this.endpoint}/openai/deployments/${this.deploymentName}/chat/completions?api-version=${this.apiVersion}`;
-  }
+  apiKey: process.env.AZURE_OPENAI_API_KEY || ""
 };
 
 // App Proxy用レシピ生成API（App Proxy形式）
@@ -105,10 +101,10 @@ ${otherIngredients ? `- その他の材料: ${otherIngredients}` : ""}
 
     // Azure OpenAI APIに送信
     console.log("Azure OpenAI API呼び出し開始");
-    console.log("Endpoint:", AZURE_CONFIG.fullEndpoint);
+    console.log("Endpoint:", AZURE_CONFIG.endpoint);
     console.log("API Key exists:", !!AZURE_CONFIG.apiKey);
 
-    const response = await fetch(AZURE_CONFIG.fullEndpoint, {
+    const response = await fetch(AZURE_CONFIG.endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
