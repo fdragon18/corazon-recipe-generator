@@ -378,20 +378,22 @@ select {
   max-width: 720px;
   width: 90%;
   max-height: 85vh;
-  overflow-y: auto;
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
-  padding: 30px;
+  padding: 20px 30px;
   border-bottom: 1px solid #e5e5e5;
   position: relative;
+  flex-shrink: 0;
 }
 
 .modal-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   text-align: center;
   margin: 0;
@@ -423,7 +425,10 @@ select {
 }
 
 .modal-body {
-  padding: 40px;
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+  padding-bottom: 20px;
 }
 
 .recipe-page {
@@ -435,30 +440,30 @@ select {
 }
 
 .recipe-name {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   color: #333;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
   border-bottom: 1px solid #e5e5e5;
   letter-spacing: 0.05em;
 }
 
 .recipe-section {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .recipe-section-title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   color: #333;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .recipe-content {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.8;
   color: #666;
   white-space: pre-wrap;
@@ -466,7 +471,7 @@ select {
 
 .recipe-ingredients {
   background: #f0f0f0;
-  padding: 20px;
+  padding: 15px;
   border-left: 2px solid #e5e5e5;
   border-radius: 4px;
 }
@@ -477,11 +482,12 @@ select {
 
 .recipe-step {
   position: relative;
-  padding-left: 32px;
-  margin-bottom: 16px;
+  padding-left: 28px;
+  margin-bottom: 12px;
   counter-increment: step-counter;
   color: #666;
   line-height: 1.8;
+  font-size: 13px;
 }
 
 .recipe-step::before {
@@ -490,15 +496,15 @@ select {
   left: 0;
   top: 2px;
   color: #999;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
 }
 
 .recipe-benefit {
   background: #f0f0f0;
-  padding: 20px;
-  margin-top: 20px;
-  font-size: 13px;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 12px;
   line-height: 1.8;
   color: #666;
   border-radius: 4px;
@@ -508,19 +514,24 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 16px 30px;
   border-top: 1px solid #e5e5e5;
+  flex-shrink: 0;
+  background: #fff;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
 .pagination-btn {
   background: none;
   color: #666;
   border: 1px solid #d4d4d4;
-  padding: 8px 20px;
+  padding: 10px 24px;
   cursor: pointer;
   font-size: 13px;
   transition: all 0.2s ease;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.05em;
   border-radius: 4px;
 }
@@ -538,9 +549,10 @@ select {
 }
 
 .page-indicator {
-  font-size: 12px;
+  font-size: 13px;
   color: #999;
   letter-spacing: 0.1em;
+  font-weight: 500;
 }
 
 /* レスポンシブ対応 */
@@ -575,27 +587,59 @@ select {
     max-height: 90vh;
   }
 
+  .modal-header {
+    padding: 16px 20px;
+  }
+
+  .modal-title {
+    font-size: 14px;
+  }
+
   .modal-body {
-    padding: 24px;
+    padding: 20px;
   }
 
   .recipe-name {
-    font-size: 16px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .recipe-section {
+    margin-bottom: 20px;
+  }
+
+  .recipe-section-title {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .modal-pagination {
+    padding: 12px 20px;
+  }
+
+  .pagination-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .page-indicator {
+    font-size: 12px;
   }
 }
 
 /* 🆕 栄養素表示 */
 .nutrition-display {
-  padding: 15px;
+  padding: 12px;
   background: #f8f9fa;
   border-radius: 8px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .nutrition-item {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .nutrition-item:last-child {
@@ -603,19 +647,19 @@ select {
 }
 
 .nutrition-label {
-  min-width: 100px;
+  min-width: 85px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
 }
 
 .nutrition-bar {
   flex: 1;
-  height: 28px;
+  height: 24px;
   background: #e9ecef;
-  border-radius: 14px;
+  border-radius: 12px;
   position: relative;
-  margin: 0 10px;
+  margin: 0 8px;
   overflow: visible;
   display: flex;
   align-items: center;
@@ -624,7 +668,7 @@ select {
 .nutrition-bar-fill {
   height: 100%;
   background: linear-gradient(90deg, #4CAF50, #8BC34A);
-  border-radius: 14px;
+  border-radius: 12px;
   transition: width 0.5s ease;
   position: absolute;
   left: 0;
@@ -642,51 +686,51 @@ select {
 .nutrition-bar-text {
   position: relative;
   z-index: 1;
-  padding: 0 12px;
+  padding: 0 10px;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 11px;
   color: #333;
   white-space: nowrap;
 }
 
 .nutrition-recommended {
-  font-size: 12px;
+  font-size: 10px;
   color: #666;
   white-space: nowrap;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
 .nutrition-value {
-  min-width: 80px;
+  min-width: 70px;
   text-align: right;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
 }
 
 /* 🆕 減塩効果比較（1つのバーで表示） */
 .comparison-display {
-  padding: 15px;
+  padding: 12px;
   background: #f1f8f4;
   border-radius: 8px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .comparison-single-bar {
-  margin: 15px 0;
+  margin: 12px 0;
 }
 
 .comparison-labels {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  gap: 10px;
+  margin-bottom: 8px;
+  gap: 8px;
 }
 
 .comparison-label-left,
 .comparison-label-right {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   color: #333;
 }
@@ -702,8 +746,8 @@ select {
 
 .comparison-bar-container {
   position: relative;
-  height: 40px;
-  border-radius: 20px;
+  height: 32px;
+  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -728,11 +772,11 @@ select {
 }
 
 .koji-effect {
-  margin-top: 15px;
-  padding: 12px;
+  margin-top: 12px;
+  padding: 10px;
   background: #e8f5e9;
-  border-left: 4px solid #4CAF50;
-  font-size: 14px;
+  border-left: 3px solid #4CAF50;
+  font-size: 12px;
   line-height: 1.6;
   color: #2e7d32;
   border-radius: 4px;
@@ -740,8 +784,8 @@ select {
 
 /* 材料アイテムのスタイル追加 */
 .ingredient-item {
-  padding: 6px 0;
-  font-size: 14px;
+  padding: 5px 0;
+  font-size: 12px;
   color: #333;
   line-height: 1.6;
 }
