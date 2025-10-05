@@ -222,14 +222,17 @@ export async function action({ request }: ActionFunctionArgs) {
 
     console.log(`✅ ${recipes.length}件のレシピを取得しました`);
 
-    // 📊 API（Nutritionix）で栄養価を正確に計算
+    // 📊 日本食品成分表で栄養価を正確に計算（並列処理でログにレシピコンテキスト表示）
     console.log('📊 栄養価計算を開始...');
     const recipesWithNutrition = await Promise.all(
-      recipes.map(async (recipe: Recipe) => {
-        const nutrition = await calculateNutrition(recipe.ingredients);
+      recipes.map(async (recipe: Recipe, index: number) => {
+        const recipeContext = `レシピ ${index + 1}/${recipes.length}: ${recipe.name}`;
+        console.log(`\n🍳 ${recipeContext}`);
+
+        const nutrition = await calculateNutrition(recipe.ingredients, recipeContext);
         const comparison = calculateSaltReduction(recipe.ingredients);
 
-        console.log(`✅ レシピ「${recipe.name}」の栄養価計算完了:`, {
+        console.log(`✅ [${recipeContext}] 栄養価計算完了:`, {
           calories: nutrition.calories,
           sodium: nutrition.sodium,
           reduction: comparison.sodiumReduction
@@ -292,6 +295,10 @@ export async function action({ request }: ActionFunctionArgs) {
     return json({
       success: true,
       recipes: recipesWithNutrition,
+      customer: {
+        age: customerAge ? parseInt(customerAge) : null,
+        sex: customerSex || null
+      },
       timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }),
       shop: shopDomain
     });

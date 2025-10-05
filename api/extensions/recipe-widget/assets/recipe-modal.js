@@ -141,6 +141,11 @@ async function handleFormSubmit(e) {
     if (data.success && data.recipes && data.recipes.length === 3) {
       // レシピ生成成功
       generatedRecipes = data.recipes;
+
+      // 顧客情報を保存（栄養推奨量計算用）
+      window.customerInfo = data.customer || { age: null, sex: null };
+      console.log('顧客情報を保存:', window.customerInfo);
+
       displayRecipes(data.recipes);
       hideLoading();
       toggleFormWindow(); // フォームを閉じる
@@ -262,10 +267,58 @@ function displayRecipes() {
   }
 }
 
+/**
+ * 年齢・性別に基づく1日の推奨摂取量を計算
+ * @param {number|null} age - 年齢（Metafieldから取得、nullの場合はデフォルト）
+ * @param {string|null} sex - 性別（'male', 'female', またはnull）
+ * @returns {Object} 推奨摂取量
+ */
+function getDailyRecommended(age = null, sex = null) {
+  // 🔮 将来実装: 年齢・性別による動的計算
+  // 現在はデフォルト値（成人平均）を返す
+
+  // 参考値：
+  // - 成人男性（18-64歳）: カロリー 2200-2700kcal, タンパク質 65g, 脂質 55g, 炭水化物 330g, 塩分 7.5g
+  // - 成人女性（18-64歳）: カロリー 1700-2000kcal, タンパク質 50g, 脂質 45g, 炭水化物 260g, 塩分 6.5g
+  // - 高齢者（65歳以上）: カロリー 1800-2200kcal, タンパク質 60g, 塩分 7.0g
+
+  // TODO: 顧客Metafield（custom.age, custom.sex）から取得した値で動的計算
+  // if (age && sex) {
+  //   if (sex === 'male') {
+  //     if (age >= 65) return { calories: 2000, protein: 60, fat: 50, carbs: 275, sodium: 7.0 };
+  //     return { calories: 2400, protein: 65, fat: 55, carbs: 330, sodium: 7.5 };
+  //   } else if (sex === 'female') {
+  //     if (age >= 65) return { calories: 1700, protein: 50, fat: 45, carbs: 230, sodium: 6.5 };
+  //     return { calories: 1850, protein: 50, fat: 45, carbs: 260, sodium: 6.5 };
+  //   }
+  // }
+
+  // デフォルト値（成人平均）
+  return {
+    calories: 2000,     // kcal
+    protein: 60,        // g
+    fat: 50,            // g
+    carbs: 300,         // g
+    sodium: 7.5         // g（食塩相当量）
+  };
+}
+
 // 栄養素を表示
 function displayNutrition(pageNum, nutrition) {
   const container = document.getElementById(`recipe${pageNum}Nutrition`);
   if (!container) return;
+
+  // 顧客情報を取得（APIレスポンスから保存されたもの）
+  const customerInfo = window.customerInfo || { age: null, sex: null };
+
+  // 1日の推奨摂取量を取得（顧客の年齢・性別を考慮）
+  const dailyRecommended = getDailyRecommended(customerInfo.age, customerInfo.sex);
+
+  // 推奨量に対する割合を計算
+  const proteinPercent = Math.round((nutrition.protein / dailyRecommended.protein) * 100);
+  const fatPercent = Math.round((nutrition.fat / dailyRecommended.fat) * 100);
+  const carbsPercent = Math.round((nutrition.carbs / dailyRecommended.carbs) * 100);
+  const sodiumPercent = Math.round(((nutrition.sodium / 1000) / dailyRecommended.sodium) * 100);
 
   container.innerHTML = `
     <div class="nutrition-item">
@@ -275,29 +328,29 @@ function displayNutrition(pageNum, nutrition) {
     <div class="nutrition-item">
       <span class="nutrition-label">タンパク質</span>
       <div class="nutrition-bar">
-        <div class="nutrition-bar-fill" style="width: ${Math.min(nutrition.protein * 2, 100)}%"></div>
-        <span class="nutrition-value">${nutrition.protein}g</span>
+        <div class="nutrition-bar-fill" style="width: ${Math.min(proteinPercent, 100)}%"></div>
+        <span class="nutrition-bar-text">${nutrition.protein}g（1日の${proteinPercent}%）</span>
       </div>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">脂質</span>
       <div class="nutrition-bar">
-        <div class="nutrition-bar-fill" style="width: ${Math.min(nutrition.fat * 2, 100)}%"></div>
-        <span class="nutrition-value">${nutrition.fat}g</span>
+        <div class="nutrition-bar-fill" style="width: ${Math.min(fatPercent, 100)}%"></div>
+        <span class="nutrition-bar-text">${nutrition.fat}g（1日の${fatPercent}%）</span>
       </div>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">炭水化物</span>
       <div class="nutrition-bar">
-        <div class="nutrition-bar-fill" style="width: ${Math.min(nutrition.carbs * 2, 100)}%"></div>
-        <span class="nutrition-value">${nutrition.carbs}g</span>
+        <div class="nutrition-bar-fill" style="width: ${Math.min(carbsPercent, 100)}%"></div>
+        <span class="nutrition-bar-text">${nutrition.carbs}g（1日の${carbsPercent}%）</span>
       </div>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">塩分</span>
       <div class="nutrition-bar">
-        <div class="nutrition-bar-fill sodium" style="width: ${Math.min(nutrition.sodium / 10, 100)}%"></div>
-        <span class="nutrition-value">${(nutrition.sodium / 1000).toFixed(1)}g</span>
+        <div class="nutrition-bar-fill sodium" style="width: ${Math.min(sodiumPercent, 100)}%"></div>
+        <span class="nutrition-bar-text">${(nutrition.sodium / 1000).toFixed(1)}g（1日の${sodiumPercent}%）</span>
       </div>
     </div>
   `;

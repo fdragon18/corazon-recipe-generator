@@ -541,23 +541,38 @@ select {
 
 .nutrition-bar {
   flex: 1;
-  height: 24px;
+  height: 28px;
   background: #e9ecef;
-  border-radius: 12px;
+  border-radius: 14px;
   position: relative;
   margin: 0 10px;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  align-items: center;
 }
 
 .nutrition-bar-fill {
   height: 100%;
   background: linear-gradient(90deg, #4CAF50, #8BC34A);
-  border-radius: 12px;
+  border-radius: 14px;
   transition: width 0.5s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .nutrition-bar-fill.sodium {
   background: linear-gradient(90deg, #FF9800, #FFC107);
+}
+
+.nutrition-bar-text {
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #333;
+  white-space: nowrap;
 }
 
 .nutrition-value {
@@ -665,6 +680,11 @@ select {
 
   .nutrition-bar {
     margin: 0 8px;
+  }
+
+  .nutrition-bar-text {
+    font-size: 12px;
+    padding: 0 8px;
   }
 
   .nutrition-value {

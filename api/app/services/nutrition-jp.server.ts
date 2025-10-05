@@ -12,19 +12,22 @@ import { normalizeIngredientName, generateSearchKeywords } from '../data/ingredi
  * 材料名から食品データを検索（あいまい検索・類義語対応）
  *
  * @param ingredientName - 材料名（例: "鮭", "MUROの塩麹", "豚バラ"）
+ * @param context - ログ用のコンテキスト情報（レシピ名など）
  * @returns マッチした食品データ（最も関連性の高いもの）
  */
-export async function searchFood(ingredientName: string) {
+export async function searchFood(ingredientName: string, context: string = '') {
+  const prefix = context ? `[${context}] ` : '';
+
   console.log('\n========================================');
-  console.log('🔍 食品検索開始');
+  console.log(`${prefix}🔍 食品検索開始`);
   console.log('========================================');
-  console.log(`📝 入力: "${ingredientName}"`);
+  console.log(`${prefix}📝 入力: "${ingredientName}"`);
 
   // 1. 類義語を正規化
   const normalizedName = normalizeIngredientName(ingredientName);
 
   if (normalizedName !== ingredientName) {
-    console.log(`🔄 類義語マッピング: "${ingredientName}" → "${normalizedName}"`);
+    console.log(`${prefix}🔄 類義語マッピング: "${ingredientName}" → "${normalizedName}"`);
   }
 
   // 2. 正規化された名前で完全一致検索
@@ -33,17 +36,17 @@ export async function searchFood(ingredientName: string) {
   });
 
   if (food) {
-    console.log('✅ 検索結果: 完全一致');
-    console.log(`📦 DB名: "${food.name}"`);
-    console.log(`🏷️  MURO製品: ${food.isMuroProduct ? 'はい' : 'いいえ'}`);
-    console.log(`📊 栄養価: カロリー ${food.energyKcal}kcal, タンパク質 ${food.protein}g, 脂質 ${food.fat}g`);
+    console.log(`${prefix}✅ 検索結果: 完全一致`);
+    console.log(`${prefix}📦 DB名: "${food.name}"`);
+    console.log(`${prefix}🏷️  MURO製品: ${food.isMuroProduct ? 'はい' : 'いいえ'}`);
+    console.log(`${prefix}📊 栄養価: カロリー ${food.energyKcal}kcal, タンパク質 ${food.protein}g, 脂質 ${food.fat}g`);
     console.log('========================================\n');
     return food;
   }
 
   // 3. 部分一致検索（複数キーワード）
   const keywords = generateSearchKeywords(ingredientName);
-  console.log(`🔑 検索キーワード候補: [${keywords.join(', ')}]`);
+  console.log(`${prefix}🔑 検索キーワード候補: [${keywords.join(', ')}]`);
 
   for (const keyword of keywords) {
     const foods = await prisma.japaneseFood.findMany({
@@ -61,15 +64,15 @@ export async function searchFood(ingredientName: string) {
     });
 
     if (foods.length > 0) {
-      console.log(`✅ 検索結果: 部分一致 (キーワード: "${keyword}")`);
-      console.log(`📦 DB名: "${foods[0].name}"`);
-      console.log(`🏷️  MURO製品: ${foods[0].isMuroProduct ? 'はい' : 'いいえ'}`);
-      console.log(`📊 栄養価: カロリー ${foods[0].energyKcal}kcal, タンパク質 ${foods[0].protein}g, 脂質 ${foods[0].fat}g`);
+      console.log(`${prefix}✅ 検索結果: 部分一致 (キーワード: "${keyword}")`);
+      console.log(`${prefix}📦 DB名: "${foods[0].name}"`);
+      console.log(`${prefix}🏷️  MURO製品: ${foods[0].isMuroProduct ? 'はい' : 'いいえ'}`);
+      console.log(`${prefix}📊 栄養価: カロリー ${foods[0].energyKcal}kcal, タンパク質 ${foods[0].protein}g, 脂質 ${foods[0].fat}g`);
 
       if (foods.length > 1) {
-        console.log(`💡 他の候補 (${foods.length - 1}件):`);
+        console.log(`${prefix}💡 他の候補 (${foods.length - 1}件):`);
         foods.slice(1).forEach((f, i) => {
-          console.log(`   ${i + 1}. ${f.name}`);
+          console.log(`${prefix}   ${i + 1}. ${f.name}`);
         });
       }
       console.log('========================================\n');
@@ -84,17 +87,17 @@ export async function searchFood(ingredientName: string) {
   });
 
   if (lastResort) {
-    console.warn('⚠️ 検索結果: フォールバック検索（精度低）');
-    console.warn(`📦 DB名: "${lastResort.name}"`);
-    console.warn(`💭 推測: 最初の文字 "${firstChar}" で検索`);
-    console.warn('🚨 この結果は不正確な可能性があります！類義語マッピングの追加を検討してください。');
+    console.warn(`${prefix}⚠️ 検索結果: フォールバック検索（精度低）`);
+    console.warn(`${prefix}📦 DB名: "${lastResort.name}"`);
+    console.warn(`${prefix}💭 推測: 最初の文字 "${firstChar}" で検索`);
+    console.warn(`${prefix}🚨 この結果は不正確な可能性があります！類義語マッピングの追加を検討してください。`);
     console.log('========================================\n');
     return lastResort;
   }
 
-  console.error('❌ 検索結果: 見つかりません');
-  console.error(`🚨 "${ingredientName}" に対応する食品データがDBに存在しません`);
-  console.error('💡 対策: 類義語マッピング (ingredient-aliases.ts) に追加してください');
+  console.error(`${prefix}❌ 検索結果: 見つかりません`);
+  console.error(`${prefix}🚨 "${ingredientName}" に対応する食品データがDBに存在しません`);
+  console.error(`${prefix}💡 対策: 類義語マッピング (ingredient-aliases.ts) に追加してください`);
   console.log('========================================\n');
   return null;
 }
@@ -103,11 +106,14 @@ export async function searchFood(ingredientName: string) {
  * 材料リストから栄養価を計算（日本食品成分表 + MURO製品）
  */
 export async function calculateNutrition(
-  ingredients: Ingredient[]
+  ingredients: Ingredient[],
+  recipeContext: string = ''
 ): Promise<Nutrition> {
+  const prefix = recipeContext ? `[${recipeContext}] ` : '';
+
   console.log('\n🧮 栄養価計算開始');
   console.log('========================================');
-  console.log(`📋 材料数: ${ingredients.length}件\n`);
+  console.log(`${prefix}📋 材料数: ${ingredients.length}件\n`);
 
   let totalProtein = 0;
   let totalFat = 0;
@@ -118,7 +124,7 @@ export async function calculateNutrition(
   let failCount = 0;
 
   for (const ing of ingredients) {
-    const food = await searchFood(ing.item);
+    const food = await searchFood(ing.item, recipeContext);
 
     if (food) {
       // 100gあたりのデータを使用
@@ -137,11 +143,11 @@ export async function calculateNutrition(
       totalSodium += contributedSodium;
       totalCalories += contributedCalories;
 
-      console.log(`📊 材料 #${successCount + 1}: ${ing.item} (${amount}${ing.unit || 'g'})`);
-      console.log(`   → 寄与: カロリー ${Math.round(contributedCalories)}kcal, P ${contributedProtein.toFixed(1)}g, F ${contributedFat.toFixed(1)}g, C ${contributedCarbs.toFixed(1)}g, Na ${Math.round(contributedSodium)}mg`);
+      console.log(`${prefix}📊 材料 #${successCount + 1}: ${ing.item} (${amount}${ing.unit || 'g'})`);
+      console.log(`${prefix}   → 寄与: カロリー ${Math.round(contributedCalories)}kcal, P ${contributedProtein.toFixed(1)}g, F ${contributedFat.toFixed(1)}g, C ${contributedCarbs.toFixed(1)}g, Na ${Math.round(contributedSodium)}mg`);
       successCount++;
     } else {
-      console.error(`❌ 材料 #${successCount + failCount + 1}: ${ing.item} → 検索失敗`);
+      console.error(`${prefix}❌ 材料 #${successCount + failCount + 1}: ${ing.item} → 検索失敗`);
       failCount++;
     }
   }
@@ -154,15 +160,15 @@ export async function calculateNutrition(
     calories: Math.round(totalCalories)
   };
 
-  console.log('\n📊 栄養価計算完了');
+  console.log(`\n${prefix}📊 栄養価計算完了`);
   console.log('========================================');
-  console.log(`✅ 成功: ${successCount}件 / ❌ 失敗: ${failCount}件`);
-  console.log(`\n🍽️ 合計栄養価（1人前）:`);
-  console.log(`   カロリー: ${result.calories}kcal`);
-  console.log(`   タンパク質: ${result.protein}g`);
-  console.log(`   脂質: ${result.fat}g`);
-  console.log(`   炭水化物: ${result.carbs}g`);
-  console.log(`   ナトリウム: ${result.sodium}mg (食塩相当量: ${(result.sodium / 1000 * 2.54).toFixed(1)}g)`);
+  console.log(`${prefix}✅ 成功: ${successCount}件 / ❌ 失敗: ${failCount}件`);
+  console.log(`\n${prefix}🍽️ 合計栄養価（1人前）:`);
+  console.log(`${prefix}   カロリー: ${result.calories}kcal`);
+  console.log(`${prefix}   タンパク質: ${result.protein}g`);
+  console.log(`${prefix}   脂質: ${result.fat}g`);
+  console.log(`${prefix}   炭水化物: ${result.carbs}g`);
+  console.log(`${prefix}   ナトリウム: ${result.sodium}mg (食塩相当量: ${(result.sodium / 1000 * 2.54).toFixed(1)}g)`);
   console.log('========================================\n');
 
   return result;
