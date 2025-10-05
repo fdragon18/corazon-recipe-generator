@@ -276,6 +276,9 @@ function displayRecipes() {
     if (recipe.comparison) {
       displayComparison(pageNum, recipe.comparison);
     }
+
+    // いいね・お気に入りボタンを表示
+    displayInteractionButtons(pageNum, recipe);
   }
 }
 
@@ -398,6 +401,150 @@ function displayComparison(pageNum, comparison) {
     </div>
     <p class="koji-effect">${comparison.kojiEffect}</p>
   `;
+}
+
+// いいね・お気に入りボタンを表示
+function displayInteractionButtons(pageNum, recipe) {
+  const container = document.getElementById(`recipe${pageNum}Interactions`);
+  if (!container) return;
+
+  const isLiked = recipe.isLiked || false;
+  const isFavorited = recipe.isFavorited || false;
+  const likeCount = recipe.likeCount || 0;
+  const favoriteCount = recipe.favoriteCount || 0;
+
+  container.innerHTML = `
+    <div class="recipe-interactions">
+      <div class="interaction-stats">
+        <span class="interaction-stat">
+          <span class="stat-icon">❤️</span>
+          <span class="stat-count">${likeCount}</span>
+        </span>
+        <span class="interaction-stat">
+          <span class="stat-icon">⭐</span>
+          <span class="stat-count">${favoriteCount}</span>
+        </span>
+      </div>
+      <div class="interaction-buttons">
+        <button
+          class="interaction-btn like-btn ${isLiked ? 'active' : ''}"
+          onclick="toggleLike(${pageNum - 1})"
+          data-recipe-index="${pageNum - 1}"
+          ${!recipe.id ? 'disabled' : ''}
+        >
+          <span class="btn-icon">${isLiked ? '❤️' : '🤍'}</span>
+          <span class="btn-text">${isLiked ? 'いいね済み' : 'いいね'}</span>
+        </button>
+        <button
+          class="interaction-btn favorite-btn ${isFavorited ? 'active' : ''}"
+          onclick="toggleFavorite(${pageNum - 1})"
+          data-recipe-index="${pageNum - 1}"
+          ${!recipe.id ? 'disabled' : ''}
+        >
+          <span class="btn-icon">${isFavorited ? '⭐' : '☆'}</span>
+          <span class="btn-text">${isFavorited ? 'お気に入り済み' : 'お気に入り'}</span>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+// いいねをトグル
+async function toggleLike(recipeIndex) {
+  const recipe = generatedRecipes[recipeIndex];
+  if (!recipe.id) {
+    alert('レシピが保存されていないため、いいねできません。');
+    return;
+  }
+
+  const customerId = document.getElementById('customerIdField')?.value;
+  if (!customerId) {
+    alert('いいね機能を使用するにはログインが必要です。');
+    return;
+  }
+
+  const action = recipe.isLiked ? 'remove' : 'add';
+
+  try {
+    const response = await fetch('/apps/recipe_gen/like', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: JSON.stringify({
+        recipeId: recipe.id,
+        customerId: customerId,
+        action: action
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      // ローカル状態を更新
+      recipe.isLiked = action === 'add';
+      recipe.likeCount = data.likeCount;
+      recipe.favoriteCount = data.favoriteCount;
+
+      // UI再描画
+      displayInteractionButtons(recipeIndex + 1, recipe);
+    } else {
+      throw new Error(data.error || 'いいねに失敗しました');
+    }
+  } catch (error) {
+    console.error('いいねエラー:', error);
+    alert('いいねに失敗しました。もう一度お試しください。');
+  }
+}
+
+// お気に入りをトグル
+async function toggleFavorite(recipeIndex) {
+  const recipe = generatedRecipes[recipeIndex];
+  if (!recipe.id) {
+    alert('レシピが保存されていないため、お気に入りに追加できません。');
+    return;
+  }
+
+  const customerId = document.getElementById('customerIdField')?.value;
+  if (!customerId) {
+    alert('お気に入り機能を使用するにはログインが必要です。');
+    return;
+  }
+
+  const action = recipe.isFavorited ? 'remove' : 'add';
+
+  try {
+    const response = await fetch('/apps/recipe_gen/favorite', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: JSON.stringify({
+        recipeId: recipe.id,
+        customerId: customerId,
+        action: action
+      })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      // ローカル状態を更新
+      recipe.isFavorited = action === 'add';
+      recipe.likeCount = data.likeCount;
+      recipe.favoriteCount = data.favoriteCount;
+
+      // UI再描画
+      displayInteractionButtons(recipeIndex + 1, recipe);
+    } else {
+      throw new Error(data.error || 'お気に入りに失敗しました');
+    }
+  } catch (error) {
+    console.error('お気に入りエラー:', error);
+    alert('お気に入りに失敗しました。もう一度お試しください。');
+  }
 }
 
 // モーダル制御

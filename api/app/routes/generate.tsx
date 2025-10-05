@@ -292,47 +292,132 @@ export async function action({ request }: ActionFunctionArgs) {
           }
         },
         include: {
-          recipes: true
+          recipes: {
+            select: {
+              id: true,
+              name: true,
+              ingredients: true,
+              steps: true,
+              benefit: true,
+              nutrition: true,
+              comparison: true,
+              likeCount: true,
+              favoriteCount: true,
+              createdAt: true
+            }
+          }
         }
       });
 
       console.log(`✅ Supabaseに保存成功: RequestID=${recipeRequest.id}, CustomerID=${customerId || 'ゲスト'}`);
       timings['5_database_save'] = performance.now() - dbStart;
+
+      // 🔍 保存されたレシピのいいね・お気に入り状態を取得
+      const recipesWithInteractions = await Promise.all(
+        recipeRequest.recipes.map(async (savedRecipe) => {
+          // このレシピに対する現在のユーザーのいいね・お気に入り状態を取得
+          let isLiked = false;
+          let isFavorited = false;
+
+          if (customerId) {
+            const like = await prisma.recipeLike.findUnique({
+              where: {
+                recipeId_customerId: {
+                  recipeId: savedRecipe.id,
+                  customerId: customerId
+                }
+              }
+            });
+            isLiked = !!like;
+
+            const favorite = await prisma.recipeFavorite.findUnique({
+              where: {
+                recipeId_customerId: {
+                  recipeId: savedRecipe.id,
+                  customerId: customerId
+                }
+              }
+            });
+            isFavorited = !!favorite;
+          }
+
+          return {
+            id: savedRecipe.id,
+            name: savedRecipe.name,
+            ingredients: savedRecipe.ingredients,
+            steps: savedRecipe.steps,
+            benefit: savedRecipe.benefit,
+            nutrition: savedRecipe.nutrition,
+            comparison: savedRecipe.comparison,
+            likeCount: savedRecipe.likeCount,
+            favoriteCount: savedRecipe.favoriteCount,
+            isLiked,
+            isFavorited
+          };
+        })
+      );
+
+      timings['6_interaction_check'] = performance.now() - dbStart - timings['5_database_save'];
+
+      // ⏱️ 実行時間サマリー
+      const totalTime = performance.now() - startTime;
+      console.log('\n⏱️  実行時間サマリー');
+      console.log('========================================');
+      console.log(`📋 リクエスト解析:      ${timings['1_request_parsing']?.toFixed(2)}ms`);
+      console.log(`👤 顧客情報取得:        ${timings['2_customer_info']?.toFixed(2)}ms`);
+      console.log(`🤖 DIFY API呼び出し:    ${timings['3_dify_api']?.toFixed(2)}ms`);
+      console.log(`📊 栄養価計算:          ${timings['4_nutrition_calculation']?.toFixed(2)}ms`);
+      console.log(`💾 データベース保存:    ${timings['5_database_save']?.toFixed(2)}ms`);
+      console.log(`⏱️  合計実行時間:       ${totalTime.toFixed(2)}ms (${(totalTime / 1000).toFixed(2)}秒)`);
+      console.log('========================================\n');
+
+      // 成功レスポンス
+      console.log(`レシピ生成成功: ${recipesWithInteractions.length}件のレシピを取得（栄養価計算済み、インタラクション状態含む）`);
+      return json({
+        success: true,
+        recipes: recipesWithInteractions,
+        customer: {
+          age: customerAge ? parseInt(customerAge) : null,
+          sex: customerSex || null
+        },
+        timings: {
+          ...timings,
+          total: parseFloat(totalTime.toFixed(2))
+        },
+        timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }),
+        shop: shopDomain
+      });
+
     } catch (dbError) {
       console.error('❌ Supabase保存エラー:', dbError);
       console.error('❌ エラー詳細:', JSON.stringify(dbError, null, 2));
       timings['5_database_save'] = performance.now() - dbStart;
-      // DB保存失敗してもレシピは返す（ユーザー体験優先）
+
+      // DB保存失敗時は栄養価データのみ返す（インタラクション情報なし）
+      const totalTime = performance.now() - startTime;
+      return json({
+        success: true,
+        recipes: recipesWithNutrition.map((recipe: any) => ({
+          ...recipe,
+          id: null, // DB保存失敗のため IDなし
+          likeCount: 0,
+          favoriteCount: 0,
+          isLiked: false,
+          isFavorited: false
+        })),
+        customer: {
+          age: customerAge ? parseInt(customerAge) : null,
+          sex: customerSex || null
+        },
+        timings: {
+          ...timings,
+          total: parseFloat(totalTime.toFixed(2))
+        },
+        timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }),
+        shop: shopDomain,
+        warning: 'レシピは生成されましたが、保存に失敗しました'
+      });
     }
-
-    // ⏱️ 実行時間サマリー
-    const totalTime = performance.now() - startTime;
-    console.log('\n⏱️  実行時間サマリー');
-    console.log('========================================');
-    console.log(`📋 リクエスト解析:      ${timings['1_request_parsing']?.toFixed(2)}ms`);
-    console.log(`👤 顧客情報取得:        ${timings['2_customer_info']?.toFixed(2)}ms`);
-    console.log(`🤖 DIFY API呼び出し:    ${timings['3_dify_api']?.toFixed(2)}ms`);
-    console.log(`📊 栄養価計算:          ${timings['4_nutrition_calculation']?.toFixed(2)}ms`);
-    console.log(`💾 データベース保存:    ${timings['5_database_save']?.toFixed(2)}ms`);
-    console.log(`⏱️  合計実行時間:       ${totalTime.toFixed(2)}ms (${(totalTime / 1000).toFixed(2)}秒)`);
-    console.log('========================================\n');
-
-    // 成功レスポンス
-    console.log(`レシピ生成成功: ${recipesWithNutrition.length}件のレシピを取得（栄養価計算済み）`);
-    return json({
-      success: true,
-      recipes: recipesWithNutrition,
-      customer: {
-        age: customerAge ? parseInt(customerAge) : null,
-        sex: customerSex || null
-      },
-      timings: {
-        ...timings,
-        total: parseFloat(totalTime.toFixed(2))
-      },
-      timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }),
-      shop: shopDomain
-    });
 
   } catch (error) {
     // 全般的なエラーハンドリング
