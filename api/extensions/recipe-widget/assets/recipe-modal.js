@@ -146,17 +146,6 @@ async function handleFormSubmit(e) {
       window.customerInfo = data.customer || { age: null, sex: null };
       console.log('顧客情報を保存:', window.customerInfo);
 
-      // ⏱️ 実行時間をログ出力
-      if (data.timings) {
-        console.log('\n⏱️  API実行時間:');
-        console.log(`📋 リクエスト解析:      ${data.timings['1_request_parsing']}ms`);
-        console.log(`👤 顧客情報取得:        ${data.timings['2_customer_info']}ms`);
-        console.log(`🤖 DIFY API呼び出し:    ${data.timings['3_dify_api']}ms`);
-        console.log(`📊 栄養価計算:          ${data.timings['4_nutrition_calculation']}ms`);
-        console.log(`💾 データベース保存:    ${data.timings['5_database_save']}ms`);
-        console.log(`⏱️  合計実行時間:       ${data.timings.total}ms (${(data.timings.total / 1000).toFixed(2)}秒)`);
-      }
-
       displayRecipes(data.recipes);
       hideLoading();
       toggleFormWindow(); // フォームを閉じる
@@ -227,7 +216,7 @@ function displayRecipes() {
 
     document.getElementById(`recipe${pageNum}Name`).textContent = recipe.name || `レシピ${pageNum}`;
 
-    // 材料を分量付きで表示
+    // 材料をインデント形式で表示（・付き）
     const ingredientsContainer = document.getElementById(`recipe${pageNum}Ingredients`);
     ingredientsContainer.innerHTML = '';
 
@@ -236,11 +225,11 @@ function displayRecipes() {
         const ingDiv = document.createElement('div');
         ingDiv.className = 'ingredient-item';
 
-        // 分量がある場合は「鶏むね肉 200g」形式で表示
+        // 分量がある場合は「・鶏むね肉 200g」形式で表示
         if (ing.amount && ing.unit) {
-          ingDiv.textContent = `${ing.item} ${ing.amount}${ing.unit}`;
+          ingDiv.textContent = `・${ing.item} ${ing.amount}${ing.unit}`;
         } else {
-          ingDiv.textContent = ing.item || ing;
+          ingDiv.textContent = `・${ing.item || ing}`;
         }
 
         ingredientsContainer.appendChild(ingDiv);
@@ -326,6 +315,7 @@ function displayNutrition(pageNum, nutrition) {
   const dailyRecommended = getDailyRecommended(customerInfo.age, customerInfo.sex);
 
   // 推奨量に対する割合を計算
+  const caloriesPercent = Math.round((nutrition.calories / dailyRecommended.calories) * 100);
   const proteinPercent = Math.round((nutrition.protein / dailyRecommended.protein) * 100);
   const fatPercent = Math.round((nutrition.fat / dailyRecommended.fat) * 100);
   const carbsPercent = Math.round((nutrition.carbs / dailyRecommended.carbs) * 100);
@@ -334,35 +324,43 @@ function displayNutrition(pageNum, nutrition) {
   container.innerHTML = `
     <div class="nutrition-item">
       <span class="nutrition-label">カロリー</span>
-      <span class="nutrition-value">${nutrition.calories} kcal</span>
+      <div class="nutrition-bar">
+        <div class="nutrition-bar-fill calories" style="width: ${Math.min(caloriesPercent, 100)}%"></div>
+        <span class="nutrition-bar-text">${nutrition.calories}kcal</span>
+      </div>
+      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.calories}kcal）</span>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">タンパク質</span>
       <div class="nutrition-bar">
         <div class="nutrition-bar-fill" style="width: ${Math.min(proteinPercent, 100)}%"></div>
-        <span class="nutrition-bar-text">${nutrition.protein}g（1日の${proteinPercent}%）</span>
+        <span class="nutrition-bar-text">${nutrition.protein}g</span>
       </div>
+      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.protein}g）</span>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">脂質</span>
       <div class="nutrition-bar">
         <div class="nutrition-bar-fill" style="width: ${Math.min(fatPercent, 100)}%"></div>
-        <span class="nutrition-bar-text">${nutrition.fat}g（1日の${fatPercent}%）</span>
+        <span class="nutrition-bar-text">${nutrition.fat}g</span>
       </div>
+      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.fat}g）</span>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">炭水化物</span>
       <div class="nutrition-bar">
         <div class="nutrition-bar-fill" style="width: ${Math.min(carbsPercent, 100)}%"></div>
-        <span class="nutrition-bar-text">${nutrition.carbs}g（1日の${carbsPercent}%）</span>
+        <span class="nutrition-bar-text">${nutrition.carbs}g</span>
       </div>
+      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.carbs}g）</span>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">塩分</span>
       <div class="nutrition-bar">
         <div class="nutrition-bar-fill sodium" style="width: ${Math.min(sodiumPercent, 100)}%"></div>
-        <span class="nutrition-bar-text">${(nutrition.sodium / 1000).toFixed(1)}g（1日の${sodiumPercent}%）</span>
+        <span class="nutrition-bar-text">${(nutrition.sodium / 1000).toFixed(1)}g</span>
       </div>
+      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.sodium}g）</span>
     </div>
   `;
 }

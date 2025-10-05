@@ -180,13 +180,15 @@ export async function calculateNutrition(
 export function calculateSaltReduction(
   ingredients: Ingredient[]
 ): Comparison {
-  // 塩麹・醤油麹を特定
+  // 麹を特定（MUROの米麹も含む）
   const kojiIngredient = ingredients.find(ing =>
     ing.item.includes('塩麹') ||
     ing.item.includes('醤油麹') ||
     ing.item.includes('しょうゆ麹') ||
+    ing.item.includes('米麹') ||  // 🆕 MUROの米麹を含む
     ing.item.toLowerCase().includes('shio koji') ||
-    ing.item.toLowerCase().includes('shoyu koji')
+    ing.item.toLowerCase().includes('shoyu koji') ||
+    ing.item.toLowerCase().includes('kome koji')
   );
 
   if (!kojiIngredient || !kojiIngredient.amount) {
@@ -199,9 +201,55 @@ export function calculateSaltReduction(
   }
 
   // 麹の種類を判定
-  const isShoyuKoji = kojiIngredient.item.includes('醤油') ||
-                      kojiIngredient.item.includes('しょうゆ') ||
-                      kojiIngredient.item.toLowerCase().includes('shoyu');
+  let isShoyuKoji = kojiIngredient.item.includes('醤油') ||
+                    kojiIngredient.item.includes('しょうゆ') ||
+                    kojiIngredient.item.toLowerCase().includes('shoyu');
+
+  let isShioKoji = kojiIngredient.item.includes('塩麹') ||
+                   kojiIngredient.item.toLowerCase().includes('shio koji');
+
+  // 🆕 「MUROの米麹」の場合は、他の材料から推測
+  // 注意: MUROの全製品は米麹ベース（塩麹、醤油麹、甘麹）
+  if (kojiIngredient.item.includes('MURO') || kojiIngredient.item.includes('米麹')) {
+    // 醤油が別途ある → 醤油麹の可能性が高い
+    const hasShoyu = ingredients.some(ing =>
+      ing.item.includes('醤油') ||
+      ing.item.includes('しょうゆ') ||
+      ing.item.includes('味噌')
+    );
+
+    // 塩が別途ある → 塩麹の可能性が高い
+    const hasSalt = ingredients.some(ing =>
+      ing.item.includes('塩') && !ing.item.includes('塩麹') && !ing.item.includes('醤油')
+    );
+
+    // 砂糖やはちみつがある → 甘麹（甘酒）の可能性
+    const hasSweet = ingredients.some(ing =>
+      ing.item.includes('砂糖') ||
+      ing.item.includes('はちみつ') ||
+      ing.item.includes('蜂蜜')
+    );
+
+    if (hasShoyu) {
+      isShoyuKoji = true;
+      console.log(`[減塩計算] MUROの米麹を醤油麹として判定（醤油/味噌が材料に含まれる）`);
+    } else if (hasSalt) {
+      isShioKoji = true;
+      console.log(`[減塩計算] MUROの米麹を塩麹として判定（塩が材料に含まれる）`);
+    } else if (hasSweet) {
+      // 甘麹は塩分ゼロなので減塩効果なし
+      console.log(`[減塩計算] MUROの米麹を甘麹として判定（甘味料が含まれる）→ 減塩効果なし`);
+      return {
+        traditionalSodium: 0,
+        sodiumReduction: 0,
+        kojiEffect: '米麹甘酒の自然な甘みで砂糖を削減し、腸内環境を整える効果が期待できます'
+      };
+    } else {
+      // デフォルトは塩麹として扱う（最も一般的なため）
+      isShioKoji = true;
+      console.log(`[減塩計算] MUROの米麹を塩麹として判定（デフォルト）`);
+    }
+  }
 
   // 塩麹: 100gあたり約8000mg、醤油麹: 100gあたり約6200mg
   const sodiumPer100g = isShoyuKoji ? 6200 : 8000;

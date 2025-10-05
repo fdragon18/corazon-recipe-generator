@@ -565,6 +565,10 @@ select {
   background: linear-gradient(90deg, #FF9800, #FFC107);
 }
 
+.nutrition-bar-fill.calories {
+  background: linear-gradient(90deg, #2196F3, #64B5F6);
+}
+
 .nutrition-bar-text {
   position: relative;
   z-index: 1;
@@ -573,6 +577,13 @@ select {
   font-size: 13px;
   color: #333;
   white-space: nowrap;
+}
+
+.nutrition-recommended {
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+  margin-left: 8px;
 }
 
 .nutrition-value {
@@ -661,14 +672,14 @@ select {
 
 /* 材料アイテムのスタイル追加 */
 .ingredient-item {
-  padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 6px 0;
   font-size: 14px;
   color: #333;
+  line-height: 1.6;
 }
 
 .ingredient-item:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 /* モバイル対応 */
@@ -685,6 +696,11 @@ select {
   .nutrition-bar-text {
     font-size: 12px;
     padding: 0 8px;
+  }
+
+  .nutrition-recommended {
+    font-size: 11px;
+    margin-left: 4px;
   }
 
   .nutrition-value {
@@ -704,5 +720,9 @@ select {
   .koji-effect {
     font-size: 13px;
     padding: 10px;
+  }
+
+  .ingredient-item {
+    font-size: 13px;
   }
 }
