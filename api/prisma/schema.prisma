@@ -65,3 +65,44 @@ model GeneratedRecipe {
   @@index([requestId])
   @@index([createdAt])
 }
+
+// 日本食品成分表 + MURO製品
+model JapaneseFood {
+  id          String   @id @default(cuid())
+  foodCode    String?  @unique // 食品番号（文科省データ）
+  name        String   // 食品名
+  nameKana    String?  // ふりがな
+  category    String?  // 分類
+
+  // 栄養素（100gあたり）
+  energyKcal  Decimal? @db.Decimal(6, 1) // カロリー (kcal)
+  protein     Decimal? @db.Decimal(5, 2) // タンパク質 (g)
+  fat         Decimal? @db.Decimal(5, 2) // 脂質 (g)
+  carbs       Decimal? @db.Decimal(5, 2) // 炭水化物 (g)
+  sodium      Decimal? @db.Decimal(6, 1) // ナトリウム (mg)
+
+  // Phase 1: よく使う栄養素
+  fiber       Decimal? @db.Decimal(5, 2) // 食物繊維 (g)
+  potassium   Decimal? @db.Decimal(6, 1) // カリウム (mg)
+  calcium     Decimal? @db.Decimal(6, 1) // カルシウム (mg)
+  iron        Decimal? @db.Decimal(5, 2) // 鉄 (mg)
+  vitaminC    Decimal? @db.Decimal(5, 1) // ビタミンC (mg)
+  vitaminA    Decimal? @db.Decimal(6, 1) // ビタミンA (μg)
+  vitaminD    Decimal? @db.Decimal(5, 2) // ビタミンD (μg)
+  vitaminB1   Decimal? @db.Decimal(5, 2) // ビタミンB1 (mg)
+  vitaminB2   Decimal? @db.Decimal(5, 2) // ビタミンB2 (mg)
+  cholesterol Decimal? @db.Decimal(5, 1) // コレステロール (mg)
+  saltEquiv   Decimal? @db.Decimal(5, 2) // 食塩相当量 (g)
+
+  // 検索用
+  searchText  String?  @db.Text // 全文検索用（名前+カナ+カテゴリ）
+
+  // MURO製品フラグ
+  isMuroProduct Boolean @default(false)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([name])
+  @@index([isMuroProduct])
+}

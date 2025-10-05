@@ -3,7 +3,7 @@ import { authenticate } from "../shopify.server";
 import prisma from "../db.server";
 import { getCustomerInfo } from "../utils/shopify-customer.server";
 import type { Recipe } from "../types/recipe";
-import { calculateNutrition, calculateSaltReduction } from "../services/nutrition.server";
+import { calculateNutrition, calculateSaltReduction } from "../services/nutrition-jp.server";
 
 // DIFY API設定（環境変数から取得）
 const DIFY_CONFIG = {
