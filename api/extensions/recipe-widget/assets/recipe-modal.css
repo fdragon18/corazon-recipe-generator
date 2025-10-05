@@ -513,3 +513,176 @@ select {
     font-size: 16px;
   }
 }
+
+/* 🆕 栄養素表示 */
+.nutrition-display {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.nutrition-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.nutrition-item:last-child {
+  margin-bottom: 0;
+}
+
+.nutrition-label {
+  min-width: 100px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.nutrition-bar {
+  flex: 1;
+  height: 24px;
+  background: #e9ecef;
+  border-radius: 12px;
+  position: relative;
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+.nutrition-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4CAF50, #8BC34A);
+  border-radius: 12px;
+  transition: width 0.5s ease;
+}
+
+.nutrition-bar-fill.sodium {
+  background: linear-gradient(90deg, #FF9800, #FFC107);
+}
+
+.nutrition-value {
+  min-width: 80px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+/* 🆕 減塩効果比較 */
+.comparison-display {
+  padding: 15px;
+  background: #f1f8f4;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.comparison-bars {
+  margin: 15px 0;
+}
+
+.comparison-item {
+  margin-bottom: 15px;
+}
+
+.comparison-item:last-child {
+  margin-bottom: 0;
+}
+
+.comparison-label {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.comparison-bar {
+  position: relative;
+  height: 30px;
+  background: #e9ecef;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.comparison-bar-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.comparison-bar-fill.traditional {
+  background: linear-gradient(90deg, #9e9e9e, #bdbdbd);
+}
+
+.comparison-bar-fill.koji {
+  background: linear-gradient(90deg, #4CAF50, #66BB6A);
+}
+
+.comparison-value {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 600;
+  font-size: 13px;
+  color: #333;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.koji-effect {
+  margin-top: 15px;
+  padding: 12px;
+  background: #e8f5e9;
+  border-left: 4px solid #4CAF50;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #2e7d32;
+  border-radius: 4px;
+}
+
+/* 材料アイテムのスタイル追加 */
+.ingredient-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 14px;
+  color: #333;
+}
+
+.ingredient-item:last-child {
+  border-bottom: none;
+}
+
+/* モバイル対応 */
+@media (max-width: 600px) {
+  .nutrition-label {
+    min-width: 80px;
+    font-size: 13px;
+  }
+
+  .nutrition-bar {
+    margin: 0 8px;
+  }
+
+  .nutrition-value {
+    min-width: 60px;
+    font-size: 13px;
+  }
+
+  .comparison-label {
+    font-size: 13px;
+  }
+
+  .comparison-value {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+
+  .koji-effect {
+    font-size: 13px;
+    padding: 10px;
+  }
+}

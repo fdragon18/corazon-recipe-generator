@@ -211,11 +211,27 @@ function displayRecipes() {
 
     document.getElementById(`recipe${pageNum}Name`).textContent = recipe.name || `レシピ${pageNum}`;
 
-    // 材料を配列から文字列に変換
-    const ingredientsText = Array.isArray(recipe.ingredients)
-      ? recipe.ingredients.map(ing => ing.item || ing).join('\n')
-      : recipe.ingredients || '';
-    document.getElementById(`recipe${pageNum}Ingredients`).textContent = ingredientsText;
+    // 材料を分量付きで表示
+    const ingredientsContainer = document.getElementById(`recipe${pageNum}Ingredients`);
+    ingredientsContainer.innerHTML = '';
+
+    if (Array.isArray(recipe.ingredients)) {
+      recipe.ingredients.forEach(ing => {
+        const ingDiv = document.createElement('div');
+        ingDiv.className = 'ingredient-item';
+
+        // 分量がある場合は「鶏むね肉 200g」形式で表示
+        if (ing.amount && ing.unit) {
+          ingDiv.textContent = `${ing.item} ${ing.amount}${ing.unit}`;
+        } else {
+          ingDiv.textContent = ing.item || ing;
+        }
+
+        ingredientsContainer.appendChild(ingDiv);
+      });
+    } else {
+      ingredientsContainer.textContent = recipe.ingredients || '';
+    }
 
     // 作り方をステップごとに表示（配列形式に対応）
     const stepsContainer = document.getElementById(`recipe${pageNum}Steps`);
@@ -233,7 +249,86 @@ function displayRecipes() {
     });
 
     document.getElementById(`recipe${pageNum}Benefit`).textContent = recipe.benefit || '';
+
+    // 栄養素を表示
+    if (recipe.nutrition) {
+      displayNutrition(pageNum, recipe.nutrition);
+    }
+
+    // 減塩効果を表示
+    if (recipe.comparison) {
+      displayComparison(pageNum, recipe.comparison);
+    }
   }
+}
+
+// 栄養素を表示
+function displayNutrition(pageNum, nutrition) {
+  const container = document.getElementById(`recipe${pageNum}Nutrition`);
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="nutrition-item">
+      <span class="nutrition-label">カロリー</span>
+      <span class="nutrition-value">${nutrition.calories} kcal</span>
+    </div>
+    <div class="nutrition-item">
+      <span class="nutrition-label">タンパク質</span>
+      <div class="nutrition-bar">
+        <div class="nutrition-bar-fill" style="width: ${Math.min(nutrition.protein * 2, 100)}%"></div>
+        <span class="nutrition-value">${nutrition.protein}g</span>
+      </div>
+    </div>
+    <div class="nutrition-item">
+      <span class="nutrition-label">脂質</span>
+      <div class="nutrition-bar">
+        <div class="nutrition-bar-fill" style="width: ${Math.min(nutrition.fat * 2, 100)}%"></div>
+        <span class="nutrition-value">${nutrition.fat}g</span>
+      </div>
+    </div>
+    <div class="nutrition-item">
+      <span class="nutrition-label">炭水化物</span>
+      <div class="nutrition-bar">
+        <div class="nutrition-bar-fill" style="width: ${Math.min(nutrition.carbs * 2, 100)}%"></div>
+        <span class="nutrition-value">${nutrition.carbs}g</span>
+      </div>
+    </div>
+    <div class="nutrition-item">
+      <span class="nutrition-label">塩分</span>
+      <div class="nutrition-bar">
+        <div class="nutrition-bar-fill sodium" style="width: ${Math.min(nutrition.sodium / 10, 100)}%"></div>
+        <span class="nutrition-value">${(nutrition.sodium / 1000).toFixed(1)}g</span>
+      </div>
+    </div>
+  `;
+}
+
+// 減塩効果を表示
+function displayComparison(pageNum, comparison) {
+  const container = document.getElementById(`recipe${pageNum}Comparison`);
+  if (!container) return;
+
+  const kojiSodium = comparison.traditionalSodium * (1 - comparison.sodiumReduction / 100);
+
+  container.innerHTML = `
+    <div class="comparison-bars">
+      <div class="comparison-item traditional">
+        <span class="comparison-label">従来レシピ</span>
+        <div class="comparison-bar">
+          <div class="comparison-bar-fill traditional" style="width: 100%"></div>
+          <span class="comparison-value">${(comparison.traditionalSodium / 1000).toFixed(1)}g</span>
+        </div>
+      </div>
+      <div class="comparison-item koji">
+        <span class="comparison-label">麹レシピ</span>
+        <div class="comparison-bar">
+          <div class="comparison-bar-fill koji" style="width: ${100 - comparison.sodiumReduction}%"></div>
+          <span class="comparison-value">${(kojiSodium / 1000).toFixed(1)}g (-${comparison.sodiumReduction.toFixed(1)}%)</span>
+        </div>
+      </div>
+    </div>
+    <p class="koji-effect">${comparison.kojiEffect}</p>
+  `;
 }
 
 // モーダル制御

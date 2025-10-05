@@ -54,9 +54,11 @@ model GeneratedRecipe {
   id          String        @id @default(cuid())
   requestId   String        // RecipeRequestとの関連
   name        String        // レシピ名
-  ingredients Json          // 材料（オブジェクト配列形式: [{ item: "..." }]）
+  ingredients Json          // 材料（オブジェクト配列形式: [{ item: "...", amount: 数値, unit: "g" }]）
   steps       Json          // 手順（オブジェクト配列形式: [{ step_number: 1, description: "..." }]）
   benefit     String        @db.Text // 効果
+  nutrition   Json?         // 栄養価情報（PFC + ナトリウム + カロリー）
+  comparison  Json?         // 従来レシピとの比較データ（減塩効果など）
   createdAt   DateTime      @default(now())
   request     RecipeRequest @relation(fields: [requestId], references: [id], onDelete: Cascade)
 

@@ -2,6 +2,7 @@ import { type ActionFunctionArgs, json } from "@remix-run/node";
 import { authenticate } from "../shopify.server";
 import prisma from "../db.server";
 import { getCustomerInfo } from "../utils/shopify-customer.server";
+import type { Recipe } from "../types/recipe";
 
 // DIFY API設定（環境変数から取得）
 const DIFY_CONFIG = {
@@ -231,19 +232,23 @@ export async function action({ request }: ActionFunctionArgs) {
           kojiType: kojiType || null,
           otherIngredients: otherIngredients || null,
           recipes: {
-            create: recipes.map((recipe: any) => {
+            create: recipes.map((recipe: Recipe) => {
               console.log(`📊 レシピ「${recipe.name}」のデータ型:`, {
                 ingredients: typeof recipe.ingredients,
                 steps: typeof recipe.steps,
                 ingredientsIsArray: Array.isArray(recipe.ingredients),
-                stepsIsArray: Array.isArray(recipe.steps)
+                stepsIsArray: Array.isArray(recipe.steps),
+                hasNutrition: !!recipe.nutrition,
+                hasComparison: !!recipe.comparison
               });
 
               return {
                 name: recipe.name,
-                ingredients: recipe.ingredients, // Json型（そのまま保存）
-                steps: recipe.steps,             // Json型（そのまま保存）
-                benefit: recipe.benefit
+                ingredients: recipe.ingredients as any,       // Json型（そのまま保存）
+                steps: recipe.steps as any,                   // Json型（そのまま保存）
+                benefit: recipe.benefit,
+                nutrition: (recipe.nutrition || null) as any,   // 🆕 栄養価情報
+                comparison: (recipe.comparison || null) as any  // 🆕 減塩効果比較
               };
             })
           }
