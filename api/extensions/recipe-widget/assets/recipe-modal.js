@@ -161,15 +161,26 @@ async function handleFormSubmit(e) {
   }
 }
 
-// ローディング表示/非表示
+// ローディング表示/非表示（オーバーレイ形式）
 function showLoading() {
-  const loadingContainer = document.getElementById('loadingIndicator');
-  const submitButton = document.getElementById('generateRecipeBtn');
-
-  if (loadingContainer) {
-    loadingContainer.classList.remove('hidden');
+  // オーバーレイを作成
+  let overlay = document.getElementById('recipeLoadingOverlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'recipeLoadingOverlay';
+    overlay.className = 'loading-overlay';
+    overlay.innerHTML = `
+      <div class="loading-content">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">レシピを作成しています...</p>
+      </div>
+    `;
+    document.body.appendChild(overlay);
   }
+  overlay.style.display = 'flex';
 
+  // 送信ボタンを無効化
+  const submitButton = document.getElementById('generateRecipeBtn');
   if (submitButton) {
     submitButton.disabled = true;
     submitButton.textContent = 'レシピ作成中...';
@@ -177,13 +188,14 @@ function showLoading() {
 }
 
 function hideLoading() {
-  const loadingContainer = document.getElementById('loadingIndicator');
-  const submitButton = document.getElementById('generateRecipeBtn');
-
-  if (loadingContainer) {
-    loadingContainer.classList.add('hidden');
+  // オーバーレイを非表示
+  const overlay = document.getElementById('recipeLoadingOverlay');
+  if (overlay) {
+    overlay.style.display = 'none';
   }
 
+  // 送信ボタンを有効化
+  const submitButton = document.getElementById('generateRecipeBtn');
   if (submitButton) {
     submitButton.disabled = false;
     submitButton.textContent = '麹レシピ生成';
@@ -365,28 +377,23 @@ function displayNutrition(pageNum, nutrition) {
   `;
 }
 
-// 減塩効果を表示
+// 減塩効果を表示（1つのバーで従来と麹を比較）
 function displayComparison(pageNum, comparison) {
   const container = document.getElementById(`recipe${pageNum}Comparison`);
   if (!container) return;
 
   const kojiSodium = comparison.traditionalSodium * (1 - comparison.sodiumReduction / 100);
+  const kojiPercent = 100 - comparison.sodiumReduction;
 
   container.innerHTML = `
-    <div class="comparison-bars">
-      <div class="comparison-item traditional">
-        <span class="comparison-label">従来レシピ</span>
-        <div class="comparison-bar">
-          <div class="comparison-bar-fill traditional" style="width: 100%"></div>
-          <span class="comparison-value">${(comparison.traditionalSodium / 1000).toFixed(1)}g</span>
-        </div>
+    <div class="comparison-single-bar">
+      <div class="comparison-labels">
+        <span class="comparison-label-left">従来レシピ: ${(comparison.traditionalSodium / 1000).toFixed(1)}g</span>
+        <span class="comparison-label-right">麹レシピ: ${(kojiSodium / 1000).toFixed(1)}g (-${comparison.sodiumReduction.toFixed(1)}%)</span>
       </div>
-      <div class="comparison-item koji">
-        <span class="comparison-label">麹レシピ</span>
-        <div class="comparison-bar">
-          <div class="comparison-bar-fill koji" style="width: ${100 - comparison.sodiumReduction}%"></div>
-          <span class="comparison-value">${(kojiSodium / 1000).toFixed(1)}g (-${comparison.sodiumReduction.toFixed(1)}%)</span>
-        </div>
+      <div class="comparison-bar-container">
+        <div class="comparison-bar-background"></div>
+        <div class="comparison-bar-koji" style="width: ${kojiPercent}%"></div>
       </div>
     </div>
     <p class="koji-effect">${comparison.kojiEffect}</p>
