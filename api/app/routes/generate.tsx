@@ -3,6 +3,7 @@ import { authenticate } from "../shopify.server";
 import prisma from "../db.server";
 import { getCustomerInfo } from "../utils/shopify-customer.server";
 import type { Recipe } from "../types/recipe";
+import { calculateNutrition, calculateSaltReduction } from "../services/nutrition.server";
 
 // DIFY API設定（環境変数から取得）
 const DIFY_CONFIG = {
@@ -221,6 +222,27 @@ export async function action({ request }: ActionFunctionArgs) {
 
     console.log(`✅ ${recipes.length}件のレシピを取得しました`);
 
+    // 📊 API（Nutritionix）で栄養価を正確に計算
+    console.log('📊 栄養価計算を開始...');
+    const recipesWithNutrition = await Promise.all(
+      recipes.map(async (recipe: Recipe) => {
+        const nutrition = await calculateNutrition(recipe.ingredients);
+        const comparison = calculateSaltReduction(recipe.ingredients);
+
+        console.log(`✅ レシピ「${recipe.name}」の栄養価計算完了:`, {
+          calories: nutrition.calories,
+          sodium: nutrition.sodium,
+          reduction: comparison.sodiumReduction
+        });
+
+        return {
+          ...recipe,
+          nutrition,
+          comparison
+        };
+      })
+    );
+
     // 💾 Supabaseにレシピ保存
     try {
       const recipeRequest = await prisma.recipeRequest.create({
@@ -232,7 +254,7 @@ export async function action({ request }: ActionFunctionArgs) {
           kojiType: kojiType || null,
           otherIngredients: otherIngredients || null,
           recipes: {
-            create: recipes.map((recipe: Recipe) => {
+            create: recipesWithNutrition.map((recipe: Recipe) => {
               console.log(`📊 レシピ「${recipe.name}」のデータ型:`, {
                 ingredients: typeof recipe.ingredients,
                 steps: typeof recipe.steps,
@@ -266,10 +288,10 @@ export async function action({ request }: ActionFunctionArgs) {
     }
 
     // 成功レスポンス
-    console.log(`レシピ生成成功: ${recipes.length}件のレシピを取得`);
+    console.log(`レシピ生成成功: ${recipesWithNutrition.length}件のレシピを取得（栄養価計算済み）`);
     return json({
       success: true,
-      recipes: recipes,
+      recipes: recipesWithNutrition,
       timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }),
       shop: shopDomain
     });
