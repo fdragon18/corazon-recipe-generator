@@ -77,14 +77,22 @@ shopify app generate extension
 ```
 
 ### **重要：スコープ変更時の手順**
+
+**⚠️ 注意：`shopify app deploy` だけではスコープは反映されません！**
+
+OAuthトークンはインストール時に生成され、スコープが固定的に紐付けられます。
+TOMLファイルを変更しても、既存のアクセストークンは更新されません。
+
 ```bash
 # 1. shopify.app.toml を編集
 scopes = "write_products,read_customers"
 
-# 2. Shopifyにデプロイして権限を反映
-shopify app deploy
+# 2. 開発ストアでアプリをアンインストール
+# Settings → Apps and sales channels → recipe-generator-app → Delete
 
-# 3. 表示されるURLにアクセスして "Update permissions" をクリック
+# 3. 開発サーバーを起動して再インストール
+shopify app dev
+# → 表示されるURLにアクセス → 新しいスコープで再認証
 ```
 
 ## 🛠️ API設計
@@ -146,10 +154,52 @@ interface RecipeResponse {
 4. 必要に応じてコードも `git push`
 
 #### **スコープ変更時（重要！）**
+
+**⚠️ 理解必須：OAuth トークンの仕組み**
+
+```
+アプリインストール時 → OAuth認証 → アクセストークン生成
+                                    ↓
+                        トークンにスコープが固定的に紐付け
+                                    ↓
+            shopify.app.toml変更しても既存トークンは変わらない❌
+```
+
+**開発環境での対処法（最速）**
 1. `shopify.app.toml` のスコープを更新
-2. **`shopify app deploy`** を実行
-3. 表示されるURLにアクセス → **"Update permissions"** をクリック
-4. アプリがストアの権限を更新
+2. **開発ストアでアプリをアンインストール**
+3. **`shopify app dev`** を実行して再インストール
+   → 新しいOAuth認証 → 新しいスコープで新しいトークン生成 ✅
+
+**本番環境での対処法（推奨）**
+
+アプリ起動時にスコープ不足を自動検知してリダイレクト：
+
+```typescript
+// 例: Remix loaderで実装
+const currentScopes = session.scope.split(",");
+const requiredScopes = ["read_customers", "write_products"];
+
+const missingScopes = requiredScopes.filter(
+  scope => !currentScopes.includes(scope)
+);
+
+if (missingScopes.length > 0) {
+  // 自動的にShopify承認画面にリダイレクト
+  const authUrl = `https://${shop}/admin/oauth/authorize?client_id=${apiKey}&scope=${requiredScopes.join(",")}&redirect_uri=${redirectUri}`;
+  return redirect(authUrl);
+}
+```
+
+**より良い方法：App Bridge（埋め込みアプリ）**
+```typescript
+import { requestAccessScope } from '@shopify/app-bridge/utilities';
+
+// モーダルで権限リクエスト（リダイレクト不要）
+await requestAccessScope(app, ['read_customers']);
+```
+
+→ ユーザーは何もする必要なし。アプリが自動処理 ✅
 
 ### 環境別の設定
 ```javascript

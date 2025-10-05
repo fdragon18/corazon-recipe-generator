@@ -1,4 +1,5 @@
 import type { LoaderFunctionArgs } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import {
   Page,
   Layout,
@@ -25,8 +26,33 @@ import { TitleBar } from "@shopify/app-bridge-react";
 import { authenticate } from "../shopify.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  await authenticate.admin(request);
-  return null;
+  const { session } = await authenticate.admin(request);
+
+  // 必要なスコープを定義
+  const requiredScopes = ["read_customers", "write_products"];
+  const currentScopes = session.scope ? session.scope.split(",") : [];
+
+  // 不足しているスコープを検出
+  const missingScopes = requiredScopes.filter(
+    scope => !currentScopes.includes(scope)
+  );
+
+  if (missingScopes.length > 0) {
+    console.log(`⚠️ スコープ不足を検出: ${missingScopes.join(", ")}`);
+    console.log(`現在のスコープ: ${currentScopes.join(", ")}`);
+    console.log(`必要なスコープ: ${requiredScopes.join(", ")}`);
+
+    // 再認証URLを生成
+    const authUrl = `https://${session.shop}/admin/oauth/authorize?client_id=${process.env.SHOPIFY_API_KEY}&scope=${requiredScopes.join(",")}&redirect_uri=${process.env.SHOPIFY_APP_URL}/auth/callback`;
+
+    console.log(`🔄 再認証にリダイレクト: ${authUrl}`);
+
+    return redirect(authUrl);
+  }
+
+  console.log(`✅ スコープチェック完了: すべてのスコープが揃っています`);
+
+  return json({ scopes: currentScopes });
 };
 
 export default function Index() {

@@ -251,25 +251,56 @@ shopify app deploy
 
 ### スコープ変更時の手順（重要！）
 
-APIスコープを追加・変更した場合：
+**⚠️ 重要：OAuthトークンの仕組みを理解する**
 
-#### 1. **shopify.app.toml を編集**
+アプリインストール時にOAuth認証が行われ、アクセストークンが生成されます。
+**トークンにスコープが固定的に紐付けられる**ため、`shopify.app.toml` を変更しただけでは既存トークンは更新されません。
+
+#### **開発環境での対処法**
+
+1. **shopify.app.toml を編集**
 ```toml
 [access_scopes]
 scopes = "write_products,read_customers"
 ```
 
-#### 2. **Shopifyにデプロイ**
+2. **開発ストアでアプリをアンインストール**
+- Settings → Apps and sales channels
+- recipe-generator-app → **Delete**
+
+3. **再インストール**
 ```bash
-shopify app deploy
+shopify app dev
+```
+- 表示されるURLにアクセス
+- 新しいスコープで再認証 → 新しいアクセストークン生成 ✅
+
+#### **本番環境での対処法**
+
+アプリ起動時にスコープ不足を自動検知してリダイレクト：
+
+```typescript
+// Remix loaderで実装例
+const currentScopes = session.scope.split(",");
+const requiredScopes = ["read_customers", "write_products"];
+
+const missingScopes = requiredScopes.filter(
+  scope => !currentScopes.includes(scope)
+);
+
+if (missingScopes.length > 0) {
+  const authUrl = `https://${shop}/admin/oauth/authorize?client_id=${apiKey}&scope=${requiredScopes.join(",")}&redirect_uri=${redirectUri}`;
+  return redirect(authUrl); // 自動リダイレクト
+}
 ```
 
-#### 3. **権限を更新**
-- コマンド実行後に表示されるURLにアクセス
-- **"Update permissions"** ボタンをクリック
-- アプリがストアの新しい権限を取得
+**App Bridge使用（埋め込みアプリ）**
+```typescript
+import { requestAccessScope } from '@shopify/app-bridge/utilities';
+await requestAccessScope(app, ['read_customers']); // モーダル表示
+```
 
-⚠️ **注意**: スコープ変更後に `shopify app deploy` を実行しないと、権限エラーが発生します。
+→ ユーザーは何もする必要なし。アプリが自動処理 ✅
 
 ---
 
