@@ -11,7 +11,7 @@
 
 ## 🏗️ プロジェクト概要
 メキシコ食材専門店「corazon-muro」の商品ページに、AIレシピ生成機能を追加するShopifyアプリ。
-**1店舗専用のCustom Appとして開発**。
+**Public App（Shopify CLI開発）+ Custom Distribution（1店舗専用配布）**。
 
 ## 📋 アーキテクチャ
 - **フレームワーク**: Remix (Shopify公式推奨)
@@ -54,18 +54,37 @@ corazon-recipe-generator/
 - **🚨 絶対に開発ストアで進める（本番での直接開発は超危険）**
 
 ## 💻 開発コマンド
+
+### **ローカル開発**
 ```bash
-# 開発サーバー起動
+# 開発サーバー起動（ローカルテスト用）
 shopify app dev
-
-# Extension生成
-shopify app generate extension
-
-# Vercelデプロイ
-vercel --prod
 
 # アプリ情報確認
 shopify app info
+```
+
+### **デプロイ**
+```bash
+# Extensions（Theme App Extension等）をShopifyにデプロイ
+shopify app deploy
+
+# Vercel本番環境にデプロイ（通常はGit Pushで自動）
+vercel --prod
+
+# Extension生成（新規作成時のみ）
+shopify app generate extension
+```
+
+### **重要：スコープ変更時の手順**
+```bash
+# 1. shopify.app.toml を編集
+scopes = "write_products,read_customers"
+
+# 2. Shopifyにデプロイして権限を反映
+shopify app deploy
+
+# 3. 表示されるURLにアクセスして "Update permissions" をクリック
 ```
 
 ## 🛠️ API設計
@@ -113,10 +132,24 @@ interface RecipeResponse {
 - **URL**: https://corazon-recipe.vercel.app
 
 ### デプロイフロー
+
+#### **コード変更時（Remix, API, フロントエンド）**
 1. 開発ストアで機能開発・テスト
 2. stagingブランチでVercel Preview環境にデプロイ
 3. 動作確認後、mainブランチにマージ
-4. 自動的に本番環境にデプロイ
+4. **`git push origin main`** → Vercelに自動デプロイ
+
+#### **Extensions変更時（Theme App Extension, Admin Link）**
+1. ローカルで拡張機能を開発
+2. **`shopify app deploy`** → Shopifyにデプロイ
+3. テーマエディタで確認
+4. 必要に応じてコードも `git push`
+
+#### **スコープ変更時（重要！）**
+1. `shopify.app.toml` のスコープを更新
+2. **`shopify app deploy`** を実行
+3. 表示されるURLにアクセス → **"Update permissions"** をクリック
+4. アプリがストアの権限を更新
 
 ### 環境別の設定
 ```javascript

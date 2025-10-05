@@ -54,6 +54,7 @@ export async function action({ request }: ActionFunctionArgs) {
     // 👤 顧客情報取得（Metafield含む）
     let customerSex = "";
     let customerAge = "";
+    let customerName = "ゲストユーザー";
 
     if (customerId) {
       try {
@@ -63,17 +64,25 @@ export async function action({ request }: ActionFunctionArgs) {
         if (customerData) {
           customerSex = customerData.sex || "";
           customerAge = customerData.age ? String(customerData.age) : "";
+          customerName = `${customerData.firstName || ''} ${customerData.lastName || ''}`.trim() || 'Unknown';
 
-          console.log(`👤 顧客情報取得成功:`, {
-            name: `${customerData.firstName || ''} ${customerData.lastName || ''}`.trim(),
-            sex: customerSex || '未設定',
-            age: customerAge || '未設定'
-          });
+          console.log('========================================');
+          console.log('👤 顧客情報取得成功');
+          console.log('========================================');
+          console.log(`📧 Email: ${customerData.email || 'なし'}`);
+          console.log(`👤 氏名: ${customerName}`);
+          console.log(`🚻 性別: ${customerSex || '未設定'}`);
+          console.log(`🎂 年齢: ${customerAge || '未設定'}${customerAge ? '歳' : ''}`);
+          console.log('========================================');
         }
       } catch (authError) {
         console.warn('⚠️ 顧客情報取得をスキップ（認証エラー）:', authError);
         // 認証エラーでもレシピ生成は続行
       }
+    } else {
+      console.log('========================================');
+      console.log('👤 顧客情報: ゲストユーザー（未ログイン）');
+      console.log('========================================');
     }
 
     // バリデーション

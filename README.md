@@ -3,8 +3,10 @@
 メキシコ食材専門店「corazon-muro」専用のAI搭載レシピジェネレーター。
 顧客の体調やお悩みに合わせて、麹を使った健康的なメキシカンレシピを提案します。
 
+**Public App（Shopify CLI開発）+ Custom Distribution（1店舗専用配布）**
+
 [![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?logo=vercel)](https://corazon-recipe-generator-v5.vercel.app)
-[![Shopify](https://img.shields.io/badge/Shopify-Custom%20App-green?logo=shopify)](https://corazon-muro-recipe-dev.myshopify.com)
+[![Shopify](https://img.shields.io/badge/Shopify-Public%20App-green?logo=shopify)](https://corazon-muro-recipe-dev.myshopify.com)
 [![DIFY](https://img.shields.io/badge/AI-DIFY%20Workflow-blue)](https://dify.ai)
 
 ---
@@ -196,19 +198,29 @@ npm run dev
 
 ## 📦 デプロイ
 
+### 📌 デプロイの種類
+
+| 変更内容 | 使用コマンド | 反映先 |
+|---------|-------------|--------|
+| **コード変更**（Remix, API, フロントエンド） | `git push origin main` | Vercel（自動デプロイ） |
+| **Extensions変更**（Theme App Extension等） | `shopify app deploy` | Shopify |
+| **スコープ変更** | `shopify app deploy` + 権限更新 | Shopify |
+
+---
+
 ### Vercelへのデプロイ
 
-1. **Vercelにログイン**
+#### 1. **Vercelにログイン**
 ```bash
 vercel login
 ```
 
-2. **プロジェクトリンク**
+#### 2. **プロジェクトリンク**
 ```bash
 vercel link --yes
 ```
 
-3. **環境変数を設定**
+#### 3. **環境変数を設定**
 ```bash
 vercel env add DIFY_ENDPOINT production
 vercel env add DIFY_API_KEY production
@@ -216,10 +228,48 @@ vercel env add DATABASE_URL production
 vercel env add DIRECT_URL production
 ```
 
-4. **デプロイ**
+#### 4. **デプロイ**
 ```bash
-git push origin main  # 自動デプロイ
+git push origin main  # Vercelに自動デプロイ
 ```
+
+---
+
+### Shopify Extensionsのデプロイ
+
+Theme App ExtensionやAdmin Link Extensionを変更した場合：
+
+```bash
+# Shopifyにデプロイ
+shopify app deploy
+
+# デプロイ後、テーマエディタで確認
+# https://corazon-muro-dev.myshopify.com/admin/themes/current/editor
+```
+
+---
+
+### スコープ変更時の手順（重要！）
+
+APIスコープを追加・変更した場合：
+
+#### 1. **shopify.app.toml を編集**
+```toml
+[access_scopes]
+scopes = "write_products,read_customers"
+```
+
+#### 2. **Shopifyにデプロイ**
+```bash
+shopify app deploy
+```
+
+#### 3. **権限を更新**
+- コマンド実行後に表示されるURLにアクセス
+- **"Update permissions"** ボタンをクリック
+- アプリがストアの新しい権限を取得
+
+⚠️ **注意**: スコープ変更後に `shopify app deploy` を実行しないと、権限エラーが発生します。
 
 ---
 
