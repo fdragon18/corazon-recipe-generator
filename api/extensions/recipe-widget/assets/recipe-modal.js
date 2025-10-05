@@ -146,6 +146,17 @@ async function handleFormSubmit(e) {
       window.customerInfo = data.customer || { age: null, sex: null };
       console.log('顧客情報を保存:', window.customerInfo);
 
+      // ⏱️ 実行時間をログ出力
+      if (data.timings) {
+        console.log('\n⏱️  API実行時間:');
+        console.log(`📋 リクエスト解析:      ${data.timings['1_request_parsing']}ms`);
+        console.log(`👤 顧客情報取得:        ${data.timings['2_customer_info']}ms`);
+        console.log(`🤖 DIFY API呼び出し:    ${data.timings['3_dify_api']}ms`);
+        console.log(`📊 栄養価計算:          ${data.timings['4_nutrition_calculation']}ms`);
+        console.log(`💾 データベース保存:    ${data.timings['5_database_save']}ms`);
+        console.log(`⏱️  合計実行時間:       ${data.timings.total}ms (${(data.timings.total / 1000).toFixed(2)}秒)`);
+      }
+
       displayRecipes(data.recipes);
       hideLoading();
       toggleFormWindow(); // フォームを閉じる

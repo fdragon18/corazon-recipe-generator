@@ -13,6 +13,10 @@ const DIFY_CONFIG = {
 
 // App Proxy用レシピ生成API（App Proxy形式）
 export async function action({ request }: ActionFunctionArgs) {
+  // ⏱️ 全体の実行時間計測開始
+  const startTime = performance.now();
+  const timings: Record<string, number> = {};
+
   // POSTリクエストのみ許可
   if (request.method !== "POST") {
     return json({ error: "Method not allowed" }, { status: 405 });
@@ -22,6 +26,7 @@ export async function action({ request }: ActionFunctionArgs) {
     // 🔒 リクエスト情報取得
     // App Proxy経由: ShopifyがHMAC検証済み + shopパラメータ自動追加
     // 直接アクセス: FormDataからshop情報を取得
+    const stepStart = performance.now();
     const url = new URL(request.url);
     const shopFromQuery = url.searchParams.get('shop');
 
@@ -39,10 +44,12 @@ export async function action({ request }: ActionFunctionArgs) {
     const needs = formData.get("needs")?.toString().trim() || "";
     const kojiType = formData.get("kojiType")?.toString() || "";
     const otherIngredients = formData.get("otherIngredients")?.toString().trim() || "";
+    timings['1_request_parsing'] = performance.now() - stepStart;
 
     // 👤 ログイン中の顧客IDを取得
     // 方法1: FormDataから取得（Liquid変数経由 - 推奨、New Customer Accounts対応）
     // 方法2: App ProxyのQuery Parameter（フォールバック）
+    const customerStart = performance.now();
     let customerId = formData.get("customerId")?.toString() || null;
 
     // FormDataになければQuery Parameterから取得を試みる
@@ -86,6 +93,7 @@ export async function action({ request }: ActionFunctionArgs) {
       console.log('👤 顧客情報: ゲストユーザー（未ログイン）');
       console.log('========================================');
     }
+    timings['2_customer_info'] = performance.now() - customerStart;
 
     // バリデーション
     if (!condition) {
@@ -124,6 +132,7 @@ export async function action({ request }: ActionFunctionArgs) {
     console.log("  - Request Body:", JSON.stringify(difyRequestBody, null, 2));
 
     // DIFY APIに送信
+    const difyStart = performance.now();
     const response = await fetch(`${DIFY_CONFIG.endpoint}/workflows/run`, {
       method: 'POST',
       headers: {
@@ -161,6 +170,7 @@ export async function action({ request }: ActionFunctionArgs) {
     let data;
     try {
       data = JSON.parse(responseText);
+      timings['3_dify_api'] = performance.now() - difyStart;
       console.log("✅ DIFY APIレスポンス受信完了");
       console.log("📊 レスポンスデータ構造:", JSON.stringify(data, null, 2));
     } catch (parseError) {
@@ -224,6 +234,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
     // 📊 日本食品成分表で栄養価を正確に計算（並列処理でログにレシピコンテキスト表示）
     console.log('📊 栄養価計算を開始...');
+    const nutritionStart = performance.now();
     const recipesWithNutrition = await Promise.all(
       recipes.map(async (recipe: Recipe, index: number) => {
         const recipeContext = `レシピ ${index + 1}/${recipes.length}: ${recipe.name}`;
@@ -245,8 +256,10 @@ export async function action({ request }: ActionFunctionArgs) {
         };
       })
     );
+    timings['4_nutrition_calculation'] = performance.now() - nutritionStart;
 
     // 💾 Supabaseにレシピ保存
+    const dbStart = performance.now();
     try {
       const recipeRequest = await prisma.recipeRequest.create({
         data: {
@@ -284,11 +297,25 @@ export async function action({ request }: ActionFunctionArgs) {
       });
 
       console.log(`✅ Supabaseに保存成功: RequestID=${recipeRequest.id}, CustomerID=${customerId || 'ゲスト'}`);
+      timings['5_database_save'] = performance.now() - dbStart;
     } catch (dbError) {
       console.error('❌ Supabase保存エラー:', dbError);
       console.error('❌ エラー詳細:', JSON.stringify(dbError, null, 2));
+      timings['5_database_save'] = performance.now() - dbStart;
       // DB保存失敗してもレシピは返す（ユーザー体験優先）
     }
+
+    // ⏱️ 実行時間サマリー
+    const totalTime = performance.now() - startTime;
+    console.log('\n⏱️  実行時間サマリー');
+    console.log('========================================');
+    console.log(`📋 リクエスト解析:      ${timings['1_request_parsing']?.toFixed(2)}ms`);
+    console.log(`👤 顧客情報取得:        ${timings['2_customer_info']?.toFixed(2)}ms`);
+    console.log(`🤖 DIFY API呼び出し:    ${timings['3_dify_api']?.toFixed(2)}ms`);
+    console.log(`📊 栄養価計算:          ${timings['4_nutrition_calculation']?.toFixed(2)}ms`);
+    console.log(`💾 データベース保存:    ${timings['5_database_save']?.toFixed(2)}ms`);
+    console.log(`⏱️  合計実行時間:       ${totalTime.toFixed(2)}ms (${(totalTime / 1000).toFixed(2)}秒)`);
+    console.log('========================================\n');
 
     // 成功レスポンス
     console.log(`レシピ生成成功: ${recipesWithNutrition.length}件のレシピを取得（栄養価計算済み）`);
@@ -298,6 +325,10 @@ export async function action({ request }: ActionFunctionArgs) {
       customer: {
         age: customerAge ? parseInt(customerAge) : null,
         sex: customerSex || null
+      },
+      timings: {
+        ...timings,
+        total: parseFloat(totalTime.toFixed(2))
       },
       timestamp: new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }),
       shop: shopDomain
