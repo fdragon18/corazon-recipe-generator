@@ -414,6 +414,7 @@ export async function action({ request }: ActionFunctionArgs) {
         nutritionStandard: {
           ageRange: nutritionStandard.ageRange,
           sex: nutritionStandard.sex,
+          energyModerate: nutritionStandard.energyModerate,
           proteinRecommended: nutritionStandard.proteinRecommended,
           proteinTargetMin: nutritionStandard.proteinTargetMin,
           proteinTargetMax: nutritionStandard.proteinTargetMax,
@@ -458,6 +459,7 @@ export async function action({ request }: ActionFunctionArgs) {
         nutritionStandard: {
           ageRange: nutritionStandard.ageRange,
           sex: nutritionStandard.sex,
+          energyModerate: nutritionStandard.energyModerate,
           proteinRecommended: nutritionStandard.proteinRecommended,
           proteinTargetMin: nutritionStandard.proteinTargetMin,
           proteinTargetMax: nutritionStandard.proteinTargetMax,
