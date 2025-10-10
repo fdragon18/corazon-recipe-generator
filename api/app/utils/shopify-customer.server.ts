@@ -54,12 +54,26 @@ export async function getCustomerInfo(admin: any, customerId: string) {
       return null;
     }
 
+    // Metafieldの値をパース（配列形式の場合に対応）
+    let sexValue = customer.metafield?.value || null;
+    if (sexValue) {
+      try {
+        // JSON配列形式の場合: '["男性"]' → "男性"
+        const parsed = JSON.parse(sexValue);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          sexValue = parsed[0];
+        }
+      } catch (e) {
+        // JSON parseエラーの場合はそのまま使用
+      }
+    }
+
     return {
       id: customer.id,
       email: customer.email,
       firstName: customer.firstName,
       lastName: customer.lastName,
-      sex: customer.metafield?.value || null,
+      sex: sexValue,
       age: customer.ageMetafield?.value ? parseInt(customer.ageMetafield.value) : null
     };
 

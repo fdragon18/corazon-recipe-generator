@@ -433,21 +433,9 @@ function displayInteractionButtons(pageNum, recipe) {
 
   const isLiked = recipe.isLiked || false;
   const isFavorited = recipe.isFavorited || false;
-  const likeCount = recipe.likeCount || 0;
-  const favoriteCount = recipe.favoriteCount || 0;
 
   container.innerHTML = `
     <div class="recipe-interactions">
-      <div class="interaction-stats">
-        <span class="interaction-stat">
-          <span class="stat-icon">❤️</span>
-          <span class="stat-count">${likeCount}</span>
-        </span>
-        <span class="interaction-stat">
-          <span class="stat-icon">⭐</span>
-          <span class="stat-count">${favoriteCount}</span>
-        </span>
-      </div>
       <div class="interaction-buttons">
         <button
           class="interaction-btn like-btn ${isLiked ? 'active' : ''}"

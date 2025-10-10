@@ -802,6 +802,7 @@ select {
   margin-top: 12px;
 }
 
+/* カウント表示削除（1人1回のみの仕様のため不要）
 .interaction-stats {
   display: flex;
   gap: 20px;
@@ -826,6 +827,7 @@ select {
   font-size: 14px;
   color: #333;
 }
+*/
 
 .interaction-buttons {
   display: flex;
