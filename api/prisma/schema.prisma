@@ -140,3 +140,80 @@ model JapaneseFood {
   @@index([name])
   @@index([isMuroProduct])
 }
+
+// 日本人の食事摂取基準（2025年版）- 厚生労働省
+model NutritionStandard {
+  id             String   @id @default(cuid())
+  sex            String   // "male" | "female" | "pregnant" | "lactating"
+  ageRange       String   // 元データ（例: "18-29(歳)", "3-5(歳)"）
+  ageMin         Int      // 年齢範囲の最小値
+  ageMax         Int      // 年齢範囲の最大値
+
+  // エネルギー（身体活動レベル別） kcal/日
+  energyLow      Int?
+  energyModerate Int?
+  energyHigh     Int?
+
+  // 炭水化物
+  carbohydrateTarget String? // 元データ（例: "50-65"）
+  carbohydrateMin    Float?  // % エネルギー
+  carbohydrateMax    Float?  // % エネルギー
+  fiberTarget        Float?  // 食物繊維目標 (g/日)
+
+  // タンパク質
+  proteinRequired   Float?  // 必要量 (g/日)
+  proteinRecommended Float? // 推奨量 (g/日)
+  proteinAdequate   Float?  // 目安量 (g/日)
+  proteinTarget     String? // 元データ（例: "13-20"）
+  proteinTargetMin  Float?  // % エネルギー
+  proteinTargetMax  Float?  // % エネルギー
+
+  // 脂質
+  fatAdequate          Float?  // 目安量 (g/日)
+  fatTargetMin         Float?  // 目標下限 (% エネルギー)
+  fatTargetMax         Float?  // 目標上限 (% エネルギー)
+  saturatedFatTarget   Float?  // 飽和脂肪酸目標 (% エネルギー)
+  n6FattyAcidAdequate  Float?  // n-6系脂肪酸目安 (g/日)
+  n3FattyAcidAdequate  Float?  // n-3系脂肪酸目安 (g/日)
+
+  // ビタミン（脂溶性）
+  vitaminARecommended  Float? // μgRAE/日
+  vitaminAUpperLimit   Float? // μgRAE/日
+  vitaminDAdequate     Float? // μg/日
+  vitaminDUpperLimit   Float? // μg/日
+  vitaminEAdequate     Float? // mg/日
+  vitaminEUpperLimit   Float? // mg/日
+  vitaminKAdequate     Float? // μg/日
+
+  // ビタミン（水溶性）
+  vitaminB1Recommended     Float? // mg/日
+  vitaminB2Recommended     Float? // mg/日
+  niacinRecommended        Float? // mgNE/日
+  niacinUpperLimit         Float? // mgNE/日
+  vitaminB6Recommended     Float? // mg/日
+  vitaminB6UpperLimit      Float? // mg/日
+  vitaminB12Adequate       Float? // μg/日
+  folateRecommended        Float? // μg/日
+  folateUpperLimit         Float? // μg/日
+  pantothenicAcidAdequate  Float? // mg/日
+  biotinAdequate           Float? // μg/日
+  vitaminCRecommended      Float? // mg/日
+
+  // ミネラル
+  sodiumTarget            Float? // g/日
+  potassiumAdequate       Float? // mg/日
+  potassiumTarget         Float? // mg/日
+  calciumRecommended      Float? // mg/日
+  calciumUpperLimit       Float? // mg/日
+  magnesiumRecommended    Float? // mg/日
+  magnesiumUpperLimit     Float? // mg/日
+  phosphorusAdequate      Float? // mg/日
+  phosphorusUpperLimit    Float? // mg/日
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([sex, ageMin, ageMax])
+  @@index([sex])
+  @@index([ageMin])
+}
