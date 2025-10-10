@@ -964,3 +964,19 @@ select {
     font-size: 11px;
   }
 }
+
+/* 栄養基準データの注釈 */
+.nutrition-note {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border-left: 3px solid #6c757d;
+  border-radius: 4px;
+  color: #6c757d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.nutrition-note small {
+  display: block;
+}

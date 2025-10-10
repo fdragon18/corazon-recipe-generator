@@ -4,6 +4,7 @@ import prisma from "../db.server";
 import { getCustomerInfo } from "../utils/shopify-customer.server";
 import type { Recipe } from "../types/recipe";
 import { calculateNutrition, calculateSaltReduction } from "../services/nutrition-jp.server";
+import { getNutritionStandard, calculatePFCRecommendations, parseSexToCode } from "../lib/nutrition-standards";
 
 // DIFY API設定（環境変数から取得）
 const DIFY_CONFIG = {
@@ -94,6 +95,24 @@ export async function action({ request }: ActionFunctionArgs) {
       console.log('========================================');
     }
     timings['2_customer_info'] = performance.now() - customerStart;
+
+    // 📊 栄養基準データ取得（厚生労働省「食事摂取基準（2025年版）」）
+    const nutritionStandardStart = performance.now();
+    const sexCode = parseSexToCode(customerSex);
+    const ageNum = customerAge ? parseInt(customerAge) : null;
+    const nutritionStandard = await getNutritionStandard(sexCode, ageNum);
+    timings['2.5_nutrition_standard'] = performance.now() - nutritionStandardStart;
+
+    console.log('========================================');
+    console.log('📊 栄養基準データ取得');
+    console.log('========================================');
+    console.log(`🎯 対象: ${nutritionStandard.sex === 'male' ? '男性' : '女性'} ${nutritionStandard.ageRange}`);
+    console.log(`🥩 タンパク質推奨: ${nutritionStandard.proteinRecommended}g/日 (${nutritionStandard.proteinTargetMin}-${nutritionStandard.proteinTargetMax}%E)`);
+    console.log(`🥑 脂質目標: ${nutritionStandard.fatTargetMin}-${nutritionStandard.fatTargetMax}%E`);
+    console.log(`🍚 炭水化物目標: ${nutritionStandard.carbohydrateMin}-${nutritionStandard.carbohydrateMax}%E`);
+    console.log(`📝 注釈: ${nutritionStandard.note || 'なし'}`);
+    console.log(`⚙️  デフォルト値使用: ${nutritionStandard.isDefault ? 'はい' : 'いいえ'}`);
+    console.log('========================================');
 
     // バリデーション
     if (!condition) {
@@ -243,16 +262,28 @@ export async function action({ request }: ActionFunctionArgs) {
         const nutrition = await calculateNutrition(recipe.ingredients, recipeContext);
         const comparison = calculateSaltReduction(recipe.ingredients);
 
+        // 🆕 このレシピのカロリーに基づいてPFC推奨値を計算
+        const pfcRecommendations = calculatePFCRecommendations(
+          nutritionStandard,
+          nutrition.calories || 0
+        );
+
         console.log(`✅ [${recipeContext}] 栄養価計算完了:`, {
           calories: nutrition.calories,
           sodium: nutrition.sodium,
-          reduction: comparison.sodiumReduction
+          reduction: comparison.sodiumReduction,
+          pfcRecommendations: {
+            protein: `${pfcRecommendations.protein.targetMin}-${pfcRecommendations.protein.targetMax}g`,
+            fat: `${pfcRecommendations.fat.targetMin}-${pfcRecommendations.fat.targetMax}g`,
+            carbs: `${pfcRecommendations.carbohydrate.targetMin}-${pfcRecommendations.carbohydrate.targetMax}g`,
+          }
         });
 
         return {
           ...recipe,
           nutrition,
-          comparison
+          comparison,
+          pfcRecommendations // 🆕 PFC推奨値を追加
         };
       })
     );
@@ -380,6 +411,21 @@ export async function action({ request }: ActionFunctionArgs) {
           age: customerAge ? parseInt(customerAge) : null,
           sex: customerSex || null
         },
+        nutritionStandard: {
+          ageRange: nutritionStandard.ageRange,
+          sex: nutritionStandard.sex,
+          proteinRecommended: nutritionStandard.proteinRecommended,
+          proteinTargetMin: nutritionStandard.proteinTargetMin,
+          proteinTargetMax: nutritionStandard.proteinTargetMax,
+          fatTargetMin: nutritionStandard.fatTargetMin,
+          fatTargetMax: nutritionStandard.fatTargetMax,
+          carbohydrateMin: nutritionStandard.carbohydrateMin,
+          carbohydrateMax: nutritionStandard.carbohydrateMax,
+          fiberTarget: nutritionStandard.fiberTarget,
+          sodiumTarget: nutritionStandard.sodiumTarget,
+          isDefault: nutritionStandard.isDefault,
+          note: nutritionStandard.note
+        },
         timings: {
           ...timings,
           total: parseFloat(totalTime.toFixed(2))
@@ -408,6 +454,21 @@ export async function action({ request }: ActionFunctionArgs) {
         customer: {
           age: customerAge ? parseInt(customerAge) : null,
           sex: customerSex || null
+        },
+        nutritionStandard: {
+          ageRange: nutritionStandard.ageRange,
+          sex: nutritionStandard.sex,
+          proteinRecommended: nutritionStandard.proteinRecommended,
+          proteinTargetMin: nutritionStandard.proteinTargetMin,
+          proteinTargetMax: nutritionStandard.proteinTargetMax,
+          fatTargetMin: nutritionStandard.fatTargetMin,
+          fatTargetMax: nutritionStandard.fatTargetMax,
+          carbohydrateMin: nutritionStandard.carbohydrateMin,
+          carbohydrateMax: nutritionStandard.carbohydrateMax,
+          fiberTarget: nutritionStandard.fiberTarget,
+          sodiumTarget: nutritionStandard.sodiumTarget,
+          isDefault: nutritionStandard.isDefault,
+          note: nutritionStandard.note
         },
         timings: {
           ...timings,

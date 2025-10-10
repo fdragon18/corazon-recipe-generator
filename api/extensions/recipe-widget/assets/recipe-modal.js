@@ -146,6 +146,17 @@ async function handleFormSubmit(e) {
       window.customerInfo = data.customer || { age: null, sex: null };
       console.log('顧客情報を保存:', window.customerInfo);
 
+      // ✅ 栄養基準データを保存（厚生労働省「食事摂取基準（2025年版）」）
+      window.nutritionStandard = data.nutritionStandard || null;
+      if (window.nutritionStandard) {
+        console.log('📊 栄養基準データを保存:', {
+          ageRange: window.nutritionStandard.ageRange,
+          sex: window.nutritionStandard.sex,
+          isDefault: window.nutritionStandard.isDefault,
+          note: window.nutritionStandard.note
+        });
+      }
+
       displayRecipes(data.recipes);
       hideLoading();
       toggleFormWindow(); // フォームを閉じる
@@ -297,24 +308,34 @@ function getDailyRecommended(age = null, sex = null) {
   // - 成人女性（18-64歳）: カロリー 1700-2000kcal, タンパク質 50g, 脂質 45g, 炭水化物 260g, 塩分 6.5g
   // - 高齢者（65歳以上）: カロリー 1800-2200kcal, タンパク質 60g, 塩分 7.0g
 
-  // TODO: 顧客Metafield（custom.age, custom.sex）から取得した値で動的計算
-  // if (age && sex) {
-  //   if (sex === 'male') {
-  //     if (age >= 65) return { calories: 2000, protein: 60, fat: 50, carbs: 275, sodium: 7.0 };
-  //     return { calories: 2400, protein: 65, fat: 55, carbs: 330, sodium: 7.5 };
-  //   } else if (sex === 'female') {
-  //     if (age >= 65) return { calories: 1700, protein: 50, fat: 45, carbs: 230, sodium: 6.5 };
-  //     return { calories: 1850, protein: 50, fat: 45, carbs: 260, sodium: 6.5 };
-  //   }
-  // }
+  // ✅ APIレスポンスから栄養基準データを取得（厚生労働省「食事摂取基準（2025年版）」）
+  const nutritionStandard = window.nutritionStandard;
 
-  // デフォルト値（成人平均）
+  if (!nutritionStandard) {
+    // フォールバック: デフォルト値
+    return {
+      calories: 2000,
+      protein: 60,
+      fat: 50,
+      carbs: 300,
+      sodium: 7.5
+    };
+  }
+
+  // 1日の推奨カロリーは「身体活動レベル：ふつう」を想定
+  const energyModerate = nutritionStandard.energyModerate || 2000;
+
   return {
-    calories: 2000,     // kcal
-    protein: 60,        // g
-    fat: 50,            // g
-    carbs: 300,         // g
-    sodium: 7.5         // g（食塩相当量）
+    calories: energyModerate,
+    protein: nutritionStandard.proteinRecommended || 60,
+    // 脂質・炭水化物は目標範囲の中央値を使用
+    fat: nutritionStandard.fatTargetMin && nutritionStandard.fatTargetMax
+      ? Math.round((energyModerate * ((nutritionStandard.fatTargetMin + nutritionStandard.fatTargetMax) / 2) / 100) / 9)
+      : 50,
+    carbs: nutritionStandard.carbohydrateMin && nutritionStandard.carbohydrateMax
+      ? Math.round((energyModerate * ((nutritionStandard.carbohydrateMin + nutritionStandard.carbohydrateMax) / 2) / 100) / 4)
+      : 300,
+    sodium: nutritionStandard.sodiumTarget || 7.5
   };
 }
 
@@ -323,11 +344,8 @@ function displayNutrition(pageNum, nutrition) {
   const container = document.getElementById(`recipe${pageNum}Nutrition`);
   if (!container) return;
 
-  // 顧客情報を取得（APIレスポンスから保存されたもの）
-  const customerInfo = window.customerInfo || { age: null, sex: null };
-
-  // 1日の推奨摂取量を取得（顧客の年齢・性別を考慮）
-  const dailyRecommended = getDailyRecommended(customerInfo.age, customerInfo.sex);
+  // 1日の推奨摂取量を取得（厚生労働省「食事摂取基準（2025年版）」に基づく動的値）
+  const dailyRecommended = getDailyRecommended();
 
   // 推奨量に対する割合を計算
   const caloriesPercent = Math.round((nutrition.calories / dailyRecommended.calories) * 100);
@@ -377,6 +395,11 @@ function displayNutrition(pageNum, nutrition) {
       </div>
       <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.sodium}g）</span>
     </div>
+    ${window.nutritionStandard && window.nutritionStandard.note ? `
+    <p class="nutrition-note">
+      <small>${window.nutritionStandard.note}</small>
+    </p>
+    ` : ''}
   `;
 }
 
