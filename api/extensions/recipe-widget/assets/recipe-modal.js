@@ -325,13 +325,18 @@ function getDailyRecommended(age = null, sex = null) {
   // 1日の推奨カロリーは「身体活動レベル：ふつう」を想定
   const energyModerate = nutritionStandard.energyModerate || 2000;
 
+  // ✅ 全て「目標量」で統一（%エネルギーから計算）
   return {
     calories: energyModerate,
-    protein: nutritionStandard.proteinRecommended || 60,
-    // 脂質・炭水化物は目標範囲の中央値を使用
+    // タンパク質: 目標量の中央値から計算（1g = 4kcal）
+    protein: nutritionStandard.proteinTargetMin && nutritionStandard.proteinTargetMax
+      ? Math.round((energyModerate * ((nutritionStandard.proteinTargetMin + nutritionStandard.proteinTargetMax) / 2) / 100) / 4)
+      : 60,
+    // 脂質: 目標量の中央値から計算（1g = 9kcal）
     fat: nutritionStandard.fatTargetMin && nutritionStandard.fatTargetMax
       ? Math.round((energyModerate * ((nutritionStandard.fatTargetMin + nutritionStandard.fatTargetMax) / 2) / 100) / 9)
       : 50,
+    // 炭水化物: 目標量の中央値から計算（1g = 4kcal）
     carbs: nutritionStandard.carbohydrateMin && nutritionStandard.carbohydrateMax
       ? Math.round((energyModerate * ((nutritionStandard.carbohydrateMin + nutritionStandard.carbohydrateMax) / 2) / 100) / 4)
       : 300,
@@ -344,10 +349,10 @@ function displayNutrition(pageNum, nutrition) {
   const container = document.getElementById(`recipe${pageNum}Nutrition`);
   if (!container) return;
 
-  // 1日の推奨摂取量を取得（厚生労働省「食事摂取基準（2025年版）」に基づく動的値）
+  // 1日の目標摂取量を取得（厚生労働省「食事摂取基準（2025年版）」に基づく動的値）
   const dailyRecommended = getDailyRecommended();
 
-  // 推奨量に対する割合を計算
+  // 目標量に対する割合を計算
   const caloriesPercent = Math.round((nutrition.calories / dailyRecommended.calories) * 100);
   const proteinPercent = Math.round((nutrition.protein / dailyRecommended.protein) * 100);
   const fatPercent = Math.round((nutrition.fat / dailyRecommended.fat) * 100);
@@ -361,7 +366,7 @@ function displayNutrition(pageNum, nutrition) {
         <div class="nutrition-bar-fill calories" style="width: ${Math.min(caloriesPercent, 100)}%"></div>
         <span class="nutrition-bar-text">${nutrition.calories}kcal</span>
       </div>
-      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.calories}kcal）</span>
+      <span class="nutrition-recommended">/（1日の目標量:${dailyRecommended.calories}kcal）</span>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">タンパク質</span>
@@ -369,7 +374,7 @@ function displayNutrition(pageNum, nutrition) {
         <div class="nutrition-bar-fill" style="width: ${Math.min(proteinPercent, 100)}%"></div>
         <span class="nutrition-bar-text">${nutrition.protein}g</span>
       </div>
-      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.protein}g）</span>
+      <span class="nutrition-recommended">/（1日の目標量:${dailyRecommended.protein}g）</span>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">脂質</span>
@@ -377,7 +382,7 @@ function displayNutrition(pageNum, nutrition) {
         <div class="nutrition-bar-fill" style="width: ${Math.min(fatPercent, 100)}%"></div>
         <span class="nutrition-bar-text">${nutrition.fat}g</span>
       </div>
-      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.fat}g）</span>
+      <span class="nutrition-recommended">/（1日の目標量:${dailyRecommended.fat}g）</span>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">炭水化物</span>
@@ -385,7 +390,7 @@ function displayNutrition(pageNum, nutrition) {
         <div class="nutrition-bar-fill" style="width: ${Math.min(carbsPercent, 100)}%"></div>
         <span class="nutrition-bar-text">${nutrition.carbs}g</span>
       </div>
-      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.carbs}g）</span>
+      <span class="nutrition-recommended">/（1日の目標量:${dailyRecommended.carbs}g）</span>
     </div>
     <div class="nutrition-item">
       <span class="nutrition-label">塩分</span>
@@ -393,7 +398,7 @@ function displayNutrition(pageNum, nutrition) {
         <div class="nutrition-bar-fill sodium" style="width: ${Math.min(sodiumPercent, 100)}%"></div>
         <span class="nutrition-bar-text">${(nutrition.sodium / 1000).toFixed(1)}g</span>
       </div>
-      <span class="nutrition-recommended">/（1日の推奨量:${dailyRecommended.sodium}g）</span>
+      <span class="nutrition-recommended">/（1日の目標量:${dailyRecommended.sodium}g）</span>
     </div>
     ${window.nutritionStandard && window.nutritionStandard.note ? `
     <p class="nutrition-note">
