@@ -175,23 +175,69 @@ export async function calculateNutrition(
 }
 
 /**
- * 減塩効果を計算（ロジックベース）
+ * MURO調味料の塩分濃度データ（%）
+ * 出典: Q. 麹調味料は塩分量が少なくて健康に良さそうだけど、味は塩分量が少なくても満足出来ますか？
+ */
+const MURO_SALT_CONCENTRATION: Record<string, number> = {
+  '塩麹': 11.6,
+  'にんにく麹': 11.0,
+  'ハーブ麹': 11.6,
+  'トマト麹': 7.2,
+  '醤油麹': 6.2,
+  '赤辛麹': 11.6
+};
+
+/**
+ * 麹調味料のタイプ判定
+ */
+function determineKojiType(ingredientName: string): string | null {
+  const lowerName = ingredientName.toLowerCase();
+
+  if (lowerName.includes('にんにく麹') || lowerName.includes('garlic koji')) {
+    return 'にんにく麹';
+  }
+  if (lowerName.includes('ハーブ麹') || lowerName.includes('herb koji')) {
+    return 'ハーブ麹';
+  }
+  if (lowerName.includes('トマト麹') || lowerName.includes('tomato koji')) {
+    return 'トマト麹';
+  }
+  if (lowerName.includes('醤油麹') || lowerName.includes('しょうゆ麹') || lowerName.includes('shoyu koji')) {
+    return '醤油麹';
+  }
+  if (lowerName.includes('赤辛麹') || lowerName.includes('spicy koji')) {
+    return '赤辛麹';
+  }
+  if (lowerName.includes('塩麹') || lowerName.includes('shio koji')) {
+    return '塩麹';
+  }
+
+  return null;
+}
+
+/**
+ * 減塩効果を計算（MURO公式データベース）
+ *
+ * 計算根拠:
+ * - 塩小さじ1 (5g) = 塩分量 5.00g (100%)
+ * - 塩麹小さじ2 (10g) = 塩分量 1.06g (21.2%) → 減塩率 78.8%
+ * - 塩麹小さじ3 (15g) = 塩分量 1.59g (31.8%) → 減塩率 68.2%
+ * - 推奨: 塩小さじ1に対して、麹調味料小さじ2-3
+ * - うま味成分（グルタミン酸、アミノ酸）により、塩分控えめでも満足感
+ *
+ * 出典: Journal of Heath & Science 55(5), 667-673 (2009)
+ *       "Taste active components of food, with concentration on Umami compounds"
  */
 export function calculateSaltReduction(
   ingredients: Ingredient[]
 ): Comparison {
-  // 麹を特定（MUROの米麹も含む）
-  const kojiIngredient = ingredients.find(ing =>
-    ing.item.includes('塩麹') ||
-    ing.item.includes('醤油麹') ||
-    ing.item.includes('しょうゆ麹') ||
-    ing.item.includes('米麹') ||  // 🆕 MUROの米麹を含む
-    ing.item.toLowerCase().includes('shio koji') ||
-    ing.item.toLowerCase().includes('shoyu koji') ||
-    ing.item.toLowerCase().includes('kome koji')
-  );
+  // 麹調味料を検索
+  const kojiIngredients = ingredients.filter(ing => {
+    const type = determineKojiType(ing.item);
+    return type !== null;
+  });
 
-  if (!kojiIngredient || !kojiIngredient.amount) {
+  if (kojiIngredients.length === 0) {
     // 麹がない場合はデフォルト値
     return {
       traditionalSodium: 0,
@@ -200,73 +246,69 @@ export function calculateSaltReduction(
     };
   }
 
-  // 麹の種類を判定
-  let isShoyuKoji = kojiIngredient.item.includes('醤油') ||
-                    kojiIngredient.item.includes('しょうゆ') ||
-                    kojiIngredient.item.toLowerCase().includes('shoyu');
+  // 複数の麹がある場合は合算
+  let totalKojiSodium = 0;
+  let totalTraditionalSalt = 0;
+  const kojiTypes: string[] = [];
 
-  let isShioKoji = kojiIngredient.item.includes('塩麹') ||
-                   kojiIngredient.item.toLowerCase().includes('shio koji');
+  for (const kojiIng of kojiIngredients) {
+    const kojiType = determineKojiType(kojiIng.item);
+    if (!kojiType || !kojiIng.amount) continue;
 
-  // 🆕 「MUROの米麹」の場合は、他の材料から推測
-  // 注意: MUROの全製品は米麹ベース（塩麹、醤油麹、甘麹）
-  if (kojiIngredient.item.includes('MURO') || kojiIngredient.item.includes('米麹')) {
-    // 醤油が別途ある → 醤油麹の可能性が高い
-    const hasShoyu = ingredients.some(ing =>
-      ing.item.includes('醤油') ||
-      ing.item.includes('しょうゆ') ||
-      ing.item.includes('味噌')
-    );
+    const saltConcentration = MURO_SALT_CONCENTRATION[kojiType];
+    kojiTypes.push(kojiType);
 
-    // 塩が別途ある → 塩麹の可能性が高い
-    const hasSalt = ingredients.some(ing =>
-      ing.item.includes('塩') && !ing.item.includes('塩麹') && !ing.item.includes('醤油')
-    );
+    // 麹調味料の塩分量（g）
+    const kojiSaltGrams = (kojiIng.amount * saltConcentration) / 100;
 
-    // 砂糖やはちみつがある → 甘麹（甘酒）の可能性
-    const hasSweet = ingredients.some(ing =>
-      ing.item.includes('砂糖') ||
-      ing.item.includes('はちみつ') ||
-      ing.item.includes('蜂蜜')
-    );
+    // ナトリウム量（mg）= 塩分量（g） × 1000 × 塩分中のナトリウム比率（約0.4）
+    // 実際には食塩相当量 = ナトリウム（mg） × 2.54 / 1000
+    // 逆算: ナトリウム（mg） = 食塩相当量（g） × 1000 / 2.54
+    const kojiSodiumMg = (kojiSaltGrams * 1000) / 2.54;
 
-    if (hasShoyu) {
-      isShoyuKoji = true;
-      console.log(`[減塩計算] MUROの米麹を醤油麹として判定（醤油/味噌が材料に含まれる）`);
-    } else if (hasSalt) {
-      isShioKoji = true;
-      console.log(`[減塩計算] MUROの米麹を塩麹として判定（塩が材料に含まれる）`);
-    } else if (hasSweet) {
-      // 甘麹は塩分ゼロなので減塩効果なし
-      console.log(`[減塩計算] MUROの米麹を甘麹として判定（甘味料が含まれる）→ 減塩効果なし`);
-      return {
-        traditionalSodium: 0,
-        sodiumReduction: 0,
-        kojiEffect: '米麹甘酒の自然な甘みで砂糖を削減し、腸内環境を整える効果が期待できます'
-      };
-    } else {
-      // デフォルトは塩麹として扱う（最も一般的なため）
-      isShioKoji = true;
-      console.log(`[減塩計算] MUROの米麹を塩麹として判定（デフォルト）`);
-    }
+    totalKojiSodium += kojiSodiumMg;
+
+    // 💡 推奨置き換え: 塩麹小さじ2-3 (10-15g) ≈ 塩小さじ1 (5g)
+    // → 麹調味料の分量から、それに相当する塩の量を逆算
+    // → 平均として、麹調味料 12.5g ≈ 塩 5g とすると、係数は 5 / 12.5 = 0.4
+    const equivalentSaltGrams = kojiIng.amount * 0.4;
+    const traditionalSaltSodiumMg = (equivalentSaltGrams * 1000) / 2.54;
+
+    totalTraditionalSalt += traditionalSaltSodiumMg;
+
+    console.log(`[減塩計算] ${kojiType} ${kojiIng.amount}${kojiIng.unit || 'g'}`);
+    console.log(`  塩分濃度: ${saltConcentration}%`);
+    console.log(`  塩分量: ${kojiSaltGrams.toFixed(2)}g`);
+    console.log(`  ナトリウム: ${Math.round(kojiSodiumMg)}mg`);
+    console.log(`  相当する塩: ${equivalentSaltGrams.toFixed(1)}g (${Math.round(traditionalSaltSodiumMg)}mg Na)`);
   }
 
-  // 塩麹: 100gあたり約8000mg、醤油麹: 100gあたり約6200mg
-  const sodiumPer100g = isShoyuKoji ? 6200 : 8000;
-  const kojiSodium = (kojiIngredient.amount / 100) * sodiumPer100g;
+  // 減塩率の計算
+  const reduction = totalTraditionalSalt > 0
+    ? ((totalTraditionalSalt - totalKojiSodium) / totalTraditionalSalt) * 100
+    : 0;
 
-  // 通常の塩・醤油で同じ塩味を出す場合のナトリウム量（麹の旨味効果で1.5倍相当）
-  const traditionalSodium = kojiSodium * 1.5;
+  // 麹の効果説明
+  const kojiTypeStr = kojiTypes.length === 1
+    ? kojiTypes[0]
+    : `${kojiTypes.join('、')}`;
 
-  // 減塩率
-  const reduction = ((traditionalSodium - kojiSodium) / traditionalSodium) * 100;
+  const umamiComponent = kojiTypes.some(t => t === '醤油麹')
+    ? 'アミノ酸とグルタミン酸'
+    : 'グルタミン酸';
 
-  const kojiType = isShoyuKoji ? '醤油麹' : '塩麹';
-  const umami = isShoyuKoji ? 'アミノ酸' : 'グルタミン酸';
+  const effectDescription = totalTraditionalSalt > 0
+    ? `${kojiTypeStr}の旨味成分（${umamiComponent}）により、塩分を${Math.round(reduction)}%削減しながら同等の塩味を実現。麹の100種の酵素が生み出す甘味・うま味・こく味で満足感が得られ、高血圧予防に貢献します。`
+    : '';
+
+  console.log(`[減塩計算結果]`);
+  console.log(`  合計ナトリウム（麹）: ${Math.round(totalKojiSodium)}mg`);
+  console.log(`  合計ナトリウム（塩換算）: ${Math.round(totalTraditionalSalt)}mg`);
+  console.log(`  減塩率: ${Math.round(reduction * 10) / 10}%`);
 
   return {
-    traditionalSodium: Math.round(traditionalSodium),
+    traditionalSodium: Math.round(totalTraditionalSalt),
     sodiumReduction: Math.round(reduction * 10) / 10,
-    kojiEffect: `${kojiType}の旨味成分（${umami}）により、塩分を${Math.round(reduction)}%削減しながら同等の塩味を実現し、高血圧予防に貢献`
+    kojiEffect: effectDescription
   };
 }
