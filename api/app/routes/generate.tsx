@@ -45,6 +45,22 @@ export async function action({ request }: ActionFunctionArgs) {
     const needs = formData.get("needs")?.toString().trim() || "";
     const kojiType = formData.get("kojiType")?.toString() || "";
     const otherIngredients = formData.get("otherIngredients")?.toString().trim() || "";
+
+    // 🆕 サイト種別の判定（JAMサイト vs 通常サイト）
+    // 方法1: FormDataから取得（フォームに hidden field がある場合）
+    let siteType = formData.get("siteType")?.toString() || "";
+
+    // 方法2: Refererヘッダーでドメイン判定（フォールバック）
+    if (!siteType) {
+      const referer = request.headers.get('referer') || '';
+      const isJamSite = referer.includes('jam.corazon-muro.com') ||
+                        referer.includes('jam-dev.corazon-muro.com') ||
+                        shopDomain.includes('jam');
+      siteType = isJamSite ? 'jam' : 'normal';
+    }
+
+    console.log(`🏪 サイト種別: ${siteType} (JAMサイト: ${siteType === 'jam' ? 'はい' : 'いいえ'})`);
+
     timings['1_request_parsing'] = performance.now() - stepStart;
 
     // 👤 ログイン中の顧客IDを取得
@@ -139,7 +155,8 @@ export async function action({ request }: ActionFunctionArgs) {
         kojiType: kojiType || "",
         otherIngredients: otherIngredients || "",
         customerSex: customerSex,  // 性別
-        customerAge: customerAge    // 年齢
+        customerAge: customerAge,   // 年齢
+        siteType: siteType          // 🆕 サイト種別（'jam' or 'normal'）
       },
       response_mode: "blocking",
       user: customerId || `guest_${Date.now()}`
